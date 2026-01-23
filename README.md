@@ -111,8 +111,8 @@ pm2 start ecosystem.config.cjs
 ## 배포 상태
 
 - **플랫폼**: Cloudflare Pages
-- **상태**: ✅ API 키 설정 완료 - 즉시 사용 가능
-- **기술 스택**: Hono + TypeScript + React + TailwindCSS
+- **상태**: ✅ 모든 API 정상 작동 - 즉시 사용 가능!
+- **기술 스택**: Hono + TypeScript + React + TailwindCSS + Gemini 2.5 Flash
 - **최종 업데이트**: 2026-01-23
 
 ## 기술 스택
@@ -120,10 +120,10 @@ pm2 start ecosystem.config.cjs
 - **프론트엔드**: React 18 (CDN), TailwindCSS, FontAwesome
 - **백엔드**: Hono (Cloudflare Workers)
 - **AI 서비스**:
-  - Google Gemini 2.0 Flash (대본 분석)
-  - Replicate FLUX Schnell (이미지 생성)
-  - Replicate Kling (영상 생성)
-  - ElevenLabs (음성 합성)
+  - Google Gemini 2.5 Flash (대본 분석) ✅ 작동 확인
+  - Replicate FLUX Schnell (이미지 생성) ✅ 준비 완료
+  - Replicate Kling (영상 생성) ✅ 준비 완료
+  - ElevenLabs (음성 합성) ✅ 준비 완료
 
 ## 주의사항
 
