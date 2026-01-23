@@ -283,7 +283,15 @@ app.post('/api/generate-video', async (c) => {
 // 4. 음성 생성 (ElevenLabs)
 app.post('/api/generate-voice', async (c) => {
   try {
-    const { text, voiceId = '21m00Tcm4TlvDq8ikWAM' } = await c.req.json()
+    const { 
+      text, 
+      voiceId = '21m00Tcm4TlvDq8ikWAM',
+      voiceSettings = {
+        stability: 0.5,
+        similarity_boost: 0.75,
+        style: 0.0
+      }
+    } = await c.req.json()
     
     if (!text) {
       return c.json({ error: '텍스트를 입력해주세요' }, 400)
@@ -302,6 +310,7 @@ app.post('/api/generate-voice', async (c) => {
     console.log('Generating voice with ElevenLabs...')
     console.log('Text length:', text.length, 'characters')
     console.log('Voice ID:', voiceId)
+    console.log('Voice Settings:', voiceSettings)
 
     const response = await fetch(
       `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`,
@@ -316,9 +325,9 @@ app.post('/api/generate-voice', async (c) => {
           text,
           model_id: 'eleven_multilingual_v2',
           voice_settings: {
-            stability: 0.5,
-            similarity_boost: 0.75,
-            style: 0.0,
+            stability: voiceSettings.stability || 0.5,
+            similarity_boost: voiceSettings.similarity_boost || 0.75,
+            style: voiceSettings.style || 0.0,
             use_speaker_boost: true
           }
         })
@@ -535,6 +544,113 @@ app.get('/', (c) => {
                 const [aspectRatio, setAspectRatio] = useState('16:9');
                 const [aiModel, setAiModel] = useState('flux-pro');
 
+                // 설정 모달
+                const [showSettings, setShowSettings] = useState(false);
+                const [settingsTab, setSettingsTab] = useState('api'); // 'api' or 'voice'
+                
+                // API 키 설정
+                const [apiKeys, setApiKeys] = useState(() => {
+                    const saved = localStorage.getItem('apiKeys');
+                    return saved ? JSON.parse(saved) : {
+                        replicate: '',
+                        elevenlabs: '',
+                        gemini: ''
+                    };
+                });
+                const [showApiKeys, setShowApiKeys] = useState({
+                    replicate: false,
+                    elevenlabs: false,
+                    gemini: false
+                });
+
+                // 음성 설정
+                const [voiceSettings, setVoiceSettings] = useState(() => {
+                    const saved = localStorage.getItem('voiceSettings');
+                    return saved ? JSON.parse(saved) : {
+                        voiceId: '21m00Tcm4TlvDq8ikWAM',
+                        stability: 0.5,
+                        similarityBoost: 0.75,
+                        style: 0.0
+                    };
+                });
+                const [availableVoices, setAvailableVoices] = useState([]);
+                const [loadingVoices, setLoadingVoices] = useState(false);
+
+                // localStorage에 저장
+                useEffect(() => {
+                    localStorage.setItem('apiKeys', JSON.stringify(apiKeys));
+                }, [apiKeys]);
+
+                useEffect(() => {
+                    localStorage.setItem('voiceSettings', JSON.stringify(voiceSettings));
+                }, [voiceSettings]);
+
+                // 내 음성 목록 불러오기
+                const loadMyVoices = async () => {
+                    if (!apiKeys.elevenlabs) {
+                        showToast('ElevenLabs API 키를 먼저 설정해주세요', 'error');
+                        return;
+                    }
+
+                    setLoadingVoices(true);
+                    try {
+                        const response = await fetch('https://api.elevenlabs.io/v1/voices', {
+                            headers: {
+                                'xi-api-key': apiKeys.elevenlabs
+                            }
+                        });
+
+                        if (response.ok) {
+                            const data = await response.json();
+                            setAvailableVoices(data.voices || []);
+                            showToast((data.voices?.length || 0) + '개의 음성을 불러왔습니다', 'success');
+                        } else {
+                            throw new Error('음성 목록 불러오기 실패');
+                        }
+                    } catch (error) {
+                        showToast('음성 목록 불러오기 실패', 'error');
+                    } finally {
+                        setLoadingVoices(false);
+                    }
+                };
+
+                // 음성 테스트
+                const testVoice = async () => {
+                    if (!apiKeys.elevenlabs) {
+                        showToast('ElevenLabs API 키를 먼저 설정해주세요', 'error');
+                        return;
+                    }
+
+                    try {
+                        showToast('음성 테스트 중...', 'info');
+                        const response = await fetch('/api/generate-voice', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ 
+                                text: '안녕하세요. 지혜스튜디오입니다.',
+                                voiceId: voiceSettings.voiceId,
+                                voiceSettings: {
+                                    stability: voiceSettings.stability,
+                                    similarity_boost: voiceSettings.similarityBoost,
+                                    style: voiceSettings.style
+                                }
+                            })
+                        });
+
+                        if (response.ok) {
+                            const blob = await response.blob();
+                            const url = URL.createObjectURL(blob);
+                            const audio = new Audio(url);
+                            audio.play();
+                            showToast('음성 재생 중...', 'success');
+                        } else {
+                            throw new Error('음성 테스트 실패');
+                        }
+                    } catch (error) {
+                        showToast('음성 테스트 실패', 'error');
+                    }
+                };
+
                 const showToast = (message, type = 'info') => {
                     setToast({ message, type });
                     setTimeout(() => setToast(null), 5000);
@@ -716,7 +832,15 @@ app.get('/', (c) => {
                         const response = await fetch('/api/generate-voice', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ text: fullScript })
+                            body: JSON.stringify({ 
+                                text: fullScript,
+                                voiceId: voiceSettings.voiceId,
+                                voiceSettings: {
+                                    stability: voiceSettings.stability,
+                                    similarity_boost: voiceSettings.similarityBoost,
+                                    style: voiceSettings.style
+                                }
+                            })
                         });
 
                         if (response.ok) {
@@ -748,12 +872,21 @@ app.get('/', (c) => {
                         )}
 
                         {/* Header */}
-                        <div className="text-center mb-8">
+                        <div className="text-center mb-8 relative">
                             <h1 className="text-5xl font-bold mb-3 bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
                                 <i className="fas fa-video mr-3"></i>
                                 지혜스튜디오 v5.1
                             </h1>
                             <p className="text-gray-400">AI 기반 유튜브 영상 제작 솔루션</p>
+                            
+                            {/* 설정 버튼 */}
+                            <button
+                                onClick={() => setShowSettings(true)}
+                                className="absolute top-0 right-0 bg-gray-800 hover:bg-gray-700 text-white p-3 rounded-lg transition-all"
+                                title="설정"
+                            >
+                                <i className="fas fa-cog text-xl"></i>
+                            </button>
                         </div>
 
                         {/* Image Style Settings */}
@@ -1015,6 +1148,275 @@ app.get('/', (c) => {
                                     </button>
                                 </div>
                             </>
+                        )}
+                        
+                        {/* 설정 모달 */}
+                        {showSettings && (
+                            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onClick={() => setShowSettings(false)}>
+                                <div className="bg-gray-900 rounded-xl p-6 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+                                    {/* 모달 헤더 */}
+                                    <div className="flex justify-between items-center mb-6">
+                                        <h2 className="text-2xl font-bold flex items-center gap-2">
+                                            <i className="fas fa-cog text-purple-400"></i>
+                                            설정
+                                        </h2>
+                                        <button
+                                            onClick={() => setShowSettings(false)}
+                                            className="text-gray-400 hover:text-white text-2xl"
+                                        >
+                                            <i className="fas fa-times"></i>
+                                        </button>
+                                    </div>
+
+                                    {/* 탭 */}
+                                    <div className="flex gap-4 mb-6 border-b border-gray-700">
+                                        <button
+                                            onClick={() => setSettingsTab('api')}
+                                            className={\`pb-3 px-4 font-semibold transition-all \${settingsTab === 'api' ? 'text-purple-400 border-b-2 border-purple-400' : 'text-gray-400 hover:text-white'}\`}
+                                        >
+                                            <i className="fas fa-key mr-2"></i>
+                                            API 키
+                                        </button>
+                                        <button
+                                            onClick={() => setSettingsTab('voice')}
+                                            className={\`pb-3 px-4 font-semibold transition-all \${settingsTab === 'voice' ? 'text-purple-400 border-b-2 border-purple-400' : 'text-gray-400 hover:text-white'}\`}
+                                        >
+                                            <i className="fas fa-microphone mr-2"></i>
+                                            음성 설정
+                                        </button>
+                                    </div>
+
+                                    {/* API 키 탭 */}
+                                    {settingsTab === 'api' && (
+                                        <div className="space-y-6">
+                                            {/* Replicate API */}
+                                            <div>
+                                                <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                                    Replicate API Token
+                                                    {apiKeys.replicate && <i className="fas fa-check-circle text-green-400 ml-2"></i>}
+                                                    {!apiKeys.replicate && <i className="fas fa-times-circle text-red-400 ml-2"></i>}
+                                                </label>
+                                                <div className="flex gap-2">
+                                                    <div className="flex-1 relative">
+                                                        <input
+                                                            type={showApiKeys.replicate ? "text" : "password"}
+                                                            value={apiKeys.replicate}
+                                                            onChange={(e) => setApiKeys({...apiKeys, replicate: e.target.value})}
+                                                            placeholder="r8_..."
+                                                            className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
+                                                        />
+                                                        <button
+                                                            onClick={() => setShowApiKeys({...showApiKeys, replicate: !showApiKeys.replicate})}
+                                                            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
+                                                        >
+                                                            <i className={\`fas fa-\${showApiKeys.replicate ? 'eye-slash' : 'eye'}\`}></i>
+                                                        </button>
+                                                    </div>
+                                                    <a
+                                                        href="https://replicate.com/account/api-tokens"
+                                                        target="_blank"
+                                                        className="bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-lg font-semibold transition-all whitespace-nowrap"
+                                                    >
+                                                        발급받기
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            {/* ElevenLabs API */}
+                                            <div>
+                                                <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                                    ElevenLabs API Key
+                                                    {apiKeys.elevenlabs && <i className="fas fa-check-circle text-green-400 ml-2"></i>}
+                                                    {!apiKeys.elevenlabs && <i className="fas fa-times-circle text-red-400 ml-2"></i>}
+                                                </label>
+                                                <div className="flex gap-2">
+                                                    <div className="flex-1 relative">
+                                                        <input
+                                                            type={showApiKeys.elevenlabs ? "text" : "password"}
+                                                            value={apiKeys.elevenlabs}
+                                                            onChange={(e) => setApiKeys({...apiKeys, elevenlabs: e.target.value})}
+                                                            placeholder="sk_..."
+                                                            className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
+                                                        />
+                                                        <button
+                                                            onClick={() => setShowApiKeys({...showApiKeys, elevenlabs: !showApiKeys.elevenlabs})}
+                                                            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
+                                                        >
+                                                            <i className={\`fas fa-\${showApiKeys.elevenlabs ? 'eye-slash' : 'eye'}\`}></i>
+                                                        </button>
+                                                    </div>
+                                                    <a
+                                                        href="https://elevenlabs.io/app/settings/api-keys"
+                                                        target="_blank"
+                                                        className="bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-lg font-semibold transition-all whitespace-nowrap"
+                                                    >
+                                                        발급받기
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            {/* Gemini API */}
+                                            <div>
+                                                <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                                    Gemini API Key
+                                                    {apiKeys.gemini && <i className="fas fa-check-circle text-green-400 ml-2"></i>}
+                                                    {!apiKeys.gemini && <i className="fas fa-times-circle text-red-400 ml-2"></i>}
+                                                </label>
+                                                <div className="flex gap-2">
+                                                    <div className="flex-1 relative">
+                                                        <input
+                                                            type={showApiKeys.gemini ? "text" : "password"}
+                                                            value={apiKeys.gemini}
+                                                            onChange={(e) => setApiKeys({...apiKeys, gemini: e.target.value})}
+                                                            placeholder="AIzaSy..."
+                                                            className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
+                                                        />
+                                                        <button
+                                                            onClick={() => setShowApiKeys({...showApiKeys, gemini: !showApiKeys.gemini})}
+                                                            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
+                                                        >
+                                                            <i className={\`fas fa-\${showApiKeys.gemini ? 'eye-slash' : 'eye'}\`}></i>
+                                                        </button>
+                                                    </div>
+                                                    <a
+                                                        href="https://makersuite.google.com/app/apikey"
+                                                        target="_blank"
+                                                        className="bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-lg font-semibold transition-all whitespace-nowrap"
+                                                    >
+                                                        발급받기
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <div className="bg-yellow-900/20 border border-yellow-700/50 rounded-lg p-4">
+                                                <p className="text-yellow-300 text-sm">
+                                                    <i className="fas fa-exclamation-triangle mr-2"></i>
+                                                    API 키는 브라우저에만 저장됩니다. 서버에는 전송되지 않습니다.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {/* 음성 설정 탭 */}
+                                    {settingsTab === 'voice' && (
+                                        <div className="space-y-6">
+                                            {/* 내 음성 불러오기 */}
+                                            <div>
+                                                <button
+                                                    onClick={loadMyVoices}
+                                                    disabled={loadingVoices}
+                                                    className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 px-4 rounded-lg font-semibold transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+                                                >
+                                                    {loadingVoices ? (
+                                                        <>
+                                                            <div className="spinner"></div>
+                                                            로딩 중...
+                                                        </>
+                                                    ) : (
+                                                        <>
+                                                            <i className="fas fa-download"></i>
+                                                            내 음성 불러오기
+                                                        </>
+                                                    )}
+                                                </button>
+                                            </div>
+
+                                            {/* 음성 선택 드롭다운 */}
+                                            {availableVoices.length > 0 && (
+                                                <div>
+                                                    <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                                        음성 선택
+                                                    </label>
+                                                    <select
+                                                        value={voiceSettings.voiceId}
+                                                        onChange={(e) => setVoiceSettings({...voiceSettings, voiceId: e.target.value})}
+                                                        className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
+                                                    >
+                                                        {availableVoices.map(voice => (
+                                                            <option key={voice.voice_id} value={voice.voice_id}>
+                                                                {voice.name}
+                                                            </option>
+                                                        ))}
+                                                    </select>
+                                                </div>
+                                            )}
+
+                                            {/* Voice ID 직접 입력 */}
+                                            <div>
+                                                <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                                    Voice ID (직접 입력)
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    value={voiceSettings.voiceId}
+                                                    onChange={(e) => setVoiceSettings({...voiceSettings, voiceId: e.target.value})}
+                                                    placeholder="21m00Tcm4TlvDq8ikWAM"
+                                                    className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
+                                                />
+                                            </div>
+
+                                            {/* 안정성 슬라이더 */}
+                                            <div>
+                                                <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                                    안정성 (Stability): {voiceSettings.stability.toFixed(2)}
+                                                </label>
+                                                <input
+                                                    type="range"
+                                                    min="0"
+                                                    max="1"
+                                                    step="0.01"
+                                                    value={voiceSettings.stability}
+                                                    onChange={(e) => setVoiceSettings({...voiceSettings, stability: parseFloat(e.target.value)})}
+                                                    className="w-full"
+                                                />
+                                            </div>
+
+                                            {/* 유사성 슬라이더 */}
+                                            <div>
+                                                <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                                    유사성 (Similarity Boost): {voiceSettings.similarityBoost.toFixed(2)}
+                                                </label>
+                                                <input
+                                                    type="range"
+                                                    min="0"
+                                                    max="1"
+                                                    step="0.01"
+                                                    value={voiceSettings.similarityBoost}
+                                                    onChange={(e) => setVoiceSettings({...voiceSettings, similarityBoost: parseFloat(e.target.value)})}
+                                                    className="w-full"
+                                                />
+                                            </div>
+
+                                            {/* 스타일 슬라이더 */}
+                                            <div>
+                                                <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                                    스타일 (Style): {voiceSettings.style.toFixed(2)}
+                                                </label>
+                                                <input
+                                                    type="range"
+                                                    min="0"
+                                                    max="1"
+                                                    step="0.01"
+                                                    value={voiceSettings.style}
+                                                    onChange={(e) => setVoiceSettings({...voiceSettings, style: parseFloat(e.target.value)})}
+                                                    className="w-full"
+                                                />
+                                            </div>
+
+                                            {/* 테스트 버튼 */}
+                                            <div>
+                                                <button
+                                                    onClick={testVoice}
+                                                    className="w-full bg-green-600 hover:bg-green-700 text-white py-3 px-4 rounded-lg font-semibold transition-all flex items-center justify-center gap-2"
+                                                >
+                                                    <i className="fas fa-play"></i>
+                                                    음성 테스트 (안녕하세요 샘플)
+                                                </button>
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
                         )}
                         
                         {/* Footer */}
