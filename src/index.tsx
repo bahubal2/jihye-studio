@@ -29,7 +29,9 @@ app.post('/api/analyze-script', async (c) => {
     }
 
     const genAI = new GoogleGenerativeAI(c.env.GEMINI_API_KEY || '')
-    const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-exp' })
+    const model = genAI.getGenerativeModel({ 
+      model: 'gemini-2.5-flash'
+    })
 
     const prompt = `다음 유튜브 영상 대본을 분석하여 장면별로 분할하고, 각 장면에 적합한 이미지 생성 프롬프트를 만들어주세요.
 
