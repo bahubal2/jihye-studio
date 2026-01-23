@@ -402,7 +402,7 @@ app.get('/', (c) => {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>원클릭 스튜디오 v5.0</title>
+        <title>지혜스튜디오 v5.1</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
         <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
@@ -462,9 +462,22 @@ app.get('/', (c) => {
                     opacity: 1;
                 }
             }
+            .footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                text-align: center;
+                font-size: 12px;
+                color: #888;
+                padding: 16px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                background: rgba(30, 30, 46, 0.95);
+                backdrop-filter: blur(10px);
+            }
         </style>
     </head>
-    <body class="min-h-screen p-8">
+    <body class="min-h-screen p-8 pb-24">
         <div id="root"></div>
         
         <script type="text/babel">
@@ -709,9 +722,9 @@ app.get('/', (c) => {
                         <div className="text-center mb-8">
                             <h1 className="text-5xl font-bold mb-3 bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
                                 <i className="fas fa-video mr-3"></i>
-                                원클릭 스튜디오 v5.0
+                                지혜스튜디오 v5.1
                             </h1>
-                            <p className="text-gray-400">유튜브 영상 제작을 위한 올인원 솔루션</p>
+                            <p className="text-gray-400">AI 기반 유튜브 영상 제작 솔루션</p>
                         </div>
 
                         {/* Image Style Settings */}
@@ -767,11 +780,10 @@ app.get('/', (c) => {
                                         onChange={(e) => setAiModel(e.target.value)}
                                         className="w-full p-3 bg-gray-900/50 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
                                     >
-                                        <option value="flux-1.1-pro">🏆 FLUX 1.1 Pro (최고 품질)</option>
+                                        <option value="flux-pro">🏆 FLUX 1.1 Pro (최고 품질)</option>
                                         <option value="flux-dev">💎 FLUX Dev (고품질 무료)</option>
                                         <option value="flux-schnell">⚡ FLUX Schnell (빠름)</option>
                                         <option value="recraft-v3">✨ Recraft V3 (초고품질)</option>
-                                        <option value="sdxl">🎯 SDXL (안정적)</option>
                                     </select>
                                 </div>
                             </div>
@@ -975,6 +987,11 @@ app.get('/', (c) => {
                                 </div>
                             </>
                         )}
+                        
+                        {/* Footer */}
+                        <div className="footer">
+                            © 2025 지혜스튜디오랩. All Rights Reserved.
+                        </div>
                     </div>
                 );
             }
