@@ -39,24 +39,63 @@ REPLICATE_API_TOKEN=your_replicate_api_token_here
 
 ---
 
-## 3. ElevenLabs API Key
+## 3. ElevenLabs API Key ⚠️ 중요
 
-**용도**: 음성 생성 (TTS)
+**용도**: 음성 생성 (TTS) - 한국어 지원
 
 **발급 방법**:
 1. [ElevenLabs](https://elevenlabs.io) 회원가입
-2. [API Keys 설정](https://elevenlabs.io/settings/api-keys) 이동
-3. "Create API Key" 클릭
-4. API 키 복사
+2. [API Keys 설정](https://elevenlabs.io/app/settings/api-keys) 이동 ⭐ 올바른 URL
+3. "+ Create" 버튼 클릭
+4. API 키 이름 입력 (예: "지혜스튜디오")
+5. "Create key" 클릭
+6. 생성된 API 키 복사 (한 번만 표시됨!)
 
 **환경변수 설정**:
 ```bash
-ELEVENLABS_API_KEY=your_elevenlabs_api_key_here
+ELEVENLABS_API_KEY=sk_xxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
+**한국어 음성 설정**:
+- 모델: `eleven_multilingual_v2` (기본값, 한국어 지원)
+- 기본 음성 ID: `21m00Tcm4TlvDq8ikWAM` (Rachel - 영어/다국어)
+- 한국어 음성 추천:
+  - `EXAVITQu4vr4xnSDxMaL` (Sarah - 여성, 한국어 우수)
+  - `onwK4e9ZLuTAKqWW03F9` (Daniel - 남성, 한국어 우수)
+
 **비용 안내**:
-- Free 플랜: 월 10,000 characters
+- Free 플랜: 월 10,000 characters (약 5,000자 한글)
 - Starter 플랜: $5/월, 30,000 characters
+- Creator 플랜: $22/월, 100,000 characters
+
+**⚠️ API 키 확인 방법**:
+```bash
+# API 키 유효성 테스트
+curl -X GET "https://api.elevenlabs.io/v1/voices" \
+  -H "xi-api-key: YOUR_API_KEY"
+```
+
+**성공 응답 예시**:
+```json
+{
+  "voices": [
+    {
+      "voice_id": "21m00Tcm4TlvDq8ikWAM",
+      "name": "Rachel"
+    }
+  ]
+}
+```
+
+**실패 응답 (401 Unauthorized)**:
+```json
+{
+  "detail": {
+    "status": "invalid_api_key",
+    "message": "Invalid API key"
+  }
+}
+```
 
 ---
 

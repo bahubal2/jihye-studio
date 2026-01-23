@@ -289,6 +289,20 @@ app.post('/api/generate-voice', async (c) => {
       return c.json({ error: '텍스트를 입력해주세요' }, 400)
     }
 
+    // API 키 확인
+    const apiKey = c.env.ELEVENLABS_API_KEY
+    if (!apiKey) {
+      console.error('ElevenLabs API key not found')
+      return c.json({ 
+        error: 'ElevenLabs API 키가 설정되지 않았습니다',
+        details: 'API_SETUP.md 파일을 참고하여 .dev.vars에 ELEVENLABS_API_KEY를 설정해주세요.\n\n1. https://elevenlabs.io/app/settings/api-keys 에서 API 키 발급\n2. .dev.vars 파일에 ELEVENLABS_API_KEY=your_key 추가\n3. 서버 재시작 (pm2 restart youtube-studio)'
+      }, 400)
+    }
+
+    console.log('Generating voice with ElevenLabs...')
+    console.log('Text length:', text.length, 'characters')
+    console.log('Voice ID:', voiceId)
+
     const response = await fetch(
       `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`,
       {
@@ -296,24 +310,39 @@ app.post('/api/generate-voice', async (c) => {
         headers: {
           'Accept': 'audio/mpeg',
           'Content-Type': 'application/json',
-          'xi-api-key': c.env.ELEVENLABS_API_KEY || ''
+          'xi-api-key': apiKey
         },
         body: JSON.stringify({
           text,
           model_id: 'eleven_multilingual_v2',
           voice_settings: {
             stability: 0.5,
-            similarity_boost: 0.75
+            similarity_boost: 0.75,
+            style: 0.0,
+            use_speaker_boost: true
           }
         })
       }
     )
 
     if (!response.ok) {
-      throw new Error(`ElevenLabs API error: ${response.statusText}`)
+      const errorText = await response.text()
+      console.error('ElevenLabs API error:', response.status, errorText)
+      
+      // 401 Unauthorized - API 키가 유효하지 않음
+      if (response.status === 401) {
+        return c.json({ 
+          error: 'ElevenLabs API 키가 유효하지 않습니다',
+          details: `API 키를 확인해주세요.\n\n해결 방법:\n1. https://elevenlabs.io/app/settings/api-keys 에서 새 API 키 발급\n2. .dev.vars 파일의 ELEVENLABS_API_KEY 업데이트\n3. 서버 재시작: pm2 restart youtube-studio\n\nElevenLabs 오류: ${errorText}`
+        }, 401)
+      }
+      
+      // 기타 에러
+      throw new Error(`ElevenLabs API error (${response.status}): ${errorText}`)
     }
 
     const audioBuffer = await response.arrayBuffer()
+    console.log('Voice generated successfully, size:', audioBuffer.byteLength, 'bytes')
     
     return new Response(audioBuffer, {
       headers: {
