@@ -1,4 +1,4 @@
-# 원클릭 스튜디오 v5.0 🎬
+# 원클릭 스튜디오 v5.2 🎬
 
 유튜브 영상 제작을 위한 올인원 AI 솔루션
 
@@ -18,10 +18,16 @@
 
 ✅ 대본 입력 UI (다크모드 디자인)  
 ✅ Gemini API 연동 - 장면별 분할 및 이미지 프롬프트 자동 생성  
-✅ **이미지 스타일 선택** - 5가지 프리셋 + 커스텀 스타일 ⭐ NEW  
-✅ **이미지 비율 선택** - 16:9, 9:16, 1:1, 4:3, 3:4 ⭐ NEW  
-✅ **품질 옵션** - 빠른 생성(schnell) vs 고품질(dev) ⭐ NEW  
-✅ **Replicate FLUX API 연동** - 고품질 이미지 생성 (약 20초) ✅ 작동 확인
+✅ **AI 모델 선택** - 5가지 AI 모델 드롭다운 ⭐ NEW v5.2  
+✅ **이미지 스타일 선택** - 5가지 프리셋 + 커스텀 스타일 ⭐  
+✅ **이미지 비율 선택** - 16:9, 9:16, 1:1, 4:3, 3:4 ⭐  
+✅ **품질 향상 프롬프트** - 자동 품질 키워드 추가 ⭐ NEW v5.2  
+✅ **Replicate API 연동** - 5가지 모델 지원 ✅ 작동 확인
+  - FLUX 1.1 Pro (최고 품질) - 약 2-5초 생성
+  - FLUX Dev (고품질 무료) - 약 2초 생성 ✅ 테스트 완료
+  - FLUX Schnell (빠름) - 약 2초 생성 ✅ 테스트 완료
+  - Recraft V3 (초고품질) - 약 6초 생성 ✅ 테스트 완료
+  - SDXL (안정적) - 준비 완료
 ✅ Replicate Kling API 연동 - 이미지 투 비디오 변환  
 ✅ ElevenLabs TTS API 연동 - 음성 파일 생성  
 ✅ 폴링 시스템 - 영상 생성 상태 실시간 체크  
@@ -47,20 +53,60 @@
 | 메서드 | 경로 | 파라미터 | 설명 |
 |--------|------|----------|------|
 | POST | `/api/analyze-script` | `{ script: string }` | 대본 분석 및 장면 분할 |
-| POST | `/api/generate-image` | `{ prompt: string, sceneId: number, stylePrefix?: string, aspectRatio?: string, quality?: string }` | 이미지 생성 (스타일 적용) |
+| POST | `/api/generate-image` | `{ prompt: string, sceneId: number, stylePrefix?: string, aspectRatio?: string, model?: string }` | 이미지 생성 (AI 모델 선택 가능) |
 | POST | `/api/generate-video` | `{ imageUrl: string, prompt: string, sceneId: number }` | 영상 생성 시작 |
 | POST | `/api/generate-voice` | `{ text: string, voiceId?: string }` | 음성 생성 (MP3 반환) |
 | GET | `/api/check-status/:jobId` | - | 영상 생성 상태 확인 (폴링용) |
 
 ## 데이터 구조
 
-### 이미지 스타일 프리셋
+### AI 모델 옵션 (v5.2 NEW)
+```typescript
+const AI_MODELS = {
+  'flux-pro': {
+    name: 'FLUX 1.1 Pro (최고 품질)',
+    model: 'black-forest-labs/flux-1.1-pro',
+    speed: '2-5초',
+    cost: '높음'
+  },
+  'flux-dev': {
+    name: 'FLUX Dev (고품질 무료)',
+    model: 'black-forest-labs/flux-dev',
+    parameters: { guidance: 3.5, steps: 28 },
+    speed: '약 2초',
+    cost: '무료'
+  },
+  'flux-schnell': {
+    name: 'FLUX Schnell (빠름)',
+    model: 'black-forest-labs/flux-schnell',
+    parameters: { steps: 4 },
+    speed: '약 2초',
+    cost: '매우 낮음'
+  },
+  'recraft-v3': {
+    name: 'Recraft V3 (초고품질)',
+    model: 'recraft-ai/recraft-v3',
+    parameters: { style: 'realistic_image' },
+    speed: '약 6초',
+    cost: '높음'
+  },
+  'sdxl': {
+    name: 'SDXL (안정적)',
+    model: 'stability-ai/sdxl',
+    parameters: { guidance_scale: 7.5, steps: 30 },
+    speed: '약 10초',
+    cost: '중간'
+  }
+}
+```
+
+### 이미지 스타일 프리셋 (한국 시니어 최적화)
 ```typescript
 const STYLE_PRESETS = {
-  photorealistic: 'photorealistic, 8k, detailed, professional photography, ',
-  anime: 'anime style, cartoon, vibrant colors, cel shading, ',
+  photorealistic: 'photorealistic, Korean elderly person, Asian features, Korean senior citizen, 8k, detailed, warm lighting, natural Korean environment, ',
+  anime: 'Korean traditional folktale anime style, Korean characters, Asian features, Ghibli inspired, soft colors, historical Korean setting, hanbok, ',
   stickman: 'simple stick figure drawing, minimalist, black lines on white background, ',
-  illustration: 'digital illustration, artistic, stylized, ',
+  illustration: 'warm emotional digital illustration, Korean elderly, Asian features, soft pastel colors, nostalgic Korean life scene, ',
   custom: '' // 사용자 정의
 }
 ```
@@ -102,9 +148,9 @@ pm2 start ecosystem.config.cjs
 ```
 
 ### 3. 사용 흐름
-1. **이미지 스타일 선택** → 실사, 애니메이션, 스틱맨, 일러스트, 커스텀 중 선택
-2. **이미지 비율 설정** → 16:9, 9:16, 1:1 등 선택
-3. **품질 옵션 선택** → 빠른 생성 또는 고품질 선택
+1. **AI 모델 선택** → FLUX Pro, FLUX Dev, FLUX Schnell, Recraft V3, SDXL 중 선택 ⭐ NEW
+2. **이미지 스타일 선택** → 실사, 애니메이션, 스틱맨, 일러스트, 커스텀 중 선택
+3. **이미지 비율 설정** → 16:9, 9:16, 1:1 등 선택
 4. 대본 입력 → "AI 분석 시작" 클릭
 5. 장면별로 자동 생성된 이미지 프롬프트 확인
 6. "전체 이미지 생성" 또는 개별 "이미지 생성" 클릭
@@ -139,7 +185,11 @@ pm2 start ecosystem.config.cjs
 - **백엔드**: Hono (Cloudflare Workers)
 - **AI 서비스**:
   - Google Gemini 2.5 Flash (대본 분석) ✅ 작동 확인
-  - Replicate FLUX Schnell (이미지 생성) ✅ 준비 완료
+  - Replicate FLUX 1.1 Pro (초고품질 이미지) ✅ 준비 완료
+  - Replicate FLUX Dev (고품질 무료) ✅ 테스트 완료
+  - Replicate FLUX Schnell (빠른 생성) ✅ 테스트 완료
+  - Replicate Recraft V3 (초고품질) ✅ 테스트 완료
+  - Replicate SDXL (안정적) ✅ 준비 완료
   - Replicate Kling (영상 생성) ✅ 준비 완료
   - ElevenLabs (음성 합성) ✅ 준비 완료
 
