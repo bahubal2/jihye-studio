@@ -30,16 +30,21 @@ AI 기반 유튜브 영상 제작 솔루션
   - Recraft V3 (초고품질) - 약 6초 생성 ✅ 테스트 완료
 ✅ Replicate Kling API 연동 - 이미지 투 비디오 변환  
 ✅ ElevenLabs TTS API 연동 - 음성 파일 생성  
+✅ **설정 모달** - API 키 & 음성 설정 ⭐ NEW v5.1
+  - API 키 설정 탭: Replicate, ElevenLabs, Gemini API 키 입력/관리
+  - 음성 설정 탭: Voice ID, 안정성, 유사성, 스타일 조절
+  - 음성 미리듣기: '안녕하세요' 샘플 테스트
+  - 내 음성 불러오기: ElevenLabs 음성 목록 조회
+  - localStorage 자동 저장: 페이지 새로고침 시 설정 유지
 ✅ 폴링 시스템 - 영상 생성 상태 실시간 체크  
 ✅ 로딩 상태 & 토스트 알림 UI  
 ✅ 장면별 카드 레이아웃 및 미리보기  
-✅ **저작권 푸터** - © 2025 지혜스튜디오랩 ⭐ NEW  
+✅ **저작권 푸터** - © 2026 지혜스튜디오랩 ⭐ NEW  
 
 ## 아직 구현되지 않은 기능
 
 ⏳ 전체 다운로드 기능 (모든 에셋 ZIP 압축)  
 ⏳ 장면 순서 드래그앤드롭 편집  
-⏳ 커스텀 음성 선택 (ElevenLabs 음성 ID)  
 ⏳ 프로젝트 저장/불러오기 (KV 스토리지)  
 ⏳ 영상 자동 합성 (FFmpeg 기반)  
 
@@ -56,7 +61,7 @@ AI 기반 유튜브 영상 제작 솔루션
 | POST | `/api/analyze-script` | `{ script: string }` | 대본 분석 및 장면 분할 |
 | POST | `/api/generate-image` | `{ prompt: string, sceneId: number, stylePrefix?: string, aspectRatio?: string, model?: string }` | 이미지 생성 (AI 모델 선택 가능) |
 | POST | `/api/generate-video` | `{ imageUrl: string, prompt: string, sceneId: number }` | 영상 생성 시작 |
-| POST | `/api/generate-voice` | `{ text: string, voiceId?: string }` | 음성 생성 (MP3 반환) |
+| POST | `/api/generate-voice` | `{ text: string, voiceId?: string, voiceSettings?: { stability: number, similarity_boost: number, style: number } }` | 음성 생성 (MP3 반환, 음성 설정 커스터마이징 가능) |
 | GET | `/api/check-status/:jobId` | - | 영상 생성 상태 확인 (폴링용) |
 
 ## 데이터 구조
