@@ -90,24 +90,56 @@ app.post('/api/generate-image', async (c) => {
     const finalPrompt = stylePrefix ? `${stylePrefix}${prompt}` : prompt
 
     // 품질에 따른 모델 선택
-    const model = quality === 'dev' 
+    const modelVersion = quality === 'dev' 
       ? "black-forest-labs/flux-dev"
       : "black-forest-labs/flux-schnell"
 
-    const output = await replicate.run(
-      model,
-      {
-        input: {
-          prompt: finalPrompt,
-          num_outputs: 1,
-          aspect_ratio: aspectRatio,
-          output_format: "webp",
-          output_quality: 90
-        }
-      }
-    ) as any
+    console.log('Creating prediction with prompt:', finalPrompt)
 
-    const imageUrl = Array.isArray(output) ? output[0] : output
+    // predictions API를 사용하여 예측 생성
+    const prediction = await replicate.predictions.create({
+      version: modelVersion === 'black-forest-labs/flux-schnell' 
+        ? '5599ed30703defd1d160a25a63321b4dec97101d98b4674bcc56e41f62f35637'  // flux-schnell
+        : 'black-forest-labs/flux-dev',  // flux-dev
+      input: {
+        prompt: finalPrompt,
+        num_outputs: 1,
+        aspect_ratio: aspectRatio,
+        output_format: "webp",
+        output_quality: 90
+      }
+    })
+
+    console.log('Prediction created:', prediction.id)
+
+    // 예측 완료 대기 (최대 60초)
+    let result = prediction
+    let attempts = 0
+    const maxAttempts = 60
+
+    while (result.status !== 'succeeded' && result.status !== 'failed' && attempts < maxAttempts) {
+      await new Promise(resolve => setTimeout(resolve, 1000)) // 1초 대기
+      result = await replicate.predictions.get(prediction.id)
+      attempts++
+      console.log(`Attempt ${attempts}: Status = ${result.status}`)
+    }
+
+    if (result.status === 'failed') {
+      throw new Error('Image generation failed: ' + (result.error || 'Unknown error'))
+    }
+
+    if (result.status !== 'succeeded') {
+      throw new Error('Image generation timeout')
+    }
+
+    // 결과에서 이미지 URL 추출
+    const imageUrl = Array.isArray(result.output) ? result.output[0] : result.output
+
+    if (!imageUrl || typeof imageUrl !== 'string') {
+      throw new Error('Invalid image URL returned')
+    }
+
+    console.log('Image generated successfully:', imageUrl)
 
     return c.json({
       success: true,
