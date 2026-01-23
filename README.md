@@ -172,10 +172,10 @@ pm2 start ecosystem.config.cjs
 
 ## URLs
 
+- **GitHub**: https://github.com/bahubal2/jihye-studio ⭐ NEW
 - **로컬 개발**: http://localhost:3000
 - **퍼블릭 테스트 URL**: https://3000-i4e4tiae39injbyl3xfj0-5c13a017.sandbox.novita.ai
 - **프로덕션**: (Cloudflare Pages 배포 필요)
-- **GitHub**: (GitHub 인증 후 푸시 필요)
 
 ## 배포 상태
 
