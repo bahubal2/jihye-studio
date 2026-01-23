@@ -111,7 +111,7 @@ pm2 start ecosystem.config.cjs
 ## 배포 상태
 
 - **플랫폼**: Cloudflare Pages
-- **상태**: 🚧 개발 중
+- **상태**: ✅ API 키 설정 완료 - 즉시 사용 가능
 - **기술 스택**: Hono + TypeScript + React + TailwindCSS
 - **최종 업데이트**: 2026-01-23
 
