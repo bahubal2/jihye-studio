@@ -20,7 +20,7 @@
 ✅ **이미지 스타일 선택** - 5가지 프리셋 + 커스텀 스타일 ⭐ NEW  
 ✅ **이미지 비율 선택** - 16:9, 9:16, 1:1, 4:3, 3:4 ⭐ NEW  
 ✅ **품질 옵션** - 빠른 생성(schnell) vs 고품질(dev) ⭐ NEW  
-✅ Replicate FLUX API 연동 - 고품질 이미지 생성  
+✅ **Replicate FLUX API 연동** - 고품질 이미지 생성 (약 20초) ✅ 작동 확인
 ✅ Replicate Kling API 연동 - 이미지 투 비디오 변환  
 ✅ ElevenLabs TTS API 연동 - 음성 파일 생성  
 ✅ 폴링 시스템 - 영상 생성 상태 실시간 체크  
