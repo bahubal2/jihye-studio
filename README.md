@@ -17,6 +17,9 @@
 
 ✅ 대본 입력 UI (다크모드 디자인)  
 ✅ Gemini API 연동 - 장면별 분할 및 이미지 프롬프트 자동 생성  
+✅ **이미지 스타일 선택** - 5가지 프리셋 + 커스텀 스타일 ⭐ NEW  
+✅ **이미지 비율 선택** - 16:9, 9:16, 1:1, 4:3, 3:4 ⭐ NEW  
+✅ **품질 옵션** - 빠른 생성(schnell) vs 고품질(dev) ⭐ NEW  
 ✅ Replicate FLUX API 연동 - 고품질 이미지 생성  
 ✅ Replicate Kling API 연동 - 이미지 투 비디오 변환  
 ✅ ElevenLabs TTS API 연동 - 음성 파일 생성  
@@ -43,12 +46,23 @@
 | 메서드 | 경로 | 파라미터 | 설명 |
 |--------|------|----------|------|
 | POST | `/api/analyze-script` | `{ script: string }` | 대본 분석 및 장면 분할 |
-| POST | `/api/generate-image` | `{ prompt: string, sceneId: number }` | 이미지 생성 |
+| POST | `/api/generate-image` | `{ prompt: string, sceneId: number, stylePrefix?: string, aspectRatio?: string, quality?: string }` | 이미지 생성 (스타일 적용) |
 | POST | `/api/generate-video` | `{ imageUrl: string, prompt: string, sceneId: number }` | 영상 생성 시작 |
 | POST | `/api/generate-voice` | `{ text: string, voiceId?: string }` | 음성 생성 (MP3 반환) |
 | GET | `/api/check-status/:jobId` | - | 영상 생성 상태 확인 (폴링용) |
 
 ## 데이터 구조
+
+### 이미지 스타일 프리셋
+```typescript
+const STYLE_PRESETS = {
+  photorealistic: 'photorealistic, 8k, detailed, professional photography, ',
+  anime: 'anime style, cartoon, vibrant colors, cel shading, ',
+  stickman: 'simple stick figure drawing, minimalist, black lines on white background, ',
+  illustration: 'digital illustration, artistic, stylized, ',
+  custom: '' // 사용자 정의
+}
+```
 
 ### Scene 객체
 ```typescript
@@ -87,11 +101,14 @@ pm2 start ecosystem.config.cjs
 ```
 
 ### 3. 사용 흐름
-1. 대본 입력 → "AI 분석 시작" 클릭
-2. 장면별로 자동 생성된 이미지 프롬프트 확인
-3. "전체 이미지 생성" 또는 개별 "이미지 생성" 클릭
-4. 원하는 장면에서 "영상 변환" 클릭 (2-5분 소요)
-5. "전체 음성 생성" 클릭 → MP3 다운로드
+1. **이미지 스타일 선택** → 실사, 애니메이션, 스틱맨, 일러스트, 커스텀 중 선택
+2. **이미지 비율 설정** → 16:9, 9:16, 1:1 등 선택
+3. **품질 옵션 선택** → 빠른 생성 또는 고품질 선택
+4. 대본 입력 → "AI 분석 시작" 클릭
+5. 장면별로 자동 생성된 이미지 프롬프트 확인
+6. "전체 이미지 생성" 또는 개별 "이미지 생성" 클릭
+7. 원하는 장면에서 "영상 변환" 클릭 (2-5분 소요)
+8. "전체 음성 생성" 클릭 → MP3 다운로드
 
 ## 다음 개발 단계 권장사항
 

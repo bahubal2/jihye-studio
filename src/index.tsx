@@ -76,7 +76,7 @@ ${script}
 // 2. 이미지 생성 (Replicate FLUX)
 app.post('/api/generate-image', async (c) => {
   try {
-    const { prompt, sceneId } = await c.req.json()
+    const { prompt, sceneId, stylePrefix = '', aspectRatio = '16:9', quality = 'schnell' } = await c.req.json()
     
     if (!prompt) {
       return c.json({ error: '프롬프트를 입력해주세요' }, 400)
@@ -86,13 +86,21 @@ app.post('/api/generate-image', async (c) => {
       auth: c.env.REPLICATE_API_TOKEN || ''
     })
 
+    // 스타일 프리픽스와 프롬프트 결합
+    const finalPrompt = stylePrefix ? `${stylePrefix}${prompt}` : prompt
+
+    // 품질에 따른 모델 선택
+    const model = quality === 'dev' 
+      ? "black-forest-labs/flux-dev"
+      : "black-forest-labs/flux-schnell"
+
     const output = await replicate.run(
-      "black-forest-labs/flux-schnell",
+      model,
       {
         input: {
-          prompt: prompt,
+          prompt: finalPrompt,
           num_outputs: 1,
-          aspect_ratio: "16:9",
+          aspect_ratio: aspectRatio,
           output_format: "webp",
           output_quality: 90
         }
@@ -105,7 +113,8 @@ app.post('/api/generate-image', async (c) => {
       success: true,
       data: {
         sceneId,
-        imageUrl
+        imageUrl,
+        usedPrompt: finalPrompt
       }
     })
   } catch (error: any) {
@@ -357,6 +366,15 @@ app.get('/', (c) => {
         <script type="text/babel">
             const { useState, useEffect, useCallback } = React;
 
+            // 스타일 프리픽스 정의
+            const STYLE_PRESETS = {
+                photorealistic: 'photorealistic, 8k, detailed, professional photography, ',
+                anime: 'anime style, cartoon, vibrant colors, cel shading, ',
+                stickman: 'simple stick figure drawing, minimalist, black lines on white background, ',
+                illustration: 'digital illustration, artistic, stylized, ',
+                custom: ''
+            };
+
             function App() {
                 const [script, setScript] = useState('');
                 const [scenes, setScenes] = useState([]);
@@ -364,6 +382,12 @@ app.get('/', (c) => {
                 const [suggestions, setSuggestions] = useState([]);
                 const [loading, setLoading] = useState(false);
                 const [toast, setToast] = useState(null);
+                
+                // 이미지 스타일 설정
+                const [imageStyle, setImageStyle] = useState('photorealistic');
+                const [customStylePrefix, setCustomStylePrefix] = useState('');
+                const [aspectRatio, setAspectRatio] = useState('16:9');
+                const [imageQuality, setImageQuality] = useState('schnell');
 
                 const showToast = (message, type = 'info') => {
                     setToast({ message, type });
@@ -418,12 +442,20 @@ app.get('/', (c) => {
                     ));
 
                     try {
+                        // 스타일 프리픽스 결정
+                        const stylePrefix = imageStyle === 'custom' 
+                            ? customStylePrefix 
+                            : STYLE_PRESETS[imageStyle];
+
                         const response = await fetch('/api/generate-image', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({ 
                                 prompt: scene.imagePrompt,
-                                sceneId 
+                                sceneId,
+                                stylePrefix,
+                                aspectRatio,
+                                quality: imageQuality
                             })
                         });
 
@@ -576,6 +608,93 @@ app.get('/', (c) => {
                                 원클릭 스튜디오 v5.0
                             </h1>
                             <p className="text-gray-400">유튜브 영상 제작을 위한 올인원 솔루션</p>
+                        </div>
+
+                        {/* Image Style Settings */}
+                        <div className="card rounded-xl p-6 mb-6">
+                            <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
+                                <i className="fas fa-palette text-purple-400"></i>
+                                이미지 스타일 설정
+                            </h2>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                {/* 스타일 선택 */}
+                                <div>
+                                    <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                        <i className="fas fa-brush mr-2"></i>스타일
+                                    </label>
+                                    <select
+                                        value={imageStyle}
+                                        onChange={(e) => setImageStyle(e.target.value)}
+                                        className="w-full p-3 bg-gray-900/50 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
+                                    >
+                                        <option value="photorealistic">🎬 실사 (Photorealistic)</option>
+                                        <option value="anime">🎨 애니메이션 (Anime/Cartoon)</option>
+                                        <option value="stickman">✏️ 스틱맨 (Simple Stickman)</option>
+                                        <option value="illustration">🖼️ 일러스트 (Illustration)</option>
+                                        <option value="custom">⚙️ 커스텀 (직접 입력)</option>
+                                    </select>
+                                </div>
+
+                                {/* 비율 선택 */}
+                                <div>
+                                    <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                        <i className="fas fa-crop-alt mr-2"></i>이미지 비율
+                                    </label>
+                                    <select
+                                        value={aspectRatio}
+                                        onChange={(e) => setAspectRatio(e.target.value)}
+                                        className="w-full p-3 bg-gray-900/50 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
+                                    >
+                                        <option value="16:9">16:9 (가로)</option>
+                                        <option value="9:16">9:16 (세로)</option>
+                                        <option value="1:1">1:1 (정사각형)</option>
+                                        <option value="4:3">4:3 (클래식)</option>
+                                        <option value="3:4">3:4 (포트레이트)</option>
+                                    </select>
+                                </div>
+
+                                {/* 품질 선택 */}
+                                <div>
+                                    <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                        <i className="fas fa-star mr-2"></i>품질
+                                    </label>
+                                    <select
+                                        value={imageQuality}
+                                        onChange={(e) => setImageQuality(e.target.value)}
+                                        className="w-full p-3 bg-gray-900/50 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
+                                    >
+                                        <option value="schnell">⚡ 빠름 (Schnell - 3-5초)</option>
+                                        <option value="dev">💎 고품질 (Dev - 20-30초)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            {/* 커스텀 스타일 입력 */}
+                            {imageStyle === 'custom' && (
+                                <div className="mt-4">
+                                    <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                        <i className="fas fa-code mr-2"></i>커스텀 스타일 프롬프트 프리픽스
+                                    </label>
+                                    <input
+                                        type="text"
+                                        value={customStylePrefix}
+                                        onChange={(e) => setCustomStylePrefix(e.target.value)}
+                                        placeholder="예: watercolor painting, soft colors, artistic, "
+                                        className="w-full p-3 bg-gray-900/50 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
+                                    />
+                                    <p className="text-xs text-gray-500 mt-2">
+                                        💡 팁: 이 텍스트가 AI 생성 프롬프트 앞에 붙습니다. 끝에 쉼표와 공백을 추가하세요.
+                                    </p>
+                                </div>
+                            )}
+
+                            {/* 현재 설정 미리보기 */}
+                            <div className="mt-4 p-3 bg-purple-500/10 border border-purple-500/30 rounded-lg">
+                                <p className="text-sm text-purple-300">
+                                    <i className="fas fa-info-circle mr-2"></i>
+                                    <strong>현재 설정:</strong> {imageStyle === 'custom' ? '커스텀' : imageStyle} 스타일, {aspectRatio} 비율, {imageQuality === 'schnell' ? '빠른' : '고품질'} 생성
+                                </p>
+                            </div>
                         </div>
 
                         {/* Main Layout */}
