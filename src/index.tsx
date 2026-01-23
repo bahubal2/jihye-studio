@@ -445,6 +445,8 @@ app.get('/', (c) => {
         <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
         <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
         <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
         <style>
             body {
@@ -576,6 +578,17 @@ app.get('/', (c) => {
                 const [availableVoices, setAvailableVoices] = useState([]);
                 const [loadingVoices, setLoadingVoices] = useState(false);
 
+                // 프로젝트 저장/불러오기
+                const [showProjectModal, setShowProjectModal] = useState(false);
+                const [projectName, setProjectName] = useState('');
+                const [savedProjects, setSavedProjects] = useState(() => {
+                    const saved = localStorage.getItem('savedProjects');
+                    return saved ? JSON.parse(saved) : [];
+                });
+
+                // 드래그앤드롭 상태
+                const [draggedIndex, setDraggedIndex] = useState(null);
+
                 // localStorage에 저장
                 useEffect(() => {
                     localStorage.setItem('apiKeys', JSON.stringify(apiKeys));
@@ -654,6 +667,133 @@ app.get('/', (c) => {
                 const showToast = (message, type = 'info') => {
                     setToast({ message, type });
                     setTimeout(() => setToast(null), 5000);
+                };
+
+                // 프로젝트 저장
+                const saveProject = () => {
+                    if (!projectName.trim()) {
+                        showToast('프로젝트 이름을 입력해주세요', 'error');
+                        return;
+                    }
+
+                    const project = {
+                        id: Date.now(),
+                        name: projectName,
+                        date: new Date().toISOString(),
+                        data: {
+                            script,
+                            scenes,
+                            overallFeedback,
+                            suggestions,
+                            imageStyle,
+                            customStylePrefix,
+                            aspectRatio,
+                            aiModel
+                        }
+                    };
+
+                    const updated = [...savedProjects, project];
+                    setSavedProjects(updated);
+                    localStorage.setItem('savedProjects', JSON.stringify(updated));
+                    setProjectName('');
+                    setShowProjectModal(false);
+                    showToast('프로젝트가 저장되었습니다', 'success');
+                };
+
+                // 프로젝트 불러오기
+                const loadProject = (project) => {
+                    const { data } = project;
+                    setScript(data.script);
+                    setScenes(data.scenes);
+                    setOverallFeedback(data.overallFeedback);
+                    setSuggestions(data.suggestions);
+                    setImageStyle(data.imageStyle);
+                    setCustomStylePrefix(data.customStylePrefix);
+                    setAspectRatio(data.aspectRatio);
+                    setAiModel(data.aiModel);
+                    setShowProjectModal(false);
+                    showToast('프로젝트가 불러와졌습니다', 'success');
+                };
+
+                // 프로젝트 삭제
+                const deleteProject = (projectId) => {
+                    const updated = savedProjects.filter(p => p.id !== projectId);
+                    setSavedProjects(updated);
+                    localStorage.setItem('savedProjects', JSON.stringify(updated));
+                    showToast('프로젝트가 삭제되었습니다', 'success');
+                };
+
+                // 전체 다운로드 (ZIP)
+                const downloadAllAssets = async () => {
+                    if (scenes.length === 0) {
+                        showToast('다운로드할 장면이 없습니다', 'error');
+                        return;
+                    }
+
+                    try {
+                        showToast('ZIP 파일 생성 중...', 'info');
+                        const zip = new JSZip();
+
+                        // 이미지 다운로드
+                        for (const scene of scenes) {
+                            if (scene.imageUrl) {
+                                try {
+                                    const response = await fetch(scene.imageUrl);
+                                    const blob = await response.blob();
+                                    zip.file(\`scene_\${scene.id}_image.jpg\`, blob);
+                                } catch (error) {
+                                    console.error('Image download error:', scene.id, error);
+                                }
+                            }
+                        }
+
+                        // 영상 다운로드
+                        for (const scene of scenes) {
+                            if (scene.videoUrl) {
+                                try {
+                                    const response = await fetch(scene.videoUrl);
+                                    const blob = await response.blob();
+                                    zip.file(\`scene_\${scene.id}_video.mp4\`, blob);
+                                } catch (error) {
+                                    console.error('Video download error:', scene.id, error);
+                                }
+                            }
+                        }
+
+                        // 대본 텍스트 파일
+                        const scriptText = scenes.map((s, i) => \`[장면 \${i + 1}]\\n\${s.text}\\n\`).join('\\n');
+                        zip.file('script.txt', scriptText);
+
+                        // ZIP 생성 및 다운로드
+                        const content = await zip.generateAsync({ type: 'blob' });
+                        saveAs(content, 'jihye-studio-project.zip');
+                        showToast('ZIP 파일이 다운로드되었습니다', 'success');
+                    } catch (error) {
+                        console.error('ZIP download error:', error);
+                        showToast('ZIP 다운로드 실패', 'error');
+                    }
+                };
+
+                // 드래그앤드롭 핸들러
+                const handleDragStart = (index) => {
+                    setDraggedIndex(index);
+                };
+
+                const handleDragOver = (e, index) => {
+                    e.preventDefault();
+                    if (draggedIndex === null || draggedIndex === index) return;
+
+                    const newScenes = [...scenes];
+                    const draggedScene = newScenes[draggedIndex];
+                    newScenes.splice(draggedIndex, 1);
+                    newScenes.splice(index, 0, draggedScene);
+
+                    setScenes(newScenes);
+                    setDraggedIndex(index);
+                };
+
+                const handleDragEnd = () => {
+                    setDraggedIndex(null);
                 };
 
                 const analyzeScript = async () => {
@@ -879,14 +1019,26 @@ app.get('/', (c) => {
                             </h1>
                             <p className="text-gray-400">AI 기반 유튜브 영상 제작 솔루션</p>
                             
-                            {/* 설정 버튼 */}
-                            <button
-                                onClick={() => setShowSettings(true)}
-                                className="absolute top-0 right-0 bg-gray-800 hover:bg-gray-700 text-white p-3 rounded-lg transition-all"
-                                title="설정"
-                            >
-                                <i className="fas fa-cog text-xl"></i>
-                            </button>
+                            {/* 상단 버튼들 */}
+                            <div className="absolute top-0 right-0 flex gap-2">
+                                {/* 프로젝트 저장 버튼 */}
+                                <button
+                                    onClick={() => setShowProjectModal(true)}
+                                    className="bg-gray-800 hover:bg-gray-700 text-white p-3 rounded-lg transition-all"
+                                    title="프로젝트 관리"
+                                >
+                                    <i className="fas fa-folder text-xl"></i>
+                                </button>
+                                
+                                {/* 설정 버튼 */}
+                                <button
+                                    onClick={() => setShowSettings(true)}
+                                    className="bg-gray-800 hover:bg-gray-700 text-white p-3 rounded-lg transition-all"
+                                    title="설정"
+                                >
+                                    <i className="fas fa-cog text-xl"></i>
+                                </button>
+                            </div>
                         </div>
 
                         {/* Image Style Settings */}
@@ -1071,12 +1223,20 @@ app.get('/', (c) => {
                                 </div>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-                                    {scenes.map((scene) => (
-                                        <div key={scene.id} className="card rounded-xl p-4 transition-all">
-                                            <div className="mb-3">
+                                    {scenes.map((scene, index) => (
+                                        <div 
+                                            key={scene.id} 
+                                            className={\`card rounded-xl p-4 transition-all cursor-move \${draggedIndex === index ? 'opacity-50' : ''}\`}
+                                            draggable
+                                            onDragStart={() => handleDragStart(index)}
+                                            onDragOver={(e) => handleDragOver(e, index)}
+                                            onDragEnd={handleDragEnd}
+                                        >
+                                            <div className="mb-3 flex justify-between items-center">
                                                 <span className="bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full text-sm font-semibold">
                                                     장면 {scene.id}
                                                 </span>
+                                                <i className="fas fa-grip-vertical text-gray-600"></i>
                                             </div>
 
                                             {/* Image Preview */}
@@ -1141,10 +1301,11 @@ app.get('/', (c) => {
                                         <span>전체 음성 생성</span>
                                     </button>
                                     <button
+                                        onClick={downloadAllAssets}
                                         className="bg-gray-700 hover:bg-gray-600 text-white py-3 px-6 rounded-lg font-semibold flex items-center gap-2 transition-all"
                                     >
                                         <i className="fas fa-download"></i>
-                                        <span>전체 다운로드</span>
+                                        <span>전체 다운로드 (ZIP)</span>
                                     </button>
                                 </div>
                             </>
@@ -1415,6 +1576,102 @@ app.get('/', (c) => {
                                             </div>
                                         </div>
                                     )}
+                                </div>
+                            </div>
+                        )}
+                        
+                        {/* 프로젝트 관리 모달 */}
+                        {showProjectModal && (
+                            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onClick={() => setShowProjectModal(false)}>
+                                <div className="bg-gray-900 rounded-xl p-6 max-w-3xl w-full mx-4 max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+                                    {/* 모달 헤더 */}
+                                    <div className="flex justify-between items-center mb-6">
+                                        <h2 className="text-2xl font-bold flex items-center gap-2">
+                                            <i className="fas fa-folder text-purple-400"></i>
+                                            프로젝트 관리
+                                        </h2>
+                                        <button
+                                            onClick={() => setShowProjectModal(false)}
+                                            className="text-gray-400 hover:text-white text-2xl"
+                                        >
+                                            <i className="fas fa-times"></i>
+                                        </button>
+                                    </div>
+
+                                    {/* 프로젝트 저장 */}
+                                    <div className="mb-6 p-4 bg-gray-800 rounded-lg">
+                                        <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                                            <i className="fas fa-save text-green-400"></i>
+                                            현재 프로젝트 저장
+                                        </h3>
+                                        <div className="flex gap-2">
+                                            <input
+                                                type="text"
+                                                value={projectName}
+                                                onChange={(e) => setProjectName(e.target.value)}
+                                                placeholder="프로젝트 이름 입력..."
+                                                className="flex-1 p-3 bg-gray-900 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
+                                            />
+                                            <button
+                                                onClick={saveProject}
+                                                className="bg-purple-600 hover:bg-purple-700 text-white py-3 px-6 rounded-lg font-semibold transition-all"
+                                            >
+                                                <i className="fas fa-save mr-2"></i>
+                                                저장
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    {/* 저장된 프로젝트 목록 */}
+                                    <div>
+                                        <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                                            <i className="fas fa-list text-blue-400"></i>
+                                            저장된 프로젝트 ({savedProjects.length}개)
+                                        </h3>
+                                        {savedProjects.length === 0 ? (
+                                            <div className="text-center py-8 text-gray-500">
+                                                <i className="fas fa-inbox text-4xl mb-3"></i>
+                                                <p>저장된 프로젝트가 없습니다</p>
+                                            </div>
+                                        ) : (
+                                            <div className="space-y-3">
+                                                {savedProjects.map((project) => (
+                                                    <div key={project.id} className="bg-gray-800 rounded-lg p-4 flex justify-between items-center hover:bg-gray-700 transition-all">
+                                                        <div className="flex-1">
+                                                            <h4 className="font-semibold text-white mb-1">{project.name}</h4>
+                                                            <p className="text-sm text-gray-400">
+                                                                <i className="fas fa-calendar mr-1"></i>
+                                                                {new Date(project.date).toLocaleString('ko-KR')}
+                                                            </p>
+                                                            <p className="text-sm text-gray-500 mt-1">
+                                                                <i className="fas fa-film mr-1"></i>
+                                                                {project.data.scenes.length}개 장면
+                                                            </p>
+                                                        </div>
+                                                        <div className="flex gap-2">
+                                                            <button
+                                                                onClick={() => loadProject(project)}
+                                                                className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg font-semibold transition-all"
+                                                            >
+                                                                <i className="fas fa-folder-open mr-1"></i>
+                                                                불러오기
+                                                            </button>
+                                                            <button
+                                                                onClick={() => {
+                                                                    if (confirm('정말 삭제하시겠습니까?')) {
+                                                                        deleteProject(project.id);
+                                                                    }
+                                                                }}
+                                                                className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg font-semibold transition-all"
+                                                            >
+                                                                <i className="fas fa-trash"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         )}
