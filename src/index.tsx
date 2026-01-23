@@ -990,7 +990,7 @@ app.get('/', (c) => {
                         
                         {/* Footer */}
                         <div className="footer">
-                            © 2025 지혜스튜디오랩. All Rights Reserved.
+                            © 2026 지혜스튜디오랩. All Rights Reserved.
                         </div>
                     </div>
                 );

@@ -183,7 +183,7 @@ pm2 start ecosystem.config.cjs
 - **상태**: ✅ 모든 API 정상 작동 - 즉시 사용 가능!
 - **기술 스택**: Hono + TypeScript + React + TailwindCSS + Gemini 2.5 Flash
 - **브랜드**: 지혜스튜디오 v5.1
-- **저작권**: © 2025 지혜스튜디오랩. All Rights Reserved.
+- **저작권**: © 2026 지혜스튜디오랩. All Rights Reserved.
 - **최종 업데이트**: 2026-01-23
 
 ## 기술 스택
