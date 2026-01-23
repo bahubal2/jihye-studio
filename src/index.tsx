@@ -73,10 +73,16 @@ ${script}
   }
 })
 
-// 2. 이미지 생성 (Replicate FLUX)
+// 2. 이미지 생성 (다양한 AI 모델 지원)
 app.post('/api/generate-image', async (c) => {
   try {
-    const { prompt, sceneId, stylePrefix = '', aspectRatio = '16:9', quality = 'schnell' } = await c.req.json()
+    const { 
+      prompt, 
+      sceneId, 
+      stylePrefix = '', 
+      aspectRatio = '16:9', 
+      model = 'flux-1.1-pro' 
+    } = await c.req.json()
     
     if (!prompt) {
       return c.json({ error: '프롬프트를 입력해주세요' }, 400)
@@ -86,42 +92,105 @@ app.post('/api/generate-image', async (c) => {
       auth: c.env.REPLICATE_API_TOKEN || ''
     })
 
-    // 스타일 프리픽스와 프롬프트 결합
-    const finalPrompt = stylePrefix ? `${stylePrefix}${prompt}` : prompt
+    // 품질 향상 키워드 추가
+    const qualityEnhancement = 'masterpiece, best quality, highly detailed, sharp focus, professional photography, '
+    
+    // 네거티브 프롬프트
+    const negativePrompt = 'low quality, blurry, distorted, disfigured, bad anatomy, wrong proportions, watermark, text, logo, ugly, duplicate, '
 
-    // 품질에 따른 모델 선택
-    const modelVersion = quality === 'dev' 
-      ? "black-forest-labs/flux-dev"
-      : "black-forest-labs/flux-schnell"
+    // 최종 프롬프트 생성
+    const finalPrompt = `${qualityEnhancement}${stylePrefix}${prompt}`
 
-    console.log('Creating prediction with prompt:', finalPrompt)
+    console.log('Generating image with model:', model)
+    console.log('Final prompt:', finalPrompt)
+
+    // 모델별 설정
+    const modelConfigs: Record<string, any> = {
+      'flux-pro': {
+        model: 'black-forest-labs/flux-1.1-pro',
+        input: {
+          prompt: finalPrompt,
+          aspect_ratio: aspectRatio,
+          output_format: "webp",
+          output_quality: 100,
+          safety_tolerance: 2
+        }
+      },
+      'flux-dev': {
+        model: 'black-forest-labs/flux-dev',
+        input: {
+          prompt: finalPrompt,
+          guidance: 3.5,
+          num_inference_steps: 28,
+          aspect_ratio: aspectRatio,
+          output_format: "webp",
+          output_quality: 95
+        }
+      },
+      'flux-schnell': {
+        version: '5599ed30703defd1d160a25a63321b4dec97101d98b4674bcc56e41f62f35637',
+        input: {
+          prompt: finalPrompt,
+          num_inference_steps: 4,
+          aspect_ratio: aspectRatio,
+          output_format: "webp",
+          output_quality: 90
+        }
+      },
+      'recraft-v3': {
+        model: 'recraft-ai/recraft-v3',
+        input: {
+          prompt: finalPrompt,
+          style: "realistic_image",
+          size: aspectRatio === '16:9' ? '1365x1024' : aspectRatio === '9:16' ? '1024x1365' : '1024x1024',
+          output_format: "webp"
+        }
+      },
+      'sdxl': {
+        model: 'stability-ai/sdxl',
+        input: {
+          prompt: finalPrompt,
+          negative_prompt: negativePrompt,
+          guidance_scale: 7.5,
+          num_inference_steps: 30,
+          width: aspectRatio === '16:9' ? 1344 : aspectRatio === '9:16' ? 768 : 1024,
+          height: aspectRatio === '16:9' ? 768 : aspectRatio === '9:16' ? 1344 : 1024
+        }
+      }
+    }
+
+    const config = modelConfigs[model]
+    if (!config) {
+      throw new Error(`Unknown model: ${model}`)
+    }
 
     // predictions API를 사용하여 예측 생성
-    const prediction = await replicate.predictions.create({
-      version: modelVersion === 'black-forest-labs/flux-schnell' 
-        ? '5599ed30703defd1d160a25a63321b4dec97101d98b4674bcc56e41f62f35637'  // flux-schnell
-        : 'black-forest-labs/flux-dev',  // flux-dev
-      input: {
-        prompt: finalPrompt,
-        num_outputs: 1,
-        aspect_ratio: aspectRatio,
-        output_format: "webp",
-        output_quality: 90
-      }
-    })
+    // version 또는 model 사용 (모델명으로 최신 버전 자동 선택)
+    const predictionParams: any = { input: config.input }
+    if (config.version) {
+      predictionParams.version = config.version
+    } else if (config.model) {
+      predictionParams.model = config.model
+    } else {
+      throw new Error(`No version or model specified for ${model}`)
+    }
+    
+    const prediction = await replicate.predictions.create(predictionParams)
 
     console.log('Prediction created:', prediction.id)
 
-    // 예측 완료 대기 (최대 60초)
+    // 예측 완료 대기 (최대 120초 - 고품질 모델은 시간이 더 걸림)
     let result = prediction
     let attempts = 0
-    const maxAttempts = 60
+    const maxAttempts = 120
 
     while (result.status !== 'succeeded' && result.status !== 'failed' && attempts < maxAttempts) {
-      await new Promise(resolve => setTimeout(resolve, 1000)) // 1초 대기
+      await new Promise(resolve => setTimeout(resolve, 1000))
       result = await replicate.predictions.get(prediction.id)
       attempts++
-      console.log(`Attempt ${attempts}: Status = ${result.status}`)
+      if (attempts % 10 === 0) {
+        console.log(`Attempt ${attempts}: Status = ${result.status}`)
+      }
     }
 
     if (result.status === 'failed') {
@@ -140,13 +209,16 @@ app.post('/api/generate-image', async (c) => {
     }
 
     console.log('Image generated successfully:', imageUrl)
+    console.log('Generation time:', attempts, 'seconds')
 
     return c.json({
       success: true,
       data: {
         sceneId,
         imageUrl,
-        usedPrompt: finalPrompt
+        usedPrompt: finalPrompt,
+        model,
+        generationTime: attempts
       }
     })
   } catch (error: any) {
@@ -419,7 +491,7 @@ app.get('/', (c) => {
                 const [imageStyle, setImageStyle] = useState('photorealistic');
                 const [customStylePrefix, setCustomStylePrefix] = useState('');
                 const [aspectRatio, setAspectRatio] = useState('16:9');
-                const [imageQuality, setImageQuality] = useState('schnell');
+                const [aiModel, setAiModel] = useState('flux-pro');
 
                 const showToast = (message, type = 'info') => {
                     setToast({ message, type });
@@ -487,7 +559,7 @@ app.get('/', (c) => {
                                 sceneId,
                                 stylePrefix,
                                 aspectRatio,
-                                quality: imageQuality
+                                model: aiModel
                             })
                         });
 
@@ -497,7 +569,7 @@ app.get('/', (c) => {
                             setScenes(prev => prev.map(s => 
                                 s.id === sceneId ? { ...s, imageUrl: result.data.imageUrl, imageLoading: false } : s
                             ));
-                            showToast('이미지 생성 완료!', 'success');
+                            showToast(\`이미지 생성 완료! (\${result.data.generationTime}초 소요)\`, 'success');
                         } else {
                             throw new Error(result.error);
                         }
@@ -685,18 +757,21 @@ app.get('/', (c) => {
                                     </select>
                                 </div>
 
-                                {/* 품질 선택 */}
+                                {/* AI 모델 선택 */}
                                 <div>
                                     <label className="block text-sm font-semibold mb-2 text-gray-300">
-                                        <i className="fas fa-star mr-2"></i>품질
+                                        <i className="fas fa-robot mr-2"></i>AI 모델
                                     </label>
                                     <select
-                                        value={imageQuality}
-                                        onChange={(e) => setImageQuality(e.target.value)}
+                                        value={aiModel}
+                                        onChange={(e) => setAiModel(e.target.value)}
                                         className="w-full p-3 bg-gray-900/50 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
                                     >
-                                        <option value="schnell">⚡ 빠름 (Schnell - 3-5초)</option>
-                                        <option value="dev">💎 고품질 (Dev - 20-30초)</option>
+                                        <option value="flux-1.1-pro">🏆 FLUX 1.1 Pro (최고 품질)</option>
+                                        <option value="flux-dev">💎 FLUX Dev (고품질 무료)</option>
+                                        <option value="flux-schnell">⚡ FLUX Schnell (빠름)</option>
+                                        <option value="recraft-v3">✨ Recraft V3 (초고품질)</option>
+                                        <option value="sdxl">🎯 SDXL (안정적)</option>
                                     </select>
                                 </div>
                             </div>
@@ -724,7 +799,13 @@ app.get('/', (c) => {
                             <div className="mt-4 p-3 bg-purple-500/10 border border-purple-500/30 rounded-lg">
                                 <p className="text-sm text-purple-300">
                                     <i className="fas fa-info-circle mr-2"></i>
-                                    <strong>현재 설정:</strong> {imageStyle === 'custom' ? '커스텀' : imageStyle} 스타일, {aspectRatio} 비율, {imageQuality === 'schnell' ? '빠른' : '고품질'} 생성
+                                    <strong>현재 설정:</strong> {imageStyle === 'custom' ? '커스텀' : imageStyle} 스타일, {aspectRatio} 비율, {
+                                        aiModel === 'flux-1.1-pro' ? 'FLUX 1.1 Pro (최고 품질)' :
+                                        aiModel === 'flux-dev' ? 'FLUX Dev (고품질)' :
+                                        aiModel === 'flux-schnell' ? 'FLUX Schnell (빠름)' :
+                                        aiModel === 'recraft-v3' ? 'Recraft V3 (초고품질)' :
+                                        'SDXL (안정적)'
+                                    } 모델
                                 </p>
                             </div>
                         </div>
