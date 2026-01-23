@@ -1,83 +1,131 @@
-# 이미지 스타일 가이드
+# 이미지 스타일 가이드 (한국 시니어 시청자 대상 👴👵)
 
-원클릭 스튜디오는 5가지 이미지 스타일 프리셋을 제공합니다.
+원클릭 스튜디오는 한국 시니어 (노인) 시청자를 위해 최적화된 5가지 이미지 스타일 프리셋을 제공합니다.
 
-## 📸 1. 실사 (Photorealistic)
+**모든 스타일은 한국인, 특히 노인층이 등장하도록 설계되었습니다.**
 
-**프리픽스**: `photorealistic, 8k, detailed, professional photography, `
+## 📸 1. 실사 (Photorealistic) - 한국 노인 중심
+
+**프리픽스**: 
+```
+photorealistic, Korean elderly person, Asian features, Korean senior citizen, 
+8k, detailed, warm lighting, natural Korean environment, 
+negative prompt: western features, caucasian, european, blonde hair, blue eyes,
+```
+
+**특징**:
+- 🇰🇷 한국 노인이 주인공
+- 🌸 따뜻한 조명과 자연스러운 한국 환경
+- 📷 고해상도 사실적 이미지
+- ❌ 서양인 외모 제외
 
 **용도**:
-- 현실감 있는 영상 제작
-- 다큐멘터리 스타일
-- 비즈니스/프로페셔널 콘텐츠
-- 리뷰 영상
+- 건강 정보 콘텐츠
+- 생활 정보 영상
+- 시니어 교육 콘텐츠
+- 실버 라이프 스타일
 
 **예시 결과**:
 ```
-AI 생성 프롬프트: "A modern office with people working on computers"
-최종 프롬프트: "photorealistic, 8k, detailed, professional photography, A modern office with people working on computers"
-→ 고해상도, 사실적인 사무실 이미지 생성
+프롬프트: "a person reading a book in a park"
+→ 공원에서 책을 읽는 한국 노인의 사실적인 이미지
+→ 따뜻한 조명, 자연스러운 한국 공원 배경
 ```
 
 ---
 
-## 🎨 2. 애니메이션 (Anime/Cartoon)
+## 🎨 2. 애니메이션 (Korean Traditional Folktale) - 한국 전통 동화
 
-**프리픽스**: `anime style, cartoon, vibrant colors, cel shading, `
+**프리픽스**: 
+```
+Korean traditional folktale anime style, Korean characters, Asian features, 
+Ghibli inspired, soft colors, historical Korean setting, 
+hanbok traditional clothing, warm nostalgic atmosphere, 
+negative prompt: western animation style,
+```
+
+**특징**:
+- 🎭 한국 전통 동화 스타일
+- 👘 한복 의상
+- 🏛️ 역사적 한국 배경
+- 🌅 따뜻하고 향수를 불러일으키는 분위기
+- 🎬 지브리 스타일의 부드러운 색감
 
 **용도**:
-- 어린이 콘텐츠
-- 설명 영상 (Explainer videos)
-- 캐릭터 기반 스토리텔링
-- 게임 관련 콘텐츠
+- 옛날 이야기 콘텐츠
+- 전통 문화 설명
+- 역사 교육
+- 어르신 추억 자극
 
 **예시 결과**:
 ```
-AI 생성 프롬프트: "A hero standing on a mountain peak"
-최종 프롬프트: "anime style, cartoon, vibrant colors, cel shading, A hero standing on a mountain peak"
-→ 일본 애니메이션 스타일의 영웅 캐릭터 이미지
+프롬프트: "a wise teacher telling a story to children"
+→ 한복을 입은 노인이 아이들에게 이야기를 들려주는 장면
+→ 전통 한옥 배경, 지브리 스타일의 따뜻한 애니메이션
 ```
 
 ---
 
-## ✏️ 3. 스틱맨 (Simple Stickman)
+## ✏️ 3. 스틱맨 (Simple Stickman) - 보편적 표현
 
-**프리픽스**: `simple stick figure drawing, minimalist, black lines on white background, `
+**프리픽스**: 
+```
+simple stick figure drawing, minimalist, black lines on white background,
+```
+
+**특징**:
+- ✏️ 간단한 선 그림
+- 🎯 외모와 무관한 보편적 표현
+- ⚡ 빠른 이해
+- 📝 미니멀 디자인
 
 **용도**:
-- 빠른 컨셉 설명
-- 교육 콘텐츠
 - 프로세스 설명
-- 미니멀한 디자인
+- 간단한 개념 전달
+- 운동 동작 설명
+- 일상 생활 팁
 
 **예시 결과**:
 ```
-AI 생성 프롬프트: "Two people shaking hands in a business meeting"
-최종 프롬프트: "simple stick figure drawing, minimalist, black lines on white background, Two people shaking hands in a business meeting"
-→ 간단한 선으로만 표현된 악수 장면
+프롬프트: "Two people having a conversation"
+→ 간단한 선으로 표현된 두 사람의 대화 장면
+→ 누구나 이해 가능한 보편적 표현
 ```
 
 **주의사항**: 
-- 매우 단순한 스타일이므로 복잡한 장면에는 부적합
-- 세부 디테일이 생략됨
+- 스틱맨은 외모 특징이 없어 한국인/노인 구분 불필요
+- 단순한 개념 설명용으로 최적
 
 ---
 
-## 🖼️ 4. 일러스트 (Illustration)
+## 🖼️ 4. 일러스트 (Korean Emotional Illustration) - 한국적 감성
 
-**프리픽스**: `digital illustration, artistic, stylized, `
+**프리픽스**: 
+```
+warm emotional digital illustration, Korean elderly, Asian features, 
+soft pastel colors, nostalgic Korean life scene, 
+traditional Korean elements, cozy atmosphere, 
+negative prompt: western style, modern minimalism,
+```
+
+**특징**:
+- 💕 따뜻한 감성 디지털 일러스트
+- 👴 한국 노인 캐릭터
+- 🌸 부드러운 파스텔 색상
+- 🏠 향수를 불러일으키는 한국 생활 장면
+- 🎋 전통 한국 요소 포함
 
 **용도**:
-- 크리에이티브 콘텐츠
-- 스토리텔링
-- 블로그 썸네일
-- 소셜 미디어 포스트
+- 감성적인 스토리텔링
+- 추억의 장면 재현
+- 따뜻한 메시지 전달
+- 힐링 콘텐츠
 
 **예시 결과**:
 ```
-AI 생성 프롬프트: "A colorful sunset over the ocean"
-최종 프롬프트: "digital illustration, artistic, stylized, A colorful sunset over the ocean"
-→ 예술적이고 스타일화된 일몰 이미지
+프롬프트: "A colorful sunset over the ocean"
+→ 바다 위 석양을 바라보는 한국 노인의 일러스트
+→ 파스텔 톤, 따뜻하고 감성적인 분위기
 ```
 
 ---

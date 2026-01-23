@@ -398,12 +398,12 @@ app.get('/', (c) => {
         <script type="text/babel">
             const { useState, useEffect, useCallback } = React;
 
-            // 스타일 프리픽스 정의
+            // 스타일 프리픽스 정의 (한국 시니어 시청자 대상)
             const STYLE_PRESETS = {
-                photorealistic: 'photorealistic, 8k, detailed, professional photography, ',
-                anime: 'anime style, cartoon, vibrant colors, cel shading, ',
+                photorealistic: 'photorealistic, Korean elderly person, Asian features, Korean senior citizen, 8k, detailed, warm lighting, natural Korean environment, negative prompt: western features, caucasian, european, blonde hair, blue eyes, ',
+                anime: 'Korean traditional folktale anime style, Korean characters, Asian features, Ghibli inspired, soft colors, historical Korean setting, hanbok traditional clothing, warm nostalgic atmosphere, negative prompt: western animation style, ',
                 stickman: 'simple stick figure drawing, minimalist, black lines on white background, ',
-                illustration: 'digital illustration, artistic, stylized, ',
+                illustration: 'warm emotional digital illustration, Korean elderly, Asian features, soft pastel colors, nostalgic Korean life scene, traditional Korean elements, cozy atmosphere, negative prompt: western style, modern minimalism, ',
                 custom: ''
             };
 
