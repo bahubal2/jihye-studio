@@ -487,6 +487,8 @@ app.get('/', (c) => {
         <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+        <script src="https://unpkg.com/@ffmpeg/ffmpeg@0.12.10/dist/umd/ffmpeg.js"></script>
+        <script src="https://unpkg.com/@ffmpeg/util@0.12.1/dist/umd/index.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
         <style>
             body {
@@ -635,6 +637,12 @@ app.get('/', (c) => {
                 const [characterDescription, setCharacterDescription] = useState('');
                 const [useCharacter, setUseCharacter] = useState(false);
                 const [characterStrength, setCharacterStrength] = useState(0.7);
+
+                // 영상 합성
+                const [isComposing, setIsComposing] = useState(false);
+                const [composingProgress, setComposingProgress] = useState(0);
+                const [finalVideoUrl, setFinalVideoUrl] = useState('');
+                const [showFinalVideo, setShowFinalVideo] = useState(false);
 
                 // localStorage에 저장
                 useEffect(() => {
@@ -818,6 +826,179 @@ app.get('/', (c) => {
                     } catch (error) {
                         console.error('ZIP download error:', error);
                         showToast('ZIP 다운로드 실패', 'error');
+                    }
+                };
+
+                // 이미지만 다운로드
+                const downloadImages = async () => {
+                    const images = scenes.filter(s => s.imageUrl);
+                    if (images.length === 0) {
+                        showToast('다운로드할 이미지가 없습니다', 'error');
+                        return;
+                    }
+
+                    try {
+                        showToast('이미지 ZIP 생성 중...', 'info');
+                        const zip = new JSZip();
+
+                        for (const scene of images) {
+                            const response = await fetch(scene.imageUrl);
+                            const blob = await response.blob();
+                            zip.file(\`scene_\${scene.id}_image.jpg\`, blob);
+                        }
+
+                        const content = await zip.generateAsync({ type: 'blob' });
+                        saveAs(content, 'jihye-studio-images.zip');
+                        showToast(\`\${images.length}개 이미지 다운로드 완료\`, 'success');
+                    } catch (error) {
+                        showToast('이미지 다운로드 실패', 'error');
+                    }
+                };
+
+                // 영상만 다운로드
+                const downloadVideos = async () => {
+                    const videos = scenes.filter(s => s.videoUrl);
+                    if (videos.length === 0) {
+                        showToast('다운로드할 영상이 없습니다', 'error');
+                        return;
+                    }
+
+                    try {
+                        showToast('영상 ZIP 생성 중...', 'info');
+                        const zip = new JSZip();
+
+                        for (const scene of videos) {
+                            const response = await fetch(scene.videoUrl);
+                            const blob = await response.blob();
+                            zip.file(\`scene_\${scene.id}_video.mp4\`, blob);
+                        }
+
+                        const content = await zip.generateAsync({ type: 'blob' });
+                        saveAs(content, 'jihye-studio-videos.zip');
+                        showToast(\`\${videos.length}개 영상 다운로드 완료\`, 'success');
+                    } catch (error) {
+                        showToast('영상 다운로드 실패', 'error');
+                    }
+                };
+
+                // 자막 SRT 생성 및 다운로드
+                const downloadSubtitles = () => {
+                    if (scenes.length === 0) {
+                        showToast('자막을 생성할 장면이 없습니다', 'error');
+                        return;
+                    }
+
+                    try {
+                        let srtContent = '';
+                        let startTime = 0;
+
+                        scenes.forEach((scene, index) => {
+                            const duration = scene.duration || 5; // 기본 5초
+                            const endTime = startTime + duration;
+
+                            srtContent += \`\${index + 1}\\n\`;
+                            srtContent += \`\${formatSrtTime(startTime)} --> \${formatSrtTime(endTime)}\\n\`;
+                            srtContent += \`\${scene.text}\\n\\n\`;
+
+                            startTime = endTime;
+                        });
+
+                        const blob = new Blob([srtContent], { type: 'text/plain;charset=utf-8' });
+                        saveAs(blob, 'jihye-studio-subtitles.srt');
+                        showToast('자막 파일 다운로드 완료', 'success');
+                    } catch (error) {
+                        showToast('자막 생성 실패', 'error');
+                    }
+                };
+
+                // SRT 시간 포맷 변환
+                const formatSrtTime = (seconds) => {
+                    const hours = Math.floor(seconds / 3600);
+                    const minutes = Math.floor((seconds % 3600) / 60);
+                    const secs = Math.floor(seconds % 60);
+                    const ms = Math.floor((seconds % 1) * 1000);
+                    
+                    return \`\${String(hours).padStart(2, '0')}:\${String(minutes).padStart(2, '0')}:\${String(secs).padStart(2, '0')},\${String(ms).padStart(3, '0')}\`;
+                };
+
+                // 완성 영상 합성 (FFmpeg.wasm)
+                const composeVideo = async () => {
+                    // 영상 또는 이미지가 있는지 확인
+                    const hasMedia = scenes.some(s => s.videoUrl || s.imageUrl);
+                    if (!hasMedia) {
+                        showToast('합성할 영상이나 이미지가 없습니다', 'error');
+                        return;
+                    }
+
+                    try {
+                        setIsComposing(true);
+                        setComposingProgress(10);
+                        showToast('FFmpeg 로딩 중...', 'info');
+
+                        // FFmpeg 초기화
+                        const { FFmpeg } = FFmpegWASM;
+                        const { fetchFile } = FFmpegUtil;
+                        const ffmpeg = new FFmpeg();
+
+                        ffmpeg.on('progress', ({ progress }) => {
+                            setComposingProgress(Math.round(progress * 100));
+                        });
+
+                        await ffmpeg.load({
+                            coreURL: 'https://unpkg.com/@ffmpeg/core@0.12.6/dist/umd/ffmpeg-core.js',
+                        });
+
+                        setComposingProgress(20);
+                        showToast('미디어 파일 다운로드 중...', 'info');
+
+                        // 각 장면의 미디어 파일 준비
+                        for (let i = 0; i < scenes.length; i++) {
+                            const scene = scenes[i];
+                            const filename = \`scene_\${i}.mp4\`;
+
+                            if (scene.videoUrl) {
+                                // 영상이 있으면 영상 사용
+                                await ffmpeg.writeFile(filename, await fetchFile(scene.videoUrl));
+                            } else if (scene.imageUrl) {
+                                // 이미지만 있으면 이미지를 5초 영상으로 변환
+                                const imgFilename = \`image_\${i}.jpg\`;
+                                await ffmpeg.writeFile(imgFilename, await fetchFile(scene.imageUrl));
+                                await ffmpeg.exec(['-loop', '1', '-i', imgFilename, '-t', '5', '-pix_fmt', 'yuv420p', filename]);
+                            }
+
+                            setComposingProgress(20 + (i / scenes.length) * 40);
+                        }
+
+                        setComposingProgress(60);
+                        showToast('영상 합성 중...', 'info');
+
+                        // concat 파일 생성
+                        let concatContent = '';
+                        for (let i = 0; i < scenes.length; i++) {
+                            concatContent += \`file 'scene_\${i}.mp4'\\n\`;
+                        }
+                        await ffmpeg.writeFile('concat.txt', concatContent);
+
+                        // 영상 합치기
+                        await ffmpeg.exec(['-f', 'concat', '-safe', '0', '-i', 'concat.txt', '-c', 'copy', 'output.mp4']);
+
+                        setComposingProgress(90);
+                        showToast('최종 영상 생성 중...', 'info');
+
+                        // 결과 파일 읽기
+                        const data = await ffmpeg.readFile('output.mp4');
+                        const blob = new Blob([data.buffer], { type: 'video/mp4' });
+                        const url = URL.createObjectURL(blob);
+
+                        setFinalVideoUrl(url);
+                        setShowFinalVideo(true);
+                        setComposingProgress(100);
+                        showToast('완성 영상이 생성되었습니다!', 'success');
+                    } catch (error) {
+                        console.error('Video composition error:', error);
+                        showToast('영상 합성 실패: ' + error.message, 'error');
+                    } finally {
+                        setIsComposing(false);
                     }
                 };
 
@@ -1499,23 +1680,138 @@ app.get('/', (c) => {
                                 </div>
 
                                 {/* Bottom Actions */}
-                                <div className="card rounded-xl p-6 flex flex-wrap gap-4 justify-center">
-                                    <button
-                                        onClick={generateVoice}
-                                        className="btn-primary text-white py-3 px-6 rounded-lg font-semibold flex items-center gap-2 transition-all"
-                                    >
-                                        <i className="fas fa-microphone"></i>
-                                        <span>전체 음성 생성</span>
-                                    </button>
-                                    <button
-                                        onClick={downloadAllAssets}
-                                        className="bg-gray-700 hover:bg-gray-600 text-white py-3 px-6 rounded-lg font-semibold flex items-center gap-2 transition-all"
-                                    >
-                                        <i className="fas fa-download"></i>
-                                        <span>전체 다운로드 (ZIP)</span>
-                                    </button>
+                                <div className="space-y-4">
+                                    {/* 영상 합성 버튼 */}
+                                    <div className="card rounded-xl p-6">
+                                        <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                                            <i className="fas fa-film text-purple-400"></i>
+                                            최종 영상 제작
+                                        </h3>
+                                        <button
+                                            onClick={composeVideo}
+                                            disabled={isComposing}
+                                            className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white py-4 px-6 rounded-lg font-bold flex items-center justify-center gap-3 transition-all disabled:opacity-50 text-lg"
+                                        >
+                                            {isComposing ? (
+                                                <>
+                                                    <div className="spinner"></div>
+                                                    <span>영상 합성 중... {composingProgress}%</span>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <i className="fas fa-magic"></i>
+                                                    <span>🎬 완성 영상 합성하기</span>
+                                                </>
+                                            )}
+                                        </button>
+                                        {isComposing && (
+                                            <div className="mt-4">
+                                                <div className="w-full bg-gray-700 rounded-full h-3 overflow-hidden">
+                                                    <div 
+                                                        className="bg-gradient-to-r from-purple-500 to-indigo-500 h-full transition-all duration-300"
+                                                        style={{ width: composingProgress + '%' }}
+                                                    ></div>
+                                                </div>
+                                                <p className="text-sm text-gray-400 mt-2 text-center">
+                                                    {composingProgress < 20 ? 'FFmpeg 초기화 중...' :
+                                                     composingProgress < 60 ? '미디어 파일 준비 중...' :
+                                                     composingProgress < 90 ? '영상 합성 중...' :
+                                                     '최종 처리 중...'}
+                                                </p>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* 개별 다운로드 버튼들 */}
+                                    <div className="card rounded-xl p-6">
+                                        <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                                            <i className="fas fa-download text-green-400"></i>
+                                            개별 다운로드
+                                        </h3>
+                                        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+                                            <button
+                                                onClick={downloadImages}
+                                                className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-semibold flex flex-col items-center gap-2 transition-all"
+                                            >
+                                                <i className="fas fa-image text-2xl"></i>
+                                                <span className="text-sm">이미지</span>
+                                            </button>
+                                            <button
+                                                onClick={downloadVideos}
+                                                className="bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-4 rounded-lg font-semibold flex flex-col items-center gap-2 transition-all"
+                                            >
+                                                <i className="fas fa-video text-2xl"></i>
+                                                <span className="text-sm">영상 클립</span>
+                                            </button>
+                                            <button
+                                                onClick={generateVoice}
+                                                className="bg-purple-600 hover:bg-purple-700 text-white py-3 px-4 rounded-lg font-semibold flex flex-col items-center gap-2 transition-all"
+                                            >
+                                                <i className="fas fa-microphone text-2xl"></i>
+                                                <span className="text-sm">음성 생성</span>
+                                            </button>
+                                            <button
+                                                onClick={downloadSubtitles}
+                                                className="bg-green-600 hover:bg-green-700 text-white py-3 px-4 rounded-lg font-semibold flex flex-col items-center gap-2 transition-all"
+                                            >
+                                                <i className="fas fa-closed-captioning text-2xl"></i>
+                                                <span className="text-sm">자막 SRT</span>
+                                            </button>
+                                            <button
+                                                onClick={downloadAllAssets}
+                                                className="bg-gray-600 hover:bg-gray-700 text-white py-3 px-4 rounded-lg font-semibold flex flex-col items-center gap-2 transition-all"
+                                            >
+                                                <i className="fas fa-archive text-2xl"></i>
+                                                <span className="text-sm">전체 ZIP</span>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </>
+                        )}
+
+                        {/* 완성 영상 미리보기 모달 */}
+                        {showFinalVideo && (
+                            <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4" onClick={() => setShowFinalVideo(false)}>
+                                <div className="bg-gray-900 rounded-xl p-6 max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
+                                    <div className="flex justify-between items-center mb-4">
+                                        <h2 className="text-2xl font-bold flex items-center gap-2">
+                                            <i className="fas fa-film text-purple-400"></i>
+                                            완성 영상 미리보기
+                                        </h2>
+                                        <button
+                                            onClick={() => setShowFinalVideo(false)}
+                                            className="text-gray-400 hover:text-white text-2xl"
+                                        >
+                                            <i className="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                    <div className="aspect-video bg-black rounded-lg overflow-hidden mb-4">
+                                        <video src={finalVideoUrl} controls className="w-full h-full"></video>
+                                    </div>
+                                    <div className="flex gap-3">
+                                        <button
+                                            onClick={() => {
+                                                const a = document.createElement('a');
+                                                a.href = finalVideoUrl;
+                                                a.download = 'jihye-studio-final-video.mp4';
+                                                a.click();
+                                                showToast('완성 영상 다운로드 시작', 'success');
+                                            }}
+                                            className="flex-1 bg-purple-600 hover:bg-purple-700 text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all"
+                                        >
+                                            <i className="fas fa-download"></i>
+                                            <span>영상 다운로드</span>
+                                        </button>
+                                        <button
+                                            onClick={() => setShowFinalVideo(false)}
+                                            className="bg-gray-700 hover:bg-gray-600 text-white py-3 px-6 rounded-lg font-semibold transition-all"
+                                        >
+                                            닫기
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         )}
                         
                         {/* 설정 모달 */}
