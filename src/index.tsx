@@ -22,13 +22,19 @@ const jobStorage = new Map<string, any>()
 // 0. 검수 대본 생성 (Gemini)
 app.post('/api/generate-draft-script', async (c) => {
   try {
-    const { keyword } = await c.req.json()
+    const { keyword, geminiApiKey } = await c.req.json()
     
     if (!keyword) {
       return c.json({ error: '주제나 키워드를 입력해주세요' }, 400)
     }
 
-    const genAI = new GoogleGenerativeAI(c.env.GEMINI_API_KEY || '')
+    // 클라이언트에서 전달받은 API 키 사용, 없으면 서버 환경변수 사용
+    const apiKey = geminiApiKey || c.env.GEMINI_API_KEY || ''
+    if (!apiKey) {
+      return c.json({ error: 'Gemini API 키가 설정되지 않았습니다. 설정에서 API 키를 입력해주세요.' }, 400)
+    }
+
+    const genAI = new GoogleGenerativeAI(apiKey)
     const model = genAI.getGenerativeModel({ 
       model: 'gemini-2.5-flash'
     })
@@ -68,13 +74,19 @@ app.post('/api/generate-draft-script', async (c) => {
 // 1. 대본 분석 (Gemini)
 app.post('/api/analyze-script', async (c) => {
   try {
-    const { script } = await c.req.json()
+    const { script, geminiApiKey } = await c.req.json()
     
     if (!script) {
       return c.json({ error: '대본을 입력해주세요' }, 400)
     }
 
-    const genAI = new GoogleGenerativeAI(c.env.GEMINI_API_KEY || '')
+    // 클라이언트에서 전달받은 API 키 사용, 없으면 서버 환경변수 사용
+    const apiKey = geminiApiKey || c.env.GEMINI_API_KEY || ''
+    if (!apiKey) {
+      return c.json({ error: 'Gemini API 키가 설정되지 않았습니다. 설정에서 API 키를 입력해주세요.' }, 400)
+    }
+
+    const genAI = new GoogleGenerativeAI(apiKey)
     const model = genAI.getGenerativeModel({ 
       model: 'gemini-2.5-flash'
     })
@@ -130,15 +142,22 @@ app.post('/api/generate-image', async (c) => {
       model = 'flux-1.1-pro',
       characterImage = null,
       characterDescription = '',
-      characterStrength = 0.7
+      characterStrength = 0.7,
+      replicateApiKey
     } = await c.req.json()
     
     if (!prompt) {
       return c.json({ error: '프롬프트를 입력해주세요' }, 400)
     }
 
+    // 클라이언트에서 전달받은 API 키 사용, 없으면 서버 환경변수 사용
+    const apiKey = replicateApiKey || c.env.REPLICATE_API_TOKEN || ''
+    if (!apiKey) {
+      return c.json({ error: 'Replicate API 키가 설정되지 않았습니다. 설정에서 API 키를 입력해주세요.' }, 400)
+    }
+
     const replicate = new Replicate({
-      auth: c.env.REPLICATE_API_TOKEN || ''
+      auth: apiKey
     })
 
     // 품질 향상 키워드 추가
@@ -319,14 +338,20 @@ app.post('/api/generate-image', async (c) => {
 // 3. 영상 생성 (Replicate Kling)
 app.post('/api/generate-video', async (c) => {
   try {
-    const { imageUrl, prompt, sceneId } = await c.req.json()
+    const { imageUrl, prompt, sceneId, replicateApiKey } = await c.req.json()
     
     if (!imageUrl) {
       return c.json({ error: '이미지 URL을 입력해주세요' }, 400)
     }
 
+    // 클라이언트에서 전달받은 API 키 사용, 없으면 서버 환경변수 사용
+    const apiKey = replicateApiKey || c.env.REPLICATE_API_TOKEN || ''
+    if (!apiKey) {
+      return c.json({ error: 'Replicate API 키가 설정되지 않았습니다. 설정에서 API 키를 입력해주세요.' }, 400)
+    }
+
     const replicate = new Replicate({
-      auth: c.env.REPLICATE_API_TOKEN || ''
+      auth: apiKey
     })
 
     // Kling 비디오 생성 (이미지 투 비디오)
@@ -376,20 +401,20 @@ app.post('/api/generate-voice', async (c) => {
         stability: 0.5,
         similarity_boost: 0.75,
         style: 0.0
-      }
+      },
+      elevenlabsApiKey
     } = await c.req.json()
     
     if (!text) {
       return c.json({ error: '텍스트를 입력해주세요' }, 400)
     }
 
-    // API 키 확인
-    const apiKey = c.env.ELEVENLABS_API_KEY
+    // 클라이언트에서 전달받은 API 키 사용, 없으면 서버 환경변수 사용
+    const apiKey = elevenlabsApiKey || c.env.ELEVENLABS_API_KEY || ''
     if (!apiKey) {
       console.error('ElevenLabs API key not found')
       return c.json({ 
-        error: 'ElevenLabs API 키가 설정되지 않았습니다',
-        details: 'API_SETUP.md 파일을 참고하여 .dev.vars에 ELEVENLABS_API_KEY를 설정해주세요.\n\n1. https://elevenlabs.io/app/settings/api-keys 에서 API 키 발급\n2. .dev.vars 파일에 ELEVENLABS_API_KEY=your_key 추가\n3. 서버 재시작 (pm2 restart youtube-studio)'
+        error: 'ElevenLabs API 키가 설정되지 않았습니다. 설정에서 API 키를 입력해주세요.'
       }, 400)
     }
 
@@ -1142,12 +1167,17 @@ app.get('/', (c) => {
                         return;
                     }
 
+                    if (!apiKeys.gemini) {
+                        showToast('Gemini API 키를 먼저 설정해주세요. 좌측 하단 설정 버튼을 클릭하세요.', 'error');
+                        return;
+                    }
+
                     setGeneratingDraft(true);
                     try {
                         const response = await fetch('/api/generate-draft-script', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ keyword: ideaKeyword })
+                            body: JSON.stringify({ keyword: ideaKeyword, geminiApiKey: apiKeys.gemini })
                         });
 
                         const result = await response.json();
@@ -1180,12 +1210,17 @@ app.get('/', (c) => {
                         return;
                     }
 
+                    if (!apiKeys.gemini) {
+                        showToast('Gemini API 키를 먼저 설정해주세요. 좌측 하단 설정 버튼을 클릭하세요.', 'error');
+                        return;
+                    }
+
                     setLoading(true);
                     try {
                         const response = await fetch('/api/analyze-script', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ script })
+                            body: JSON.stringify({ script, geminiApiKey: apiKeys.gemini })
                         });
 
                         const result = await response.json();
@@ -1217,6 +1252,11 @@ app.get('/', (c) => {
                     const scene = scenes.find(s => s.id === sceneId);
                     if (!scene) return;
 
+                    if (!apiKeys.replicate) {
+                        showToast('Replicate API 키를 먼저 설정해주세요. 좌측 하단 설정 버튼을 클릭하세요.', 'error');
+                        return;
+                    }
+
                     setScenes(prev => prev.map(s => 
                         s.id === sceneId ? { ...s, imageLoading: true } : s
                     ));
@@ -1236,6 +1276,7 @@ app.get('/', (c) => {
                                 stylePrefix,
                                 aspectRatio,
                                 model: aiModel,
+                                replicateApiKey: apiKeys.replicate,
                                 ...(useCharacter && characterImageUrl && {
                                     characterImage: characterImageUrl,
                                     characterDescription,
@@ -1278,6 +1319,11 @@ app.get('/', (c) => {
                         return;
                     }
 
+                    if (!apiKeys.replicate) {
+                        showToast('Replicate API 키를 먼저 설정해주세요. 좌측 하단 설정 버튼을 클릭하세요.', 'error');
+                        return;
+                    }
+
                     setScenes(prev => prev.map(s => 
                         s.id === sceneId ? { ...s, videoLoading: true } : s
                     ));
@@ -1289,7 +1335,8 @@ app.get('/', (c) => {
                             body: JSON.stringify({ 
                                 imageUrl: scene.imageUrl,
                                 prompt: scene.text,
-                                sceneId 
+                                sceneId,
+                                replicateApiKey: apiKeys.replicate
                             })
                         });
 
@@ -1350,6 +1397,11 @@ app.get('/', (c) => {
                         return;
                     }
 
+                    if (!apiKeys.elevenlabs) {
+                        showToast('ElevenLabs API 키를 먼저 설정해주세요. 좌측 하단 설정 버튼을 클릭하세요.', 'error');
+                        return;
+                    }
+
                     try {
                         showToast('음성 생성 중...', 'info');
                         const response = await fetch('/api/generate-voice', {
@@ -1362,7 +1414,8 @@ app.get('/', (c) => {
                                     stability: voiceSettings.stability,
                                     similarity_boost: voiceSettings.similarityBoost,
                                     style: voiceSettings.style
-                                }
+                                },
+                                elevenlabsApiKey: apiKeys.elevenlabs
                             })
                         });
 
