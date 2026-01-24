@@ -1395,7 +1395,7 @@ app.get('/', (c) => {
                         )}
 
                         {/* 좌측 사이드바 */}
-                        <div className={'fixed left-0 top-0 bottom-0 bg-gradient-to-b from-gray-900 to-gray-950 border-r border-gray-800 transition-all duration-300 z-50 flex flex-col ' + (sidebarCollapsed ? 'w-16' : 'w-64')}>
+                        <div className={'fixed left-0 top-0 h-screen bg-gradient-to-b from-gray-900 to-gray-950 border-r border-gray-800 transition-all duration-300 z-50 flex flex-col ' + (sidebarCollapsed ? 'w-16' : 'w-64')}>
                             {/* 사이드바 헤더 */}
                             <div className="p-4 border-b border-gray-800 flex items-center justify-between flex-shrink-0">
                                 {!sidebarCollapsed && (
