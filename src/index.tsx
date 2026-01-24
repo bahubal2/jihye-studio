@@ -2376,418 +2376,6 @@ app.get('/', (c) => {
                             </div>
                         )}
                         
-                        {/* 설정 모달 */}
-                        {showSettings && (
-                            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onClick={() => setShowSettings(false)}>
-                                <div className="bg-gray-900 rounded-xl p-6 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
-                                    {/* 모달 헤더 */}
-                                    <div className="flex justify-between items-center mb-6">
-                                        <h2 className="text-2xl font-bold flex items-center gap-2">
-                                            <i className="fas fa-cog text-purple-400"></i>
-                                            설정
-                                        </h2>
-                                        <button
-                                            onClick={() => setShowSettings(false)}
-                                            className="text-gray-400 hover:text-white text-2xl"
-                                        >
-                                            <i className="fas fa-times"></i>
-                                        </button>
-                                    </div>
-
-                                    {/* API 키 입력 */}
-                                    <div className="space-y-6">
-                                        {/* Gemini API */}
-                                        <div>
-                                            <label className="block text-sm font-semibold mb-2 text-gray-300">
-                                                <i className="fas fa-brain mr-2"></i>Gemini API 키
-                                                {apiKeys.gemini && <i className="fas fa-check-circle text-green-400 ml-2"></i>}
-                                                {!apiKeys.gemini && <i className="fas fa-times-circle text-red-400 ml-2"></i>}
-                                            </label>
-                                            <div className="flex gap-2">
-                                                <div className="flex-1 relative">
-                                                    <input
-                                                        type={showApiKeys.gemini ? "text" : "password"}
-                                                        value={apiKeys.gemini}
-                                                        onChange={(e) => setApiKeys({...apiKeys, gemini: e.target.value})}
-                                                        placeholder="AIzaSy..."
-                                                        className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
-                                                    />
-                                                    <button
-                                                        onClick={() => setShowApiKeys({...showApiKeys, gemini: !showApiKeys.gemini})}
-                                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
-                                                    >
-                                                        <i className={\`fas fa-\${showApiKeys.gemini ? 'eye-slash' : 'eye'}\`}></i>
-                                                    </button>
-                                                </div>
-                                                <a
-                                                    href="https://makersuite.google.com/app/apikey"
-                                                    target="_blank"
-                                                    className="bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-lg font-semibold transition-all whitespace-nowrap"
-                                                >
-                                                    발급받기
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        {/* Replicate API */}
-                                        <div>
-                                            <label className="block text-sm font-semibold mb-2 text-gray-300">
-                                                <i className="fas fa-image mr-2"></i>Replicate API 키
-                                                {apiKeys.replicate && <i className="fas fa-check-circle text-green-400 ml-2"></i>}
-                                                {!apiKeys.replicate && <i className="fas fa-times-circle text-red-400 ml-2"></i>}
-                                            </label>
-                                            <div className="flex gap-2">
-                                                <div className="flex-1 relative">
-                                                    <input
-                                                        type={showApiKeys.replicate ? "text" : "password"}
-                                                        value={apiKeys.replicate}
-                                                        onChange={(e) => setApiKeys({...apiKeys, replicate: e.target.value})}
-                                                        placeholder="r8_..."
-                                                        className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
-                                                    />
-                                                    <button
-                                                        onClick={() => setShowApiKeys({...showApiKeys, replicate: !showApiKeys.replicate})}
-                                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
-                                                    >
-                                                        <i className={\`fas fa-\${showApiKeys.replicate ? 'eye-slash' : 'eye'}\`}></i>
-                                                    </button>
-                                                </div>
-                                                <a
-                                                    href="https://replicate.com/account/api-tokens"
-                                                    target="_blank"
-                                                    className="bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-lg font-semibold transition-all whitespace-nowrap"
-                                                >
-                                                    발급받기
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        {/* ElevenLabs API */}
-                                        <div>
-                                            <label className="block text-sm font-semibold mb-2 text-gray-300">
-                                                <i className="fas fa-microphone mr-2"></i>ElevenLabs API 키
-                                                {apiKeys.elevenlabs && <i className="fas fa-check-circle text-green-400 ml-2"></i>}
-                                                {!apiKeys.elevenlabs && <i className="fas fa-times-circle text-red-400 ml-2"></i>}
-                                            </label>
-                                            <div className="flex gap-2">
-                                                <div className="flex-1 relative">
-                                                    <input
-                                                        type={showApiKeys.elevenlabs ? "text" : "password"}
-                                                        value={apiKeys.elevenlabs}
-                                                        onChange={(e) => setApiKeys({...apiKeys, elevenlabs: e.target.value})}
-                                                        placeholder="sk_..."
-                                                        className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
-                                                    />
-                                                    <button
-                                                        onClick={() => setShowApiKeys({...showApiKeys, elevenlabs: !showApiKeys.elevenlabs})}
-                                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
-                                                    >
-                                                        <i className={\`fas fa-\${showApiKeys.elevenlabs ? 'eye-slash' : 'eye'}\`}></i>
-                                                    </button>
-                                                </div>
-                                                <a
-                                                    href="https://elevenlabs.io/app/settings/api-keys"
-                                                    target="_blank"
-                                                    className="bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-lg font-semibold transition-all whitespace-nowrap"
-                                                >
-                                                    발급받기
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div className="bg-blue-900/20 border border-blue-700/50 rounded-lg p-4">
-                                            <p className="text-blue-300 text-sm">
-                                                <i className="fas fa-info-circle mr-2"></i>
-                                                API 키는 브라우저(localStorage)에만 저장됩니다. 서버로 전송되지 않습니다.
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    {/* 취소/저장 버튼 */}
-                                    <div className="flex gap-3 mt-6 pt-6 border-t border-gray-700">
-                                        <button
-                                            onClick={() => setShowSettings(false)}
-                                            className="flex-1 bg-gray-700 hover:bg-gray-600 text-white py-3 px-6 rounded-lg font-semibold transition-all"
-                                        >
-                                            <i className="fas fa-times mr-2"></i>
-                                            취소
-                                        </button>
-                                        <button
-                                            onClick={() => {
-                                                setShowSettings(false);
-                                                showToast('설정이 저장되었습니다', 'success');
-                                            }}
-                                            className="flex-1 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white py-3 px-6 rounded-lg font-semibold transition-all"
-                                        >
-                                            <i className="fas fa-save mr-2"></i>
-                                            저장
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                        
-                        {/* 프로젝트 관리 모달 */}
-                        {showProjectModal && (
-                                            <i className="fas fa-microphone mr-2"></i>
-                                            음성 설정
-                                        </button>
-                                    </div>
-
-                                    {/* API 키 탭 */}
-                                    {settingsTab === 'api' && (
-                                        <div className="space-y-6">
-                                            {/* Replicate API */}
-                                            <div>
-                                                <label className="block text-sm font-semibold mb-2 text-gray-300">
-                                                    Replicate API Token
-                                                    {apiKeys.replicate && <i className="fas fa-check-circle text-green-400 ml-2"></i>}
-                                                    {!apiKeys.replicate && <i className="fas fa-times-circle text-red-400 ml-2"></i>}
-                                                </label>
-                                                <div className="flex gap-2">
-                                                    <div className="flex-1 relative">
-                                                        <input
-                                                            type={showApiKeys.replicate ? "text" : "password"}
-                                                            value={apiKeys.replicate}
-                                                            onChange={(e) => setApiKeys({...apiKeys, replicate: e.target.value})}
-                                                            placeholder="r8_..."
-                                                            className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
-                                                        />
-                                                        <button
-                                                            onClick={() => setShowApiKeys({...showApiKeys, replicate: !showApiKeys.replicate})}
-                                                            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
-                                                        >
-                                                            <i className={\`fas fa-\${showApiKeys.replicate ? 'eye-slash' : 'eye'}\`}></i>
-                                                        </button>
-                                                    </div>
-                                                    <a
-                                                        href="https://replicate.com/account/api-tokens"
-                                                        target="_blank"
-                                                        className="bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-lg font-semibold transition-all whitespace-nowrap"
-                                                    >
-                                                        발급받기
-                                                    </a>
-                                                </div>
-                                            </div>
-
-                                            {/* ElevenLabs API */}
-                                            <div>
-                                                <label className="block text-sm font-semibold mb-2 text-gray-300">
-                                                    ElevenLabs API Key
-                                                    {apiKeys.elevenlabs && <i className="fas fa-check-circle text-green-400 ml-2"></i>}
-                                                    {!apiKeys.elevenlabs && <i className="fas fa-times-circle text-red-400 ml-2"></i>}
-                                                </label>
-                                                <div className="flex gap-2">
-                                                    <div className="flex-1 relative">
-                                                        <input
-                                                            type={showApiKeys.elevenlabs ? "text" : "password"}
-                                                            value={apiKeys.elevenlabs}
-                                                            onChange={(e) => setApiKeys({...apiKeys, elevenlabs: e.target.value})}
-                                                            placeholder="sk_..."
-                                                            className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
-                                                        />
-                                                        <button
-                                                            onClick={() => setShowApiKeys({...showApiKeys, elevenlabs: !showApiKeys.elevenlabs})}
-                                                            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
-                                                        >
-                                                            <i className={\`fas fa-\${showApiKeys.elevenlabs ? 'eye-slash' : 'eye'}\`}></i>
-                                                        </button>
-                                                    </div>
-                                                    <a
-                                                        href="https://elevenlabs.io/app/settings/api-keys"
-                                                        target="_blank"
-                                                        className="bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-lg font-semibold transition-all whitespace-nowrap"
-                                                    >
-                                                        발급받기
-                                                    </a>
-                                                </div>
-                                            </div>
-
-                                            {/* Gemini API */}
-                                            <div>
-                                                <label className="block text-sm font-semibold mb-2 text-gray-300">
-                                                    Gemini API Key
-                                                    {apiKeys.gemini && <i className="fas fa-check-circle text-green-400 ml-2"></i>}
-                                                    {!apiKeys.gemini && <i className="fas fa-times-circle text-red-400 ml-2"></i>}
-                                                </label>
-                                                <div className="flex gap-2">
-                                                    <div className="flex-1 relative">
-                                                        <input
-                                                            type={showApiKeys.gemini ? "text" : "password"}
-                                                            value={apiKeys.gemini}
-                                                            onChange={(e) => setApiKeys({...apiKeys, gemini: e.target.value})}
-                                                            placeholder="AIzaSy..."
-                                                            className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
-                                                        />
-                                                        <button
-                                                            onClick={() => setShowApiKeys({...showApiKeys, gemini: !showApiKeys.gemini})}
-                                                            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
-                                                        >
-                                                            <i className={\`fas fa-\${showApiKeys.gemini ? 'eye-slash' : 'eye'}\`}></i>
-                                                        </button>
-                                                    </div>
-                                                    <a
-                                                        href="https://makersuite.google.com/app/apikey"
-                                                        target="_blank"
-                                                        className="bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-lg font-semibold transition-all whitespace-nowrap"
-                                                    >
-                                                        발급받기
-                                                    </a>
-                                                </div>
-                                            </div>
-
-                                            <div className="bg-yellow-900/20 border border-yellow-700/50 rounded-lg p-4">
-                                                <p className="text-yellow-300 text-sm">
-                                                    <i className="fas fa-exclamation-triangle mr-2"></i>
-                                                    API 키는 브라우저에만 저장됩니다. 서버에는 전송되지 않습니다.
-                                                </p>
-                                            </div>
-                                        </div>
-                                    )}
-
-                                    {/* 음성 설정 탭 */}
-                                    {settingsTab === 'voice' && (
-                                        <div className="space-y-6">
-                                            {/* 내 음성 불러오기 */}
-                                            <div>
-                                                <button
-                                                    onClick={loadMyVoices}
-                                                    disabled={loadingVoices}
-                                                    className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 px-4 rounded-lg font-semibold transition-all disabled:opacity-50 flex items-center justify-center gap-2"
-                                                >
-                                                    {loadingVoices ? (
-                                                        <>
-                                                            <div className="spinner"></div>
-                                                            로딩 중...
-                                                        </>
-                                                    ) : (
-                                                        <>
-                                                            <i className="fas fa-download"></i>
-                                                            내 음성 불러오기
-                                                        </>
-                                                    )}
-                                                </button>
-                                            </div>
-
-                                            {/* 음성 선택 드롭다운 */}
-                                            {availableVoices.length > 0 && (
-                                                <div>
-                                                    <label className="block text-sm font-semibold mb-2 text-gray-300">
-                                                        음성 선택
-                                                    </label>
-                                                    <select
-                                                        value={voiceSettings.voiceId}
-                                                        onChange={(e) => setVoiceSettings({...voiceSettings, voiceId: e.target.value})}
-                                                        className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
-                                                    >
-                                                        {availableVoices.map(voice => (
-                                                            <option key={voice.voice_id} value={voice.voice_id}>
-                                                                {voice.name}
-                                                            </option>
-                                                        ))}
-                                                    </select>
-                                                </div>
-                                            )}
-
-                                            {/* Voice ID 직접 입력 */}
-                                            <div>
-                                                <label className="block text-sm font-semibold mb-2 text-gray-300">
-                                                    Voice ID (직접 입력)
-                                                </label>
-                                                <input
-                                                    type="text"
-                                                    value={voiceSettings.voiceId}
-                                                    onChange={(e) => setVoiceSettings({...voiceSettings, voiceId: e.target.value})}
-                                                    placeholder="21m00Tcm4TlvDq8ikWAM"
-                                                    className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
-                                                />
-                                            </div>
-
-                                            {/* 안정성 슬라이더 */}
-                                            <div>
-                                                <label className="block text-sm font-semibold mb-2 text-gray-300">
-                                                    안정성 (Stability): {voiceSettings.stability.toFixed(2)}
-                                                </label>
-                                                <input
-                                                    type="range"
-                                                    min="0"
-                                                    max="1"
-                                                    step="0.01"
-                                                    value={voiceSettings.stability}
-                                                    onChange={(e) => setVoiceSettings({...voiceSettings, stability: parseFloat(e.target.value)})}
-                                                    className="w-full"
-                                                />
-                                            </div>
-
-                                            {/* 유사성 슬라이더 */}
-                                            <div>
-                                                <label className="block text-sm font-semibold mb-2 text-gray-300">
-                                                    유사성 (Similarity Boost): {voiceSettings.similarityBoost.toFixed(2)}
-                                                </label>
-                                                <input
-                                                    type="range"
-                                                    min="0"
-                                                    max="1"
-                                                    step="0.01"
-                                                    value={voiceSettings.similarityBoost}
-                                                    onChange={(e) => setVoiceSettings({...voiceSettings, similarityBoost: parseFloat(e.target.value)})}
-                                                    className="w-full"
-                                                />
-                                            </div>
-
-                                            {/* 스타일 슬라이더 */}
-                                            <div>
-                                                <label className="block text-sm font-semibold mb-2 text-gray-300">
-                                                    스타일 (Style): {voiceSettings.style.toFixed(2)}
-                                                </label>
-                                                <input
-                                                    type="range"
-                                                    min="0"
-                                                    max="1"
-                                                    step="0.01"
-                                                    value={voiceSettings.style}
-                                                    onChange={(e) => setVoiceSettings({...voiceSettings, style: parseFloat(e.target.value)})}
-                                                    className="w-full"
-                                                />
-                                            </div>
-
-                                            {/* 테스트 버튼 */}
-                                            <div>
-                                                <button
-                                                    onClick={testVoice}
-                                                    className="w-full bg-green-600 hover:bg-green-700 text-white py-3 px-4 rounded-lg font-semibold transition-all flex items-center justify-center gap-2"
-                                                >
-                                                    <i className="fas fa-play"></i>
-                                                    음성 테스트 (안녕하세요 샘플)
-                                                </button>
-                                            </div>
-                                        </div>
-                                    )}
-
-                                    {/* 취소/저장 버튼 */}
-                                    <div className="flex gap-3 mt-6 pt-6 border-t border-gray-700">
-                                        <button
-                                            onClick={() => setShowSettings(false)}
-                                            className="flex-1 bg-gray-700 hover:bg-gray-600 text-white py-3 px-6 rounded-lg font-semibold transition-all"
-                                        >
-                                            <i className="fas fa-times mr-2"></i>
-                                            취소
-                                        </button>
-                                        <button
-                                            onClick={() => {
-                                                setShowSettings(false);
-                                                showToast('설정이 저장되었습니다', 'success');
-                                            }}
-                                            className="flex-1 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white py-3 px-6 rounded-lg font-semibold transition-all"
-                                        >
-                                            <i className="fas fa-save mr-2"></i>
-                                            저장
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                        
                         {/* 프로젝트 관리 모달 */}
                         {showProjectModal && (
                             <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onClick={() => setShowProjectModal(false)}>
@@ -2892,6 +2480,169 @@ app.get('/', (c) => {
                             © 2026 지혜스튜디오랩. All Rights Reserved.
                         </div>
                         </div> {/* 메인 컨텐츠 닫기 */}
+
+                        {/* 설정 모달 - 전체 앱에서 접근 가능 */}
+                        {showSettings && (
+                            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[100]" onClick={() => setShowSettings(false)}>
+                                <div className="bg-gray-900 rounded-xl p-6 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+                                    {/* 모달 헤더 */}
+                                    <div className="flex justify-between items-center mb-6">
+                                        <h2 className="text-2xl font-bold flex items-center gap-2">
+                                            <i className="fas fa-cog text-purple-400"></i>
+                                            설정
+                                        </h2>
+                                        <button
+                                            onClick={() => setShowSettings(false)}
+                                            className="text-gray-400 hover:text-white text-2xl"
+                                        >
+                                            <i className="fas fa-times"></i>
+                                        </button>
+                                    </div>
+
+                                    {/* API 키 입력 섹션 */}
+                                    <div className="space-y-6">
+                                        <h3 className="text-lg font-semibold text-purple-300 flex items-center gap-2">
+                                            <i className="fas fa-key"></i>
+                                            API 키 설정
+                                        </h3>
+
+                                        {/* Gemini API */}
+                                        <div>
+                                            <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                                <i className="fas fa-brain mr-2 text-blue-400"></i>Gemini API 키
+                                                {apiKeys.gemini && <i className="fas fa-check-circle text-green-400 ml-2"></i>}
+                                                {!apiKeys.gemini && <i className="fas fa-times-circle text-red-400 ml-2"></i>}
+                                            </label>
+                                            <div className="flex gap-2">
+                                                <div className="flex-1 relative">
+                                                    <input
+                                                        type={showApiKeys.gemini ? "text" : "password"}
+                                                        value={apiKeys.gemini}
+                                                        onChange={(e) => setApiKeys({...apiKeys, gemini: e.target.value})}
+                                                        placeholder="AIzaSy..."
+                                                        className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
+                                                    />
+                                                    <button
+                                                        onClick={() => setShowApiKeys({...showApiKeys, gemini: !showApiKeys.gemini})}
+                                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
+                                                    >
+                                                        <i className={\`fas fa-\${showApiKeys.gemini ? 'eye-slash' : 'eye'}\`}></i>
+                                                    </button>
+                                                </div>
+                                                <a
+                                                    href="https://makersuite.google.com/app/apikey"
+                                                    target="_blank"
+                                                    className="bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-lg font-semibold transition-all whitespace-nowrap"
+                                                >
+                                                    <i className="fas fa-external-link-alt mr-1"></i>
+                                                    발급
+                                                </a>
+                                            </div>
+                                            <p className="text-xs text-gray-500 mt-1">대본 분석 및 AI 피드백에 사용됩니다</p>
+                                        </div>
+
+                                        {/* Replicate API */}
+                                        <div>
+                                            <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                                <i className="fas fa-image mr-2 text-green-400"></i>Replicate API 키
+                                                {apiKeys.replicate && <i className="fas fa-check-circle text-green-400 ml-2"></i>}
+                                                {!apiKeys.replicate && <i className="fas fa-times-circle text-red-400 ml-2"></i>}
+                                            </label>
+                                            <div className="flex gap-2">
+                                                <div className="flex-1 relative">
+                                                    <input
+                                                        type={showApiKeys.replicate ? "text" : "password"}
+                                                        value={apiKeys.replicate}
+                                                        onChange={(e) => setApiKeys({...apiKeys, replicate: e.target.value})}
+                                                        placeholder="r8_..."
+                                                        className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
+                                                    />
+                                                    <button
+                                                        onClick={() => setShowApiKeys({...showApiKeys, replicate: !showApiKeys.replicate})}
+                                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
+                                                    >
+                                                        <i className={\`fas fa-\${showApiKeys.replicate ? 'eye-slash' : 'eye'}\`}></i>
+                                                    </button>
+                                                </div>
+                                                <a
+                                                    href="https://replicate.com/account/api-tokens"
+                                                    target="_blank"
+                                                    className="bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-lg font-semibold transition-all whitespace-nowrap"
+                                                >
+                                                    <i className="fas fa-external-link-alt mr-1"></i>
+                                                    발급
+                                                </a>
+                                            </div>
+                                            <p className="text-xs text-gray-500 mt-1">이미지 및 영상 생성에 사용됩니다</p>
+                                        </div>
+
+                                        {/* ElevenLabs API */}
+                                        <div>
+                                            <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                                <i className="fas fa-microphone mr-2 text-purple-400"></i>ElevenLabs API 키
+                                                {apiKeys.elevenlabs && <i className="fas fa-check-circle text-green-400 ml-2"></i>}
+                                                {!apiKeys.elevenlabs && <i className="fas fa-times-circle text-red-400 ml-2"></i>}
+                                            </label>
+                                            <div className="flex gap-2">
+                                                <div className="flex-1 relative">
+                                                    <input
+                                                        type={showApiKeys.elevenlabs ? "text" : "password"}
+                                                        value={apiKeys.elevenlabs}
+                                                        onChange={(e) => setApiKeys({...apiKeys, elevenlabs: e.target.value})}
+                                                        placeholder="sk_..."
+                                                        className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
+                                                    />
+                                                    <button
+                                                        onClick={() => setShowApiKeys({...showApiKeys, elevenlabs: !showApiKeys.elevenlabs})}
+                                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
+                                                    >
+                                                        <i className={\`fas fa-\${showApiKeys.elevenlabs ? 'eye-slash' : 'eye'}\`}></i>
+                                                    </button>
+                                                </div>
+                                                <a
+                                                    href="https://elevenlabs.io/app/settings/api-keys"
+                                                    target="_blank"
+                                                    className="bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-lg font-semibold transition-all whitespace-nowrap"
+                                                >
+                                                    <i className="fas fa-external-link-alt mr-1"></i>
+                                                    발급
+                                                </a>
+                                            </div>
+                                            <p className="text-xs text-gray-500 mt-1">음성(나레이션) 생성에 사용됩니다</p>
+                                        </div>
+
+                                        {/* 안내 메시지 */}
+                                        <div className="bg-blue-900/20 border border-blue-700/50 rounded-lg p-4">
+                                            <p className="text-blue-300 text-sm">
+                                                <i className="fas fa-shield-alt mr-2"></i>
+                                                API 키는 브라우저(localStorage)에만 저장됩니다. 서버로 전송되지 않아 안전합니다.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* 취소/저장 버튼 */}
+                                    <div className="flex gap-3 mt-6 pt-6 border-t border-gray-700">
+                                        <button
+                                            onClick={() => setShowSettings(false)}
+                                            className="flex-1 bg-gray-700 hover:bg-gray-600 text-white py-3 px-6 rounded-lg font-semibold transition-all"
+                                        >
+                                            <i className="fas fa-times mr-2"></i>
+                                            취소
+                                        </button>
+                                        <button
+                                            onClick={() => {
+                                                setShowSettings(false);
+                                                showToast('설정이 저장되었습니다', 'success');
+                                            }}
+                                            className="flex-1 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white py-3 px-6 rounded-lg font-semibold transition-all"
+                                        >
+                                            <i className="fas fa-save mr-2"></i>
+                                            저장
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 );
             }
