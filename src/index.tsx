@@ -2636,6 +2636,27 @@ app.get('/', (c) => {
                                             </div>
                                         </div>
                                     )}
+
+                                    {/* 취소/저장 버튼 */}
+                                    <div className="flex gap-3 mt-6 pt-6 border-t border-gray-700">
+                                        <button
+                                            onClick={() => setShowSettings(false)}
+                                            className="flex-1 bg-gray-700 hover:bg-gray-600 text-white py-3 px-6 rounded-lg font-semibold transition-all"
+                                        >
+                                            <i className="fas fa-times mr-2"></i>
+                                            취소
+                                        </button>
+                                        <button
+                                            onClick={() => {
+                                                setShowSettings(false);
+                                                showToast('설정이 저장되었습니다', 'success');
+                                            }}
+                                            className="flex-1 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white py-3 px-6 rounded-lg font-semibold transition-all"
+                                        >
+                                            <i className="fas fa-save mr-2"></i>
+                                            저장
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         )}
