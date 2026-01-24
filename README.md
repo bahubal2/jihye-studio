@@ -18,16 +18,23 @@ AI 기반 유튜브 영상 제작 솔루션
 
 ✅ 대본 입력 UI (다크모드 디자인)  
 ✅ Gemini 2.5 Flash API 연동 - 장면별 분할 및 이미지 프롬프트 자동 생성  
-✅ **AI 모델 선택** - 4가지 AI 모델 드롭다운 ⭐ NEW v5.1  
+✅ **AI 모델 선택** - 6가지 AI 모델 드롭다운 ⭐ NEW v5.1  
+  - 🌟 Nanobanana Pro (고품질 실사 + 캐릭터 일관성) ⭐ NEW
+  - 📸 Nanobanana (실사 + 캐릭터 일관성) ⭐ NEW
+  - 🏆 FLUX 1.1 Pro (최고 품질) - 기본값
+  - 💎 FLUX Dev (고품질 무료)
+  - ⚡ FLUX Schnell (빠름)
+  - ✨ Recraft V3 (초고품질)
+✅ **캐릭터 일관성 기능** - 동일 캐릭터 유지 ⭐ NEW v5.1  
+  - 캐릭터 참조 이미지 업로드 (PNG, JPG 최대 10MB)
+  - 캐릭터 설명 입력 (선택)
+  - 일관성 강도 슬라이더 (0~1, 기본값 0.7)
+  - "모든 장면에 이 캐릭터 사용" 체크박스
+  - Nanobanana/Nanobanana Pro 모델에서 완벽 지원
 ✅ **품질 향상 프롬프트** - 자동 품질 키워드 추가 ⭐ NEW  
 ✅ **네거티브 프롬프트** - 저품질 이미지 자동 제외 ⭐ NEW  
 ✅ **이미지 스타일 선택** - 5가지 프리셋 + 커스텀 스타일  
 ✅ **이미지 비율 선택** - 16:9, 9:16, 1:1, 4:3, 3:4  
-✅ **Replicate API 연동** - 4가지 모델 지원 ✅ 작동 확인
-  - FLUX 1.1 Pro (최고 품질) - 기본값 ⭐
-  - FLUX Dev (고품질 무료) - 약 2초 생성 ✅ 테스트 완료
-  - FLUX Schnell (빠름) - 약 2초 생성 ✅ 테스트 완료
-  - Recraft V3 (초고품질) - 약 6초 생성 ✅ 테스트 완료
 ✅ Replicate Kling API 연동 - 이미지 투 비디오 변환  
 ✅ ElevenLabs TTS API 연동 - 음성 파일 생성  
 ✅ **설정 모달** - API 키 & 음성 설정 ⭐ NEW v5.1
@@ -72,7 +79,7 @@ AI 기반 유튜브 영상 제작 솔루션
 | 메서드 | 경로 | 파라미터 | 설명 |
 |--------|------|----------|------|
 | POST | `/api/analyze-script` | `{ script: string }` | 대본 분석 및 장면 분할 |
-| POST | `/api/generate-image` | `{ prompt: string, sceneId: number, stylePrefix?: string, aspectRatio?: string, model?: string }` | 이미지 생성 (AI 모델 선택 가능) |
+| POST | `/api/generate-image` | `{ prompt: string, sceneId: number, stylePrefix?: string, aspectRatio?: string, model?: string, characterImage?: string, characterDescription?: string, characterStrength?: number }` | 이미지 생성 (AI 모델 선택 가능, 캐릭터 일관성 지원) |
 | POST | `/api/generate-video` | `{ imageUrl: string, prompt: string, sceneId: number }` | 영상 생성 시작 |
 | POST | `/api/generate-voice` | `{ text: string, voiceId?: string, voiceSettings?: { stability: number, similarity_boost: number, style: number } }` | 음성 생성 (MP3 반환, 음성 설정 커스터마이징 가능) |
 | GET | `/api/check-status/:jobId` | - | 영상 생성 상태 확인 (폴링용) |

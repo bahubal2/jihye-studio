@@ -81,7 +81,10 @@ app.post('/api/generate-image', async (c) => {
       sceneId, 
       stylePrefix = '', 
       aspectRatio = '16:9', 
-      model = 'flux-1.1-pro' 
+      model = 'flux-1.1-pro',
+      characterImage = null,
+      characterDescription = '',
+      characterStrength = 0.7
     } = await c.req.json()
     
     if (!prompt) {
@@ -98,14 +101,51 @@ app.post('/api/generate-image', async (c) => {
     // 네거티브 프롬프트
     const negativePrompt = 'low quality, blurry, distorted, disfigured, bad anatomy, wrong proportions, watermark, text, logo, ugly, duplicate, '
 
+    // 캐릭터 설명 추가
+    let characterPrefix = ''
+    if (characterDescription) {
+      characterPrefix = characterDescription + ', '
+    }
+
     // 최종 프롬프트 생성
-    const finalPrompt = `${qualityEnhancement}${stylePrefix}${prompt}`
+    const finalPrompt = `${qualityEnhancement}${characterPrefix}${stylePrefix}${prompt}`
 
     console.log('Generating image with model:', model)
     console.log('Final prompt:', finalPrompt)
+    console.log('Character image:', characterImage ? 'provided' : 'none')
+    console.log('Character strength:', characterStrength)
 
     // 모델별 설정
     const modelConfigs: Record<string, any> = {
+      'nanobanana-pro': {
+        model: 'fofr/nanobanana-pro',
+        input: {
+          prompt: finalPrompt,
+          aspect_ratio: aspectRatio,
+          output_format: "webp",
+          output_quality: 100,
+          num_inference_steps: 28,
+          guidance_scale: 3.5,
+          ...(characterImage && {
+            image: characterImage,
+            prompt_strength: characterStrength
+          })
+        }
+      },
+      'nanobanana': {
+        model: 'fofr/nanobanana',
+        input: {
+          prompt: finalPrompt,
+          aspect_ratio: aspectRatio,
+          output_format: "webp",
+          output_quality: 95,
+          num_inference_steps: 20,
+          ...(characterImage && {
+            image: characterImage,
+            prompt_strength: characterStrength
+          })
+        }
+      },
       'flux-pro': {
         model: 'black-forest-labs/flux-1.1-pro',
         input: {
@@ -589,6 +629,13 @@ app.get('/', (c) => {
                 // 드래그앤드롭 상태
                 const [draggedIndex, setDraggedIndex] = useState(null);
 
+                // 캐릭터 설정
+                const [characterImage, setCharacterImage] = useState(null);
+                const [characterImageUrl, setCharacterImageUrl] = useState('');
+                const [characterDescription, setCharacterDescription] = useState('');
+                const [useCharacter, setUseCharacter] = useState(false);
+                const [characterStrength, setCharacterStrength] = useState(0.7);
+
                 // localStorage에 저장
                 useEffect(() => {
                     localStorage.setItem('apiKeys', JSON.stringify(apiKeys));
@@ -796,6 +843,40 @@ app.get('/', (c) => {
                     setDraggedIndex(null);
                 };
 
+                // 캐릭터 이미지 업로드
+                const handleCharacterImageUpload = (e) => {
+                    const file = e.target.files[0];
+                    if (!file) return;
+
+                    // 이미지 파일 체크
+                    if (!file.type.startsWith('image/')) {
+                        showToast('이미지 파일만 업로드 가능합니다', 'error');
+                        return;
+                    }
+
+                    // 파일 크기 체크 (10MB)
+                    if (file.size > 10 * 1024 * 1024) {
+                        showToast('파일 크기는 10MB 이하여야 합니다', 'error');
+                        return;
+                    }
+
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                        setCharacterImageUrl(event.target.result);
+                        setCharacterImage(file);
+                        showToast('캐릭터 이미지가 업로드되었습니다', 'success');
+                    };
+                    reader.readAsDataURL(file);
+                };
+
+                // 캐릭터 이미지 삭제
+                const deleteCharacterImage = () => {
+                    setCharacterImageUrl('');
+                    setCharacterImage(null);
+                    setUseCharacter(false);
+                    showToast('캐릭터 이미지가 삭제되었습니다', 'success');
+                };
+
                 const analyzeScript = async () => {
                     if (!script.trim()) {
                         showToast('대본을 입력해주세요', 'error');
@@ -857,7 +938,12 @@ app.get('/', (c) => {
                                 sceneId,
                                 stylePrefix,
                                 aspectRatio,
-                                model: aiModel
+                                model: aiModel,
+                                ...(useCharacter && characterImageUrl && {
+                                    characterImage: characterImageUrl,
+                                    characterDescription,
+                                    characterStrength
+                                })
                             })
                         });
 
@@ -1094,6 +1180,8 @@ app.get('/', (c) => {
                                         onChange={(e) => setAiModel(e.target.value)}
                                         className="w-full p-3 bg-gray-900/50 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
                                     >
+                                        <option value="nanobanana-pro">🌟 Nanobanana Pro (고품질 실사 + 캐릭터)</option>
+                                        <option value="nanobanana">📸 Nanobanana (실사 + 캐릭터)</option>
                                         <option value="flux-pro">🏆 FLUX 1.1 Pro (최고 품질)</option>
                                         <option value="flux-dev">💎 FLUX Dev (고품질 무료)</option>
                                         <option value="flux-schnell">⚡ FLUX Schnell (빠름)</option>
@@ -1120,6 +1208,125 @@ app.get('/', (c) => {
                                     </p>
                                 </div>
                             )}
+
+                            {/* 캐릭터 설정 */}
+                            <div className="mt-6 p-4 bg-gray-800/50 rounded-lg border border-gray-700">
+                                <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+                                    <i className="fas fa-user-circle text-blue-400"></i>
+                                    캐릭터 일관성 설정
+                                    {(aiModel === 'nanobanana' || aiModel === 'nanobanana-pro') && (
+                                        <span className="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded">지원됨</span>
+                                    )}
+                                </h3>
+
+                                {/* 캐릭터 이미지 업로드 */}
+                                <div className="mb-4">
+                                    <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                        <i className="fas fa-upload mr-2"></i>캐릭터 참조 이미지
+                                    </label>
+                                    
+                                    {characterImageUrl ? (
+                                        <div className="flex gap-4 items-start">
+                                            <div className="w-32 h-32 rounded-lg overflow-hidden border-2 border-purple-500">
+                                                <img src={characterImageUrl} alt="Character" className="w-full h-full object-cover" />
+                                            </div>
+                                            <div className="flex-1">
+                                                <button
+                                                    onClick={deleteCharacterImage}
+                                                    className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg font-semibold transition-all mb-2"
+                                                >
+                                                    <i className="fas fa-trash mr-2"></i>
+                                                    캐릭터 삭제
+                                                </button>
+                                                <p className="text-sm text-gray-400">
+                                                    <i className="fas fa-check-circle text-green-400 mr-1"></i>
+                                                    캐릭터 이미지가 업로드되었습니다
+                                                </p>
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <label className="block cursor-pointer">
+                                            <input
+                                                type="file"
+                                                accept="image/*"
+                                                onChange={handleCharacterImageUpload}
+                                                className="hidden"
+                                            />
+                                            <div className="border-2 border-dashed border-gray-600 rounded-lg p-8 text-center hover:border-purple-500 transition-all">
+                                                <i className="fas fa-cloud-upload-alt text-4xl text-gray-500 mb-2"></i>
+                                                <p className="text-gray-400">클릭하여 캐릭터 이미지 업로드</p>
+                                                <p className="text-xs text-gray-600 mt-1">PNG, JPG (최대 10MB)</p>
+                                            </div>
+                                        </label>
+                                    )}
+                                </div>
+
+                                {/* 캐릭터 설명 */}
+                                <div className="mb-4">
+                                    <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                        <i className="fas fa-comment-dots mr-2"></i>캐릭터 설명 (선택)
+                                    </label>
+                                    <input
+                                        type="text"
+                                        value={characterDescription}
+                                        onChange={(e) => setCharacterDescription(e.target.value)}
+                                        placeholder="예: 60대 한국 할아버지, 흰머리, 안경"
+                                        className="w-full p-3 bg-gray-900/50 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
+                                    />
+                                    <p className="text-xs text-gray-500 mt-2">
+                                        💡 캐릭터의 특징을 설명하면 더 정확한 결과를 얻을 수 있습니다
+                                    </p>
+                                </div>
+
+                                {/* 캐릭터 일관성 강도 */}
+                                {characterImageUrl && (
+                                    <>
+                                        <div className="mb-4">
+                                            <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                                <i className="fas fa-sliders-h mr-2"></i>일관성 강도: {characterStrength.toFixed(2)}
+                                            </label>
+                                            <input
+                                                type="range"
+                                                min="0"
+                                                max="1"
+                                                step="0.05"
+                                                value={characterStrength}
+                                                onChange={(e) => setCharacterStrength(parseFloat(e.target.value))}
+                                                className="w-full"
+                                            />
+                                            <div className="flex justify-between text-xs text-gray-500 mt-1">
+                                                <span>낮음 (자유로움)</span>
+                                                <span>높음 (정확함)</span>
+                                            </div>
+                                        </div>
+
+                                        {/* 캐릭터 사용 체크박스 */}
+                                        <div className="flex items-center gap-2">
+                                            <input
+                                                type="checkbox"
+                                                id="useCharacter"
+                                                checked={useCharacter}
+                                                onChange={(e) => setUseCharacter(e.target.checked)}
+                                                className="w-4 h-4"
+                                            />
+                                            <label htmlFor="useCharacter" className="text-sm text-gray-300 cursor-pointer">
+                                                <i className="fas fa-magic mr-2 text-purple-400"></i>
+                                                모든 장면에 이 캐릭터 사용
+                                            </label>
+                                        </div>
+
+                                        {/* 모델 지원 안내 */}
+                                        {(aiModel !== 'nanobanana' && aiModel !== 'nanobanana-pro') && (
+                                            <div className="mt-3 p-3 bg-yellow-900/20 border border-yellow-700/50 rounded-lg">
+                                                <p className="text-yellow-300 text-sm">
+                                                    <i className="fas fa-exclamation-triangle mr-2"></i>
+                                                    현재 선택된 모델은 캐릭터 일관성을 완벽히 지원하지 않습니다. Nanobanana 또는 Nanobanana Pro 모델을 사용하세요.
+                                                </p>
+                                            </div>
+                                        )}
+                                    </>
+                                )}
+                            </div>
 
                             {/* 현재 설정 미리보기 */}
                             <div className="mt-4 p-3 bg-purple-500/10 border border-purple-500/30 rounded-lg">
