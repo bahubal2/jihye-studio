@@ -84,6 +84,12 @@ AI 기반 유튜브 영상 제작 솔루션
   - 📝 대본 생성, 🎬 영상 제작 (페이지 전환)
   - 현재 페이지 하이라이트 (보라색 배경)
   - 접기/펼치기 토글 기능
+  - **올바른 Flexbox 구조** ⭐ FIXED
+    - fixed left-0 top-0 bottom-0 (전체 높이 고정)
+    - flex flex-col (세로 방향 flexbox)
+    - 헤더: flex-shrink-0 (고정)
+    - 메뉴: flex-1 overflow-y-auto (스크롤 가능)
+    - 하단 버튼: flex-shrink-0 (하단 고정)
   - **하단 고정 버튼** ⭐ NEW
     - 🆕 새 창 열기 (초록색 그라데이션) - 작업 초기화 + 새 프로젝트
     - ⚙️ 설정 (회색) - API 키, 음성 설정 모달
