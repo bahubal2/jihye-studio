@@ -642,6 +642,20 @@ app.get('/', (c) => {
                 const [isComposing, setIsComposing] = useState(false);
                 const [composingProgress, setComposingProgress] = useState(0);
                 const [finalVideoUrl, setFinalVideoUrl] = useState('');
+
+                // 좌측 사이드바
+                const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+
+                // 자막 설정
+                const [subtitleEnabled, setSubtitleEnabled] = useState(true);
+                const [subtitleStyle, setSubtitleStyle] = useState({
+                    fontSize: 24,
+                    fontColor: '#FFFFFF',
+                    backgroundColor: '#000000',
+                    backgroundOpacity: 0.7,
+                    position: 'bottom',
+                    fontFamily: 'Arial'
+                });
                 const [showFinalVideo, setShowFinalVideo] = useState(false);
 
                 // localStorage에 저장
@@ -652,6 +666,14 @@ app.get('/', (c) => {
                 useEffect(() => {
                     localStorage.setItem('voiceSettings', JSON.stringify(voiceSettings));
                 }, [voiceSettings]);
+
+                useEffect(() => {
+                    localStorage.setItem('subtitleSettings', JSON.stringify(subtitleStyle));
+                }, [subtitleStyle]);
+
+                useEffect(() => {
+                    localStorage.setItem('subtitleEnabled', JSON.stringify(subtitleEnabled));
+                }, [subtitleEnabled]);
 
                 // 내 음성 목록 불러오기
                 const loadMyVoices = async () => {
@@ -1278,35 +1300,108 @@ app.get('/', (c) => {
                             </div>
                         )}
 
-                        {/* Header */}
-                        <div className="text-center mb-8 relative">
-                            <h1 className="text-5xl font-bold mb-3 bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
-                                <i className="fas fa-video mr-3"></i>
-                                지혜스튜디오 v5.1
-                            </h1>
-                            <p className="text-gray-400">AI 기반 유튜브 영상 제작 솔루션</p>
-                            
-                            {/* 상단 버튼들 */}
-                            <div className="absolute top-0 right-0 flex gap-2">
-                                {/* 프로젝트 저장 버튼 */}
+                        {/* 좌측 사이드바 */}
+                        <div className={'fixed left-0 top-0 h-full bg-gray-900/95 backdrop-blur-sm border-r border-gray-800 transition-all duration-300 z-50 ' + (sidebarCollapsed ? 'w-16' : 'w-64')}>
+                            {/* 사이드바 헤더 */}
+                            <div className="p-4 border-b border-gray-800 flex items-center justify-between">
+                                {!sidebarCollapsed && (
+                                    <div className="flex items-center gap-2">
+                                        <i className="fas fa-video text-purple-400 text-xl"></i>
+                                        <span className="font-bold text-white">지혜스튜디오</span>
+                                    </div>
+                                )}
                                 <button
-                                    onClick={() => setShowProjectModal(true)}
-                                    className="bg-gray-800 hover:bg-gray-700 text-white p-3 rounded-lg transition-all"
-                                    title="프로젝트 관리"
+                                    onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+                                    className="text-gray-400 hover:text-white transition-all p-2"
                                 >
-                                    <i className="fas fa-folder text-xl"></i>
+                                    <i className={'fas fa-' + (sidebarCollapsed ? 'angle-right' : 'angle-left')}></i>
                                 </button>
-                                
-                                {/* 설정 버튼 */}
+                            </div>
+
+                            {/* 메뉴 항목 */}
+                            <div className="p-4 space-y-2">
+                                {[
+                                    { icon: 'file-alt', label: '대본 생성', id: 'script' },
+                                    { icon: 'magic', label: '제목/내용 생성', id: 'title' },
+                                    { icon: 'film', label: '영상 제작', id: 'video' },
+                                    { icon: 'image', label: '썸네일 제작', id: 'thumbnail' },
+                                    { icon: 'palette', label: '비주얼 프롬프트', id: 'visual' },
+                                    { icon: 'download', label: '모델 다운로드', id: 'model' }
+                                ].map(item => (
+                                    <button
+                                        key={item.id}
+                                        className="w-full text-left p-3 rounded-lg hover:bg-gray-800/50 text-gray-300 hover:text-white transition-all flex items-center gap-3"
+                                        title={item.label}
+                                    >
+                                        <i className={'fas fa-' + item.icon + ' text-lg'}></i>
+                                        {!sidebarCollapsed && <span>{item.label}</span>}
+                                    </button>
+                                ))}
+
+                                {/* 구분선 */}
+                                <div className="my-4 border-t border-gray-800"></div>
+
+                                {/* 추가 메뉴 */}
+                                <button
+                                    onClick={() => window.open(window.location.href, '_blank')}
+                                    className="w-full text-left p-3 rounded-lg hover:bg-gray-800/50 text-gray-300 hover:text-white transition-all flex items-center gap-3"
+                                    title="새 창 열기"
+                                >
+                                    <i className="fas fa-external-link-alt text-lg"></i>
+                                    {!sidebarCollapsed && <span>새 창 열기</span>}
+                                </button>
+
                                 <button
                                     onClick={() => setShowSettings(true)}
-                                    className="bg-gray-800 hover:bg-gray-700 text-white p-3 rounded-lg transition-all"
+                                    className="w-full text-left p-3 rounded-lg hover:bg-gray-800/50 text-gray-300 hover:text-white transition-all flex items-center gap-3"
                                     title="설정"
                                 >
-                                    <i className="fas fa-cog text-xl"></i>
+                                    <i className="fas fa-cog text-lg"></i>
+                                    {!sidebarCollapsed && <span>설정</span>}
+                                </button>
+
+                                <button
+                                    onClick={() => window.open(window.location.href, '_self')}
+                                    className="w-full text-left p-3 rounded-lg hover:bg-gray-800/50 text-gray-300 hover:text-white transition-all flex items-center gap-3"
+                                    title="브라우저로 열기"
+                                >
+                                    <i className="fas fa-globe text-lg"></i>
+                                    {!sidebarCollapsed && <span>브라우저로 열기</span>}
                                 </button>
                             </div>
                         </div>
+
+                        {/* 메인 컨텐츠 (사이드바만큼 왼쪽 마진 추가) */}
+                        <div className={'transition-all duration-300 ' + (sidebarCollapsed ? 'ml-16' : 'ml-64')}>
+                            {/* Header */}
+                            <div className="text-center mb-8 relative">
+                                <h1 className="text-5xl font-bold mb-3 bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
+                                    <i className="fas fa-video mr-3"></i>
+                                    지혜스튜디오 v5.1
+                                </h1>
+                                <p className="text-gray-400">AI 기반 유튜브 영상 제작 솔루션</p>
+                                
+                                {/* 상단 버튼들 */}
+                                <div className="absolute top-0 right-0 flex gap-2">
+                                    {/* 프로젝트 저장 버튼 */}
+                                    <button
+                                        onClick={() => setShowProjectModal(true)}
+                                        className="bg-gray-800 hover:bg-gray-700 text-white p-3 rounded-lg transition-all"
+                                        title="프로젝트 관리"
+                                    >
+                                        <i className="fas fa-folder text-xl"></i>
+                                    </button>
+                                    
+                                    {/* 설정 버튼 */}
+                                    <button
+                                        onClick={() => setShowSettings(true)}
+                                        className="bg-gray-800 hover:bg-gray-700 text-white p-3 rounded-lg transition-all"
+                                        title="설정"
+                                    >
+                                        <i className="fas fa-cog text-xl"></i>
+                                    </button>
+                                </div>
+                            </div>
 
                         {/* Image Style Settings */}
                         <div className="card rounded-xl p-6 mb-6">
@@ -1505,6 +1600,167 @@ app.get('/', (c) => {
                                                 </p>
                                             </div>
                                         )}
+                                    </>
+                                )}
+                            </div>
+
+                            {/* 자막 설정 */}
+                            <div className="mt-6 p-4 bg-gray-800/50 rounded-lg border border-gray-700">
+                                <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+                                    <i className="fas fa-closed-captioning text-green-400"></i>
+                                    자막 설정
+                                </h3>
+
+                                {/* 자막 사용 여부 */}
+                                <div className="mb-4 flex items-center gap-2">
+                                    <input
+                                        type="checkbox"
+                                        id="subtitleEnabled"
+                                        checked={subtitleEnabled}
+                                        onChange={(e) => setSubtitleEnabled(e.target.checked)}
+                                        className="w-4 h-4"
+                                    />
+                                    <label htmlFor="subtitleEnabled" className="text-sm text-gray-300 cursor-pointer">
+                                        <i className="fas fa-eye mr-2 text-green-400"></i>
+                                        자막 사용
+                                    </label>
+                                </div>
+
+                                {subtitleEnabled && (
+                                    <>
+                                        {/* 폰트 크기 */}
+                                        <div className="mb-4">
+                                            <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                                <i className="fas fa-text-height mr-2"></i>폰트 크기: {subtitleStyle.fontSize}px
+                                            </label>
+                                            <input
+                                                type="range"
+                                                min="16"
+                                                max="48"
+                                                step="2"
+                                                value={subtitleStyle.fontSize}
+                                                onChange={(e) => setSubtitleStyle({...subtitleStyle, fontSize: parseInt(e.target.value)})}
+                                                className="w-full"
+                                            />
+                                            <div className="flex justify-between text-xs text-gray-500 mt-1">
+                                                <span>작음</span>
+                                                <span>큼</span>
+                                            </div>
+                                        </div>
+
+                                        {/* 폰트 색상 */}
+                                        <div className="mb-4">
+                                            <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                                <i className="fas fa-palette mr-2"></i>폰트 색상
+                                            </label>
+                                            <div className="flex gap-2 items-center">
+                                                <input
+                                                    type="color"
+                                                    value={subtitleStyle.fontColor}
+                                                    onChange={(e) => setSubtitleStyle({...subtitleStyle, fontColor: e.target.value})}
+                                                    className="w-12 h-12 rounded cursor-pointer"
+                                                />
+                                                <input
+                                                    type="text"
+                                                    value={subtitleStyle.fontColor}
+                                                    onChange={(e) => setSubtitleStyle({...subtitleStyle, fontColor: e.target.value})}
+                                                    className="flex-1 p-2 bg-gray-900/50 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
+                                                />
+                                            </div>
+                                        </div>
+
+                                        {/* 배경 색상 */}
+                                        <div className="mb-4">
+                                            <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                                <i className="fas fa-fill mr-2"></i>배경 색상
+                                            </label>
+                                            <div className="flex gap-2 items-center">
+                                                <input
+                                                    type="color"
+                                                    value={subtitleStyle.backgroundColor}
+                                                    onChange={(e) => setSubtitleStyle({...subtitleStyle, backgroundColor: e.target.value})}
+                                                    className="w-12 h-12 rounded cursor-pointer"
+                                                />
+                                                <input
+                                                    type="text"
+                                                    value={subtitleStyle.backgroundColor}
+                                                    onChange={(e) => setSubtitleStyle({...subtitleStyle, backgroundColor: e.target.value})}
+                                                    className="flex-1 p-2 bg-gray-900/50 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
+                                                />
+                                            </div>
+                                        </div>
+
+                                        {/* 배경 투명도 */}
+                                        <div className="mb-4">
+                                            <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                                <i className="fas fa-adjust mr-2"></i>배경 투명도: {(subtitleStyle.backgroundOpacity * 100).toFixed(0)}%
+                                            </label>
+                                            <input
+                                                type="range"
+                                                min="0"
+                                                max="1"
+                                                step="0.1"
+                                                value={subtitleStyle.backgroundOpacity}
+                                                onChange={(e) => setSubtitleStyle({...subtitleStyle, backgroundOpacity: parseFloat(e.target.value)})}
+                                                className="w-full"
+                                            />
+                                            <div className="flex justify-between text-xs text-gray-500 mt-1">
+                                                <span>투명</span>
+                                                <span>불투명</span>
+                                            </div>
+                                        </div>
+
+                                        {/* 위치 */}
+                                        <div className="mb-4">
+                                            <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                                <i className="fas fa-arrows-alt-v mr-2"></i>자막 위치
+                                            </label>
+                                            <select
+                                                value={subtitleStyle.position}
+                                                onChange={(e) => setSubtitleStyle({...subtitleStyle, position: e.target.value})}
+                                                className="w-full p-3 bg-gray-900/50 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
+                                            >
+                                                <option value="top">상단</option>
+                                                <option value="middle">중앙</option>
+                                                <option value="bottom">하단</option>
+                                            </select>
+                                        </div>
+
+                                        {/* 폰트 패밀리 */}
+                                        <div className="mb-4">
+                                            <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                                <i className="fas fa-font mr-2"></i>폰트
+                                            </label>
+                                            <select
+                                                value={subtitleStyle.fontFamily}
+                                                onChange={(e) => setSubtitleStyle({...subtitleStyle, fontFamily: e.target.value})}
+                                                className="w-full p-3 bg-gray-900/50 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
+                                            >
+                                                <option value="Arial">Arial</option>
+                                                <option value="'Noto Sans KR', sans-serif">Noto Sans KR</option>
+                                                <option value="'Nanum Gothic', sans-serif">나눔고딕</option>
+                                                <option value="'Malgun Gothic', sans-serif">맑은 고딕</option>
+                                            </select>
+                                        </div>
+
+                                        {/* 미리보기 */}
+                                        <div className="p-4 bg-gray-900 rounded-lg text-center">
+                                            <p className="text-xs text-gray-500 mb-2">자막 미리보기</p>
+                                            <div 
+                                                style={{
+                                                    fontSize: subtitleStyle.fontSize + 'px',
+                                                    color: subtitleStyle.fontColor,
+                                                    backgroundColor: subtitleStyle.backgroundColor,
+                                                    opacity: subtitleStyle.backgroundOpacity,
+                                                    fontFamily: subtitleStyle.fontFamily,
+                                                    padding: '8px 16px',
+                                                    borderRadius: '4px',
+                                                    display: 'inline-block'
+                                                }}
+                                            >
+                                                안녕하세요. 지혜스튜디오입니다.
+                                            </div>
+                                        </div>
                                     </>
                                 )}
                             </div>
@@ -2183,6 +2439,7 @@ app.get('/', (c) => {
                         <div className="footer">
                             © 2026 지혜스튜디오랩. All Rights Reserved.
                         </div>
+                        </div> {/* 메인 컨텐츠 닫기 */}
                     </div>
                 );
             }
