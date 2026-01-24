@@ -1395,7 +1395,7 @@ app.get('/', (c) => {
                         )}
 
                         {/* 좌측 사이드바 */}
-                        <div className={'fixed left-0 top-0 h-full bg-gray-900/95 backdrop-blur-sm border-r border-gray-800 transition-all duration-300 z-50 ' + (sidebarCollapsed ? 'w-16' : 'w-64')}>
+                        <div className={'fixed left-0 top-0 h-full bg-gray-900/95 backdrop-blur-sm border-r border-gray-800 transition-all duration-300 z-50 relative ' + (sidebarCollapsed ? 'w-16' : 'w-64')}>
                             {/* 사이드바 헤더 */}
                             <div className="p-4 border-b border-gray-800 flex items-center justify-between">
                                 {!sidebarCollapsed && (
@@ -1413,7 +1413,7 @@ app.get('/', (c) => {
                             </div>
 
                             {/* 메뉴 항목 */}
-                            <div className="p-4 space-y-2">
+                            <div className="p-4 space-y-2 pb-48">
                                 {[
                                     { icon: 'file-alt', label: '대본 생성', id: 'script-gen', page: 'script-gen' },
                                     { icon: 'film', label: '영상 제작', id: 'video-production', page: 'video-production' }
@@ -1428,35 +1428,50 @@ app.get('/', (c) => {
                                         {!sidebarCollapsed && <span>{item.label}</span>}
                                     </button>
                                 ))}
+                            </div>
 
-                                {/* 구분선 */}
-                                <div className="my-4 border-t border-gray-800"></div>
-
-                                {/* 추가 메뉴 */}
+                            {/* 하단 고정 버튼들 */}
+                            <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-800 bg-gray-900/95 space-y-2">
+                                {/* 새 창 열기 */}
                                 <button
-                                    onClick={() => window.open(window.location.href, '_blank')}
-                                    className="w-full text-left p-3 rounded-lg hover:bg-gray-800/50 text-gray-300 hover:text-white transition-all flex items-center gap-3"
+                                    onClick={() => {
+                                        if (confirm('현재 작업을 초기화하고 새 프로젝트를 시작하시겠습니까?')) {
+                                            setScript('');
+                                            setScenes([]);
+                                            setOverallFeedback('');
+                                            setSuggestions([]);
+                                            setFinalVideoUrl('');
+                                            setIdeaKeyword('');
+                                            setDraftScript('');
+                                            setFinalScript('');
+                                            setCurrentPage('script-gen');
+                                            showToast('새 프로젝트가 시작되었습니다', 'success');
+                                        }
+                                    }}
+                                    className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white p-3 rounded-lg font-semibold transition-all flex items-center justify-center gap-2"
                                     title="새 창 열기"
                                 >
-                                    <i className="fas fa-external-link-alt text-lg"></i>
+                                    <i className="fas fa-plus-circle text-lg"></i>
                                     {!sidebarCollapsed && <span>새 창 열기</span>}
                                 </button>
 
+                                {/* 설정 */}
                                 <button
                                     onClick={() => setShowSettings(true)}
-                                    className="w-full text-left p-3 rounded-lg hover:bg-gray-800/50 text-gray-300 hover:text-white transition-all flex items-center gap-3"
+                                    className="w-full bg-gray-700 hover:bg-gray-600 text-white p-3 rounded-lg font-semibold transition-all flex items-center justify-center gap-2"
                                     title="설정"
                                 >
                                     <i className="fas fa-cog text-lg"></i>
                                     {!sidebarCollapsed && <span>설정</span>}
                                 </button>
 
+                                {/* 브라우저로 열기 */}
                                 <button
-                                    onClick={() => window.open(window.location.href, '_self')}
-                                    className="w-full text-left p-3 rounded-lg hover:bg-gray-800/50 text-gray-300 hover:text-white transition-all flex items-center gap-3"
+                                    onClick={() => window.open(window.location.href, '_blank')}
+                                    className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white p-3 rounded-lg font-semibold transition-all flex items-center justify-center gap-2"
                                     title="브라우저로 열기"
                                 >
-                                    <i className="fas fa-globe text-lg"></i>
+                                    <i className="fas fa-external-link-alt text-lg"></i>
                                     {!sidebarCollapsed && <span>브라우저로 열기</span>}
                                 </button>
                             </div>
