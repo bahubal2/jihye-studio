@@ -1577,6 +1577,87 @@ app.get('/', (c) => {
                             </>
                         )}
 
+                        {/* 제목/내용 생성 페이지 */}
+                        {currentPage === 'title-gen' && (
+                            <>
+                                <div className="card rounded-xl p-6 mb-6">
+                                    <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                                        <i className="fas fa-magic text-purple-400"></i>
+                                        유튜브 성장 전략 (Growth Hacker)
+                                    </h2>
+                                    <p className="text-gray-400 mb-6">
+                                        알고리즘이 사랑하는 제목, 설명, 썸네일 전략을 제안받으세요.
+                                    </p>
+
+                                    {/* 분석 대상 상태 박스 */}
+                                    <div className="mb-6 p-4 bg-gray-800 rounded-lg border-2 border-gray-700">
+                                        <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                                            <i className="fas fa-file-alt text-blue-400"></i>
+                                            분석 대상
+                                        </h3>
+                                        {!script || script.trim() === '' ? (
+                                            <div className="text-center py-8">
+                                                <i className="fas fa-exclamation-triangle text-yellow-500 text-4xl mb-3"></i>
+                                                <p className="text-gray-400 text-lg">
+                                                    분석할 대본이 없습니다. 대본을 먼저 생성하세요.
+                                                </p>
+                                                <button
+                                                    onClick={() => setCurrentPage('script-gen')}
+                                                    className="mt-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white py-2 px-6 rounded-lg font-semibold transition-all"
+                                                >
+                                                    <i className="fas fa-arrow-left mr-2"></i>
+                                                    대본 생성으로 이동
+                                                </button>
+                                            </div>
+                                        ) : (
+                                            <div>
+                                                <div className="flex items-center gap-2 mb-2">
+                                                    <i className="fas fa-check-circle text-green-500"></i>
+                                                    <span className="text-green-500 font-semibold">대본이 준비되었습니다</span>
+                                                </div>
+                                                <div className="bg-gray-900/50 p-4 rounded-lg max-h-40 overflow-y-auto">
+                                                    <p className="text-gray-300 text-sm whitespace-pre-wrap">
+                                                        {script.substring(0, 200)}...
+                                                    </p>
+                                                </div>
+                                                <p className="text-gray-500 text-sm mt-2">
+                                                    총 {script.length}자
+                                                </p>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* 전략 분석 버튼 */}
+                                    <button
+                                        onClick={() => {
+                                            if (!script || script.trim() === '') {
+                                                showToast('대본을 먼저 생성해주세요', 'error');
+                                                return;
+                                            }
+                                            showToast('전략 분석 기능은 곧 제공됩니다', 'info');
+                                        }}
+                                        disabled={!script || script.trim() === ''}
+                                        className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white py-4 rounded-lg font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                                    >
+                                        <i className="fas fa-rocket mr-2"></i>
+                                        전략 분석 및 메타데이터 생성 시작
+                                    </button>
+                                </div>
+
+                                {/* 분석 결과 섹션 (추후 구현) */}
+                                <div className="card rounded-xl p-6">
+                                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+                                        <i className="fas fa-chart-line text-green-400"></i>
+                                        분석 결과
+                                    </h3>
+                                    <div className="text-center py-12 text-gray-500">
+                                        <i className="fas fa-hourglass-half text-4xl mb-3"></i>
+                                        <p>전략 분석 버튼을 클릭하여 시작하세요</p>
+                                    </div>
+                                </div>
+                            </>
+                        )}
+
                         {currentPage === 'video-production' && (
                             <>
                         {/* 상단 액션 버튼 */}
