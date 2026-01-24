@@ -1463,8 +1463,7 @@ app.get('/', (c) => {
                                     onClick={(e) => {
                                         e.preventDefault();
                                         e.stopPropagation();
-                                        console.log('설정 버튼 클릭됨');
-                                        alert('설정 버튼이 클릭되었습니다!');
+                                        console.log('설정 버튼 클릭됨, showSettings를 true로 설정');
                                         setShowSettings(true);
                                     }}
                                     className="w-full bg-gray-700 hover:bg-gray-600 text-white p-3 rounded-lg font-semibold transition-all flex items-center justify-center gap-2"
@@ -2395,19 +2394,141 @@ app.get('/', (c) => {
                                         </button>
                                     </div>
 
-                                    {/* 탭 */}
-                                    <div className="flex gap-4 mb-6 border-b border-gray-700">
+                                    {/* API 키 입력 */}
+                                    <div className="space-y-6">
+                                        {/* Gemini API */}
+                                        <div>
+                                            <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                                <i className="fas fa-brain mr-2"></i>Gemini API 키
+                                                {apiKeys.gemini && <i className="fas fa-check-circle text-green-400 ml-2"></i>}
+                                                {!apiKeys.gemini && <i className="fas fa-times-circle text-red-400 ml-2"></i>}
+                                            </label>
+                                            <div className="flex gap-2">
+                                                <div className="flex-1 relative">
+                                                    <input
+                                                        type={showApiKeys.gemini ? "text" : "password"}
+                                                        value={apiKeys.gemini}
+                                                        onChange={(e) => setApiKeys({...apiKeys, gemini: e.target.value})}
+                                                        placeholder="AIzaSy..."
+                                                        className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
+                                                    />
+                                                    <button
+                                                        onClick={() => setShowApiKeys({...showApiKeys, gemini: !showApiKeys.gemini})}
+                                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
+                                                    >
+                                                        <i className={\`fas fa-\${showApiKeys.gemini ? 'eye-slash' : 'eye'}\`}></i>
+                                                    </button>
+                                                </div>
+                                                <a
+                                                    href="https://makersuite.google.com/app/apikey"
+                                                    target="_blank"
+                                                    className="bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-lg font-semibold transition-all whitespace-nowrap"
+                                                >
+                                                    발급받기
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        {/* Replicate API */}
+                                        <div>
+                                            <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                                <i className="fas fa-image mr-2"></i>Replicate API 키
+                                                {apiKeys.replicate && <i className="fas fa-check-circle text-green-400 ml-2"></i>}
+                                                {!apiKeys.replicate && <i className="fas fa-times-circle text-red-400 ml-2"></i>}
+                                            </label>
+                                            <div className="flex gap-2">
+                                                <div className="flex-1 relative">
+                                                    <input
+                                                        type={showApiKeys.replicate ? "text" : "password"}
+                                                        value={apiKeys.replicate}
+                                                        onChange={(e) => setApiKeys({...apiKeys, replicate: e.target.value})}
+                                                        placeholder="r8_..."
+                                                        className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
+                                                    />
+                                                    <button
+                                                        onClick={() => setShowApiKeys({...showApiKeys, replicate: !showApiKeys.replicate})}
+                                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
+                                                    >
+                                                        <i className={\`fas fa-\${showApiKeys.replicate ? 'eye-slash' : 'eye'}\`}></i>
+                                                    </button>
+                                                </div>
+                                                <a
+                                                    href="https://replicate.com/account/api-tokens"
+                                                    target="_blank"
+                                                    className="bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-lg font-semibold transition-all whitespace-nowrap"
+                                                >
+                                                    발급받기
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        {/* ElevenLabs API */}
+                                        <div>
+                                            <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                                <i className="fas fa-microphone mr-2"></i>ElevenLabs API 키
+                                                {apiKeys.elevenlabs && <i className="fas fa-check-circle text-green-400 ml-2"></i>}
+                                                {!apiKeys.elevenlabs && <i className="fas fa-times-circle text-red-400 ml-2"></i>}
+                                            </label>
+                                            <div className="flex gap-2">
+                                                <div className="flex-1 relative">
+                                                    <input
+                                                        type={showApiKeys.elevenlabs ? "text" : "password"}
+                                                        value={apiKeys.elevenlabs}
+                                                        onChange={(e) => setApiKeys({...apiKeys, elevenlabs: e.target.value})}
+                                                        placeholder="sk_..."
+                                                        className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
+                                                    />
+                                                    <button
+                                                        onClick={() => setShowApiKeys({...showApiKeys, elevenlabs: !showApiKeys.elevenlabs})}
+                                                        className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
+                                                    >
+                                                        <i className={\`fas fa-\${showApiKeys.elevenlabs ? 'eye-slash' : 'eye'}\`}></i>
+                                                    </button>
+                                                </div>
+                                                <a
+                                                    href="https://elevenlabs.io/app/settings/api-keys"
+                                                    target="_blank"
+                                                    className="bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-lg font-semibold transition-all whitespace-nowrap"
+                                                >
+                                                    발급받기
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div className="bg-blue-900/20 border border-blue-700/50 rounded-lg p-4">
+                                            <p className="text-blue-300 text-sm">
+                                                <i className="fas fa-info-circle mr-2"></i>
+                                                API 키는 브라우저(localStorage)에만 저장됩니다. 서버로 전송되지 않습니다.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* 취소/저장 버튼 */}
+                                    <div className="flex gap-3 mt-6 pt-6 border-t border-gray-700">
                                         <button
-                                            onClick={() => setSettingsTab('api')}
-                                            className={\`pb-3 px-4 font-semibold transition-all \${settingsTab === 'api' ? 'text-purple-400 border-b-2 border-purple-400' : 'text-gray-400 hover:text-white'}\`}
+                                            onClick={() => setShowSettings(false)}
+                                            className="flex-1 bg-gray-700 hover:bg-gray-600 text-white py-3 px-6 rounded-lg font-semibold transition-all"
                                         >
-                                            <i className="fas fa-key mr-2"></i>
-                                            API 키
+                                            <i className="fas fa-times mr-2"></i>
+                                            취소
                                         </button>
                                         <button
-                                            onClick={() => setSettingsTab('voice')}
-                                            className={\`pb-3 px-4 font-semibold transition-all \${settingsTab === 'voice' ? 'text-purple-400 border-b-2 border-purple-400' : 'text-gray-400 hover:text-white'}\`}
+                                            onClick={() => {
+                                                setShowSettings(false);
+                                                showToast('설정이 저장되었습니다', 'success');
+                                            }}
+                                            className="flex-1 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white py-3 px-6 rounded-lg font-semibold transition-all"
                                         >
+                                            <i className="fas fa-save mr-2"></i>
+                                            저장
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                        
+                        {/* 프로젝트 관리 모달 */}
+                        {showProjectModal && (
                                             <i className="fas fa-microphone mr-2"></i>
                                             음성 설정
                                         </button>
