@@ -1395,9 +1395,9 @@ app.get('/', (c) => {
                         )}
 
                         {/* 좌측 사이드바 */}
-                        <div className={'fixed left-0 top-0 h-full bg-gray-900/95 backdrop-blur-sm border-r border-gray-800 transition-all duration-300 z-50 flex flex-col ' + (sidebarCollapsed ? 'w-16' : 'w-64')}>
+                        <div className={'fixed left-0 top-0 bottom-0 bg-gradient-to-b from-gray-900 to-gray-950 border-r border-gray-800 transition-all duration-300 z-50 flex flex-col ' + (sidebarCollapsed ? 'w-16' : 'w-64')}>
                             {/* 사이드바 헤더 */}
-                            <div className="p-4 border-b border-gray-800 flex items-center justify-between">
+                            <div className="p-4 border-b border-gray-800 flex items-center justify-between flex-shrink-0">
                                 {!sidebarCollapsed && (
                                     <div className="flex items-center gap-2">
                                         <i className="fas fa-video text-purple-400 text-xl"></i>
@@ -1431,7 +1431,7 @@ app.get('/', (c) => {
                             </div>
 
                             {/* 하단 고정 버튼들 */}
-                            <div className="mt-auto p-4 border-t border-gray-800 bg-gray-900/95 space-y-2">
+                            <div className="p-4 border-t border-gray-800 bg-gray-900 space-y-2 flex-shrink-0">
                                 {/* 새 창 열기 */}
                                 <button
                                     onClick={() => {
