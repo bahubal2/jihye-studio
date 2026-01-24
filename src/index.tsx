@@ -1180,6 +1180,20 @@ app.get('/', (c) => {
                             body: JSON.stringify({ keyword: ideaKeyword, geminiApiKey: apiKeys.gemini })
                         });
 
+                        if (!response.ok) {
+                            // HTTP 에러 처리
+                            let errorMessage = '대본 생성 실패';
+                            try {
+                                const errorData = await response.json();
+                                errorMessage = errorData.error || errorData.details || errorMessage;
+                            } catch (e) {
+                                errorMessage = '서버 오류 (' + response.status + ')';
+                            }
+                            showToast(errorMessage, 'error');
+                            console.error('API Error:', response.status, errorMessage);
+                            return;
+                        }
+
                         const result = await response.json();
                         
                         if (result.success) {
@@ -1222,6 +1236,20 @@ app.get('/', (c) => {
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({ script, geminiApiKey: apiKeys.gemini })
                         });
+
+                        if (!response.ok) {
+                            // HTTP 에러 처리
+                            let errorMessage = '대본 분석 실패';
+                            try {
+                                const errorData = await response.json();
+                                errorMessage = errorData.error || errorData.details || errorMessage;
+                            } catch (e) {
+                                errorMessage = '서버 오류 (' + response.status + ')';
+                            }
+                            showToast(errorMessage, 'error');
+                            console.error('API Error:', response.status, errorMessage);
+                            return;
+                        }
 
                         const result = await response.json();
                         
