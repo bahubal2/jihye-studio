@@ -1395,7 +1395,7 @@ app.get('/', (c) => {
                         )}
 
                         {/* 좌측 사이드바 */}
-                        <div className={'fixed left-0 top-0 h-full bg-gray-900/95 backdrop-blur-sm border-r border-gray-800 transition-all duration-300 z-50 relative ' + (sidebarCollapsed ? 'w-16' : 'w-64')}>
+                        <div className={'fixed left-0 top-0 h-full bg-gray-900/95 backdrop-blur-sm border-r border-gray-800 transition-all duration-300 z-50 flex flex-col ' + (sidebarCollapsed ? 'w-16' : 'w-64')}>
                             {/* 사이드바 헤더 */}
                             <div className="p-4 border-b border-gray-800 flex items-center justify-between">
                                 {!sidebarCollapsed && (
@@ -1413,7 +1413,7 @@ app.get('/', (c) => {
                             </div>
 
                             {/* 메뉴 항목 */}
-                            <div className="p-4 space-y-2 pb-48">
+                            <div className="p-4 space-y-2 flex-1 overflow-y-auto">
                                 {[
                                     { icon: 'file-alt', label: '대본 생성', id: 'script-gen', page: 'script-gen' },
                                     { icon: 'film', label: '영상 제작', id: 'video-production', page: 'video-production' }
@@ -1431,7 +1431,7 @@ app.get('/', (c) => {
                             </div>
 
                             {/* 하단 고정 버튼들 */}
-                            <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-800 bg-gray-900/95 space-y-2">
+                            <div className="mt-auto p-4 border-t border-gray-800 bg-gray-900/95 space-y-2">
                                 {/* 새 창 열기 */}
                                 <button
                                     onClick={() => {
@@ -1478,7 +1478,7 @@ app.get('/', (c) => {
                         </div>
 
                         {/* 메인 컨텐츠 (사이드바만큼 왼쪽 마진 추가) */}
-                        <div className={'transition-all duration-300 ' + (sidebarCollapsed ? 'ml-16' : 'ml-64')}>
+                        <div className={'transition-all duration-300 min-h-screen p-6 ' + (sidebarCollapsed ? 'ml-16' : 'ml-64')}>
                             {/* Header */}
                             <div className="text-center mb-8 relative">
                                 <h1 className="text-5xl font-bold mb-3 bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
