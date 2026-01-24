@@ -19,6 +19,52 @@ const jobStorage = new Map<string, any>()
 
 // ===== API 엔드포인트 =====
 
+// 0. 검수 대본 생성 (Gemini)
+app.post('/api/generate-draft-script', async (c) => {
+  try {
+    const { keyword } = await c.req.json()
+    
+    if (!keyword) {
+      return c.json({ error: '주제나 키워드를 입력해주세요' }, 400)
+    }
+
+    const genAI = new GoogleGenerativeAI(c.env.GEMINI_API_KEY || '')
+    const model = genAI.getGenerativeModel({ 
+      model: 'gemini-2.5-flash'
+    })
+
+    const prompt = `다음 주제/키워드를 바탕으로 한국 시니어(노인층)를 대상으로 한 유튜브 영상 대본을 작성해주세요.
+
+주제/키워드: ${keyword}
+
+요구사항:
+1. 대상: 한국 시니어 (60대 이상)
+2. 톤: 따뜻하고 친근하며, 이해하기 쉬운 언어 사용
+3. 길이: 3-5분 분량 (약 800-1200자)
+4. 구성: 인트로 → 본문 → 아웃트로
+5. 시청 이탈 방지: 흥미로운 사실, 질문, 공감 유도
+6. 한국 문화와 정서 반영
+
+대본만 작성해주세요. 다른 설명 없이 대본 텍스트만 출력하세요.`
+
+    const result = await model.generateContent(prompt)
+    const scriptText = result.response.text()
+
+    return c.json({
+      success: true,
+      data: {
+        script: scriptText.trim()
+      }
+    })
+  } catch (error: any) {
+    console.error('Draft script generation error:', error)
+    return c.json({ 
+      error: '대본 생성 중 오류가 발생했습니다',
+      details: error.message 
+    }, 500)
+  }
+})
+
 // 1. 대본 분석 (Gemini)
 app.post('/api/analyze-script', async (c) => {
   try {
@@ -575,12 +621,21 @@ app.get('/', (c) => {
             };
 
             function App() {
+                // 페이지 상태
+                const [currentPage, setCurrentPage] = useState('script-gen'); // 'script-gen', 'video-production'
+                
                 const [script, setScript] = useState('');
                 const [scenes, setScenes] = useState([]);
                 const [overallFeedback, setOverallFeedback] = useState('');
                 const [suggestions, setSuggestions] = useState([]);
                 const [loading, setLoading] = useState(false);
                 const [toast, setToast] = useState(null);
+                
+                // 대본 생성 페이지 상태
+                const [ideaKeyword, setIdeaKeyword] = useState('');
+                const [draftScript, setDraftScript] = useState('');
+                const [finalScript, setFinalScript] = useState('');
+                const [generatingDraft, setGeneratingDraft] = useState(false);
                 
                 // 이미지 스타일 설정
                 const [imageStyle, setImageStyle] = useState('photorealistic');
@@ -1080,6 +1135,45 @@ app.get('/', (c) => {
                     showToast('캐릭터 이미지가 삭제되었습니다', 'success');
                 };
 
+                // 검수 대본 생성
+                const generateDraftScript = async () => {
+                    if (!ideaKeyword.trim()) {
+                        showToast('주제나 키워드를 입력해주세요', 'error');
+                        return;
+                    }
+
+                    setGeneratingDraft(true);
+                    try {
+                        const response = await fetch('/api/generate-draft-script', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ keyword: ideaKeyword })
+                        });
+
+                        const result = await response.json();
+                        
+                        if (result.success) {
+                            setDraftScript(result.data.script);
+                            setFinalScript(result.data.script);
+                            showToast('검수 대본이 생성되었습니다!', 'success');
+                        } else {
+                            showToast(result.error || '대본 생성 실패', 'error');
+                        }
+                    } catch (error) {
+                        console.error('Draft script generation error:', error);
+                        showToast('서버 연결 오류', 'error');
+                    } finally {
+                        setGeneratingDraft(false);
+                    }
+                };
+
+                // 최종 대본 적용 (영상 제작 페이지로 이동)
+                const applyFinalScript = () => {
+                    setScript(finalScript);
+                    setCurrentPage('video-production');
+                    showToast('대본이 영상 제작 페이지에 적용되었습니다', 'success');
+                };
+
                 const analyzeScript = async () => {
                     if (!script.trim()) {
                         showToast('대본을 입력해주세요', 'error');
@@ -1321,16 +1415,13 @@ app.get('/', (c) => {
                             {/* 메뉴 항목 */}
                             <div className="p-4 space-y-2">
                                 {[
-                                    { icon: 'file-alt', label: '대본 생성', id: 'script' },
-                                    { icon: 'magic', label: '제목/내용 생성', id: 'title' },
-                                    { icon: 'film', label: '영상 제작', id: 'video' },
-                                    { icon: 'image', label: '썸네일 제작', id: 'thumbnail' },
-                                    { icon: 'palette', label: '비주얼 프롬프트', id: 'visual' },
-                                    { icon: 'download', label: '모델 다운로드', id: 'model' }
+                                    { icon: 'file-alt', label: '대본 생성', id: 'script-gen', page: 'script-gen' },
+                                    { icon: 'film', label: '영상 제작', id: 'video-production', page: 'video-production' }
                                 ].map(item => (
                                     <button
                                         key={item.id}
-                                        className="w-full text-left p-3 rounded-lg hover:bg-gray-800/50 text-gray-300 hover:text-white transition-all flex items-center gap-3"
+                                        onClick={() => setCurrentPage(item.page)}
+                                        className={'w-full text-left p-3 rounded-lg transition-all flex items-center gap-3 ' + (currentPage === item.page ? 'bg-purple-600 text-white' : 'text-gray-300 hover:text-white hover:bg-gray-800/50')}
                                         title={item.label}
                                     >
                                         <i className={'fas fa-' + item.icon + ' text-lg'}></i>
@@ -1402,6 +1493,126 @@ app.get('/', (c) => {
                                     </button>
                                 </div>
                             </div>
+
+                        {/* 페이지 컨텐츠 */}
+                        {currentPage === 'script-gen' && (
+                            <>
+                                {/* 대본 생성 페이지 */}
+                                <div className="card rounded-xl p-6 mb-6">
+                                    <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                                        <i className="fas fa-lightbulb text-yellow-400"></i>
+                                        1단계: 아이디어 확산 (검수 대본)
+                                    </h2>
+                                    
+                                    <div className="mb-4">
+                                        <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                            주제 / 키워드
+                                        </label>
+                                        <input
+                                            type="text"
+                                            value={ideaKeyword}
+                                            onChange={(e) => setIdeaKeyword(e.target.value)}
+                                            placeholder="예: 워렌 버핏의 투자 철학, 조선왕조실록 미스터리"
+                                            className="w-full p-4 bg-gray-900/50 border border-gray-700 rounded-lg text-gray-200 placeholder-gray-500 focus:outline-none focus:border-purple-500"
+                                        />
+                                    </div>
+
+                                    <button
+                                        onClick={generateDraftScript}
+                                        disabled={generatingDraft || !ideaKeyword.trim()}
+                                        className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white py-4 rounded-lg font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                                    >
+                                        {generatingDraft ? (
+                                            <>
+                                                <i className="fas fa-spinner fa-spin mr-2"></i>
+                                                검수 대본 생성 중...
+                                            </>
+                                        ) : (
+                                            <>
+                                                <i className="fas fa-magic mr-2"></i>
+                                                검수 대본 생성
+                                            </>
+                                        )}
+                                    </button>
+                                </div>
+
+                                {draftScript && (
+                                    <div className="card rounded-xl p-6 mb-6">
+                                        <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                                            <i className="fas fa-file-alt text-green-400"></i>
+                                            2단계: 시나리오 완성 (최종 대본)
+                                        </h2>
+                                        
+                                        <div className="mb-4">
+                                            <label className="block text-sm font-semibold mb-2 text-gray-300">
+                                                검수 대본 (수정 가능)
+                                            </label>
+                                            <textarea
+                                                value={finalScript}
+                                                onChange={(e) => setFinalScript(e.target.value)}
+                                                className="w-full p-4 bg-gray-900/50 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500 min-h-[400px]"
+                                                placeholder="생성된 대본을 수정하세요..."
+                                            />
+                                        </div>
+
+                                        <button
+                                            onClick={applyFinalScript}
+                                            disabled={!finalScript.trim()}
+                                            className="w-full bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white py-4 rounded-lg font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                                        >
+                                            <i className="fas fa-check mr-2"></i>
+                                            영상 제작으로 이동
+                                        </button>
+                                    </div>
+                                )}
+                            </>
+                        )}
+
+                        {currentPage === 'video-production' && (
+                            <>
+                        {/* 상단 액션 버튼 */}
+                        <div className="flex gap-3 mb-6">
+                            <button
+                                onClick={() => {
+                                    // 직접 첨부 기능 (추후 구현)
+                                    showToast('직접 첨부 기능은 곧 제공됩니다', 'info');
+                                }}
+                                className="flex-1 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white py-3 px-6 rounded-lg font-bold transition-all"
+                            >
+                                <i className="fas fa-upload mr-2"></i>
+                                ✨ 직접 첨부
+                            </button>
+                            <button
+                                onClick={() => {
+                                    if (confirm('모든 작업 내용을 초기화하시겠습니까?')) {
+                                        setScript('');
+                                        setScenes([]);
+                                        setOverallFeedback('');
+                                        setSuggestions([]);
+                                        setFinalVideoUrl('');
+                                        showToast('초기화되었습니다', 'success');
+                                    }
+                                }}
+                                className="bg-red-600 hover:bg-red-700 text-white py-3 px-6 rounded-lg font-bold transition-all"
+                            >
+                                <i className="fas fa-redo mr-2"></i>
+                                🔄 초기화
+                            </button>
+                        </div>
+
+                        {/* 최종 대본 입력 */}
+                        <div className="card rounded-xl p-6 mb-6">
+                            <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
+                                <i className="fas fa-file-alt text-purple-400"></i>
+                                최종 대본
+                            </h2>
+                            <textarea
+                                value={script}
+                                onChange={(e) => setScript(e.target.value)}
+                                className="w-full p-4 bg-gray-900/50 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500 min-h-[200px]"
+                                placeholder="[대본 생성] 탭에서 만든 대본을 적용하거나 직접 입력하세요."
+                            />
+                        </div>
 
                         {/* Image Style Settings */}
                         <div className="card rounded-xl p-6 mb-6">
@@ -2435,6 +2646,9 @@ app.get('/', (c) => {
                             </div>
                         )}
                         
+                        </>
+                        )}
+
                         {/* Footer */}
                         <div className="footer">
                             © 2026 지혜스튜디오랩. All Rights Reserved.

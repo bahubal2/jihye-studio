@@ -16,6 +16,18 @@ AI 기반 유튜브 영상 제작 솔루션
 
 ## 완료된 기능
 
+✅ **대본 생성 페이지** - AI 자동 대본 작성 ⭐ NEW v5.1
+  - 1단계: 아이디어 확산 (검수 대본)
+    - 주제/키워드 입력
+    - Gemini AI로 자동 대본 생성
+  - 2단계: 시나리오 완성 (최종 대본)
+    - 생성된 대본 수정 가능
+    - 영상 제작 페이지로 원클릭 이동
+✅ **영상 제작 페이지** - 통합 제작 워크플로우 ⭐ NEW v5.1
+  - ✨ 직접 첨부: 이미지/영상 직접 업로드 (준비중)
+  - 🔄 초기화: 작업 내용만 초기화
+  - 최종 대본 입력창
+  - 설정 옵션 (이미지 스타일, 비율, AI 모델, 캐릭터, 자막)
 ✅ 대본 입력 UI (다크모드 디자인)  
 ✅ Gemini 2.5 Flash API 연동 - 장면별 분할 및 이미지 프롬프트 자동 생성  
 ✅ **AI 모델 선택** - 6가지 AI 모델 드롭다운 ⭐ NEW v5.1  
@@ -105,6 +117,7 @@ AI 기반 유튜브 영상 제작 솔루션
 
 | 메서드 | 경로 | 파라미터 | 설명 |
 |--------|------|----------|------|
+| POST | `/api/generate-draft-script` | `{ keyword: string }` | 주제/키워드 기반 검수 대본 생성 |
 | POST | `/api/analyze-script` | `{ script: string }` | 대본 분석 및 장면 분할 |
 | POST | `/api/generate-image` | `{ prompt: string, sceneId: number, stylePrefix?: string, aspectRatio?: string, model?: string, characterImage?: string, characterDescription?: string, characterStrength?: number }` | 이미지 생성 (AI 모델 선택 가능, 캐릭터 일관성 지원) |
 | POST | `/api/generate-video` | `{ imageUrl: string, prompt: string, sceneId: number }` | 영상 생성 시작 |
