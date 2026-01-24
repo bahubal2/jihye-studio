@@ -1460,8 +1460,11 @@ app.get('/', (c) => {
 
                                 {/* 설정 */}
                                 <button
-                                    onClick={() => {
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
                                         console.log('설정 버튼 클릭됨');
+                                        alert('설정 버튼이 클릭되었습니다!');
                                         setShowSettings(true);
                                     }}
                                     className="w-full bg-gray-700 hover:bg-gray-600 text-white p-3 rounded-lg font-semibold transition-all flex items-center justify-center gap-2"
