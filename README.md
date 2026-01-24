@@ -248,8 +248,28 @@ pm2 start ecosystem.config.cjs
 
 - **GitHub**: https://github.com/bahubal2/jihye-studio ⭐ NEW
 - **로컬 개발**: http://localhost:3000
-- **퍼블릭 테스트 URL**: https://3000-i4e4tiae39injbyl3xfj0-5c13a017.sandbox.novita.ai
+- **퍼블릭 테스트 URL**: https://3000-i4e4tiae39injbyl3xfj0-5c13a017.sandbox.novita.ai ✅ 접속 가능
 - **프로덕션**: (Cloudflare Pages 배포 필요)
+
+## 🚨 중요: API 키 설정 필수!
+
+대본 생성 기능을 사용하려면 **반드시 API 키를 설정**해야 합니다!
+
+### 방법 1: 프론트엔드에서 설정 (권장) 🌟
+1. 좌측 하단 "설정" 버튼 클릭
+2. "API 키 설정" 탭 선택
+3. Gemini API 키 입력 (발급: https://makersuite.google.com/app/apikey)
+4. 저장 후 "대본 생성" 탭으로 이동
+
+### 방법 2: 서버 환경변수 설정 (개발자용)
+`.dev.vars` 파일에 API 키 입력:
+```bash
+GEMINI_API_KEY=your_actual_key_here
+REPLICATE_API_TOKEN=your_token_here
+ELEVENLABS_API_KEY=your_key_here
+```
+
+**자세한 설명**: `QUICK_START.md` 파일 참조
 
 ## 배포 상태
 
