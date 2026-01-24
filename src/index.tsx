@@ -1416,7 +1416,10 @@ app.get('/', (c) => {
                             <div className="p-4 space-y-2 flex-1 overflow-y-auto">
                                 {[
                                     { icon: 'file-alt', label: '대본 생성', id: 'script-gen', page: 'script-gen' },
-                                    { icon: 'film', label: '영상 제작', id: 'video-production', page: 'video-production' }
+                                    { icon: 'magic', label: '제목/내용 생성', id: 'title-gen', page: 'title-gen' },
+                                    { icon: 'film', label: '영상 제작', id: 'video-production', page: 'video-production' },
+                                    { icon: 'image', label: '썸네일 제작', id: 'thumbnail', page: 'thumbnail' },
+                                    { icon: 'palette', label: '비주얼 프롬프트', id: 'visual-prompt', page: 'visual-prompt' }
                                 ].map(item => (
                                     <button
                                         key={item.id}
