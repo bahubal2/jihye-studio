@@ -1460,7 +1460,10 @@ app.get('/', (c) => {
 
                                 {/* 설정 */}
                                 <button
-                                    onClick={() => setShowSettings(true)}
+                                    onClick={() => {
+                                        console.log('설정 버튼 클릭됨');
+                                        setShowSettings(true);
+                                    }}
                                     className="w-full bg-gray-700 hover:bg-gray-600 text-white p-3 rounded-lg font-semibold transition-all flex items-center justify-center gap-2"
                                     title="설정"
                                 >
