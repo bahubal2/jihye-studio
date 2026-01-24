@@ -1500,15 +1500,6 @@ app.get('/', (c) => {
                                     >
                                         <i className="fas fa-folder text-xl"></i>
                                     </button>
-                                    
-                                    {/* 설정 버튼 */}
-                                    <button
-                                        onClick={() => setShowSettings(true)}
-                                        className="bg-gray-800 hover:bg-gray-700 text-white p-3 rounded-lg transition-all"
-                                        title="설정"
-                                    >
-                                        <i className="fas fa-cog text-xl"></i>
-                                    </button>
                                 </div>
                             </div>
 
