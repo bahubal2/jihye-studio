@@ -274,6 +274,15 @@ app.post('/api/generate-image', async (c) => {
           width: aspectRatio === '16:9' ? 1344 : aspectRatio === '9:16' ? 768 : 1024,
           height: aspectRatio === '16:9' ? 768 : aspectRatio === '9:16' ? 1344 : 1024
         }
+      },
+      'hidream': {
+        model: 'prunaai/hidream-l1-fast',
+        input: {
+          seed: 10,
+          prompt: finalPrompt,
+          output_format: "jpg",
+          output_quality: 80
+        }
       }
     }
 
@@ -1862,6 +1871,7 @@ app.get('/', (c) => {
                                         <option value="flux-dev">💎 FLUX Dev (고품질 무료)</option>
                                         <option value="flux-schnell">⚡ FLUX Schnell (빠름)</option>
                                         <option value="recraft-v3">✨ Recraft V3 (초고품질)</option>
+                                        <option value="hidream">🎭 HiDream (애니메이션)</option>
                                     </select>
                                 </div>
                             </div>
