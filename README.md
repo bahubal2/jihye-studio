@@ -32,13 +32,14 @@ AI 기반 유튜브 영상 제작 솔루션
   - 설정 옵션 (이미지 스타일, 비율, AI 모델, 캐릭터, 자막)
 ✅ 대본 입력 UI (다크모드 디자인)  
 ✅ Gemini 2.5 Flash API 연동 - 장면별 분할 및 이미지 프롬프트 자동 생성  
-✅ **AI 모델 선택** - 6가지 AI 모델 드롭다운 ⭐ NEW v5.1  
+✅ **AI 모델 선택** - 7가지 AI 모델 드롭다운 ⭐ NEW v5.1  
   - 🌟 Nanobanana Pro (고품질 실사 + 캐릭터 일관성) ⭐ NEW
   - 📸 Nanobanana (실사 + 캐릭터 일관성) ⭐ NEW
   - 🏆 FLUX 1.1 Pro (최고 품질) - 기본값
   - 💎 FLUX Dev (고품질 무료)
   - ⚡ FLUX Schnell (빠름)
   - ✨ Recraft V3 (초고품질)
+  - 🎭 HiDream (애니메이션) ⭐ NEW
 ✅ **캐릭터 일관성 기능** - 동일 캐릭터 유지 ⭐ NEW v5.1  
   - 캐릭터 참조 이미지 업로드 (PNG, JPG 최대 10MB)
   - 캐릭터 설명 입력 (선택)
@@ -163,6 +164,25 @@ const AI_MODELS = {
     model: 'recraft-ai/recraft-v3',
     parameters: { style: 'realistic_image' },
     speed: '약 6초'
+  },
+  'nanobanana-pro': {
+    name: 'Nanobanana Pro (고품질 실사 + 캐릭터)',
+    model: 'fofr/nanobanana-pro',
+    parameters: { steps: 28, guidance: 3.5 },
+    characterSupport: true
+  },
+  'nanobanana': {
+    name: 'Nanobanana (실사 + 캐릭터)',
+    model: 'fofr/nanobanana',
+    parameters: { steps: 20 },
+    characterSupport: true
+  },
+  'hidream': {
+    name: 'HiDream (애니메이션)',
+    model: 'prunaai/hidream-l1-fast',
+    parameters: { seed: 10, output_quality: 80 },
+    speed: '빠름',
+    style: 'animation'
   }
 }
 
@@ -221,7 +241,7 @@ pm2 start ecosystem.config.cjs
 ```
 
 ### 3. 사용 흐름
-1. **AI 모델 선택** → FLUX 1.1 Pro (기본값), FLUX Dev, FLUX Schnell, Recraft V3 중 선택
+1. **AI 모델 선택** → FLUX 1.1 Pro (기본값), FLUX Dev, FLUX Schnell, Recraft V3, Nanobanana Pro, Nanobanana, HiDream 중 선택
 2. **이미지 스타일 선택** → 실사, 애니메이션, 스틱맨, 일러스트, 커스텀 중 선택
 3. **이미지 비율 설정** → 16:9, 9:16, 1:1 등 선택
 4. 대본 입력 → "AI 분석 시작" 클릭
@@ -292,6 +312,9 @@ ELEVENLABS_API_KEY=your_key_here
   - Replicate FLUX Dev (고품질 무료) ✅ 테스트 완료
   - Replicate FLUX Schnell (빠른 생성) ✅ 테스트 완료
   - Replicate Recraft V3 (초고품질) ✅ 테스트 완료
+  - Replicate Nanobanana Pro (실사 + 캐릭터) ✅ 준비 완료
+  - Replicate Nanobanana (실사 + 캐릭터) ✅ 준비 완료
+  - Replicate HiDream (애니메이션) ✅ 준비 완료 ⭐ NEW
   - Replicate Kling (영상 생성) ✅ 준비 완료
   - ElevenLabs (음성 합성) ✅ 준비 완료
 
