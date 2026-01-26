@@ -249,32 +249,11 @@ app.post('/api/generate-image', async (c) => {
     // 모델별 설정
     const modelConfigs: Record<string, any> = {
       'nanobanana-pro': {
-        model: 'fofr/nanobanana-pro',
+        model: 'google/nano-banana-pro',
         input: {
           prompt: finalPrompt,
           aspect_ratio: aspectRatio,
-          output_format: "webp",
-          output_quality: 100,
-          num_inference_steps: 28,
-          guidance_scale: 3.5,
-          ...(characterImage && {
-            image: characterImage,
-            prompt_strength: characterStrength
-          })
-        }
-      },
-      'nanobanana': {
-        model: 'fofr/nanobanana',
-        input: {
-          prompt: finalPrompt,
-          aspect_ratio: aspectRatio,
-          output_format: "webp",
-          output_quality: 95,
-          num_inference_steps: 20,
-          ...(characterImage && {
-            image: characterImage,
-            prompt_strength: characterStrength
-          })
+          output_format: "png"
         }
       },
       'flux-pro': {
@@ -1847,7 +1826,7 @@ app.get('/', (c) => {
                                             type="text"
                                             value={ideaKeyword}
                                             onChange={(e) => setIdeaKeyword(e.target.value)}
-                                            placeholder="예: 워렌 버핏의 투자 철학, 조선왕조실록 미스터리, 건강한 노후 생활"
+                                            placeholder="예: 85세 장수 비결, 치매 예방법, 무릎 통증 완화, 당뇨병 관리"
                                             className="w-full p-4 bg-gray-900/70 border border-gray-600 rounded-lg text-gray-100 placeholder-gray-500 focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 transition-all text-lg"
                                             onKeyPress={(e) => {
                                                 if (e.key === 'Enter' && ideaKeyword.trim() && !generatingDraft) {
@@ -2233,12 +2212,7 @@ app.get('/', (c) => {
                                         onChange={(e) => setAiModel(e.target.value)}
                                         className="w-full p-3 bg-gray-900/50 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
                                     >
-                                        <option value="nanobanana-pro">🌟 Nanobanana Pro (고품질 실사 + 캐릭터)</option>
-                                        <option value="nanobanana">📸 Nanobanana (실사 + 캐릭터)</option>
-                                        <option value="flux-pro">🏆 FLUX 1.1 Pro (최고 품질)</option>
-                                        <option value="flux-dev">💎 FLUX Dev (고품질 무료)</option>
-                                        <option value="flux-schnell">⚡ FLUX Schnell (빠름)</option>
-                                        <option value="recraft-v3">✨ Recraft V3 (초고품질)</option>
+                                        <option value="nanobanana-pro">🌟 나노바나나 PRO (고품질 실사)</option>
                                         <option value="hidream">🎭 HiDream (애니메이션)</option>
                                     </select>
                                 </div>
