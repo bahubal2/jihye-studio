@@ -683,6 +683,7 @@ app.get('/', (c) => {
                 const [draftScript, setDraftScript] = useState('');
                 const [finalScript, setFinalScript] = useState('');
                 const [generatingDraft, setGeneratingDraft] = useState(false);
+                const [imageInterval, setImageInterval] = useState('2'); // 이미지 생성 간격
                 
                 // 이미지 스타일 설정
                 const [imageStyle, setImageStyle] = useState('photorealistic');
@@ -1613,76 +1614,178 @@ app.get('/', (c) => {
 
                         {/* 페이지 컨텐츠 */}
                         {currentPage === 'script-gen' && (
-                            <>
-                                {/* 대본 생성 페이지 */}
-                                <div className="card rounded-xl p-6 mb-6">
-                                    <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                                        <i className="fas fa-lightbulb text-yellow-400"></i>
-                                        1단계: 아이디어 확산 (검수 대본)
-                                    </h2>
+                            <div className="max-w-5xl mx-auto space-y-6">
+                                {/* 1단계: 아이디어 발굴 */}
+                                <div className="card rounded-xl p-8 border-2 border-purple-500/30 hover:border-purple-500/50 transition-all">
+                                    <div className="flex items-center gap-3 mb-6">
+                                        <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 flex items-center justify-center text-white font-bold">
+                                            1
+                                        </div>
+                                        <h2 className="text-2xl font-bold text-white">
+                                            아이디어 발굴
+                                        </h2>
+                                    </div>
                                     
-                                    <div className="mb-4">
-                                        <label className="block text-sm font-semibold mb-2 text-gray-300">
-                                            주제 / 키워드
+                                    <div className="mb-6">
+                                        <label className="block text-sm font-semibold mb-3 text-gray-300">
+                                            <i className="fas fa-lightbulb mr-2 text-yellow-400"></i>
+                                            주제 / 키워드를 입력하세요
                                         </label>
                                         <input
                                             type="text"
                                             value={ideaKeyword}
                                             onChange={(e) => setIdeaKeyword(e.target.value)}
-                                            placeholder="예: 워렌 버핏의 투자 철학, 조선왕조실록 미스터리"
-                                            className="w-full p-4 bg-gray-900/50 border border-gray-700 rounded-lg text-gray-200 placeholder-gray-500 focus:outline-none focus:border-purple-500"
+                                            placeholder="예: 워렌 버핏의 투자 철학, 조선왕조실록 미스터리, 건강한 노후 생활"
+                                            className="w-full p-4 bg-gray-900/70 border border-gray-600 rounded-lg text-gray-100 placeholder-gray-500 focus:outline-none focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 transition-all text-lg"
+                                            onKeyPress={(e) => {
+                                                if (e.key === 'Enter' && ideaKeyword.trim() && !generatingDraft) {
+                                                    generateDraftScript();
+                                                }
+                                            }}
                                         />
                                     </div>
 
                                     <button
                                         onClick={generateDraftScript}
                                         disabled={generatingDraft || !ideaKeyword.trim()}
-                                        className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white py-4 rounded-lg font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                                        className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white py-4 rounded-lg font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-purple-500/50"
                                     >
                                         {generatingDraft ? (
                                             <>
                                                 <i className="fas fa-spinner fa-spin mr-2"></i>
-                                                검수 대본 생성 중...
+                                                AI 대본 생성 중... (30~60초 소요)
                                             </>
                                         ) : (
                                             <>
-                                                <i className="fas fa-magic mr-2"></i>
-                                                검수 대본 생성
+                                                <i className="fas fa-wand-magic-sparkles mr-2"></i>
+                                                AI 대본 생성
                                             </>
                                         )}
                                     </button>
                                 </div>
 
+                                {/* 2단계: 대본 완성 */}
                                 {draftScript && (
-                                    <div className="card rounded-xl p-6 mb-6">
-                                        <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                                            <i className="fas fa-file-alt text-green-400"></i>
-                                            2단계: 시나리오 완성 (최종 대본)
-                                        </h2>
-                                        
-                                        <div className="mb-4">
-                                            <label className="block text-sm font-semibold mb-2 text-gray-300">
-                                                검수 대본 (수정 가능)
-                                            </label>
-                                            <textarea
-                                                value={finalScript}
-                                                onChange={(e) => setFinalScript(e.target.value)}
-                                                className="w-full p-4 bg-gray-900/50 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500 min-h-[400px]"
-                                                placeholder="생성된 대본을 수정하세요..."
-                                            />
+                                    <>
+                                        <div className="card rounded-xl p-8 border-2 border-green-500/30 hover:border-green-500/50 transition-all">
+                                            <div className="flex items-center justify-between mb-6">
+                                                <div className="flex items-center gap-3">
+                                                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-green-600 to-teal-600 flex items-center justify-center text-white font-bold">
+                                                        2
+                                                    </div>
+                                                    <h2 className="text-2xl font-bold text-white">
+                                                        대본 완성 (편집 가능)
+                                                    </h2>
+                                                </div>
+                                                <div className="text-sm text-gray-400">
+                                                    <i className="fas fa-info-circle mr-1"></i>
+                                                    {finalScript.length}자
+                                                </div>
+                                            </div>
+                                            
+                                            <div className="mb-4">
+                                                <textarea
+                                                    value={finalScript}
+                                                    onChange={(e) => setFinalScript(e.target.value)}
+                                                    className="w-full p-5 bg-gray-900/70 border border-gray-600 rounded-lg text-gray-100 focus:outline-none focus:border-green-400 focus:ring-2 focus:ring-green-400/20 transition-all font-mono text-base leading-relaxed"
+                                                    style={{ minHeight: '400px' }}
+                                                    placeholder="생성된 대본을 자유롭게 편집하세요..."
+                                                />
+                                            </div>
+
+                                            <div className="bg-green-900/20 border border-green-500/30 rounded-lg p-4">
+                                                <p className="text-sm text-green-300 flex items-start gap-2">
+                                                    <i className="fas fa-check-circle mt-0.5"></i>
+                                                    <span>대본이 생성되었습니다! 내용을 검토하고 필요시 수정한 후 다음 단계로 진행하세요.</span>
+                                                </p>
+                                            </div>
                                         </div>
 
-                                        <button
-                                            onClick={applyFinalScript}
-                                            disabled={!finalScript.trim()}
-                                            className="w-full bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 text-white py-4 rounded-lg font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all"
-                                        >
-                                            <i className="fas fa-check mr-2"></i>
-                                            영상 제작으로 이동
-                                        </button>
+                                        {/* 3단계: 프롬프트 설정 */}
+                                        <div className="card rounded-xl p-8 border-2 border-blue-500/30 hover:border-blue-500/50 transition-all">
+                                            <div className="flex items-center gap-3 mb-6">
+                                                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 flex items-center justify-center text-white font-bold">
+                                                    3
+                                                </div>
+                                                <h2 className="text-2xl font-bold text-white">
+                                                    프롬프트 설정
+                                                </h2>
+                                            </div>
+
+                                            <div className="mb-6">
+                                                <label className="block text-sm font-semibold mb-3 text-gray-300">
+                                                    <i className="fas fa-image mr-2 text-blue-400"></i>
+                                                    이미지 생성 간격
+                                                </label>
+                                                <select
+                                                    value={imageInterval}
+                                                    onChange={(e) => setImageInterval(e.target.value)}
+                                                    className="w-full p-4 bg-gray-900/70 border border-gray-600 rounded-lg text-gray-100 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all text-lg"
+                                                >
+                                                    <option value="1">1문장마다 (상세함)</option>
+                                                    <option value="2">2문장마다 (균형)</option>
+                                                    <option value="3">3문장마다 (빠름)</option>
+                                                </select>
+                                                <p className="mt-2 text-sm text-gray-400 flex items-start gap-2">
+                                                    <i className="fas fa-lightbulb mt-0.5"></i>
+                                                    <span>문장 간격이 짧을수록 이미지가 많이 생성되어 더 상세한 영상을 만들 수 있습니다.</span>
+                                                </p>
+                                            </div>
+
+                                            <button
+                                                onClick={() => {
+                                                    // 향후 대본 분석 기능 추가
+                                                    showToast('이 기능은 곧 추가됩니다', 'info');
+                                                }}
+                                                disabled={!finalScript.trim()}
+                                                className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white py-4 rounded-lg font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-blue-500/50"
+                                            >
+                                                <i className="fas fa-cogs mr-2"></i>
+                                                최종 대본 및 이미지 프롬프트 생성
+                                            </button>
+                                        </div>
+
+                                        {/* 4단계: 영상 제작 연동 */}
+                                        <div className="card rounded-xl p-8 border-2 border-gray-500/30 hover:border-gray-500/50 transition-all bg-gradient-to-br from-gray-800/50 to-gray-900/50">
+                                            <div className="flex items-center gap-3 mb-6">
+                                                <div className="w-10 h-10 rounded-full bg-gradient-to-r from-gray-600 to-gray-700 flex items-center justify-center text-white font-bold">
+                                                    4
+                                                </div>
+                                                <h2 className="text-2xl font-bold text-white">
+                                                    영상 제작 연동
+                                                </h2>
+                                            </div>
+
+                                            <div className="mb-6 bg-gray-900/50 border border-gray-600/50 rounded-lg p-4">
+                                                <p className="text-sm text-gray-300 flex items-start gap-2 mb-2">
+                                                    <i className="fas fa-info-circle mt-0.5 text-gray-400"></i>
+                                                    <span>완성된 대본을 영상 제작 페이지로 전송하여 이미지 및 영상 생성을 시작합니다.</span>
+                                                </p>
+                                            </div>
+
+                                            <button
+                                                onClick={applyFinalScript}
+                                                disabled={!finalScript.trim()}
+                                                className="w-full bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-600 hover:to-gray-700 text-white py-5 rounded-lg font-bold text-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-gray-500/30 border-2 border-gray-600 hover:border-gray-500"
+                                            >
+                                                <i className="fas fa-paper-plane mr-3"></i>
+                                                영상 제작으로 보내기
+                                                <i className="fas fa-arrow-right ml-3"></i>
+                                            </button>
+                                        </div>
+                                    </>
+                                )}
+
+                                {/* 안내 메시지 */}
+                                {!draftScript && !generatingDraft && (
+                                    <div className="card rounded-xl p-6 bg-gray-800/30 border border-gray-700/50">
+                                        <div className="text-center text-gray-400">
+                                            <i className="fas fa-arrow-up text-4xl mb-3 text-purple-400"></i>
+                                            <p className="text-lg">위에서 주제/키워드를 입력하고 AI 대본 생성을 시작하세요</p>
+                                        </div>
                                     </div>
                                 )}
-                            </>
+                            </div>
                         )}
 
                         {/* 제목/내용 생성 페이지 */}
