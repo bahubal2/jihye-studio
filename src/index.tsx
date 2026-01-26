@@ -84,6 +84,59 @@ app.post('/api/generate-draft-script', async (c) => {
   }
 })
 
+// 0-1. 이미지 프롬프트 생성 (Gemini)
+app.post('/api/generate-image-prompt', async (c) => {
+  try {
+    const { sentence, geminiApiKey } = await c.req.json()
+    
+    if (!sentence) {
+      return c.json({ error: '문장을 입력해주세요' }, 400)
+    }
+
+    // 클라이언트에서 전달받은 API 키 사용, 없으면 서버 환경변수 사용
+    const apiKey = geminiApiKey || c.env.GEMINI_API_KEY || ''
+    if (!apiKey) {
+      return c.json({ error: 'Gemini API 키가 설정되지 않았습니다. 설정에서 API 키를 입력해주세요.' }, 400)
+    }
+
+    const genAI = new GoogleGenerativeAI(apiKey)
+    const model = genAI.getGenerativeModel({ 
+      model: 'gemini-2.5-flash'
+    })
+
+    const prompt = `다음 한국어 문장을 영어 이미지 생성 프롬프트로 변환해주세요. 
+장면을 시각적으로 상세하게 묘사해주세요.
+한국 시니어(노인층) 대상 콘텐츠이므로 한국적 요소와 따뜻한 분위기를 포함하세요.
+
+문장: ${sentence}
+
+요구사항:
+1. 영어로 작성
+2. 구체적인 시각적 요소 포함 (색상, 조명, 구도 등)
+3. 한국 문화와 정서 반영
+4. 따뜻하고 친근한 분위기
+5. 고품질 이미지를 위한 품질 키워드 포함 (high quality, detailed, 8k 등)
+
+프롬프트만 출력하고 다른 설명은 하지 마세요.`
+
+    const result = await model.generateContent(prompt)
+    const imagePrompt = result.response.text()
+
+    return c.json({
+      success: true,
+      data: {
+        imagePrompt: imagePrompt.trim()
+      }
+    })
+  } catch (error: any) {
+    console.error('Image prompt generation error:', error)
+    return c.json({ 
+      error: '이미지 프롬프트 생성 중 오류가 발생했습니다',
+      details: error.message 
+    }, 500)
+  }
+})
+
 // 1. 대본 분석 (Gemini)
 app.post('/api/analyze-script', async (c) => {
   try {
@@ -684,6 +737,8 @@ app.get('/', (c) => {
                 const [finalScript, setFinalScript] = useState('');
                 const [generatingDraft, setGeneratingDraft] = useState(false);
                 const [imageInterval, setImageInterval] = useState('2'); // 이미지 생성 간격
+                const [generatingPrompts, setGeneratingPrompts] = useState(false); // 프롬프트 생성 중
+                const [scriptWithPrompts, setScriptWithPrompts] = useState([]); // 문장 + 프롬프트 배열
                 
                 // 이미지 스타일 설정
                 const [imageStyle, setImageStyle] = useState('photorealistic');
@@ -1241,6 +1296,107 @@ app.get('/', (c) => {
                     showToast('대본이 영상 제작 페이지에 적용되었습니다', 'success');
                 };
 
+                // 이미지 프롬프트 생성
+                const generateImagePrompts = async () => {
+                    if (!finalScript.trim()) {
+                        showToast('대본을 먼저 입력해주세요', 'error');
+                        return;
+                    }
+
+                    if (!apiKeys.gemini) {
+                        showToast('Gemini API 키를 먼저 설정해주세요. 좌측 하단 설정 버튼을 클릭하세요.', 'error');
+                        return;
+                    }
+
+                    setGeneratingPrompts(true);
+                    try {
+                        // 1. 대본을 문장 단위로 분리 (마침표, 느낌표, 물음표 기준)
+                        const sentences = finalScript
+                            .split(/(?<=[.!?])\s+/)
+                            .map(s => s.trim())
+                            .filter(s => s.length > 0);
+
+                        if (sentences.length === 0) {
+                            showToast('유효한 문장이 없습니다', 'error');
+                            return;
+                        }
+
+                        showToast('문장 ' + sentences.length + '개를 분석 중...', 'info');
+
+                        // 2. 이미지 생성 간격에 따라 문장 그룹화
+                        const interval = parseInt(imageInterval);
+                        const groupedSentences = [];
+                        
+                        for (let i = 0; i < sentences.length; i += interval) {
+                            const group = sentences.slice(i, i + interval).join(' ');
+                            groupedSentences.push(group);
+                        }
+
+                        showToast(groupedSentences.length + '개의 이미지 프롬프트를 생성합니다...', 'info');
+
+                        // 3. 각 그룹에 대해 이미지 프롬프트 생성
+                        const results = [];
+                        
+                        for (let i = 0; i < groupedSentences.length; i++) {
+                            const sentenceGroup = groupedSentences[i];
+                            
+                            try {
+                                const response = await fetch('/api/generate-image-prompt', {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/json' },
+                                    body: JSON.stringify({ 
+                                        sentence: sentenceGroup,
+                                        geminiApiKey: apiKeys.gemini
+                                    })
+                                });
+
+                                if (!response.ok) {
+                                    throw new Error('프롬프트 생성 실패');
+                                }
+
+                                const result = await response.json();
+                                
+                                if (result.success) {
+                                    results.push({
+                                        id: i + 1,
+                                        sentence: sentenceGroup,
+                                        imagePrompt: result.data.imagePrompt
+                                    });
+                                    
+                                    // 진행상황 표시
+                                    showToast('진행: ' + (i + 1) + '/' + groupedSentences.length, 'info');
+                                } else {
+                                    results.push({
+                                        id: i + 1,
+                                        sentence: sentenceGroup,
+                                        imagePrompt: '(생성 실패)'
+                                    });
+                                }
+                            } catch (error) {
+                                console.error('Prompt generation error:', error);
+                                results.push({
+                                    id: i + 1,
+                                    sentence: sentenceGroup,
+                                    imagePrompt: '(생성 실패)'
+                                });
+                            }
+
+                            // 요청 간 짧은 대기 (API 제한 방지)
+                            if (i < groupedSentences.length - 1) {
+                                await new Promise(resolve => setTimeout(resolve, 500));
+                            }
+                        }
+
+                        setScriptWithPrompts(results);
+                        showToast('이미지 프롬프트 생성 완료!', 'success');
+                    } catch (error) {
+                        console.error('Image prompt generation error:', error);
+                        showToast('프롬프트 생성 중 오류 발생', 'error');
+                    } finally {
+                        setGeneratingPrompts(false);
+                    }
+                };
+
                 const analyzeScript = async () => {
                     if (!script.trim()) {
                         showToast('대본을 입력해주세요', 'error');
@@ -1733,17 +1889,70 @@ app.get('/', (c) => {
                                             </div>
 
                                             <button
-                                                onClick={() => {
-                                                    // 향후 대본 분석 기능 추가
-                                                    showToast('이 기능은 곧 추가됩니다', 'info');
-                                                }}
-                                                disabled={!finalScript.trim()}
+                                                onClick={generateImagePrompts}
+                                                disabled={!finalScript.trim() || generatingPrompts}
                                                 className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white py-4 rounded-lg font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-blue-500/50"
                                             >
-                                                <i className="fas fa-cogs mr-2"></i>
-                                                최종 대본 및 이미지 프롬프트 생성
+                                                {generatingPrompts ? (
+                                                    <>
+                                                        <i className="fas fa-spinner fa-spin mr-2"></i>
+                                                        이미지 프롬프트 생성 중...
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <i className="fas fa-cogs mr-2"></i>
+                                                        최종 대본 및 이미지 프롬프트 생성
+                                                    </>
+                                                )}
                                             </button>
                                         </div>
+
+                                        {/* 3.5단계: 생성된 프롬프트 결과 */}
+                                        {scriptWithPrompts.length > 0 && (
+                                            <div className="card rounded-xl p-8 border-2 border-yellow-500/30 hover:border-yellow-500/50 transition-all">
+                                                <div className="flex items-center gap-3 mb-6">
+                                                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-yellow-600 to-orange-600 flex items-center justify-center text-white font-bold">
+                                                        <i className="fas fa-check"></i>
+                                                    </div>
+                                                    <h2 className="text-2xl font-bold text-white">
+                                                        생성된 이미지 프롬프트
+                                                    </h2>
+                                                </div>
+
+                                                <div className="space-y-4 max-h-[600px] overflow-y-auto">
+                                                    {scriptWithPrompts.map((item, index) => (
+                                                        <div key={item.id} className="bg-gray-900/50 border border-gray-600 rounded-lg p-4">
+                                                            <div className="flex items-start gap-3 mb-3">
+                                                                <div className="w-8 h-8 rounded-full bg-yellow-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                                                                    {item.id}
+                                                                </div>
+                                                                <div className="flex-1">
+                                                                    <p className="text-gray-200 leading-relaxed mb-3">
+                                                                        {item.sentence}
+                                                                    </p>
+                                                                    <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-3">
+                                                                        <p className="text-xs text-blue-300 mb-1 font-semibold">
+                                                                            <i className="fas fa-image mr-1"></i>
+                                                                            이미지 프롬프트:
+                                                                        </p>
+                                                                        <p className="text-sm text-blue-100 font-mono leading-relaxed">
+                                                                            {item.imagePrompt}
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+
+                                                <div className="mt-6 bg-yellow-900/20 border border-yellow-500/30 rounded-lg p-4">
+                                                    <p className="text-sm text-yellow-300 flex items-start gap-2">
+                                                        <i className="fas fa-info-circle mt-0.5"></i>
+                                                        <span>총 {scriptWithPrompts.length}개의 이미지 프롬프트가 생성되었습니다. 이제 "영상 제작으로 보내기" 버튼을 클릭하여 이미지를 생성하세요.</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        )}
 
                                         {/* 4단계: 영상 제작 연동 */}
                                         <div className="card rounded-xl p-8 border-2 border-gray-500/30 hover:border-gray-500/50 transition-all bg-gradient-to-br from-gray-800/50 to-gray-900/50">
