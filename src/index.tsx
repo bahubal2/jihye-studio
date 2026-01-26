@@ -1298,6 +1298,10 @@ app.get('/', (c) => {
 
                 // 이미지 프롬프트 생성
                 const generateImagePrompts = async () => {
+                    console.log('🔵 generateImagePrompts 함수 호출됨');
+                    console.log('finalScript:', finalScript.substring(0, 100) + '...');
+                    console.log('apiKeys.gemini:', apiKeys.gemini ? '설정됨' : '없음');
+                    
                     if (!finalScript.trim()) {
                         showToast('대본을 먼저 입력해주세요', 'error');
                         return;
@@ -1309,6 +1313,7 @@ app.get('/', (c) => {
                     }
 
                     setGeneratingPrompts(true);
+                    console.log('🟢 프롬프트 생성 시작');
                     try {
                         // 1. 대본을 문장 단위로 분리 (마침표, 느낌표, 물음표 기준)
                         const sentences = finalScript
@@ -1322,6 +1327,8 @@ app.get('/', (c) => {
                         }
 
                         showToast('문장 ' + sentences.length + '개를 분석 중...', 'info');
+                        console.log('📝 분리된 문장 수:', sentences.length);
+                        console.log('첫 번째 문장:', sentences[0]);
 
                         // 2. 이미지 생성 간격에 따라 문장 그룹화
                         const interval = parseInt(imageInterval);
@@ -1333,12 +1340,15 @@ app.get('/', (c) => {
                         }
 
                         showToast(groupedSentences.length + '개의 이미지 프롬프트를 생성합니다...', 'info');
+                        console.log('📦 그룹화된 문장 수:', groupedSentences.length);
+                        console.log('이미지 간격:', interval, '문장마다');
 
                         // 3. 각 그룹에 대해 이미지 프롬프트 생성
                         const results = [];
                         
                         for (let i = 0; i < groupedSentences.length; i++) {
                             const sentenceGroup = groupedSentences[i];
+                            console.log('🔄 프롬프트 생성 중:', (i + 1), '/', groupedSentences.length);
                             
                             try {
                                 const response = await fetch('/api/generate-image-prompt', {
@@ -1355,6 +1365,7 @@ app.get('/', (c) => {
                                 }
 
                                 const result = await response.json();
+                                console.log('✅ 응답:', (i + 1) + '번', result.success ? '성공' : '실패');
                                 
                                 if (result.success) {
                                     results.push({
@@ -1388,6 +1399,7 @@ app.get('/', (c) => {
                         }
 
                         setScriptWithPrompts(results);
+                        console.log('🎉 모든 프롬프트 생성 완료:', results.length + '개');
                         showToast('이미지 프롬프트 생성 완료!', 'success');
                     } catch (error) {
                         console.error('Image prompt generation error:', error);
