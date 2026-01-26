@@ -778,6 +778,20 @@ app.get('/', (c) => {
                 const [availableVoices, setAvailableVoices] = useState([]);
                 const [loadingVoices, setLoadingVoices] = useState(false);
 
+                // 다운로드 폴더 설정
+                const [downloadFolder, setDownloadFolder] = useState(() => {
+                    const saved = localStorage.getItem('downloadFolder');
+                    return saved || '';
+                });
+
+                // 사용자 정의 보이스 ID 관리
+                const [customVoiceIds, setCustomVoiceIds] = useState(() => {
+                    const saved = localStorage.getItem('customVoiceIds');
+                    return saved ? JSON.parse(saved) : [];
+                });
+                const [newVoiceId, setNewVoiceId] = useState('');
+                const [showCustomVoices, setShowCustomVoices] = useState(false);
+
                 // 프로젝트 저장/불러오기
                 const [showProjectModal, setShowProjectModal] = useState(false);
                 const [projectName, setProjectName] = useState('');
@@ -832,6 +846,36 @@ app.get('/', (c) => {
                 useEffect(() => {
                     localStorage.setItem('subtitleEnabled', JSON.stringify(subtitleEnabled));
                 }, [subtitleEnabled]);
+
+                useEffect(() => {
+                    localStorage.setItem('downloadFolder', downloadFolder);
+                }, [downloadFolder]);
+
+                useEffect(() => {
+                    localStorage.setItem('customVoiceIds', JSON.stringify(customVoiceIds));
+                }, [customVoiceIds]);
+
+                // 사용자 정의 보이스 ID 추가
+                const addCustomVoiceId = () => {
+                    const trimmedId = newVoiceId.trim();
+                    if (!trimmedId) {
+                        showToast('보이스 ID를 입력해주세요', 'error');
+                        return;
+                    }
+                    if (customVoiceIds.includes(trimmedId)) {
+                        showToast('이미 추가된 보이스 ID입니다', 'error');
+                        return;
+                    }
+                    setCustomVoiceIds([...customVoiceIds, trimmedId]);
+                    setNewVoiceId('');
+                    showToast('보이스 ID가 추가되었습니다', 'success');
+                };
+
+                // 사용자 정의 보이스 ID 삭제
+                const removeCustomVoiceId = (id) => {
+                    setCustomVoiceIds(customVoiceIds.filter(voiceId => voiceId !== id));
+                    showToast('보이스 ID가 삭제되었습니다', 'success');
+                };
 
                 // 내 음성 목록 불러오기
                 const loadMyVoices = async () => {
@@ -3045,6 +3089,166 @@ app.get('/', (c) => {
                                                 <i className="fas fa-shield-alt mr-2"></i>
                                                 API 키는 브라우저(localStorage)에만 저장됩니다. 서버로 전송되지 않아 안전합니다.
                                             </p>
+                                        </div>
+
+                                        {/* 다운로드 폴더 경로 설정 */}
+                                        <div className="mt-8 pt-8 border-t border-gray-700">
+                                            <h3 className="text-lg font-semibold text-purple-300 flex items-center gap-2 mb-4">
+                                                <i className="fas fa-folder-open"></i>
+                                                다운로드 폴더 경로 (선택사항)
+                                            </h3>
+                                            <div className="mb-2">
+                                                <div className="flex gap-2">
+                                                    <input
+                                                        type="text"
+                                                        value={downloadFolder}
+                                                        onChange={(e) => setDownloadFolder(e.target.value)}
+                                                        placeholder="예: C:\\Users\\Username\\Downloads\\jihye-studio"
+                                                        className="flex-1 p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
+                                                    />
+                                                    <button
+                                                        onClick={() => {
+                                                            showToast('브라우저 환경에서는 폴더 선택이 제한됩니다. 경로를 직접 입력해주세요.', 'info');
+                                                        }}
+                                                        className="bg-gray-700 hover:bg-gray-600 text-white py-3 px-4 rounded-lg font-semibold transition-all whitespace-nowrap"
+                                                    >
+                                                        <i className="fas fa-folder mr-1"></i>
+                                                        폴더 선택
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <p className="text-xs text-gray-500">다운로드 폴더 경로를 지정하면 생성된 파일이 해당 폴더로 복사됩니다.</p>
+                                        </div>
+
+                                        {/* 사용자 정의 보이스 ID 관리 */}
+                                        <div className="mt-8 pt-8 border-t border-gray-700">
+                                            <div 
+                                                className="flex items-center justify-between cursor-pointer mb-4"
+                                                onClick={() => setShowCustomVoices(!showCustomVoices)}
+                                            >
+                                                <h3 className="text-lg font-semibold text-purple-300 flex items-center gap-2">
+                                                    <i className="fas fa-microphone-alt"></i>
+                                                    사용자 정의 보이스 ID 관리
+                                                </h3>
+                                                <i className={\`fas fa-chevron-\${showCustomVoices ? 'up' : 'down'} text-gray-400\`}></i>
+                                            </div>
+                                            
+                                            {showCustomVoices && (
+                                                <>
+                                                    <p className="text-xs text-gray-500 mb-4">
+                                                        ElevenLabs에서 제공하는 보이스 ID를 추가하여 사용할 수 있습니다.
+                                                    </p>
+                                                    
+                                                    {/* 보이스 ID 입력 */}
+                                                    <div className="flex gap-2 mb-4">
+                                                        <input
+                                                            type="text"
+                                                            value={newVoiceId}
+                                                            onChange={(e) => setNewVoiceId(e.target.value)}
+                                                            placeholder="보이스 ID 입력 (예: 21m00Tcm4TlvDq8ikWAM)"
+                                                            className="flex-1 p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-purple-500"
+                                                            onKeyPress={(e) => {
+                                                                if (e.key === 'Enter') {
+                                                                    addCustomVoiceId();
+                                                                }
+                                                            }}
+                                                        />
+                                                        <button
+                                                            onClick={addCustomVoiceId}
+                                                            className="bg-purple-600 hover:bg-purple-700 text-white py-3 px-6 rounded-lg font-semibold transition-all whitespace-nowrap"
+                                                        >
+                                                            <i className="fas fa-plus mr-1"></i>
+                                                            추가
+                                                        </button>
+                                                    </div>
+
+                                                    {/* 추가된 보이스 ID 목록 */}
+                                                    {customVoiceIds.length > 0 ? (
+                                                        <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-3 max-h-60 overflow-y-auto">
+                                                            <div className="space-y-2">
+                                                                {customVoiceIds.map((voiceId, index) => (
+                                                                    <div 
+                                                                        key={index}
+                                                                        className="flex items-center justify-between bg-gray-900/50 p-3 rounded-lg border border-gray-700 hover:border-purple-500/50 transition-all"
+                                                                    >
+                                                                        <span className="text-gray-300 font-mono text-sm flex-1 mr-3 break-all">
+                                                                            {voiceId}
+                                                                        </span>
+                                                                        <button
+                                                                            onClick={() => removeCustomVoiceId(voiceId)}
+                                                                            className="text-red-400 hover:text-red-300 transition-all"
+                                                                            title="삭제"
+                                                                        >
+                                                                            <i className="fas fa-trash"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    ) : (
+                                                        <div className="bg-gray-800/30 border border-gray-700/50 rounded-lg p-4 text-center">
+                                                            <p className="text-gray-500 text-sm">
+                                                                <i className="fas fa-info-circle mr-2"></i>
+                                                                추가된 보이스 ID가 없습니다
+                                                            </p>
+                                                        </div>
+                                                    )}
+                                                </>
+                                            )}
+                                        </div>
+
+                                        {/* TTS 음성 설정 */}
+                                        <div className="mt-8 pt-8 border-t border-gray-700">
+                                            <h3 className="text-lg font-semibold text-purple-300 flex items-center gap-2 mb-4">
+                                                <i className="fas fa-sliders-h"></i>
+                                                TTS 음성 설정
+                                            </h3>
+
+                                            {/* Stability 슬라이더 */}
+                                            <div className="mb-6">
+                                                <div className="flex items-center justify-between mb-2">
+                                                    <label className="text-sm font-semibold text-gray-300">
+                                                        <i className="fas fa-balance-scale mr-2 text-blue-400"></i>
+                                                        Stability (안정성)
+                                                    </label>
+                                                    <span className="text-purple-400 font-mono text-sm">{voiceSettings.stability.toFixed(2)}</span>
+                                                </div>
+                                                <input
+                                                    type="range"
+                                                    min="0"
+                                                    max="1"
+                                                    step="0.01"
+                                                    value={voiceSettings.stability}
+                                                    onChange={(e) => setVoiceSettings({...voiceSettings, stability: parseFloat(e.target.value)})}
+                                                    className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500"
+                                                />
+                                                <p className="text-xs text-gray-500 mt-2">
+                                                    음성의 일관성을 조절합니다. 높을수록 안정적이지만 단조로울 수 있습니다.
+                                                </p>
+                                            </div>
+
+                                            {/* Similarity Boost 슬라이더 */}
+                                            <div>
+                                                <div className="flex items-center justify-between mb-2">
+                                                    <label className="text-sm font-semibold text-gray-300">
+                                                        <i className="fas fa-clone mr-2 text-green-400"></i>
+                                                        Similarity Boost (유사도)
+                                                    </label>
+                                                    <span className="text-purple-400 font-mono text-sm">{voiceSettings.similarityBoost.toFixed(2)}</span>
+                                                </div>
+                                                <input
+                                                    type="range"
+                                                    min="0"
+                                                    max="1"
+                                                    step="0.01"
+                                                    value={voiceSettings.similarityBoost}
+                                                    onChange={(e) => setVoiceSettings({...voiceSettings, similarityBoost: parseFloat(e.target.value)})}
+                                                    className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500"
+                                                />
+                                                <p className="text-xs text-gray-500 mt-2">
+                                                    원본 음성과의 유사도를 조절합니다. 높을수록 원본 음성에 가깝지만 부자연스러울 수 있습니다.
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
 
