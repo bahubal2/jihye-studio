@@ -1,0 +1,413 @@
+{
+ "style": "",
+ "styles": {},
+ "quality": "low",
+ "assets": [
+  {
+   "id": "ph_samsung_town_aerial",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Aerial drone view of a busy Seoul Gangnam intersection, three tall dark glass skyscrapers side by side, and squeezed at their foot a small old beige six-story building that looks out of place, sunny day, wide boulevard with traffic"
+  },
+  {
+   "id": "ph_small_building_street",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Street-level view looking up at a small old six-story beige building with a convenience store on the ground floor, dwarfed by enormous dark glass skyscrapers on both sides and behind it, pedestrians walking past"
+  },
+  {
+   "id": "ph_church_ruins",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: A vast cleared redevelopment site in Seoul, rubble and empty lots everywhere, with one small red-brick church building still standing alone in the middle, overcast sky, excavators far away"
+  },
+  {
+   "id": "ph_samik_apartment",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: An aging 1980s Korean apartment complex of several five-story buildings, one building separated from the others by a construction fence, cranes preparing demolition around the others"
+  },
+  {
+   "id": "ph_dictionary",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Close-up of an open thick Korean dictionary on a desk, a finger pointing at an entry, text blurred and unreadable, warm desk lamp"
+  },
+  {
+   "id": "ph_loan_site",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: A large apartment construction site stopped and empty, cranes idle, a developer in a hard hat checking a phone with worried face"
+  },
+  {
+   "id": "ph_small_car",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: A brand-new small compact city car in a showroom under bright lights, no logo or badge"
+  },
+  {
+   "id": "ph_gangnam_1970s",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: 1970s Korea, retro faded film photo look. Gangnam area as rice paddies and dirt roads, an old bus driving on a dusty road, a few low houses, construction stakes in fields"
+  },
+  {
+   "id": "ph_scrivener_office",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: 1970s Korea, retro faded film photo look. A small legal scrivener office with an old wooden desk, stacks of documents and stamps, a middle-aged man in a suit working, no face clearly visible"
+  },
+  {
+   "id": "ph_city_blueprint",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: An old yellowed city planning map unrolled on a table, hand-drawn roads and a large rectangle marked area, details blurred, magnifying glass"
+  },
+  {
+   "id": "ph_imf_halt",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: A halted construction site in 1998 Seoul with rusting cranes, fences and an abandoned excavator, grey winter sky"
+  },
+  {
+   "id": "ph_new_building_1999",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: A newly completed small six-story beige office building on a quiet Seoul street corner in 1999, a few cars of that era, sunny"
+  },
+  {
+   "id": "ph_construction_surround",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: A gigantic skyscraper construction site wrapping around a small old six-story building on three sides, steel frames and cranes towering over it, construction workers in helmets buying drinks at the convenience store on its ground floor"
+  },
+  {
+   "id": "ph_old_man_window",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: An elderly Korean man in his eighties looking out of an office window at a giant construction site, back view and side profile, quiet light"
+  },
+  {
+   "id": "ph_towers_night",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Three tall dark glass corporate skyscrapers lit at night at a Seoul intersection, a small old building at their feet in shadow, light trails of traffic"
+  },
+  {
+   "id": "ph_passersby",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Pedestrians at a Gangnam crosswalk looking up curiously at a small old building between huge glass towers"
+  },
+  {
+   "id": "ph_funeral_flowers",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Korean funeral hall with white chrysanthemum wreaths and a memorial photo frame silhouette, no face visible, soft sad light"
+  },
+  {
+   "id": "ph_tax_bill",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: An inheritance tax notice and documents on a wooden table with reading glasses and a calculator, text blurred"
+  },
+  {
+   "id": "ph_clinic_lobby",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: A sleek modern Gangnam plastic surgery clinic lobby, white marble, reception desk, empty"
+  },
+  {
+   "id": "ph_remodeled_building",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: A small six-story building freshly remodeled with a modern facade, a for-lease banner without readable text, between glass towers"
+  },
+  {
+   "id": "ph_supreme_court",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Exterior of a grand Korean supreme court building with stone steps, overcast, no signage readable"
+  },
+  {
+   "id": "ph_taxi_meter",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Close-up of a taxi dashboard fare meter at night with glowing red digits blurred, city lights bokeh through the windshield"
+  },
+  {
+   "id": "ph_dev_field",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: A fenced development land plot in a Korean provincial city with a single small house remaining, signboards without readable text"
+  },
+  {
+   "id": "ph_union_vote",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: A packed general assembly hall of a Korean redevelopment union, hundreds of members raising voting cards, banners unreadable"
+  },
+  {
+   "id": "ph_excavators_2026",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Excavators and cranes working on a large cleared redevelopment site, while a small church building stands fenced off at one corner"
+  },
+  {
+   "id": "ph_puzzle",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Jigsaw puzzle on a wooden table almost complete showing a city skyline, one piece lying apart from the rest, warm light"
+  },
+  {
+   "id": "ph_aus_suburb",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Aerial view of a new Australian suburb with identical new houses packed tightly, and in the middle one large green lawn property with a single house and a long 200-meter driveway, sunny"
+  },
+  {
+   "id": "ph_seattle_house",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: A tiny old wooden farmhouse surrounded on three sides by a towering new concrete shopping mall building under construction, Seattle, cloudy"
+  },
+  {
+   "id": "ph_negotiation",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Two people negotiating across a table in a small Korean shop, one holding a contract, tense mood, faces partly turned away"
+  },
+  {
+   "id": "ph_gangnam_dusk",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Gangnam intersection at dusk, three glass towers glowing, the small old building at their foot with its lights on, wide shot"
+  },
+  {
+   "id": "ph_glass_facade",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Close-up looking up at a dark glass skyscraper curtain wall reflecting clouds, Seoul"
+  },
+  {
+   "id": "ph_gangnam_crosswalk",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Busy Gangnam crosswalk in daytime with glass towers behind, crowds crossing"
+  },
+  {
+   "id": "ph_corp_lobby",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: A huge modern corporate headquarters lobby with marble floor and security gates, people in suits, no logos"
+  },
+  {
+   "id": "ph_tower_crane_2004",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: A skyscraper under construction in Seoul around 2004 with tower cranes and steel frame, a small old building at its base"
+  },
+  {
+   "id": "ph_skyline_gangnam",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Wide skyline of Gangnam Seoul in clear weather, dense office towers"
+  },
+  {
+   "id": "ph_building_entrance",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Entrance of a small old six-story building with a convenience store on the ground floor, signs blurred, a glass skyscraper wall right next to it"
+  },
+  {
+   "id": "ph_rooftop_view",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: View from the rooftop of a small old building looking up at enormous glass towers looming over it"
+  },
+  {
+   "id": "ph_narrow_gap",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: A narrow gap between an old beige small building and a modern glass skyscraper wall, pedestrians passing"
+  },
+  {
+   "id": "ph_old_wall",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Weathered beige tile wall of a 1990s Korean building with an old air conditioner, close-up texture"
+  },
+  {
+   "id": "ph_gangnam_rain",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Gangnam street at night in the rain, neon reflections, umbrellas, glass towers blurred"
+  },
+  {
+   "id": "ph_city_bokeh",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Out-of-focus city lights bokeh at night, warm and cool tones"
+  },
+  {
+   "id": "ph_sunset_skyline",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Seoul skyline at sunset with golden light and long shadows"
+  },
+  {
+   "id": "ph_church_gate",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: A small church building behind a construction fence on a redevelopment site, banners without readable text"
+  },
+  {
+   "id": "ph_redevelop_fence",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Long corrugated construction fence surrounding a Seoul redevelopment zone, empty demolished lots behind"
+  },
+  {
+   "id": "ph_eviction_gate",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: A tense standoff of people in front of a church gate on a redevelopment site, security guards and union staff, seen from a distance, no violence"
+  },
+  {
+   "id": "ph_rubble_field",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Wide view of a demolished neighborhood with rubble piles and a few excavators under grey sky"
+  },
+  {
+   "id": "ph_old_apartment",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: An intact aging 1980s Korean apartment complex with five-story buildings, laundry on balconies, autumn trees"
+  },
+  {
+   "id": "ph_apartment_fence",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: One old five-story apartment building separated from the rest of its complex by a temporary fence, residents walking"
+  },
+  {
+   "id": "ph_site_model",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Architectural scale model of a new C-shaped high-rise apartment complex on a table, one block missing, presentation lights"
+  },
+  {
+   "id": "ph_realtor_window",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Window of a Korean real estate agency with apartment listing papers taped, text blurred, an elderly couple looking"
+  },
+  {
+   "id": "ph_aus_driveway",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: A long straight 200 meter gravel driveway across a green lawn leading to a single house, new suburban houses on both sides, Australia"
+  },
+  {
+   "id": "ph_courtroom",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Interior of a Korean courtroom with judges' bench and wooden benches, empty, solemn light"
+  },
+  {
+   "id": "ph_gavel_desk",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: A wooden gavel on a judge's desk with legal documents, warm light"
+  },
+  {
+   "id": "ph_cash_stack",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Stacks of Korean 50,000 won banknotes on a table, shallow depth of field"
+  },
+  {
+   "id": "ph_document_sign",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: A hand signing a real estate contract with a pen, a seal stamp beside, text blurred"
+  },
+  {
+   "id": "ph_crane_up",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Looking straight up at tower cranes against the sky over a construction site"
+  },
+  {
+   "id": "ph_cash_count",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Close-up of a banknote counting machine rapidly counting thick stacks of Korean 50,000 won bills, more cash stacks piled beside it on a desk, dramatic warm light"
+  },
+  {
+   "id": "ph_mystery_buyer",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no recognizable real person. Korea, realistic people with ordinary faces. Scene: Back view silhouette of a man in a long white doctor's coat walking toward the glass entrance door of a small old six-story building at dusk, giant glass towers around, mysterious mood, face not visible"
+  }
+ ]
+}

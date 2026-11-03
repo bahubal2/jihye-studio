@@ -1,0 +1,85 @@
+{
+ "style": "",
+ "styles": {},
+ "quality": "low",
+ "assets": [
+  {
+   "id": "cut_manager",
+   "kind": "cutout",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. A worried Korean supermarket manager in his 50s wearing a store apron and name tag, holding his head with both hands, full body, standing"
+  },
+  {
+   "id": "cut_residents",
+   "kind": "cutout",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Three ordinary Korean neighborhood residents (two middle-aged women and an older man) standing together looking puzzled, full body"
+  },
+  {
+   "id": "cut_boxes",
+   "kind": "cutout",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. A neat stack of four cardboard delivery boxes with tape, no logos"
+  },
+  {
+   "id": "cut_family",
+   "kind": "cutout",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. A Korean family of four (parents and two kids) happily pushing a full shopping cart, full body"
+  },
+  {
+   "id": "cut_supplier",
+   "kind": "cutout",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. A worried Korean small business owner in a work vest holding an unpaid invoice paper, full body"
+  },
+  {
+   "id": "cut_exec",
+   "kind": "cutout",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. A Korean businessman in a dark suit holding a thick folder of documents, serious, full body"
+  },
+  {
+   "id": "cut_robot",
+   "kind": "cutout",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. A modern warehouse fulfillment robot carrying a grocery crate"
+  },
+  {
+   "id": "cut_piggy",
+   "kind": "cutout",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. A pink ceramic piggy bank"
+  },
+  {
+   "id": "cut_house",
+   "kind": "cutout",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. A small detailed model of a Korean house"
+  },
+  {
+   "id": "cut_cart",
+   "kind": "cutout",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. A supermarket shopping cart overflowing with groceries"
+  },
+  {
+   "id": "cut_truck",
+   "kind": "cutout",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. A white delivery truck, side view, no logos"
+  },
+  {
+   "id": "cut_cash",
+   "kind": "cutout",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. A thick stack of Korean 50000 won banknotes"
+  },
+  {
+   "id": "cut_toy",
+   "kind": "cutout",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. A colorful toy teddy bear and toy blocks"
+  }
+ ]
+}

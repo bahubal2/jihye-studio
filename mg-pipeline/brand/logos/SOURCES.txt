@@ -1,0 +1,6 @@
+# 로고 출처 (Wikimedia Commons). 보도·해설 목적의 식별용으로만 쓴다.
+lottemart|https://commons.wikimedia.org/wiki/File:Lotte_Mart_2018.svg
+coupang|https://commons.wikimedia.org/wiki/File:Coupang_logo.svg
+emart|https://commons.wikimedia.org/wiki/File:Emart_Logo.svg
+tesco|https://commons.wikimedia.org/wiki/File:Tesco_2016_logo.svg
+toysrus|https://commons.wikimedia.org/wiki/File:Toys_"R"_Us_logo_(2007,_retrofit).svg

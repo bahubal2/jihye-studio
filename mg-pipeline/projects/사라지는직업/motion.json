@@ -1,0 +1,18 @@
+{
+ "model": "fal-ai/minimax/hailuo-02/standard/image-to-video",
+ "resolution": "512P",
+ "duration": "6",
+ "loop_sec": 15,
+ "extend": "slow",
+ "style": "Slow realistic documentary camera motion. Keep the same scene and composition. No text, no letters, no captions, no subtitles appear.",
+ "clips": [
+  {"id": "ph_phone_call_joy", "prompt": "She jumps with joy, laughing and shouting into the phone, waving the paper, handheld camera"},
+  {"id": "ph_family_party", "prompt": "The family laughs and claps, the parents hug their daughter tightly, confetti falls, slow push-in"},
+  {"id": "ph_waiting_alone", "prompt": "She sits still, slowly lowers her head and closes the laptop, the light outside the window slowly dims, slow push-in"},
+  {"id": "ph_guard_snow_shovel", "prompt": "The guard shovels snow steadily and clears a path, snow keeps falling, his breath visible, slow pan"},
+  {"id": "ph_phone_ars", "prompt": "The man presses the keypad again and again, sighs and looks at the screen in frustration, slow push-in"},
+  {"id": "ph_callcenter_dark", "prompt": "The lights over the empty desks switch off one row after another until only two desks remain lit, slow dolly back"},
+  {"id": "ph_academy_van", "prompt": "The hazard lights blink, children with heavy backpacks walk out of the building toward the van, slow push-in"},
+  {"id": "ph_rejection_laptop", "prompt": "The young man reads the screen, his shoulders drop, he slowly closes his eyes, the screen light flickers on his face"}
+ ]
+}

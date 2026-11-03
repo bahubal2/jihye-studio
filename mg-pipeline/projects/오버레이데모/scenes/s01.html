@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="cues" content="1-3">
+<link rel="stylesheet" href="../../../engine/web/kit.css">
+<link rel="stylesheet" href="_overlay.css">
+</head>
+<body data-bg="none" data-sub="off">
+<div class="stage">
+  <!-- 미리보기용 바탕. 투명 레이어로 뽑을 때(tools/overlay.py)는 빠진다 -->
+  <div class="bgonly"></div>
+
+  <div class="cam">
+    <!-- 1~2번 자막: 구간 라벨 + 제목 + 비교 카드 -->
+    <div class="abs exit" data-until="3" style="inset:0">
+      <div class="label" data-at="+0.05">소비 심리</div>
+      <div class="line head" style="left:100px; top:150px"><span class="in" data-at="1:커피는" data-off="-0.3">커피는 아깝고,</span></div>
+      <div class="line head" style="left:640px; top:150px"><span class="in" data-at="2:쇼핑은" data-off="-0.2">쇼핑은 쉽다?</span></div>
+
+      <div class="card rise" data-at="+0.15" style="left:300px; top:330px">
+        <div class="k">커피 한 잔</div>
+        <div class="v"><span class="num" data-to="5000" data-fmt="comma" data-at="1:오천" data-dur="1.1">0</span>원</div>
+      </div>
+      <div class="card rise" data-at="+0.3" style="left:1060px; top:330px">
+        <div class="k">쇼핑 한 번</div>
+        <div class="v q exit" data-until="2:수십만" data-uoff="-0.05">?</div>
+        <div class="v hot slam" data-at="2:수십만">수십만 원</div>
+      </div>
+    </div>
+
+    <!-- 3번 자막: 빛나는 핵심 문구 상자 + 아래 한 줄 -->
+    <div class="glowbox slam" data-at="3:숨어" data-off="-0.15">숨어 있는 돈 계산법</div>
+    <div class="line sub2" style="left:0; right:0; top:745px"><span class="in" data-at="3:들여다보겠습니다" data-off="-0.2">오늘 그 속을 들여다봅니다</span></div>
+  </div>
+</div>
+<script src="_timing.js"></script><script src="../../../engine/web/kit.js"></script>
+</body>
+</html>

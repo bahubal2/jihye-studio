@@ -1,0 +1,415 @@
+/* 지혜호수 경제심리연구소 — 채널 공용 화면 디자인 (HTML 장면용).
+   장면에서: <link rel="stylesheet" href="../../../engine/web/kit.css"><link rel="stylesheet" href="../../../brand/web/channel.css">
+   모든 등장 시각은 kit.js 의 data-at 으로 잡는다. 배경은 흐리고 어둡게 깔고, 글자가 주인공이다. */
+@font-face { font-family: 'GM'; src: url('../../fonts/GmarketSansTTFBold.ttf'); }
+@font-face { font-family: 'GMm'; src: url('../../fonts/GmarketSansTTFMedium.ttf'); }
+@font-face { font-family: 'BH'; src: url('../../fonts/BlackHanSans-Regular.ttf'); }
+:root { --accent: #ff9a2e; --accent2: #ffc04d; --hot: #ff6b4a; --cool: #5cc8ff; --mark: #ffd23f; --ink: #0b0f16; }
+html, body { background: var(--ink); font-family: 'GM', sans-serif; }
+
+/* ---- 배경: 사진·영상을 흐리고 어둡게, 장면 내내 아주 천천히 다가간다 ---- */
+.bg { position: absolute; inset: -30px; width: calc(100% + 60px); height: calc(100% + 60px); object-fit: cover;
+  filter: blur(var(--blur, 4px)) brightness(var(--dark, .62)) saturate(.95); animation: bgzoom var(--len) 0s both linear; }
+@keyframes bgzoom { from { transform: scale(1.0); } to { transform: scale(var(--zoom, 1.06)); } }
+.bg.swap { animation: bgzoom var(--len) 0s both linear, fadein .8s var(--t) both ease; }
+.shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.35), transparent 30%, transparent 62%, rgba(0,0,0,.55)), radial-gradient(ellipse at 50% 50%, transparent 45%, rgba(0,0,0,.45)); }
+.plain { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 30%, #26364a, #0b0f16 72%); }
+
+/* ---- 글자 그림자: 어떤 배경 위에서도 읽힌다 ---- */
+.label, .head, .say, .card .k, .kick, .big, .src { text-shadow: 0 3px 10px rgba(0,0,0,.85), 0 0 28px rgba(0,0,0,.55); }
+
+/* ---- 왼쪽 위 구간 라벨 ---- */
+.label { position: absolute; left: 105px; top: 92px; font-family: 'GMm', sans-serif; font-size: 40px; color: #fff; padding-left: 26px; white-space: nowrap;
+  animation: lbl .55s var(--t) both cubic-bezier(.16,1,.3,1); }
+.label::before { content: ''; position: absolute; left: 0; top: -4px; width: 9px; height: 50px; border-radius: 5px; background: var(--accent); box-shadow: 0 0 14px rgba(255,154,46,.8); }
+@keyframes lbl { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: none; } }
+
+/* ---- 한 줄씩 아래에서 밀려 올라오기: <div class="line head"><span class="in" data-at="..">글자</span></div> ---- */
+.line { position: absolute; overflow: hidden; padding: .1em .14em .06em; white-space: nowrap; }
+.line > .in { display: inline-block; animation: lineIn .65s var(--t) both cubic-bezier(.16,1,.3,1); }
+@keyframes lineIn { from { transform: translateY(112%); } to { transform: none; } }
+.center { left: 0; right: 0; text-align: center; }
+.head { font-size: 84px; color: #fff; letter-spacing: -.02em; }
+.say { font-size: 72px; color: #fff; }
+.kick { font-family: 'GMm', sans-serif; font-size: 46px; color: rgba(255,255,255,.8); }
+.big { font-family: 'BH', sans-serif; color: #fff; line-height: 1; font-size: 220px; letter-spacing: -.01em; }
+.acc { color: var(--accent2); } .hotc { color: var(--hot); } .coolc { color: var(--cool); }
+.src { position: absolute; right: 60px; bottom: 150px; font-family: 'GMm', sans-serif; font-size: 22px; color: rgba(255,255,255,.55); }
+
+/* ---- 형광펜: 바탕이 왼쪽부터 칠해지고 글자색이 바뀐다 ---- */
+.mk { padding: 0 .12em; border-radius: .08em; background: linear-gradient(var(--mark), var(--mark)) no-repeat 0 62% / 0% 80%; animation: mk .6s var(--t) both cubic-bezier(.65,0,.25,1); }
+@keyframes mk { to { background-size: 100% 80%; color: var(--ink); text-shadow: none; } }
+.mk.hot { --mark: var(--hot); animation-name: mkHot; } @keyframes mkHot { to { background-size: 100% 80%; color: #fff; text-shadow: none; } }
+
+/* ---- 밑줄 긋기 ---- */
+.ul { position: relative; } .ul::after { content: ''; position: absolute; left: 0; right: 0; bottom: -.08em; height: .09em; border-radius: .05em; background: var(--accent);
+  transform-origin: left; animation: rule .6s var(--t) both cubic-bezier(.65,0,.25,1); }
+@keyframes rule { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* ---- 어두운 반투명 카드 ---- */
+.card { position: absolute; border-radius: 22px; background: rgba(18,22,30,.62); border: 2px solid rgba(255,255,255,.16);
+  box-shadow: 0 20px 50px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.12); text-align: center; }
+.card .k { position: absolute; left: 0; right: 0; top: 30px; font-family: 'GMm', sans-serif; font-size: 38px; color: rgba(255,255,255,.75); }
+.card .v { position: absolute; left: 0; right: 0; bottom: 34px; font-size: 104px; color: #fff; line-height: 1; white-space: nowrap; }
+.card.lit { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(255,200,120,.3), 0 0 40px rgba(255,140,30,.6), 0 20px 50px rgba(0,0,0,.45); }
+
+/* ---- 순위 카드 줄 (5위~1위) ---- */
+.ranks { position: absolute; left: 105px; right: 105px; top: 300px; display: flex; gap: 22px; }
+.rk { flex: 1; height: 170px; position: relative; border-radius: 18px; background: rgba(18,22,30,.62); border: 2px solid rgba(255,255,255,.14); text-align: center; overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0,0,0,.4); animation: rise .6s var(--t) both cubic-bezier(.16,1,.3,1); }
+.rk .n { position: absolute; left: 0; right: 0; top: 22px; font-family: 'GMm', sans-serif; font-size: 34px; color: rgba(255,255,255,.75); }
+.rk .q { position: absolute; left: 0; right: 0; bottom: 22px; font-size: 76px; color: rgba(255,255,255,.55); }
+.rk .a { position: absolute; left: 0; right: 0; bottom: 28px; font-size: 54px; color: #fff; white-space: nowrap; animation: slam .55s var(--t2, 999s) both cubic-bezier(.16,1.5,.3,1); }
+.rk.open .q { animation: gone .25s var(--t2) forwards ease-in; }
+.rk.now { animation: rise .6s var(--t) both cubic-bezier(.16,1,.3,1), rkLit .5s var(--t3, 999s) forwards ease; }
+@keyframes rkLit { to { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(255,200,120,.3), 0 0 44px rgba(255,140,30,.7); background: rgba(40,26,12,.75); } }
+.rk.done { opacity: .55; }
+
+/* ---- 빛나는 테두리 상자 (살짝 기울임) ---- */
+.glowbox { position: absolute; left: 50%; top: 520px; translate: -50% 0; rotate: -2.5deg; padding: 34px 64px 26px; white-space: nowrap;
+  font-size: 100px; color: var(--accent2); background: rgba(14,14,18,.86); border: 5px solid var(--accent); border-radius: 18px;
+  box-shadow: 0 0 0 2px rgba(255,200,120,.35), 0 0 38px rgba(255,140,30,.85), 0 0 90px rgba(255,120,20,.45), inset 0 0 26px rgba(255,140,30,.35);
+  text-shadow: 0 0 22px rgba(255,170,60,.55); }
+
+/* ---- 막대 비교: <div class="bars"><div class="bar" style="--w:.62" data-at=".."><b>이름</b><i></i><em>값</em></div> ---- */
+.bars { position: absolute; left: 160px; right: 160px; display: flex; flex-direction: column; gap: 30px; }
+.bar { position: relative; height: 92px; animation: fadein .4s var(--t) both ease; }
+.bar b { position: absolute; left: 0; top: 18px; width: var(--nw, 320px); font-size: 50px; color: #fff; text-shadow: 0 3px 10px rgba(0,0,0,.85); white-space: nowrap; }
+.bar i { position: absolute; left: calc(var(--nw, 320px) + 20px); top: 8px; height: 76px; width: calc((100% - var(--nw, 320px) - 240px) * var(--w)); border-radius: 0 12px 12px 0; background: linear-gradient(90deg, rgba(255,154,46,.75), var(--accent));
+  box-shadow: 0 0 30px rgba(255,140,30,.45); transform-origin: left; animation: barIn 1.1s var(--t) both cubic-bezier(.65,0,.25,1); }
+.bar.dim i { background: linear-gradient(90deg, rgba(160,170,190,.45), rgba(200,210,225,.7)); box-shadow: none; }
+.bar em { position: absolute; left: calc(var(--nw, 320px) + 20px + (100% - var(--nw, 320px) - 240px) * var(--w) + 24px); top: 16px; font-style: normal; font-size: 52px; color: #fff; white-space: nowrap; text-shadow: 0 3px 10px rgba(0,0,0,.85);
+  animation: fadein .4s calc(var(--t) + .8s) both ease; }
+@keyframes barIn { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* ---- 칸 채우기 (열에 여덟): 칸마다 --f 만큼 아래에서 차오른다 ---- */
+.meter { position: absolute; left: 0; right: 0; display: flex; justify-content: center; gap: 16px; }
+.meter u { width: 104px; height: 150px; border-radius: 14px; position: relative; overflow: hidden; background: rgba(18,22,30,.72); border: 3px solid rgba(255,255,255,.5);
+  box-shadow: 0 12px 30px rgba(0,0,0,.4); animation: rise .5s var(--t) both cubic-bezier(.16,1,.3,1); }
+.meter u::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, var(--accent2), var(--accent)); transform-origin: bottom;
+  animation: fillUp .45s var(--t2, 999s) both cubic-bezier(.65,0,.25,1); }
+@keyframes fillUp { from { transform: scaleY(0); } to { transform: scaleY(var(--f)); } }
+
+/* ---- 나가기: data-until 과 함께 ---- */
+.exit.out { animation: gone .4s var(--u) forwards ease-in; }
+
+/* ---- 아래 자막: 박스 없이 흰 글자 + 진한 그림자 ---- */
+.cap.sub { font-family: 'GM', sans-serif; font-size: 50px; bottom: 64px; text-shadow: 0 3px 8px rgba(0,0,0,.95), 0 0 30px rgba(0,0,0,.8), 0 0 4px #000; }
+
+/* ===== 2026-10-29 담당자 의견: 화면이 단조롭다 → 배경 켄번스, 보고서식 짧은 글자에 박스·취소선·동그라미·도장·태그 ===== */
+/* 배경 켄번스: 장면마다 방향이 다르게 천천히 밀고 당긴다 (gen.py 가 --kx0 --ky0 --kx1 --ky1 --z0 --z1 을 정한다) */
+@keyframes kb { from { transform: translate(var(--kx0, 0px), var(--ky0, 0px)) scale(var(--z0, 1.04)); } to { transform: translate(var(--kx1, 0px), var(--ky1, 0px)) scale(var(--z1, 1.16)); } }
+.bg.kb { animation: kb var(--len) 0s both linear; }
+.bg.kb.swap { animation: kb var(--len) 0s both linear, fadein .6s var(--t) both ease; }
+/* 화면 펀치: 강조 순간에 배경이 짧게 다가갔다 돌아온다 */
+@keyframes punch { 0% { transform: scale(1); } 30% { transform: scale(1.045); } 100% { transform: scale(1); } }
+.punch { animation: punch .55s var(--t) both cubic-bezier(.2,.9,.3,1); }
+
+/* 글자 안 강조 (data-at 시각에 그려진다) */
+.bx { position: relative; padding: 0 .14em; }
+.bx::before { content: ''; position: absolute; inset: -.06em -.02em -.04em; border: .07em solid var(--accent); border-radius: .12em;
+  clip-path: inset(0 100% 100% 0); animation: bxDraw .7s var(--t) both cubic-bezier(.65,0,.25,1); box-shadow: 0 0 18px rgba(255,154,46,.55); }
+@keyframes bxDraw { 40% { clip-path: inset(0 0 100% 0); } 100% { clip-path: inset(0 0 0 0); } }
+.bx.hot::before { border-color: var(--hot); box-shadow: 0 0 18px rgba(255,107,74,.6); }
+.st { position: relative; } .st::after { content: ''; position: absolute; left: -.06em; right: -.06em; top: 52%; height: .1em; background: var(--hot);
+  transform-origin: left; transform: rotate(-3deg) scaleX(0); animation: stDraw .45s var(--t) both cubic-bezier(.65,0,.25,1); }
+@keyframes stDraw { to { transform: rotate(-3deg) scaleX(1); } }
+.st.done { animation: stDim .45s var(--t) both; } @keyframes stDim { to { color: rgba(255,255,255,.45); } }
+.ci { position: relative; } .ci::before { content: ''; position: absolute; inset: -.22em -.3em; border: .07em solid var(--accent2); border-radius: 50%;
+  transform: rotate(-4deg); clip-path: circle(0% at 0% 50%); animation: ciDraw .7s var(--t) both cubic-bezier(.65,0,.25,1); }
+@keyframes ciDraw { to { clip-path: circle(150% at 0% 50%); } }
+
+/* 도장: 비스듬히 쾅 찍힌다 */
+.stamp { position: absolute; font-family: 'BH', sans-serif; color: var(--hot); border: .09em solid var(--hot); border-radius: .14em; padding: .06em .3em .02em;
+  transform: rotate(var(--rot, -8deg)); background: rgba(20,8,6,.35); text-shadow: none; white-space: nowrap; box-shadow: 0 0 30px rgba(255,107,74,.35);
+  animation: stampIn .42s var(--t) both cubic-bezier(.2,1.4,.4,1); }
+@keyframes stampIn { from { opacity: 0; transform: rotate(var(--rot, -8deg)) scale(2.6); filter: blur(8px); } to { opacity: 1; transform: rotate(var(--rot, -8deg)) scale(1); filter: blur(0); } }
+/* 태그: 보고서 키워드 칩 */
+.chip { position: absolute; font-family: 'GM', sans-serif; color: var(--ink); background: var(--accent2); border-radius: 12px; padding: .16em .5em .1em;
+  white-space: nowrap; box-shadow: 0 10px 30px rgba(0,0,0,.45); animation: chipIn .45s var(--t) both cubic-bezier(.2,1.3,.4,1); }
+.chip.dark { color: #fff; background: rgba(18,22,30,.78); border: 2px solid var(--accent); }
+@keyframes chipIn { from { opacity: 0; transform: translateY(24px) scale(.7); } to { opacity: 1; transform: none; } }
+/* 화살표 줄: A ▶ B (글자 폰트에 화살표가 없어도 되도록 CSS 삼각형) */
+.flow { position: absolute; left: 0; right: 0; display: flex; justify-content: center; align-items: center; gap: .5em; white-space: nowrap; }
+.flow > span { animation: rise .5s var(--t) both cubic-bezier(.16,1,.3,1); }
+.flow > i { width: 0; height: 0; border-top: .32em solid transparent; border-bottom: .32em solid transparent; border-left: .5em solid var(--accent); animation: rise .4s var(--t) both; }
+/* 가로선 그리기 (구분선) */
+.rulebar { position: absolute; height: 6px; border-radius: 3px; background: var(--accent); transform-origin: left; animation: rule .6s var(--t) both cubic-bezier(.65,0,.25,1); }
+.line.roomy { padding: .32em .5em .26em; margin: -.22em -.36em; }
+
+/* ===== 2026-10-29 담당자 의견: 세로줄 소제목을 더 크게 / 왼쪽→오른쪽 PPT식 배치 / 배경이 약할 때 가운데 큰 판으로 가리기 ===== */
+.label { font-size: 52px; padding-left: 32px; top: 86px; }
+.label::before { width: 11px; height: 62px; top: -5px; }
+/* 가리개: 판이 보이면 안 된다. 테두리·모서리 없이 가장자리를 안개처럼 번지게, 뒤는 유리처럼 흐리게만 (움직임은 느껴지고 내용은 안 보이게) */
+.coverbox { position: absolute; left: 50%; transform: translateX(-50%); background: radial-gradient(ellipse at 50% 50%, rgba(8,10,16,.62) 0%, rgba(8,10,16,.5) 45%, rgba(8,10,16,0) 72%);
+  backdrop-filter: blur(16px) saturate(.85); -webkit-mask-image: radial-gradient(ellipse at 50% 50%, #000 40%, transparent 72%); mask-image: radial-gradient(ellipse at 50% 50%, #000 40%, transparent 72%);
+  animation: coverIn .8s var(--t) both ease; }
+@keyframes coverIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* ===== 2026-10-30 레퍼런스(JV7ONuxsbm4) 기법: 작은 네모 창(인셋), 아이콘 노드 ===== */
+/* 인셋 창: 흰 테두리 + 둥근 모서리 + 그림자, 탄성 팝으로 등장, 안의 사진은 천천히 줌 */
+.inset { position: absolute; border-radius: 20px; overflow: hidden; border: 4px solid #fff; background: #111;
+  box-shadow: 0 14px 40px rgba(0,0,0,.45); animation: insetIn .55s var(--t) both cubic-bezier(.2,1.25,.4,1); }
+@keyframes insetIn { 0% { opacity: 0; transform: scale(.8) translateY(20px); } 100% { opacity: 1; transform: none; } }
+.inset > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform-origin: var(--ox, 50%) var(--oy, 50%);
+  animation: insetKb var(--len) 0s both linear; }
+@keyframes insetKb { from { transform: scale(var(--s0, 1)) translateX(var(--px0, 0px)); } to { transform: scale(var(--s1, 1.14)) translateX(var(--px1, 0px)); } }
+.inset .cap2 { position: absolute; left: 0; right: 0; bottom: 0; padding: 10px 18px 8px; font-family: 'GM', sans-serif; font-size: 34px; color: #fff;
+  background: linear-gradient(transparent, rgba(0,0,0,.75)); text-align: left; white-space: nowrap; }
+.inset.out { animation: insetIn .55s var(--t) both cubic-bezier(.2,1.25,.4,1), gone .4s var(--t2) forwards ease; }
+/* 아이콘 노드: 둥근 원 안의 선 아이콘 + 아래 글자. 흐름도(노드 → 노드)에 쓴다 */
+.node { position: absolute; width: 230px; text-align: center; animation: chipIn .45s var(--t) both cubic-bezier(.2,1.3,.4,1); }
+.node .ic { width: 150px; height: 150px; margin: 0 auto; border-radius: 50%; background: rgba(18,22,30,.78); border: 3px solid var(--accent);
+  display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 34px rgba(0,0,0,.5); color: #fff; }
+.node.hot .ic { border-color: var(--hot); color: var(--hot); } .node.cool .ic { border-color: var(--cool); color: var(--cool); }
+.node .ic svg { width: 84px; height: 84px; }
+.node .nt { margin-top: 14px; font-family: 'GM', sans-serif; font-size: 40px; color: #fff; white-space: nowrap; text-shadow: 0 3px 10px rgba(0,0,0,.85); }
+.arrowline { position: absolute; height: 6px; background: repeating-linear-gradient(90deg, var(--accent) 0 18px, transparent 18px 30px); transform-origin: left;
+  animation: rule .45s var(--t) both cubic-bezier(.65,0,.25,1); }
+.arrowline::after { content: ''; position: absolute; right: -14px; top: -11px; border-top: 14px solid transparent; border-bottom: 14px solid transparent; border-left: 20px solid var(--accent); }
+
+/* 2026-10-30: 아이콘 노드·작은 창을 더 크게 (시안에서 작게 보임) */
+.node { width: 320px; } .node .ic { width: 210px; height: 210px; border-width: 4px; } .node .ic svg { width: 120px; height: 120px; } .node .nt { font-size: 54px; margin-top: 18px; }
+.inset .cap2 { font-size: 40px; }
+.node.sm { width: 260px; } .node.sm .ic { width: 150px; height: 150px; } .node.sm .ic svg { width: 86px; height: 86px; } .node.sm .nt { font-size: 42px; }
+
+/* ===================== 키트 2판 (2026-10-30, 레퍼런스 JV7ONuxsbm4 정밀 분석 반영) ===================== */
+:root { --good: #23a55a; --bad: #e53935; }
+/* 흰 둥근 박스 칩 (아이콘 + 짧은 말). red = 위기·부정, green = 상승·긍정, dark = 중립 */
+.tag { position: absolute; display: inline-flex; align-items: center; gap: .32em; padding: .26em .62em .2em; background: #fff; color: #15171c;
+  border-radius: .36em; font-family: 'GM', sans-serif; white-space: nowrap; box-shadow: 0 12px 30px rgba(0,0,0,.38);
+  animation: tagPop .5s var(--t) both cubic-bezier(.2,1.55,.4,1); }
+.tag .ti { display: inline-flex; color: var(--bad); } .tag .ti svg { width: 1.15em; height: 1.15em; stroke-width: 2.4; }
+.tag.red { background: var(--bad); color: #fff; } .tag.red .ti { color: #fff; }
+.tag.green { background: var(--good); color: #fff; } .tag.green .ti { color: #fff; }
+.tag.dark { background: rgba(14,17,23,.88); color: #fff; } .tag.dark .ti { color: var(--accent); }
+.tag.ghost { background: rgba(255,255,255,.14); color: #fff; backdrop-filter: blur(6px); border: 2px solid rgba(255,255,255,.35); }
+@keyframes tagPop { 0% { opacity: 0; transform: scale(.55); } 65% { opacity: 1; transform: scale(1.08); } 100% { opacity: 1; transform: scale(1); } }
+.tag.out, .logo.out, .cut.out, .bubble.out, .article.out, .side.out, .vline.out { animation-name: tagPop, gone; animation-duration: .5s, .35s; animation-delay: var(--t), var(--u); animation-fill-mode: both, forwards; }
+/* 로고 타일 */
+.logo { position: absolute; background: #fff; border-radius: 18px; padding: 16px 26px; box-shadow: 0 12px 30px rgba(0,0,0,.38);
+  display: flex; align-items: center; animation: tagPop .5s var(--t) both cubic-bezier(.2,1.55,.4,1); }
+.logo img { display: block; height: var(--lh, 56px); width: auto; }
+.logo .wm { font-family: 'BH', sans-serif; font-size: var(--lh, 56px); line-height: 1; letter-spacing: -.01em; color: var(--brand, #e2001a); }
+/* 누끼 (배경 지운 사람·사물) */
+.cut { position: absolute; filter: drop-shadow(0 18px 26px rgba(0,0,0,.55)); animation: cutIn .6s var(--t) both cubic-bezier(.16,1,.3,1); }
+.cut img { display: block; height: 100%; width: auto; }
+@keyframes cutIn { from { opacity: 0; transform: translateY(60px) scale(.94); } to { opacity: 1; transform: none; } }
+.cut.move { animation: cutIn .6s var(--t) both cubic-bezier(.16,1,.3,1), cutMove .8s var(--t2) forwards cubic-bezier(.65,0,.25,1); }
+@keyframes cutMove { to { transform: translate(var(--mx, -500px), var(--my, 0px)) scale(var(--ms, .7)); } }
+/* 말풍선 */
+.bubble { position: absolute; background: #fff; color: #15171c; font-family: 'GM', sans-serif; padding: .4em .8em .32em; border-radius: .8em; white-space: nowrap;
+  box-shadow: 0 12px 30px rgba(0,0,0,.4); animation: tagPop .5s var(--t) both cubic-bezier(.2,1.55,.4,1); }
+.bubble::after { content: ''; position: absolute; left: var(--tx, 22%); bottom: -.42em; border-left: .45em solid transparent; border-right: .2em solid transparent; border-top: .5em solid #fff; }
+.bubble.red { background: var(--bad); color: #fff; } .bubble.red::after { border-top-color: var(--bad); }
+/* 좌우 분할: 가운데 세로선 + 양쪽 머리글 */
+.vline { position: absolute; left: 958px; top: 150px; width: 4px; height: 700px; background: rgba(255,255,255,.75); transform-origin: top; animation: vDraw .5s var(--t) both cubic-bezier(.65,0,.25,1); }
+@keyframes vDraw { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+.vs { position: absolute; left: 900px; top: 410px; width: 120px; height: 120px; border-radius: 50%; background: #fff; color: #15171c;
+  font-family: 'BH', sans-serif; font-size: 64px; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 30px rgba(0,0,0,.45); animation: tagPop .5s var(--t) both cubic-bezier(.2,1.55,.4,1); }
+.side { position: absolute; top: 170px; width: 820px; text-align: center; animation: sideIn .5s var(--t) both cubic-bezier(.16,1,.3,1); }
+.side.l { left: 70px; --sx: -80px; } .side.r { right: 70px; --sx: 80px; }
+@keyframes sideIn { from { opacity: 0; transform: translateX(var(--sx)); } to { opacity: 1; transform: none; } }
+/* 다시 쓴 기사 카드 (실제 기사 캡처 대신). 기울어진 종이 + 출처 + 밑줄 긋기 */
+.article { position: absolute; width: 1000px; padding: 46px 56px 50px; background: #f6f3ec; color: #1d1f24; border-radius: 6px; transform: rotate(var(--rot, -2.5deg));
+  box-shadow: 0 30px 70px rgba(0,0,0,.55); animation: artIn .6s var(--t) both cubic-bezier(.16,1,.3,1); }
+@keyframes artIn { from { opacity: 0; transform: rotate(var(--rot, -2.5deg)) translateY(80px) scale(.94); } to { opacity: 1; transform: rotate(var(--rot, -2.5deg)); } }
+.article .meta { font-family: 'GMm', sans-serif; font-size: 26px; color: #777; border-bottom: 2px solid #ddd5c5; padding-bottom: 14px; margin-bottom: 22px; }
+.article h3 { margin: 0 0 22px; font-family: 'GM', sans-serif; font-size: 56px; line-height: 1.25; letter-spacing: -.02em; }
+.article .ln { height: 16px; border-radius: 8px; background: #ddd6c8; margin: 14px 0; }
+.article .tape { position: absolute; top: -22px; left: 44%; width: 150px; height: 44px; background: rgba(255,236,170,.75); transform: rotate(4deg); }
+.article mark { background: none; color: inherit; position: relative; }
+.article mark::after { content: ''; position: absolute; left: -2%; right: -2%; bottom: .02em; height: .18em; background: var(--bad); border-radius: .1em; transform-origin: left; transform: scaleX(0);
+  animation: stDraw .5s var(--t2) both cubic-bezier(.65,0,.25,1); }
+/* 픽토그램 사람들이 이동 */
+.pictos { position: absolute; display: flex; gap: 6px; color: #fff; animation: fadein .3s var(--t) both, pMove var(--pd, 1.6s) var(--t2) forwards cubic-bezier(.45,0,.3,1); }
+.pictos svg { width: 70px; height: 70px; stroke-width: 2.2; }
+@keyframes pMove { to { transform: translateX(var(--dx, 600px)); opacity: var(--po, 1); } }
+/* 흔들림 (충격) */
+.shake { animation: shake .5s var(--t) both; } @keyframes shake { 0%,100% { translate: 0 0; } 20% { translate: -14px 4px; } 40% { translate: 12px -4px; } 60% { translate: -8px 2px; } 80% { translate: 6px 0; } }
+/* 흑백 → 컬러 (작은 창 안의 사진) */
+.inset.bw > img { animation: insetKb var(--len) 0s both linear, bw2c 1.6s var(--t2) both ease; } @keyframes bw2c { from { filter: grayscale(1) contrast(1.1); } to { filter: none; } }
+/* 장면 들어오기: data-enter="slide" | "mask" */
+body[data-enter="slide"] .stage { animation: enSlide .38s 0s both cubic-bezier(.16,1,.3,1); } @keyframes enSlide { from { transform: translateX(7%); filter: blur(12px); } to { transform: none; filter: none; } }
+body[data-enter="mask"] .stage { animation: enMask .6s 0s both cubic-bezier(.65,0,.25,1); } @keyframes enMask { from { clip-path: circle(0% at 50% 50%); } to { clip-path: circle(75% at 50% 50%); } }
+/* 숫자 롤링 색 바뀜 (A→B): 끝나면 색이 바뀐다 */
+.roll { transition: none; } .roll.bad { color: var(--bad); } .roll.good { color: var(--good); }
+/* 폰 목업: 화면 안 그림이 위로 천천히 스크롤 */
+.phone { position: absolute; width: 380px; height: 770px; border-radius: 56px; border: 14px solid #121418; background: #000; overflow: hidden;
+  box-shadow: 0 30px 70px rgba(0,0,0,.6), inset 0 0 0 2px #333; animation: phoneIn .6s var(--t) both cubic-bezier(.16,1,.3,1); }
+.phone::before { content: ''; position: absolute; top: 12px; left: 50%; width: 110px; height: 28px; margin-left: -55px; border-radius: 16px; background: #121418; z-index: 2; }
+.phone > img { position: absolute; left: 0; top: 0; width: 100%; height: 160%; object-fit: cover; animation: phScroll var(--len) 0s both linear; }
+@keyframes phScroll { to { transform: translateY(-35%); } } @keyframes phoneIn { from { opacity: 0; transform: translateY(120px); } to { opacity: 1; transform: none; } }
+
+/* ===== 2026-10-30 담당자 의견: 폰·노안 기준으로 더 크게 / 집중층 한 겹 더 ===== */
+.label { font-size: 60px; } .label::before { height: 70px; width: 12px; }
+.node { width: 380px; } .node .ic { width: 240px; height: 240px; } .node .ic svg { width: 136px; height: 136px; } .node .nt { font-size: 64px; }
+.node.sm { width: 320px; } .node.sm .ic { width: 180px; height: 180px; } .node.sm .ic svg { width: 100px; height: 100px; } .node.sm .nt { font-size: 50px; }
+.inset .cap2 { font-size: 50px; }
+.bar b { font-size: 62px; } .bar em { font-size: 64px; } .bar { height: 110px; } .bar i { height: 92px; }
+.card .k { font-size: 48px; } .card .v { font-size: 120px; }
+.article { width: 1180px; } .article h3 { font-size: 68px; } .article .meta { font-size: 34px; }
+/* 집중층: 배경과 글자 사이. 가운데 아래를 더 눌러 주는 판 + 아주 옅게 흐르는 격자 */
+.midlayer { position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse 70% 60% at 50% 55%, rgba(6,8,12,.42), rgba(6,8,12,.12) 70%, transparent),
+              linear-gradient(180deg, rgba(0,0,0,.25), transparent 22%, transparent 60%, rgba(0,0,0,.5)); }
+.midlayer::after { content: ''; position: absolute; inset: -80px; opacity: .07;
+  background-image: linear-gradient(rgba(255,255,255,.9) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.9) 1px, transparent 1px);
+  background-size: 80px 80px; animation: gridFlow var(--len) 0s both linear; }
+@keyframes gridFlow { from { transform: translate(0, 0); } to { transform: translate(-80px, -40px); } }
+/* 화면 펀치 · 섬광 (인트로 끌어당기기) */
+.flash { position: absolute; inset: 0; background: #fff; pointer-events: none; animation: flashA .28s var(--t) both ease-out; } @keyframes flashA { 0% { opacity: .85; } 100% { opacity: 0; } }
+body[data-enter="flash"] .stage::after { content: ''; position: absolute; inset: 0; background: #fff; animation: flashA .3s 0s both ease-out; z-index: 50; }
+/* 자동 줄맞춤: 분할 화면 한쪽 안의 요소는 위에서 아래로, row() 안의 요소는 가로로 흐른다 (크기를 키워도 겹치지 않게) */
+.side { display: flex; flex-direction: column; align-items: center; gap: 26px; }
+.side > *, .row > * { position: relative !important; left: auto !important; top: auto !important; right: auto !important; }
+.side > .line { padding: 0; }
+.row { position: absolute; display: flex; align-items: center; gap: 22px; flex-wrap: nowrap; }
+.node .nt { white-space: normal; line-height: 1.12; width: 100%; }
+
+/* ---- 2026-10-31 기법 레이더 반영 ---- */
+.ranks.n7 { left: 70px; right: 70px; gap: 16px; }
+.ranks .rk { height: 250px; }
+.ranks .rk .n { font-size: 54px; top: 18px; color: #fff; }
+.ranks .rk .q { font-size: 124px; bottom: 10px; }
+.ranks.n7 .rk .a { font-size: 40px; bottom: 40px; }
+.ranks.n5 .rk .a { font-size: 58px; bottom: 36px; }
+.rk.open { animation: rise .6s var(--t) both cubic-bezier(.16,1,.3,1), rkFlip .6s var(--t2, 999s) both ease-out; }
+@keyframes rkFlip { 0% { transform: rotateY(0); } 45% { transform: rotateY(90deg); background: rgba(18,22,30,.62); } 55% { transform: rotateY(90deg); background: rgba(200,30,40,.85); } 100% { transform: rotateY(0); background: rgba(200,30,40,.85); border-color: #fff; } }
+.rankbadge { position: absolute; left: 60px; top: 50px; display: flex; align-items: center; gap: .4em; font-family: 'BH', sans-serif; font-size: 62px; color: #fff;
+  background: rgba(14,17,23,.86); border-left: 12px solid var(--bad); padding: .12em .5em .06em .4em; border-radius: 0 .2em .2em 0; box-shadow: 0 10px 30px rgba(0,0,0,.45);
+  animation: sideIn .5s var(--t) both cubic-bezier(.16,1,.3,1); --sx: -120px; }
+.rankbadge b { color: var(--bad); background: #fff; border-radius: .14em; padding: 0 .22em; font-weight: normal; }
+.punch { position: absolute; left: 50%; font-family: 'BH', sans-serif; color: #fff; background: var(--bad); padding: .08em .45em 0; border-radius: .12em; white-space: nowrap;
+  box-shadow: 0 0 0 .06em #fff, 0 30px 80px rgba(0,0,0,.6); transform: translateX(-50%) rotate(-3deg); animation: punchIn .45s var(--t) both cubic-bezier(.2,1.6,.4,1); z-index: 5; }
+@keyframes punchIn { from { opacity: 0; transform: translateX(-50%) rotate(-3deg) scale(2.2); filter: blur(6px); } to { opacity: 1; transform: translateX(-50%) rotate(-3deg) scale(1); filter: blur(0); } }
+.tag.strike::after { content: ''; position: absolute; left: -4%; top: 50%; height: .12em; width: 108%; background: var(--bad); border-radius: .06em; transform-origin: left center;
+  transform: rotate(-4deg) scaleX(0); animation: strikeIn .35s var(--t2, 999s) forwards ease-out; box-shadow: 0 0 0 .03em #fff; }
+@keyframes strikeIn { to { transform: rotate(-4deg) scaleX(1); } }
+.tag.strike { animation: tagPop .5s var(--t) both cubic-bezier(.2,1.5,.4,1), dimOut .4s var(--t2, 999s) forwards; }
+@keyframes dimOut { to { filter: saturate(.3) brightness(.75); } }
+
+.swapnum { position: absolute; display: flex; align-items: center; gap: .25em; font-family: 'BH', sans-serif; color: #fff; text-shadow: 0 6px 24px rgba(0,0,0,.6); }
+.swapnum .old { position: relative; opacity: .95; animation: tagPop .45s var(--t) both, dimOut .35s var(--t2, 999s) forwards; }
+.swapnum .old::after { content: ''; position: absolute; left: -6%; right: -6%; top: 52%; height: .1em; background: var(--bad); transform: rotate(-8deg) scaleX(0); transform-origin: left; animation: strikeIn .3s var(--t2, 999s) forwards; box-shadow: 0 0 0 .02em #fff; }
+.swapnum .arr { font-family: sans-serif; font-size: .45em; opacity: 0; animation: fadein .2s var(--t2, 999s) forwards; }
+.swapnum .new { opacity: 0; animation: slam .5s var(--t2, 999s) both cubic-bezier(.16,1.5,.3,1); }
+.swapnum .new.bad { color: #ff5a5a; } .swapnum .new.good { color: #3fe08a; }
+.igrid { position: absolute; display: flex; flex-wrap: wrap; gap: calc(var(--sz) * .18); animation: fadein .3s var(--t) both; }
+.igrid .ic { width: var(--sz); height: var(--sz); color: rgba(255,255,255,.55); display: inline-flex; animation: tagPop .4s calc(var(--t) + var(--i) * .03s) both; position: relative; }
+.igrid .ic svg { width: 100%; height: 100%; stroke-width: 1.8; }
+.igrid .ic.lit { animation: tagPop .4s calc(var(--t) + var(--i) * .03s) both, icLit .35s calc(var(--t2, 999s) + var(--i) * .06s) forwards; }
+.igrid.good .ic.lit { --lc: var(--good); } .igrid.bad .ic.lit { --lc: var(--bad); }
+@keyframes icLit { to { color: var(--lc, var(--bad)); filter: drop-shadow(0 0 14px var(--lc, var(--bad))); transform: scale(1.08); } }
+.igrid .ic.half { -webkit-mask: linear-gradient(90deg, #000 50%, rgba(0,0,0,.35) 50%); }
+.igrid .ic.drop { animation: tagPop .4s calc(var(--t) + var(--i) * .03s) both, icDrop .5s var(--t3, 999s) forwards; }
+@keyframes icDrop { to { opacity: .12; transform: translateY(30px) scale(.8); filter: grayscale(1); } }
+@property --pp { syntax: '<number>'; inherits: false; initial-value: 0; }
+.donut { position: absolute; border-radius: 50%; --pp: 0; background: conic-gradient(var(--dc, var(--bad)) calc(var(--pp) * 1%), rgba(255,255,255,.14) 0);
+  animation: tagPop .5s var(--t) both, donutFill 1.1s var(--t) forwards cubic-bezier(.2,.8,.3,1); box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+.donut.good { --dc: var(--good); } .donut.gray { --dc: #9aa3b2; }
+@keyframes donutFill { to { --pp: var(--pct); } }
+.donut::before { content: ''; position: absolute; inset: 16%; border-radius: 50%; background: rgba(14,17,23,.92); }
+.donut .dv { animation: fadein .4s calc(var(--t) + .6s) both; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'BH', sans-serif; color: #fff; font-size: 96px; }
+.donut .dl { position: absolute; left: -40%; right: -40%; top: 104%; text-align: center; font-family: 'BH', sans-serif; color: #fff; font-size: 60px; }
+.rankbadge.still { animation: none; }
+
+/* ---- 2026-11-02 화면 품질: 전환 3종 · 앞 레이어(빛 번짐·먼지·비네팅) · 진행 바 · 연표 · 스포트라이트 ---- */
+body[data-enter="strips"] .stage { animation: enStrips .55s 0s both cubic-bezier(.65,0,.25,1); }
+@keyframes enStrips { 0% { clip-path: polygon(0 0,0 0,0 20%,0 20%,0 20%,0 40%,0 40%,0 40%,0 60%,0 60%,0 60%,0 80%,0 80%,0 80%,0 100%,0 100%); }
+  100% { clip-path: polygon(0 0,100% 0,100% 20%,100% 20%,100% 20%,100% 40%,100% 40%,100% 40%,100% 60%,100% 60%,100% 60%,100% 80%,100% 80%,100% 80%,100% 100%,0 100%); } }
+body[data-enter="wipe"] .stage { animation: enWipe .6s 0s both cubic-bezier(.65,0,.25,1); -webkit-mask: linear-gradient(90deg,#000 45%,transparent 55%) 0 0/250% 100% no-repeat; }
+@keyframes enWipe { from { -webkit-mask-position: 100% 0; } to { -webkit-mask-position: 0 0; } }
+body[data-enter="zoom"] .stage { animation: enZoom .5s 0s both cubic-bezier(.16,1,.3,1); }
+@keyframes enZoom { from { transform: scale(1.18); filter: blur(14px) brightness(1.4); } to { transform: none; filter: none; } }
+.fx { position: absolute; inset: 0; pointer-events: none; z-index: 30; }
+.fx .leak { position: absolute; inset: -20%; mix-blend-mode: screen; opacity: .18;
+  background: radial-gradient(40% 35% at 15% 20%, rgba(255,170,80,.9), transparent 70%), radial-gradient(35% 30% at 90% 80%, rgba(255,90,60,.6), transparent 70%);
+  animation: leak 14s 0s infinite alternate ease-in-out; }
+@keyframes leak { from { transform: translate(-4%,-2%) rotate(0deg); } to { transform: translate(5%,3%) rotate(6deg); } }
+.fx .dust { position: absolute; inset: -10%; opacity: .35;
+  background-image: radial-gradient(1.5px 1.5px at 10% 20%, #fff, transparent), radial-gradient(1px 1px at 30% 70%, #fff, transparent), radial-gradient(2px 2px at 55% 35%, #fff, transparent),
+    radial-gradient(1px 1px at 75% 15%, #fff, transparent), radial-gradient(1.5px 1.5px at 85% 60%, #fff, transparent), radial-gradient(1px 1px at 45% 85%, #fff, transparent);
+  background-size: 480px 480px; animation: dust 20s 0s infinite linear; }
+@keyframes dust { to { background-position: 120px -480px; } }
+.fx .vig { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 45%, transparent 60%, rgba(0,0,0,.35) 100%); }
+.progress { position: absolute; left: 0; top: 0; height: 7px; background: linear-gradient(90deg, var(--bad), #ffb347); z-index: 31;
+  box-shadow: 0 0 12px rgba(255,90,60,.7); width: calc(var(--p0) * 100%); animation: prog var(--pd) 0s forwards linear; }
+@keyframes prog { to { width: calc(var(--p1) * 100%); } }
+.tline { position: absolute; left: 110px; right: 110px; height: 230px; animation: fadein .3s var(--t) both; }
+.tline::before { content: ''; position: absolute; left: 0; right: 0; top: 96px; height: 8px; border-radius: 4px; background: rgba(255,255,255,.25); }
+.tline .tp { position: absolute; top: 0; width: 240px; margin-left: -120px; text-align: center; color: #fff; opacity: .35; transition: none;
+  animation: tpOn .45s var(--t) forwards cubic-bezier(.2,1.4,.4,1); }
+.tline .tp b { display: block; font-family: 'BH', sans-serif; font-size: 58px; line-height: 1; height: 72px; }
+.tline .tp i { display: block; width: 34px; height: 34px; margin: 6px auto 12px; border-radius: 50%; background: #3a3f4a; border: 5px solid #fff; }
+.tline .tp span { display: block; font-family: 'BH', sans-serif; font-size: 40px; line-height: 1.15; }
+.tline .tp.hot i { background: var(--bad); box-shadow: 0 0 22px var(--bad); }
+@keyframes tpOn { from { opacity: .35; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.spot { position: absolute; border-radius: 18px; box-shadow: 0 0 0 9999px rgba(0,0,0,.6); border: 6px solid #ffd166;
+  animation: spotIn .6s var(--t) both cubic-bezier(.16,1,.3,1); }
+@keyframes spotIn { from { opacity: 0; transform: scale(1.6); } to { opacity: 1; transform: none; } }
+.spot .pin { position: absolute; left: 50%; bottom: 100%; transform: translate(-50%,-26px); white-space: nowrap; font-family: 'BH', sans-serif; font-size: 62px; color: #111;
+  background: #ffd166; padding: .1em .45em 0; border-radius: .2em; box-shadow: 0 10px 30px rgba(0,0,0,.5); }
+.spot .pin::after { content: ''; position: absolute; left: 50%; top: 100%; transform: translateX(-50%); border: 18px solid transparent; border-top-color: #ffd166; }
+
+/* ---- 2026-11-02 인트로 강화: 초대형 쾅 글자 · 번쩍 · 땅 지도(칸 채우기) ---- */
+.hook { position: absolute; left: 0; right: 0; text-align: center; font-family: 'BH', sans-serif; color: #fff; line-height: 1.02; z-index: 6;
+  -webkit-text-stroke: .07em #000; paint-order: stroke fill; text-shadow: 0 .06em .25em rgba(0,0,0,.8); animation: hookIn .5s var(--t) both cubic-bezier(.2,1.6,.4,1), hookShake .35s calc(var(--t) + .45s) both; }
+.hook em { font-style: normal; color: #ffd166; } .hook strong { font-weight: normal; color: #ff3b3b; }
+.hook::after { content: ''; display: block; margin: .12em auto 0; height: .1em; width: 0; background: #ff3b3b; border-radius: .05em; box-shadow: 0 0 .3em #ff3b3b;
+  animation: hookBar .45s calc(var(--t) + .3s) forwards cubic-bezier(.65,0,.25,1); }
+@keyframes hookIn { from { opacity: 0; transform: scale(3); filter: blur(14px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes hookShake { 0%,100% { translate: 0 0; } 20% { translate: -14px 6px; } 40% { translate: 12px -8px; } 60% { translate: -8px 4px; } 80% { translate: 6px -3px; } }
+@keyframes hookBar { to { width: 70%; } }
+.flashhit { position: absolute; inset: 0; background: #fff; z-index: 40; pointer-events: none; opacity: 0; animation: flashHit .35s var(--t) forwards ease-out; }
+@keyframes flashHit { 0% { opacity: .85; } 100% { opacity: 0; } }
+.landmap { position: absolute; display: grid; gap: 6px; animation: fadein .3s var(--t) both; }
+.landmap i { display: block; width: var(--c); height: var(--c); border-radius: 4px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.25);
+  animation: lmFill .25s calc(var(--t2, 999s) + var(--i) * .012s) forwards; }
+.landmap i.hole { animation: lmHole .6s var(--t3, 999s) both infinite alternate; }
+@keyframes lmFill { to { background: #2f6bff; border-color: #8fb0ff; box-shadow: 0 0 8px rgba(47,107,255,.6); } }
+@keyframes lmHole { from { background: rgba(255,59,59,.35); } to { background: #ff3b3b; box-shadow: 0 0 22px #ff3b3b; border-color: #fff; } }
+
+/* ---- 카메라워크 (2026-11-03): 배경만 움직인다. lens = 크래쉬줌 · 밀기 · 빼기 · 흔들기 ---- */
+.lens { position: absolute; inset: 0; transform-origin: var(--ox, 50%) var(--oy, 50%); }
+.lens.crash { animation: lensCrash .42s var(--t) both cubic-bezier(.2,.9,.25,1); }
+@keyframes lensCrash { 0% { transform: scale(1); filter: blur(0); } 45% { filter: blur(7px); } 100% { transform: scale(var(--z, 1.5)); filter: blur(0); } }
+.lens.push { animation: lensPush 2.6s var(--t) both cubic-bezier(.45,0,.2,1); }
+@keyframes lensPush { from { transform: scale(1); } to { transform: scale(var(--z, 1.3)); } }
+.lens.pull { animation: lensPull 1.1s var(--t) both cubic-bezier(.7,0,.2,1); }
+@keyframes lensPull { from { transform: scale(var(--z, 2.2)); } to { transform: scale(1); } }
+.lens.shake { animation: lensShake .4s var(--t) both; }
+@keyframes lensShake { 0%,100% { transform: none; } 20% { transform: translate(-14px, 8px); } 40% { transform: translate(12px, -10px); } 60% { transform: translate(-8px, 6px); } 80% { transform: translate(5px, -3px); } }
+/* 전체 화면 → 작은 액자 */
+.shrink { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: hidden; z-index: 3; border: 0 solid #fff;
+  animation: shrinkTo .8s var(--t) both cubic-bezier(.75,0,.2,1); }
+@keyframes shrinkTo { from { left: 0; top: 0; width: 1920px; height: 1080px; border-radius: 0; border-width: 0; box-shadow: none; }
+  to { left: var(--x); top: var(--y); width: var(--w); height: var(--h); border-radius: 16px; border-width: 7px; box-shadow: 0 24px 70px rgba(0,0,0,.7); } }
+.shrink img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.shrink .scap { position: absolute; left: 0; right: 0; bottom: 0; padding: 10px 18px 6px; font-family: 'BH', sans-serif; font-size: 40px; color: #fff;
+  background: linear-gradient(transparent, rgba(0,0,0,.85)); opacity: 0; animation: fadein .3s calc(var(--t) + .7s) forwards; }
+/* 손으로 긋기 */
+svg.draw { position: absolute; inset: 0; width: 1920px; height: 1080px; z-index: 7; pointer-events: none; overflow: visible; }
+svg.draw .ln { fill: none; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; filter: drop-shadow(0 3px 6px rgba(0,0,0,.6));
+  opacity: 0; animation: drawLn var(--dur, .5s) var(--t) forwards cubic-bezier(.5,0,.3,1), showLn .01s var(--t) forwards; }
+@keyframes showLn { to { opacity: 1; } }
+svg.draw .hd { opacity: 0; animation: fadein .12s calc(var(--t) + var(--dur, .5s) - .05s) forwards; filter: drop-shadow(0 3px 6px rgba(0,0,0,.6)); }
+@keyframes drawLn { to { stroke-dashoffset: 0; } }
+
+/* ---- 2026-11-03 레이더 본편 기법 ---- */
+.foreshadow { position: absolute; z-index: 8; left: 50%; top: 50%; padding: 22px 34px 16px; background: rgba(12,18,32,.94); border-left: 12px solid #f5a623; border-radius: 14px;
+  font-family: 'BH', sans-serif; color: #fff; box-shadow: 0 20px 60px rgba(0,0,0,.6); white-space: nowrap; transform-origin: 100% 0;
+  animation: fsIn .45s var(--t) both cubic-bezier(.2,1.4,.4,1), fsPin .8s calc(var(--t) + 2.4s) forwards cubic-bezier(.7,0,.2,1); }
+.foreshadow b { display: block; font-size: 42px; color: #f5a623; font-weight: normal; }
+.foreshadow span { font-size: 96px; }
+@keyframes fsIn { from { opacity: 0; transform: translate(-50%, -50%) scale(.6); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
+.foreshadow { top: 64%; }
+@keyframes fsPin { from { left: 50%; top: 64%; transform: translate(-50%, -50%) scale(1); } to { left: calc(100% - 40px); top: 110px; transform: translate(-100%, 0) scale(.66); } }
+.flipcard { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; z-index: 6; perspective: 1600px; font-family: 'BH', sans-serif; display: grid;
+  opacity: 0; animation: fadein .3s var(--t) forwards; }
+.flipcard .fc { grid-area: 1 / 1; padding: 26px 50px 18px; border-radius: 18px; color: #fff; backface-visibility: hidden; text-align: center; white-space: nowrap; }
+.flipcard .fc i { display: block; font-style: normal; font-size: .38em; opacity: .85; margin-bottom: 6px; }
+.flipcard .front { background: #3a4556; animation: fcOut .55s var(--t2) forwards cubic-bezier(.6,0,.3,1); }
+.flipcard .back { background: #d92b2b; transform: rotateX(180deg); animation: fcIn .55s var(--t2) forwards cubic-bezier(.6,0,.3,1); box-shadow: 0 20px 60px rgba(217,43,43,.45); }
+@keyframes fcOut { to { transform: rotateX(-180deg); } }
+@keyframes fcIn { to { transform: rotateX(0deg); } }

@@ -1,0 +1,150 @@
+{
+ "model": "fal-ai/minimax/hailuo-02/standard/image-to-video",
+ "resolution": "512P",
+ "duration": "6",
+ "loop_sec": 15,
+ "extend": "slow",
+ "style": "Slow realistic documentary camera motion. Keep the same scene and composition. No text, no letters, no captions, no subtitles appear.",
+ "clips": [
+  {
+   "id": "ph_empty_shelf",
+   "prompt": "Slow dolly forward along the nearly empty water aisle, fluorescent light flickers slightly"
+  },
+  {
+   "id": "ph_reopen_crowd",
+   "prompt": "Shoppers push carts and walk through the busy store, lively motion, slow pan"
+  },
+  {
+   "id": "ph_shutter",
+   "prompt": "The staff member slowly raises the metal rolling shutter, morning light spills in"
+  },
+  {
+   "id": "ph_two_buildings_storm",
+   "prompt": "Heavy wind and rain lash the buildings, the cracked building sways and leans further, lightning flashes"
+  },
+  {
+   "id": "ph_grocery_hall",
+   "prompt": "Chefs cook at the long deli counter, steam rises, shoppers walk by, slow push-in"
+  },
+  {
+   "id": "st_parking",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 15
+  },
+  {
+   "id": "st_food_court",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 15
+  },
+  {
+   "id": "st_warehouse",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 15
+  },
+  {
+   "id": "st_delivery",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 15
+  },
+  {
+   "id": "st_phone_order",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 15
+  },
+  {
+   "id": "st_boxes",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 15
+  },
+  {
+   "id": "st_city_night",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 15
+  },
+  {
+   "id": "st_chart",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 15
+  },
+  {
+   "id": "st_money",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 15
+  },
+  {
+   "id": "st_calc",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 15
+  },
+  {
+   "id": "st_court",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 15
+  },
+  {
+   "id": "st_shutter",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 15
+  },
+  {
+   "id": "st_bread",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 15
+  },
+  {
+   "id": "st_deli",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 15
+  },
+  {
+   "id": "st_toys",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 15
+  },
+  {
+   "id": "st_queue",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 15
+  },
+  {
+   "id": "st_contract",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 15
+  },
+  {
+   "id": "st_crowd_mall",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 15
+  },
+  {
+   "id": "st_produce",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 15
+  },
+  {
+   "id": "st_hypermarket",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 15
+  }
+ ]
+}

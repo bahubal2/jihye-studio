@@ -1,0 +1,48 @@
+{
+ "model": "fal-ai/minimax/hailuo-02/standard/image-to-video",
+ "resolution": "512P",
+ "duration": "6",
+ "loop_sec": 15,
+ "extend": "slow",
+ "style": "Slow, calm motion in claymation stop-motion style. Keep the same scene and composition. No text changes, no new objects. No text, no letters, no captions, no subtitles appear.",
+ "clips": [
+  {
+   "id": "cr_first_bulb",
+   "prompt": "The bare light bulb flickers on and glows brighter, villagers lift their faces in wonder, slow push-in"
+  },
+  {
+   "id": "cr_two_villages",
+   "prompt": "Warm lights switch on house by house from the lower village climbing up the hill to the upper village, slow camera rise"
+  },
+  {
+   "id": "cm_adapter",
+   "prompt": "The hand slowly pushes the adapter into the wall outlet until it clicks in place"
+  },
+  {
+   "id": "cr_doranseu_close",
+   "prompt": "A hand turns the small voltage switch on the transformer box, a tiny indicator light glows, slow push-in"
+  },
+  {
+   "id": "cr_pole_raise",
+   "prompt": "Workers pull the ropes and the wooden utility pole slowly rises upright, villagers watch"
+  },
+  {
+   "id": "st_tokyo_night",
+   "src": "pixabay",
+   "sec": 8,
+   "prompt": ""
+  },
+  {
+   "id": "st_nyc",
+   "src": "pixabay",
+   "sec": 6,
+   "prompt": ""
+  },
+  {
+   "id": "st_bulb",
+   "src": "pixabay",
+   "sec": 8,
+   "prompt": ""
+  }
+ ]
+}

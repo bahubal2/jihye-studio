@@ -1,0 +1,58 @@
+{
+ "model": "fal-ai/minimax/hailuo-02/standard/image-to-video",
+ "resolution": "512P",
+ "duration": "6",
+ "loop_sec": 15,
+ "extend": "slow",
+ "style": "Slow realistic documentary camera motion. Keep the same scene and composition. No text, no letters, no captions, no subtitles appear.",
+ "clips": [
+  {
+   "id": "ph_put_back",
+   "prompt": "The woman puts the product back on the shelf with a firm motion and turns away, pushing her cart out of frame"
+  },
+  {
+   "id": "ph_owners_bow",
+   "prompt": "The line of owners slowly bow down together and hold the bow, camera flashes pop from reporters, slight slow push-in"
+  },
+  {
+   "id": "ph_ledger",
+   "prompt": "The hand writes quickly in the ledger, then crosses out a number and writes over it, lamp light flickers slightly, slow push-in"
+  },
+  {
+   "id": "ph_humidifier_night",
+   "prompt": "White mist keeps rising and swirling slowly from the humidifier in the moonlight, very slow push-in toward the humidifier"
+  },
+  {
+   "id": "st_laundry",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 15
+  },
+  {
+   "id": "st_pizza",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 15
+  },
+  {
+   "id": "st_baby_bottle",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 15
+  },
+  {
+   "id": "st_stock_down",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 15
+  },
+  {
+   "id": "ph_email_layoff",
+   "prompt": "The worker slowly leans back from the monitor in shock, puts a hand over his mouth, monitor light flickers on his face, slow push-in"
+  },
+  {
+   "id": "ph_phone_recording",
+   "prompt": "The waveform on the phone screen pulses as the recording plays, the phone vibrates slightly on the table, slow push-in"
+  }
+ ]
+}

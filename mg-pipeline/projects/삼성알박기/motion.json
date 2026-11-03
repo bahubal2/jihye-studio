@@ -1,0 +1,42 @@
+{
+ "model": "fal-ai/minimax/hailuo-02/standard/image-to-video",
+ "resolution": "512P",
+ "duration": "6",
+ "loop_sec": 15,
+ "extend": "slow",
+ "style": "Slow realistic documentary camera motion. Keep the same scene and composition. No text, no letters, no captions, no subtitles appear.",
+ "clips": [
+  {
+   "id": "ph_samsung_town_aerial",
+   "prompt": "Slow drone push-in toward the small old building between the glass towers, traffic flowing below"
+  },
+  {
+   "id": "ph_small_building_street",
+   "prompt": "Slow tilt up from the pedestrians to the towering glass skyscrapers above the small building"
+  },
+  {
+   "id": "ph_church_ruins",
+   "prompt": "Slow aerial orbit around the lone church in the cleared rubble field, dust drifting"
+  },
+  {
+   "id": "ph_samik_apartment",
+   "prompt": "Slow pan along the apartment buildings to the one separated by a fence, cranes moving"
+  },
+  {
+   "id": "ph_construction_surround",
+   "prompt": "Cranes swing slowly over the small building, workers walk in and out of the convenience store, slow push-in"
+  },
+  {
+   "id": "ph_aus_suburb",
+   "prompt": "Slow drone rise revealing the green lawn island among packed identical houses"
+  },
+  {
+   "id": "ph_cash_count",
+   "prompt": "The bills flip rapidly through the counting machine, hands add another stack, fast motion"
+  },
+  {
+   "id": "ph_mystery_buyer",
+   "prompt": "The man in the white coat walks slowly toward the entrance and pushes the glass door open, camera follows slowly"
+  }
+ ]
+}

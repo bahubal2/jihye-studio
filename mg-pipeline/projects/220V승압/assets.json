@@ -1,0 +1,549 @@
+{
+ "style": "",
+ "styles": {
+  "clay_retro": "Retro historical claymation miniature diorama, handmade plasticine figures with natural proportions (5-6 heads tall) and modest earnest faces, faded warm palette of sepia brown, olive green, cream and rust, detailed period props with visible fingerprint texture, museum diorama quality, tilt-shift photography, shallow depth of field, warm tungsten light accents, subtle film grain, Korea in the 1960s-1980s. No text, no letters, no real brand logos, no real person",
+  "clay_modern": "Claymation miniature diorama in the same handmade plasticine style, figures with natural proportions (5-6 heads tall) and modest faces, warm muted palette with soft modern colors, visible fingerprint texture, tilt-shift photography, shallow depth of field, warm light, present day. No text, no letters, no real brand logos, no real person"
+ },
+ "quality": "low",
+ "assets": [
+  {
+   "id": "cr_first_bulb",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "(시안 v1_clay_retro 재사용)"
+  },
+  {
+   "id": "cr_doranseu_tv",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "(시안 v2_clay_retro 재사용)"
+  },
+  {
+   "id": "cm_tokyo_room",
+   "kind": "background",
+   "style": "clay_modern",
+   "quality": "low",
+   "prompt": "A small modern Tokyo business hotel room at night, an open suitcase on the bed, a Korean traveler's hands rummaging through it, city lights through the window"
+  },
+  {
+   "id": "cm_adapter",
+   "kind": "background",
+   "style": "clay_modern",
+   "quality": "low",
+   "prompt": "Extreme close-up: a hand pushing a small white plastic travel plug adapter (two flat pins) into a Japanese two-flat-slot wall outlet, a Korean round-pin hair dryer plug attached to it"
+  },
+  {
+   "id": "cm_dryer",
+   "kind": "background",
+   "style": "clay_modern",
+   "quality": "low",
+   "prompt": "A Korean traveler in a hotel bathroom holding a hair dryer that blows only a weak breeze, hair barely moving, slightly disappointed face, modern hotel mirror"
+  },
+  {
+   "id": "cr_anbang_outlet",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A 1970s Korean ondol room (anbang) with yellow linoleum floor, a lacquered cabinet, a small two-flat-pin wall outlet with a cord, grandmother folding laundry, single bulb light"
+  },
+  {
+   "id": "cr_kitchen_1970",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A 1970s Korean kitchen with a coal briquette stove, aluminum pots, a single bare light bulb on a cord and a two-flat-pin outlet on the wall, mother cooking"
+  },
+  {
+   "id": "cr_rows_of_houses",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "High view over a dense 1970s-80s Korean residential neighborhood with tiled and slate roofs, many utility poles, tiny workers on ladders at several houses rewiring at once, early morning"
+  },
+  {
+   "id": "cr_signing_desk",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A 1970s Korean government office desk with an official document, a fountain pen and a stamp, a hand signing, dramatic window light, no face visible"
+  },
+  {
+   "id": "cr_professor_board",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A 1960s Korean university lecture room, a professor seen from behind writing an electrical formula and a sketch of wires on a chalkboard, students at wooden desks"
+  },
+  {
+   "id": "cm_us_japan_houses",
+   "kind": "background",
+   "style": "clay_modern",
+   "quality": "low",
+   "prompt": "Two miniature houses side by side on a tabletop: an American suburban wooden house and a Japanese two-story house, each with a cutaway wall showing an outlet inside"
+  },
+  {
+   "id": "cr_poor_town",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A poor 1960s Korean town street with dirt road, low tin-roof houses, children in patched clothes, a single wooden utility pole"
+  },
+  {
+   "id": "cl_pipe_pressure",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A cutaway clay water pipe system on a workbench with a pressure gauge, water rushing through a pipe, a small faucet filling a bowl, educational diorama"
+  },
+  {
+   "id": "cl_two_pipes",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "Educational diorama comparing two pipes: a thin pipe with high pressure jet and a very thick pipe with a slow heavy flow, small figures pointing"
+  },
+  {
+   "id": "cl_wire_heat",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A long electric wire strung between miniature wooden utility poles glowing faintly orange with wisps of heat escaping along its length, dusk"
+  },
+  {
+   "id": "cr_magazine_1968",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "An open 1968 science magazine on a wooden desk showing hand-drawn diagrams of power lines (no readable text), reading glasses and a cup of barley tea"
+  },
+  {
+   "id": "cr_analog_computer",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A 1961 university laboratory with a large analog computer full of dials, knobs and patch cables, researchers in white coats seen from behind"
+  },
+  {
+   "id": "cr_old_grid",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A 1950s Korean city street after liberation with old wooden utility poles and tangled sagging wires, trams and shop fronts without readable signs"
+  },
+  {
+   "id": "cr_bulb_and_fan",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A 1965 Korean home at night lit by one 100-watt bare bulb, a small electric fan as the only appliance, family sitting on the floor"
+  },
+  {
+   "id": "cr_pole_raise",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "Workers in 1965 raising a new wooden utility pole with ropes in a mountain village, villagers watching, terraced fields"
+  },
+  {
+   "id": "cr_oil_lamp",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "Inside a hanok room at night before electricity, a family around a small oil lamp (hoyong-bul), paper doors, warm flickering light"
+  },
+  {
+   "id": "cr_test_village",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A 1965 rural Korean village in Gyeongbuk with a small transformer on a utility pole, two engineers with clipboards checking it, curious farmers"
+  },
+  {
+   "id": "cr_report_table",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A 1960s meeting table with an American engineer and Korean engineers reviewing a thick engineering report with graphs (no readable text)"
+  },
+  {
+   "id": "cr_standard_meeting",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A 1968 Korean government meeting room, officials in suits around a long table with documents and a blackboard, cigarette smoke haze"
+  },
+  {
+   "id": "cr_factory_1970",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A busy 1970s Korean factory floor with large electric machines, workers in caps, sparks and belts"
+  },
+  {
+   "id": "cr_gangwon_work",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "1973 Gangwon-do coastal mountain village in late autumn, line workers on utility poles changing wires, fishing boats in the distance"
+  },
+  {
+   "id": "cr_knock_door",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A line worker in a 1970s uniform and cap knocking at a blue iron gate of a Korean house, holding a toolbox, a child peeking"
+  },
+  {
+   "id": "cr_check_radio",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A worker kneeling in a 1970s living room inspecting the back of a family's radio and TV with a screwdriver, the family watching"
+  },
+  {
+   "id": "cr_repair_bench",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A 1970s electronics company repair bench, technicians modifying TV sets and radios, rows of appliances waiting"
+  },
+  {
+   "id": "cr_doranseu_close",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "Close-up of a heavy gray metal step-down transformer box on a wooden floor with a small two-position voltage switch and a carrying handle, cord plugged in"
+  },
+  {
+   "id": "cr_notice_board",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A 1970s neighborhood notice board on a wall with a blank paper notice (no readable text), housewives and an old man reading it"
+  },
+  {
+   "id": "cl_bowl_faster",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "Educational diorama: two identical bowls under two faucets, one filling slowly and one filling fast with stronger pressure, same amount of water"
+  },
+  {
+   "id": "cr_boom_street",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A lively 1970s Korean street, a family carrying a new television box home, trucks loaded with export crates, factory chimneys in the background"
+  },
+  {
+   "id": "cr_new_fridge",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A 1970s Korean family proudly welcoming a new refrigerator into their home, children touching it, delivery men"
+  },
+  {
+   "id": "cr_appliance_store",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A 1970s Korean electronics shop with shelves of TVs, radios and fans, a customer couple browsing, shopkeeper behind counter, no readable signs"
+  },
+  {
+   "id": "cr_transformer_pile",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A warehouse with stacks of gray step-down transformer boxes piled to the ceiling, a worried clerk with a ledger"
+  },
+  {
+   "id": "cr_ministry_request",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A 1977 office, a utility official handing a formal letter to a ministry official across a desk, serious faces"
+  },
+  {
+   "id": "cr_assembly_line",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A 1970s appliance assembly line, workers building TV sets, a manager arguing with an official in a suit"
+  },
+  {
+   "id": "cr_dual_outlet",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A 1979 Korean home wall with two different outlets side by side, one old flat-pin and one new round-pin, a hand holding two plugs deciding"
+  },
+  {
+   "id": "cr_newspaper_1990",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A man reading a 1990 newspaper at a breakfast table (no readable text), a rice cooker and a TV in the background"
+  },
+  {
+   "id": "cm_us_laundry",
+   "kind": "background",
+   "style": "clay_modern",
+   "quality": "low",
+   "prompt": "An American laundry room with a clothes dryer plugged into a large heavy-duty wall outlet, a regular small outlet beside it"
+  },
+  {
+   "id": "cm_japan_aircon",
+   "kind": "background",
+   "style": "clay_modern",
+   "quality": "low",
+   "prompt": "A Japanese apartment living room with a wall air conditioner plugged into a special outlet, tatami mat"
+  },
+  {
+   "id": "cr_newlywed_move",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A young newlywed couple in the 1980s loading a few boxes onto one small truck, smiling, light load"
+  },
+  {
+   "id": "cr_big_move",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "An overloaded moving truck stacked with a wardrobe, kimchi refrigerator, piles of boxes, a tired middle-aged couple sighing"
+  },
+  {
+   "id": "cl_snowball",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A huge snowball rolling down a hill growing bigger with TVs, fridges and fans stuck in it, tiny people running"
+  },
+  {
+   "id": "cr_home_1990",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A 1990 Korean apartment living room crowded with appliances: TV, refrigerator, washing machine, air conditioner, microwave, family on sofa"
+  },
+  {
+   "id": "cm_us_home_full",
+   "kind": "background",
+   "style": "clay_modern",
+   "quality": "low",
+   "prompt": "An American home cutaway full of appliances in every room, a family standing outside looking at it"
+  },
+  {
+   "id": "cr_hug_tv",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A man hugging his old television set reluctant to let it go, a worker holding a new one waiting"
+  },
+  {
+   "id": "cm_bandage_patient",
+   "kind": "background",
+   "style": "clay_modern",
+   "quality": "low",
+   "prompt": "A patient in a clinic with a bandage only on one arm, waving off a doctor who points to a big surgery chart"
+  },
+  {
+   "id": "cm_chip_fab",
+   "kind": "background",
+   "style": "clay_modern",
+   "quality": "low",
+   "prompt": "A futuristic semiconductor factory miniature with clean room workers in white suits and glowing wafers"
+  },
+  {
+   "id": "cr_mountain_line",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "Line workers stringing power lines across a deep mountain valley toward a tiny remote village, long distance"
+  },
+  {
+   "id": "cr_pole_top",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "Close-up of the top of a utility pole with a pole transformer and insulators, two line workers upgrading it, blue sky"
+  },
+  {
+   "id": "cr_ledger",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A 1970s accountant at a desk with an abacus, coins, and a red-ink ledger, frowning"
+  },
+  {
+   "id": "cr_town_lights",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "Night view of a whole 1980s Korean town where every house window lights up at once"
+  },
+  {
+   "id": "cr_mother_child",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A worried 1970s mother pulling her small child away from a wall outlet, protective"
+  },
+  {
+   "id": "cr_closed_gate",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A line worker standing outside a closed wooden gate, a family peeking suspiciously through the gap"
+  },
+  {
+   "id": "cr_neighbors_wall",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "Two housewives chatting over a stone wall between houses, one pointing at a new outlet, curious"
+  },
+  {
+   "id": "cr_two_villages",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A valley at dusk: the lower village lit with warm electric lights, the upper village still dark, a dirt path connecting them"
+  },
+  {
+   "id": "cr_gate_relief",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A grandmother at her gate smiling and handing a cup of water to a line worker, relieved"
+  },
+  {
+   "id": "cr_receive_box",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A grandfather receiving a gray transformer box from a worker at his doorstep, both bowing slightly"
+  },
+  {
+   "id": "cm_ceremony_2005",
+   "kind": "background",
+   "style": "clay_modern",
+   "quality": "low",
+   "prompt": "A 2005 ceremony in a corporate auditorium, people in suits applauding, a stage with flowers and a ribbon (no readable text)"
+  },
+  {
+   "id": "cr_worker_crowd",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A huge crowd of line workers in uniforms and helmets gathered in a field, thousands of tiny figures"
+  },
+  {
+   "id": "cr_power_plant",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A miniature power plant with cooling towers and chimneys beside a river, transmission towers"
+  },
+  {
+   "id": "cm_old_breaker",
+   "kind": "background",
+   "style": "clay_modern",
+   "quality": "low",
+   "prompt": "An inspector with a flashlight examining an old dusty fuse and breaker box in a dim old house"
+  },
+  {
+   "id": "cm_old_alley",
+   "kind": "background",
+   "style": "clay_modern",
+   "quality": "low",
+   "prompt": "A narrow old alley of low-income houses in 2000 Gyeonggi-do, laundry lines, tangled electric wires"
+  },
+  {
+   "id": "cm_world_globe",
+   "kind": "background",
+   "style": "clay_modern",
+   "quality": "low",
+   "prompt": "A large clay globe on a table with tiny electrical plugs and outlets stuck on different countries, a small figure studying it"
+  },
+  {
+   "id": "cm_taipei_street",
+   "kind": "background",
+   "style": "clay_modern",
+   "quality": "low",
+   "prompt": "A busy Taipei street at night with scooters and shop houses (no readable signs)"
+  },
+  {
+   "id": "cm_france_lines",
+   "kind": "background",
+   "style": "clay_modern",
+   "quality": "low",
+   "prompt": "French countryside with transmission lines and a village with stone houses"
+  },
+  {
+   "id": "cm_typhoon_worker",
+   "kind": "background",
+   "style": "clay_modern",
+   "quality": "low",
+   "prompt": "Line workers in raincoats repairing a power line during a typhoon, wind and rain"
+  },
+  {
+   "id": "cm_substation",
+   "kind": "background",
+   "style": "clay_modern",
+   "quality": "low",
+   "prompt": "A large modern factory complex with a high-voltage substation and transmission towers"
+  },
+  {
+   "id": "cm_control_room",
+   "kind": "background",
+   "style": "clay_modern",
+   "quality": "low",
+   "prompt": "A modern power grid control room with large screens showing a map of lines (no readable text), operators"
+  },
+  {
+   "id": "cm_debt_desk",
+   "kind": "background",
+   "style": "clay_modern",
+   "quality": "low",
+   "prompt": "An office desk buried under stacks of bills and a red falling graph, a worried executive"
+  },
+  {
+   "id": "cm_ev_charging",
+   "kind": "background",
+   "style": "clay_modern",
+   "quality": "low",
+   "prompt": "A parking lot with electric cars at charging stations, evening"
+  },
+  {
+   "id": "cm_breaker_test",
+   "kind": "background",
+   "style": "clay_modern",
+   "quality": "low",
+   "prompt": "A hand pressing the small test button on a modern home circuit breaker panel"
+  },
+  {
+   "id": "cm_old_multitap",
+   "kind": "background",
+   "style": "clay_modern",
+   "quality": "low",
+   "prompt": "An old dusty power strip and a gray transformer box hidden behind a cabinet, cobweb, flashlight beam"
+  },
+  {
+   "id": "cm_desk_boxes",
+   "kind": "background",
+   "style": "clay_modern",
+   "quality": "low",
+   "prompt": "A person at a desk looking at stacked moving boxes labeled with nothing, deciding to pack, morning light"
+  },
+  {
+   "id": "cm_album",
+   "kind": "background",
+   "style": "clay_modern",
+   "quality": "low",
+   "prompt": "An elderly couple smiling while looking through an old photo album on a sofa"
+  }
+ ]
+}

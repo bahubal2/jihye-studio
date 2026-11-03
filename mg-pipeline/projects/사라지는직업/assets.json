@@ -1,0 +1,588 @@
+{
+ "style": "",
+ "styles": {},
+ "quality": "medium",
+ "assets": [
+  {
+   "id": "th_lineup_office",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, no text, no letters, no numbers, no logos, no readable signs, no recognizable real person. Korea, realistic Korean people with ordinary faces. Wide 16:9 composition. Scene: Seven Korean workers standing shoulder to shoulder in one row facing the camera, upper bodies visible down to the waist, worried serious expressions, evenly spaced across the frame, heads at about one third from the top with empty space above them. From left to right: an elderly apartment security guard in a light blue uniform shirt holding a snow shovel; a young woman call center agent wearing a headset; a young woman teacher holding a white certificate folder to her chest; a middle-aged woman real estate agent in a beige trench coat holding a bunch of keys; a young woman bank teller in a navy vest and white shirt; a young man in a grey suit holding a thick black binder; and at the far right a mysterious figure in a dark hoodie whose face is completely hidden in black shadow, holding an open laptop whose screen glows blue, his body dissolving into blue digital pixels. Background: a dark empty open-plan office at night, rows of desks with the ceiling lights switching off one section after another, cold blue tones, one warm light above the people, dramatic rim light."
+  },
+  {
+   "id": "th_lineup_shutter",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, no text, no letters, no numbers, no logos, no readable signs, no recognizable real person. Korea, realistic Korean people with ordinary faces. Wide 16:9 composition. Scene: Seven Korean workers standing shoulder to shoulder in one row facing the camera, upper bodies visible down to the waist, worried serious expressions, evenly spaced across the frame, heads at about one third from the top with empty space above them. From left to right: an elderly apartment security guard in a light blue uniform shirt holding a snow shovel; a young woman call center agent wearing a headset; a young woman teacher holding a white certificate folder to her chest; a middle-aged woman real estate agent in a beige trench coat holding a bunch of keys; a young woman bank teller in a navy vest and white shirt; a young man in a grey suit holding a thick black binder; and at the far right a mysterious figure in a dark hoodie whose face is completely hidden in black shadow, holding an open laptop whose screen glows blue, his body dissolving into blue digital pixels. Background: a Korean street at dusk where a row of small offices, a bank branch and a real estate office have their metal rolling shutters pulled half down, cold blue evening light, street lamps, dramatic rim light."
+  },
+  {
+   "id": "ph_phone_call_joy",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A young Korean woman in her twenties in a small studio room screams with joy while talking on her smartphone, holding a printed exam result paper, bright morning light"
+  },
+  {
+   "id": "ph_family_party",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A Korean family of three generations celebrating at a dining table at home with a cake, parents laughing and hugging their adult daughter, warm evening light, festive"
+  },
+  {
+   "id": "ph_waiting_alone",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A young Korean woman in a neat office suit sitting alone on the edge of her bed in a small dim room, staring at a laptop, a framed certificate leaning on the wall, months of waiting, cold window light"
+  },
+  {
+   "id": "ph_ai_office",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A sleek modern Korean office at night where large monitors show glowing abstract AI neural network patterns over rows of empty desks, blue light, no people"
+  },
+  {
+   "id": "ph_teacher_waiting",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A young Korean woman holding a teacher appointment folder standing outside an empty elementary school gate in winter, waiting, soft cold light"
+  },
+  {
+   "id": "ph_cert_drawer",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: An old wooden wardrobe drawer opened at home, inside a framed certificate and documents lying under folded clothes and dust, close-up, warm lamp light"
+  },
+  {
+   "id": "ph_bank_dark_counter",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: An empty Korean bank branch counter with the lights turned off, chairs stacked, a single emergency light, closed-down feeling"
+  },
+  {
+   "id": "ph_kid_coding_class",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: Korean elementary school children in a private coding academy classroom typing on laptops, a parent looking through the glass door, evening fluorescent light"
+  },
+  {
+   "id": "ph_parent_worry",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A Korean couple in their late fifties sitting at a kitchen table at night looking worried at a smartphone, their adult son's graduation photo on the wall behind them"
+  },
+  {
+   "id": "ph_guard_booth_dawn",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: Inside a small Korean apartment security guard booth before dawn in winter, a small electric heater glowing orange, a thermos and gloves on the desk, snow falling outside the window"
+  },
+  {
+   "id": "ph_guard_snow_shovel",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: An elderly Korean apartment security guard in a navy uniform jacket and gloves shoveling snow at the entrance of an apartment complex before dawn, street lamps, falling snow"
+  },
+  {
+   "id": "ph_apartment_aerial",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: Aerial drone view of a vast Seoul apartment complex area with many identical high-rise apartment buildings, morning haze"
+  },
+  {
+   "id": "ph_moving_day",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: An elderly Korean apartment security guard holding an elevator door open for a young newlywed couple carrying moving boxes, smiling, apartment lobby"
+  },
+  {
+   "id": "ph_exam_morning",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: Early winter morning at a Korean apartment complex, a teenage student in a padded coat leaving for the college entrance exam, an elderly security guard waving and cheering, breath visible"
+  },
+  {
+   "id": "ph_bill_table",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A monthly apartment maintenance fee bill paper lying on a Korean kitchen table next to reading glasses and a calculator, close-up, the paper has no readable text, morning light"
+  },
+  {
+   "id": "ph_wedding_guests",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A crowded Korean wedding hall banquet with hundreds of guests seated at round tables, wide shot, warm light"
+  },
+  {
+   "id": "ph_resident_meeting",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A Korean apartment residents' meeting in a community hall, middle-aged residents seated in rows raising hands to vote, an elderly security guard standing at the back with his head down"
+  },
+  {
+   "id": "ph_guard_booth_monitor",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: An empty Korean apartment security booth at night with only blue CCTV monitors glowing, no heater, no person, snow falling outside"
+  },
+  {
+   "id": "ph_phone_ars",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A Korean man in his sixties frustrated, pressing the keypad of his smartphone repeatedly while holding it to his ear, living room, close-up"
+  },
+  {
+   "id": "ph_card_lost_night",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A Korean woman in her forties searching her handbag on a street at night, worried, phone to her ear, city lights"
+  },
+  {
+   "id": "ph_car_accident_call",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A minor car fender-bender on a Korean road, a middle-aged man standing beside his car talking on the phone, hazard lights blinking, dusk"
+  },
+  {
+   "id": "ph_callcenter_floor",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A large Korean call center floor with long rows of agents wearing headsets at computer desks, busy, bright fluorescent light, wide shot"
+  },
+  {
+   "id": "ph_callcenter_dark",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A dark call center floor at night, rows of empty desks with headsets left on them, only two desks still lit with agents working, moody"
+  },
+  {
+   "id": "ph_angry_call",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A young Korean female call center agent with a headset closing her eyes and holding her forehead while a customer shouts on the line, stress, close-up"
+  },
+  {
+   "id": "ph_new_teachers",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A group of smiling young Korean new elementary school teachers in formal clothes posing for a commemorative photo in a school hall, bright"
+  },
+  {
+   "id": "ph_parents_proud",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: Korean parents in their fifties hugging their daughter who holds an acceptance letter to a teachers' college in front of their house, tears of joy"
+  },
+  {
+   "id": "ph_classroom_empty",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A Korean elementary school classroom with only a few desks left and many empty spaces, small chairs, afternoon sunlight, quiet"
+  },
+  {
+   "id": "ph_training_hall",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A Korean teacher training auditorium with many empty seats and only a scattered few new teachers sitting, wide shot"
+  },
+  {
+   "id": "ph_calendar_wait",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A young Korean woman at her desk at home crossing off days on a wall calendar with a red pen, teaching books stacked, waiting, soft light"
+  },
+  {
+   "id": "ph_lecture_empty",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: An empty lecture room in a Korean teachers' college with chairs and a whiteboard, one student walking out of the door with a backpack"
+  },
+  {
+   "id": "ph_realty_closed",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A small Korean neighborhood real estate agency office with its metal shutter pulled down and a paper notice taped on it, the paper has no readable text, street at dusk"
+  },
+  {
+   "id": "ph_exam_crowd",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A huge Korean national certification exam hall filled with middle-aged men and women in their forties and fifties taking a written exam, rows of desks, wide shot"
+  },
+  {
+   "id": "ph_night_study",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A Korean woman in her fifties studying late at night at the kitchen table with thick exam books and a highlighter, reading glasses, lamp light"
+  },
+  {
+   "id": "ph_realty_coffee",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A friendly Korean real estate agent in his sixties serving paper cups of instant coffee to a young newlywed couple in a small neighborhood real estate office, warm"
+  },
+  {
+   "id": "ph_realty_window",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: The front window of a Korean real estate agency at night with dark empty listing boards, a passerby glancing suspiciously, cold light"
+  },
+  {
+   "id": "ph_phone_direct_deal",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: Close-up of a young Korean person's hands holding a smartphone showing a chat conversation about visiting an apartment, chat bubbles blurred and unreadable, sofa background"
+  },
+  {
+   "id": "ph_reunion_cards",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: Five Korean friends in their fifties at a class reunion dinner table, one handing out a business card while others watch, warm restaurant light"
+  },
+  {
+   "id": "ph_bank_notice",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: The glass door of a Korean bank branch with a white paper notice taped on it, the paper has no readable text, an elderly Korean man standing in front of it holding his smartphone, confused"
+  },
+  {
+   "id": "ph_elder_phone",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: Close-up of an elderly Korean man's wrinkled hands pressing digits on a smartphone screen showing a blurred verification code field, struggling"
+  },
+  {
+   "id": "ph_bank_1990s",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A crowded Korean bank lobby in the 1990s on payday afternoon, customers holding number tickets waiting, tellers at counters, film photo look"
+  },
+  {
+   "id": "ph_loan_stamp",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A young Korean couple at a bank desk, a nervous hand pressing a red seal stamp on a loan document for their first home, close-up, warm light"
+  },
+  {
+   "id": "ph_mobile_bank",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: Close-up of a hand holding a smartphone with a generic banking app screen with blurred unreadable content, in a subway car"
+  },
+  {
+   "id": "ph_bank_shutter",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A Korean bank branch on a Seoul street with its metal shutters half down after closing permanently, evening"
+  },
+  {
+   "id": "ph_ticket_machine",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A turned-off number ticket dispenser machine in an empty Korean bank lobby, dust, dim light, close-up"
+  },
+  {
+   "id": "ph_seminar",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A seminar panel discussion in a Yeouido conference room, a long table with name plates without readable text, a young Korean person sitting among older professionals in suits, audience in the foreground"
+  },
+  {
+   "id": "ph_holiday_family",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A Korean family gathered at a holiday dinner table with traditional food, relatives congratulating a young man, warm light"
+  },
+  {
+   "id": "ph_accounting_firm",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A modern Korean accounting firm office with glass walls, auditors working with laptops and documents, busy, daylight"
+  },
+  {
+   "id": "ph_ai_ledger",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: Large monitors in a dark office showing AI software automatically scanning spreadsheets and financial documents with blue highlight boxes, no readable text"
+  },
+  {
+   "id": "ph_friends_dinner",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: Four young Korean friends at a celebration dinner in a Korean barbecue restaurant, one talking excitedly while three others look down at their phones awkwardly"
+  },
+  {
+   "id": "ph_empty_new_desk",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: An empty new-hire desk in an accounting firm with a blank name plate, a new keyboard still in plastic and an unused chair, other desks busy in the background"
+  },
+  {
+   "id": "ph_academy_van",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A yellow Korean private academy minibus parked at night in front of a building of academies with its hazard lights blinking, bright signs blurred and unreadable"
+  },
+  {
+   "id": "ph_kid_stairs",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A tired Korean elementary school boy carrying a heavy laptop backpack walking down the stairs of an academy building at night"
+  },
+  {
+   "id": "ph_mom_car",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A Korean mother in her forties waiting in the driver seat of a car at night, looking out the window toward an academy building, warm interior light"
+  },
+  {
+   "id": "ph_senior_dev_ai",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A senior Korean software developer in a hoodie working with an AI coding assistant on two monitors full of blurred code, glasses reflecting the screen, dark office"
+  },
+  {
+   "id": "ph_job_board",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A university career center bulletin board in Korea with only a few job posting papers pinned and many empty pin marks, papers have no readable text"
+  },
+  {
+   "id": "ph_rejection_laptop",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A young Korean man in his twenties sitting on the floor of a small room at night, opening a laptop, his face lit by the screen, disappointed"
+  },
+  {
+   "id": "ph_hair_salon",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A small Korean neighborhood hair salon, an older female owner cutting a customer's hair alone, an empty assistant chair and an unused apron hanging, afternoon light"
+  },
+  {
+   "id": "ph_residents_vote",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: Korean apartment residents in a community hall raising their hands together in a vote, an elderly security guard in uniform smiling with relief, warm light"
+  },
+  {
+   "id": "ph_training_center",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A Korean accounting firm training center auditorium in spring, rows of new hires in suits, cherry blossoms outside the windows"
+  },
+  {
+   "id": "ph_choice_tools",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A wooden table split in two: on the left a stack of exam books and a certificate, on the right a set of worn hand tools and a wrench, warm light, overhead view"
+  },
+  {
+   "id": "ph_bill_hand",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: An elderly Korean woman's hand holding a monthly apartment maintenance fee bill and a pen, circling an amount, the paper has no readable text, close-up, kitchen table"
+  },
+  {
+   "id": "ph_snow_path",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A freshly shoveled narrow path through snow at the entrance of a Korean apartment building before dawn, a snow shovel leaning against the wall, warm light from a small guard booth window"
+  },
+  {
+   "id": "ph_desks_row",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A straight row of ten call center desks with desk lamps at night, eight lamps switched off and only two lamps on, headsets on the desks, wide shot"
+  },
+  {
+   "id": "ph_callcenter_rehire",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A supervisor at a Korean call center handing a headset to a newly hired agent, training session, other agents working in the background, daylight"
+  },
+  {
+   "id": "ph_list_paper",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A thick stack of official paper lists clipped together on a desk in a Korean education office, the paper has no readable text, a desk lamp, close-up"
+  },
+  {
+   "id": "ph_queue_line",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A long line of young Korean people waiting outside a building on one side, and on the other side a few people walking away leaving gaps in another line, overhead view"
+  },
+  {
+   "id": "ph_cert_pile",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A tall pile of identical framed certificates stacked carelessly on a dusty table in a storage room, dim light"
+  },
+  {
+   "id": "ph_seoul_bank_street",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A busy downtown Seoul street corner with office workers walking past a closed bank branch with dark windows, daytime, high-rise buildings"
+  },
+  {
+   "id": "ph_teller_warm",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: An elderly Korean woman chatting warmly with a smiling female bank teller across the counter in a 1990s bank, film photo look"
+  },
+  {
+   "id": "ph_resume_stack",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A tall stack of printed resumes on an HR manager's desk in a Korean office, unread, a coffee cup, the paper has no readable text"
+  },
+  {
+   "id": "ph_gov_briefing",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A Korean government press briefing room with an empty podium and microphones, rows of reporters' chairs, flags without symbols, neutral light"
+  },
+  {
+   "id": "ph_scale_balance",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: An old brass balance scale on a wooden desk, one pan heavily weighed down with gold coins, the other pan holding a single small seedling in soil, dramatic side light"
+  },
+  {
+   "id": "ph_empty_seat_panel",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: An empty chair at a seminar panel table under a spotlight, other chairs occupied by blurred professionals, the empty seat in focus"
+  },
+  {
+   "id": "ph_dev_office_boom",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A bright Korean IT startup office around 2020 with young developers high-fiving and celebrating in front of monitors, energetic, daylight"
+  },
+  {
+   "id": "ph_dev_floor_empty",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A large Korean tech company office floor full of developers at monitors, but one row of desks in the front is empty with unopened new-hire welcome boxes on them"
+  },
+  {
+   "id": "ph_ai_engineer",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: An experienced Korean AI engineer in her thirties presenting abstract model charts on a big screen to colleagues in a meeting room, the screen has no readable text"
+  },
+  {
+   "id": "ph_comment_phone",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A Korean man in his fifties reading comments on his smartphone in bed at night, screen glow on his thoughtful face, screen content blurred"
+  },
+  {
+   "id": "ph_tv_news_dev",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: Korean parents in their fifties watching evening TV news in their living room, the TV screen blurred showing a young man at a computer, the parents look impressed"
+  },
+  {
+   "id": "ph_crossroad",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: Aerial view of a road at dusk that splits into three separate directions, car light trails, Korean suburban landscape"
+  },
+  {
+   "id": "ph_ladder_bottom",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A tall wooden ladder leaning against a brick wall with its bottom rungs missing, so nobody can climb up, dramatic light, minimal"
+  },
+  {
+   "id": "ph_office_youngest",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Korea, realistic Korean people with ordinary faces. Scene: A Korean office team where all the employees are middle-aged, gray hair, no young employees, one desk at the end is empty and dusty, afternoon light"
+  }
+ ]
+}

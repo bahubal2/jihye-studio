@@ -1,0 +1,37 @@
+/* 투명 글자 레이어용 디자인 (스톡 영상 위에 얹는다). 어떤 배경 위에서도 읽히도록 그림자와 어두운 반투명 판을 깐다. */
+@font-face { font-family: 'GM'; src: url('../../../fonts/GmarketSansTTFBold.ttf'); }
+@font-face { font-family: 'GMm'; src: url('../../../fonts/GmarketSansTTFMedium.ttf'); }
+:root { --accent: #ff9a2e; --accent2: #ffc04d; --hot: #ff7a3d; --mark: #ffd23f; }
+html, body { background: transparent; font-family: 'GM', sans-serif; }
+.bgonly { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 30%, #4a6b7d, #1d2b36 70%); }
+
+/* 그림자: 밝은 배경 위에서도 흰 글자가 읽히게 */
+.label, .head, .sub2, .card .k { text-shadow: 0 3px 10px rgba(0,0,0,.85), 0 0 28px rgba(0,0,0,.55); }
+
+/* 왼쪽 위 구간 라벨: 주황 막대 + 글자 */
+.label { position: absolute; left: 105px; top: 92px; font-family: 'GMm', sans-serif; font-size: 40px; color: #fff; padding-left: 26px;
+  animation: lbl .55s var(--t) both cubic-bezier(.16,1,.3,1); }
+.label::before { content: ''; position: absolute; left: 0; top: -4px; width: 9px; height: 50px; border-radius: 5px; background: var(--accent); box-shadow: 0 0 14px rgba(255,154,46,.8); }
+@keyframes lbl { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: none; } }
+
+/* 한 줄씩 아래에서 밀려 올라오기 */
+.line { position: absolute; overflow: hidden; padding: .1em .12em .06em; }
+.line > .in { display: inline-block; animation: lineIn .65s var(--t) both cubic-bezier(.16,1,.3,1); }
+@keyframes lineIn { from { transform: translateY(110%); } to { transform: none; } }
+.head { font-size: 84px; color: #fff; letter-spacing: -.02em; }
+.sub2 { text-align: center; font-size: 70px; color: #fff; }
+
+/* 어두운 반투명 카드 */
+.card { position: absolute; width: 560px; height: 300px; border-radius: 22px; background: rgba(18,22,30,.62); border: 2px solid rgba(255,255,255,.16);
+  box-shadow: 0 20px 50px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.12); text-align: center; }
+.card .k { position: absolute; left: 0; right: 0; top: 34px; font-family: 'GMm', sans-serif; font-size: 40px; color: rgba(255,255,255,.75); }
+.card .v { position: absolute; left: 0; right: 0; top: 112px; font-size: 128px; color: #fff; line-height: 1; }
+.card .v.q { color: rgba(255,255,255,.55); }
+.card .v.hot { color: var(--hot); font-size: 116px; top: 120px; text-shadow: 0 0 30px rgba(255,122,61,.55); }
+.exit.out { animation: gone .4s var(--u) forwards ease-in; }
+
+/* 빛나는 테두리 상자 (살짝 기울임) */
+.glowbox { position: absolute; left: 50%; top: 520px; translate: -50% 0; rotate: -2.5deg; padding: 34px 64px 26px; white-space: nowrap;
+  font-size: 104px; color: var(--accent2); background: rgba(14,14,18,.86); border: 5px solid var(--accent); border-radius: 18px;
+  box-shadow: 0 0 0 2px rgba(255,200,120,.35), 0 0 38px rgba(255,140,30,.85), 0 0 90px rgba(255,120,20,.45), inset 0 0 26px rgba(255,140,30,.35);
+  text-shadow: 0 0 22px rgba(255,170,60,.55); }

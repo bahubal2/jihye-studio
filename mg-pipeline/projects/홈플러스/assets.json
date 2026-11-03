@@ -1,0 +1,392 @@
+{
+ "style": "",
+ "styles": {},
+ "quality": "low",
+ "assets": [
+  {
+   "id": "ph_empty_shelf",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: A Korean hypermarket bottled water aisle almost completely empty, only a few water bottles left on long metal shelves, dim fluorescent light, early summer"
+  },
+  {
+   "id": "ph_liquor_bags",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: The liquor section of a large supermarket with bare shelves, a pile of empty folded shopping bags stacked on the floor"
+  },
+  {
+   "id": "ph_store_dim",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Wide view of a big Korean hypermarket interior with half the lights off and very few shoppers, quiet and sad"
+  },
+  {
+   "id": "ph_reopen_crowd",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: A newly renovated food-focused Korean hypermarket packed with weekend shoppers, abundant fresh food displays, bright lights, busy carts"
+  },
+  {
+   "id": "ph_shutter",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Morning at a large supermarket entrance, a staff member raising the metal rolling shutter, shoppers not yet arrived"
+  },
+  {
+   "id": "ph_rent_invoice",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Close-up of a stack of commercial lease documents and invoices with a calculator and Korean won banknotes on an office desk"
+  },
+  {
+   "id": "ph_dawn_boxes",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Stack of delivery boxes and insulated grocery bags in front of an apartment door at dawn"
+  },
+  {
+   "id": "ph_pe_boardroom",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Glass-walled boardroom of an investment firm at night, silhouettes of businesspeople around a table, city lights outside, faces not visible"
+  },
+  {
+   "id": "ph_rival_store",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Another bright hypermarket under renovation with workers installing new food displays, hopeful mood"
+  },
+  {
+   "id": "ph_court_steps",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Stone steps and entrance of a modern Korean courthouse on an overcast day, no signage"
+  },
+  {
+   "id": "ph_thin_margin",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: A huge pile of receipts next to a tiny thin stack of coins on a store counter, symbolizing thin profit"
+  },
+  {
+   "id": "ph_parking_aerial",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Aerial view of a huge hypermarket building with a vast parking lot full of cars"
+  },
+  {
+   "id": "ph_piggy_land",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: A ceramic piggy bank standing on a small model plot of land next to a model store building, warm light"
+  },
+  {
+   "id": "ph_bills_board",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: A cork board pinned with monthly bills for rent, wages and loan interest, red marker circles"
+  },
+  {
+   "id": "ph_loading_dock",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Supplier truck unloading pallets of goods at a supermarket loading dock, workers with hand trucks"
+  },
+  {
+   "id": "ph_supplier_handshake",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: A supplier and a supermarket manager shaking hands at the loading dock, boxes behind them, faces turned away"
+  },
+  {
+   "id": "ph_1997_opening",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Retro 1990s film photograph look, slightly faded colors, grain. Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Late 1990s grand opening of a Korean discount store, crowds lining up at the entrance, balloons"
+  },
+  {
+   "id": "ph_1998_crisis",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Retro 1990s film photograph look, slightly faded colors, grain. Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: 1998 Korea financial crisis, men in suits waiting at an employment office, gloomy"
+  },
+  {
+   "id": "ph_family_cart",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: 2000s Korean family with kids pushing a full shopping cart in a bright hypermarket on a weekend"
+  },
+  {
+   "id": "ph_food_sample",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Tasting corner in a Korean supermarket, shoppers trying samples on toothpicks from a staff member"
+  },
+  {
+   "id": "ph_trunk_full",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Car trunk packed full of grocery bags in a supermarket parking lot, family loading"
+  },
+  {
+   "id": "ph_map_pins",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: A large map of South Korea on a table covered with many small red pins, no text"
+  },
+  {
+   "id": "ph_deal_signing",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Two executives signing a large acquisition contract in a wood-paneled London office, faces not visible"
+  },
+  {
+   "id": "ph_debt_scale",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: A balance scale with heavy black blocks on one side and a small model store building on the other, tipping"
+  },
+  {
+   "id": "ph_brochure",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Glossy investment brochure on a desk showing a rising chart and building photos, no readable text"
+  },
+  {
+   "id": "ph_empty_seats",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Investor briefing room with many empty chairs and only a few attendees"
+  },
+  {
+   "id": "ph_sale_banner",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: A large hypermarket building with a big blank banner on its facade, cranes nearby, being sold"
+  },
+  {
+   "id": "ph_dawn_delivery",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Delivery worker placing a grocery package at an apartment door at dawn, corridor light"
+  },
+  {
+   "id": "ph_court_filing",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Hands of a lawyer submitting a thick folder of documents at a court reception counter"
+  },
+  {
+   "id": "ph_report_red",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: An annual report on a desk with a rising blue sales bar chart and a big red negative number area, no readable text"
+  },
+  {
+   "id": "ph_two_buildings_storm",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Two big store buildings in a heavy storm, one standing firm, the other cracked and leaning"
+  },
+  {
+   "id": "ph_keys_rent",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: A middle-aged Korean man handing over house keys, then holding a monthly rent envelope, split composition"
+  },
+  {
+   "id": "ph_rent_calendar",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Wall calendar with every month stamped with red rent due marks"
+  },
+  {
+   "id": "ph_apples",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: A wooden basket that held ten apples with only three left"
+  },
+  {
+   "id": "ph_good_news",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: A man in an office smiling at a tablet showing only rising green charts, ignoring a pile of red reports"
+  },
+  {
+   "id": "ph_two_piggy",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Two people with broken piggy banks: one paying a credit card bill, the other buying a new refrigerator for a small shop"
+  },
+  {
+   "id": "ph_store_dismantle",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Workers dismantling shelves inside a closed supermarket"
+  },
+  {
+   "id": "ph_bed_order",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: A woman in bed at night ordering groceries on her smartphone, screen glow"
+  },
+  {
+   "id": "ph_grocery_hall",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: A food-focused grocery hall with a forty-meter long deli counter, chefs cooking in front of shoppers, steam rising, warm light"
+  },
+  {
+   "id": "ph_fresh_bread",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Fresh bread just out of the oven on a bakery display in a supermarket, steam"
+  },
+  {
+   "id": "ph_supplier_worry",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: A small supplier business owner at a cluttered desk staring at an unpaid invoice, worried"
+  },
+  {
+   "id": "ph_gap_shelves",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Supermarket shelves with large empty gaps between remaining products"
+  },
+  {
+   "id": "ph_bank_crowd",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: A crowd of anxious people gathered at a bank entrance trying to withdraw money"
+  },
+  {
+   "id": "ph_store_dark",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Night exterior of a large hypermarket with all lights going dark, closed shutters, empty parking lot"
+  },
+  {
+   "id": "ph_staff_leaving",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Supermarket employees in uniforms leaving the store at night, silhouettes"
+  },
+  {
+   "id": "ph_toy_store",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: A huge American toy store interior with half-empty shelves and closing sale atmosphere, no brand names"
+  },
+  {
+   "id": "ph_robot_grid",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Automated online grocery fulfillment warehouse with a grid of robots moving on top of storage crates"
+  },
+  {
+   "id": "ph_freezer_robot",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: A robot moving frozen food crates in a frosty minus twenty-five degree freezer warehouse"
+  },
+  {
+   "id": "ph_land_scale",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: A balance scale weighing a model plot of land against stacks of documents, appraiser hand adjusting"
+  },
+  {
+   "id": "ph_downtown",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Aerial view of dense downtown Seoul with a large department store building, no logos"
+  },
+  {
+   "id": "ph_lights_on",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: Supermarket lights turning back on, staff restocking shelves in the morning"
+  },
+  {
+   "id": "ph_family_budget",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: A Korean couple at a kitchen table writing monthly fixed costs on paper with a calculator"
+  },
+  {
+   "id": "ph_advisor",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: An elderly Korean couple talking with a financial advisor about selling their house"
+  },
+  {
+   "id": "ph_prepaid_card",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: A hand holding a store prepaid card and a receipt at a checkout counter"
+  },
+  {
+   "id": "ph_refill_water",
+   "kind": "background",
+   "style": "",
+   "quality": "low",
+   "prompt": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person. Korea, realistic people with ordinary faces, no famous person, no brand names, no logos, no readable signs or text. Scene: A worker refilling bottled water on a supermarket shelf, morning"
+  }
+ ]
+}

@@ -1,0 +1,25 @@
+{
+  "tts": {
+    "engine": "elevenlabs",
+    "voice_id": "m3gJBS8OofDJfycyA2Ip",
+    "model": "eleven_v4",
+    "language": "ko",
+    "settings": {
+      "stability": 0.7,
+      "style": 0.0,
+      "speed": 1.0
+    },
+    "para_gap": 0.65,
+    "max_sub_chars": 30,
+    "lead_in": 0.3,
+    "tail": 0.6
+  },
+  "style": {
+    "grain": 0,
+    "vignette": false,
+    "flicker": 0,
+    "subtitle": "dark",
+    "pace": 1.3,
+    "subtitle_merge": false
+  }
+}

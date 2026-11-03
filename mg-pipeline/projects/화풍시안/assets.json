@@ -1,0 +1,136 @@
+{
+ "style": "",
+ "styles": {
+  "toon": "Korean educational explainer cartoon style, thick clean black outlines, simple expressive characters with slightly big heads and dot eyes, flat bright colors with one soft shadow tone, playful and warm, original characters",
+  "flat": "Clean flat vector illustration, modern infographic look, geometric simplified shapes, limited palette of deep navy, warm orange and cream, no outlines, subtle paper grain",
+  "paper": "Paper cutout collage illustration, layered torn paper shapes with visible edges and soft drop shadows, halftone dot texture, muted colors with a warm orange accent, handmade stop-motion look",
+  "webtoon": "Korean webtoon manhwa illustration, clean confident black line art, cel shading with soft gradients, expressive emotional faces, bright natural colors, cinematic composition, original characters, not any real person",
+  "clay": "Claymation miniature diorama, handmade plasticine figures and props, tilt-shift photography with shallow depth of field, warm saturated colors, playful nostalgic Korean scene, soft studio light",
+  "clay_cute": "Cute claymation miniature diorama, chubby plasticine figures with big round heads (2-3 heads tall) and simple dot eyes, bright cheerful saturated colors, toy-like simplified props, tilt-shift photography, shallow depth of field, soft studio light, playful mood",
+  "clay_retro": "Retro historical claymation miniature diorama, handmade plasticine figures with natural proportions (5-6 heads tall) and modest earnest faces, faded warm palette of sepia brown, olive green, cream and rust, detailed period props with visible fingerprint texture, museum diorama quality, tilt-shift photography, shallow depth of field, warm tungsten light accents, subtle film grain, nostalgic 1970s Korea"
+ },
+ "assets": [
+  {
+   "id": "s1_toon",
+   "kind": "background",
+   "style": "toon",
+   "quality": "medium",
+   "prompt": "A worried Korean parent at a kitchen table holding open an empty wallet, while a teenager in a big black puffer jacket proudly stands beside them, winter evening at home"
+  },
+  {
+   "id": "s2_flat",
+   "kind": "background",
+   "style": "flat",
+   "quality": "medium",
+   "prompt": "A worried Korean parent at a kitchen table holding open an empty wallet, while a teenager in a big black puffer jacket proudly stands beside them, winter evening at home"
+  },
+  {
+   "id": "s3_paper",
+   "kind": "background",
+   "style": "paper",
+   "quality": "medium",
+   "prompt": "A worried Korean parent at a kitchen table holding open an empty wallet, while a teenager in a big black puffer jacket proudly stands beside them, winter evening at home"
+  },
+  {
+   "id": "s1_toon_low",
+   "kind": "background",
+   "style": "toon",
+   "quality": "low",
+   "prompt": "A worried Korean parent at a kitchen table holding open an empty wallet, while a teenager in a big black puffer jacket proudly stands beside them, winter evening at home"
+  },
+  {
+   "id": "s2_flat_low",
+   "kind": "background",
+   "style": "flat",
+   "quality": "low",
+   "prompt": "A worried Korean parent at a kitchen table holding open an empty wallet, while a teenager in a big black puffer jacket proudly stands beside them, winter evening at home"
+  },
+  {
+   "id": "s3_paper_low",
+   "kind": "background",
+   "style": "paper",
+   "quality": "low",
+   "prompt": "A worried Korean parent at a kitchen table holding open an empty wallet, while a teenager in a big black puffer jacket proudly stands beside them, winter evening at home"
+  },
+  {
+   "id": "w1_school",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "Winter 2011, a Korean middle school classroom; one student proudly shows off an expensive black puffer jacket while classmates in cheaper jackets look on enviously and anxiously"
+  },
+  {
+   "id": "w2_parent",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "A tired Korean father at night in a small apartment kitchen staring at an empty wallet, his teenage son in a new black puffer jacket in the doorway looking guilty"
+  },
+  {
+   "id": "c1_trail",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": true,
+   "prompt": "Crowded Korean national park mountain trail in 2013 autumn, dozens of clay hikers in bright red, yellow and blue jackets walking up stone steps, a wooden sign reading '북한산 국립공원'"
+  },
+  {
+   "id": "c1_trail_med",
+   "kind": "background",
+   "style": "clay",
+   "quality": "medium",
+   "text": true,
+   "prompt": "Crowded Korean national park mountain trail in 2013 autumn, dozens of clay hikers in bright red, yellow and blue jackets walking up stone steps, a wooden sign reading '북한산 국립공원'"
+  },
+  {
+   "id": "c2_dept",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": true,
+   "prompt": "Busy Korean department store outdoor apparel floor around 2013 as a clay diorama, crowds of shoppers, colorful hiking jackets on racks, a banner reading '아웃도어 대축제'"
+  },
+  {
+   "id": "v1_clay_cute",
+   "kind": "background",
+   "style": "clay_cute",
+   "quality": "low",
+   "prompt": "A small 1960s Korean mountain village at dusk with slate and thatched roofs, a new wooden utility pole beside the houses, villagers gathered in a yard looking up in wonder at a single bare incandescent light bulb glowing for the first time, an old oil lamp set aside on the porch. No text, no letters, no real brand logos."
+  },
+  {
+   "id": "v1_clay_retro",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A small 1960s Korean mountain village at dusk with slate and thatched roofs, a new wooden utility pole beside the houses, villagers gathered in a yard looking up in wonder at a single bare incandescent light bulb glowing for the first time, an old oil lamp set aside on the porch. No text, no letters, no real brand logos."
+  },
+  {
+   "id": "v2_clay_cute",
+   "kind": "background",
+   "style": "clay_cute",
+   "quality": "low",
+   "prompt": "A 1970s Korean living room with a lacquered wooden cabinet and a small boxy black-and-white television on a low stand, next to it a heavy gray metal step-down transformer box with a power cord and a small voltage switch, a hand carefully turning the switch, warm lamp light. No text, no letters, no real brand logos."
+  },
+  {
+   "id": "v2_clay_retro",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A 1970s Korean living room with a lacquered wooden cabinet and a small boxy black-and-white television on a low stand, next to it a heavy gray metal step-down transformer box with a power cord and a small voltage switch, a hand carefully turning the switch, warm lamp light. No text, no letters, no real brand logos."
+  },
+  {
+   "id": "v3_clay_cute",
+   "kind": "background",
+   "style": "clay_cute",
+   "quality": "low",
+   "prompt": "A small Tokyo business hotel room at night, an open suitcase on the bed, a hand plugging a small white plastic travel plug adapter into a two-flat-pin wall outlet, a hair dryer lying beside it, city lights through the window. No text, no letters, no real brand logos."
+  },
+  {
+   "id": "v3_clay_retro",
+   "kind": "background",
+   "style": "clay_retro",
+   "quality": "low",
+   "prompt": "A small Tokyo business hotel room at night, an open suitcase on the bed, a hand plugging a small white plastic travel plug adapter into a two-flat-pin wall outlet, a hair dryer lying beside it, city lights through the window. No text, no letters, no real brand logos."
+  }
+ ]
+}

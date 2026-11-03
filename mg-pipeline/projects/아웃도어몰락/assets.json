@@ -1,0 +1,407 @@
+{
+ "style": "Photorealistic documentary photograph, natural light, set in South Korea, muted cinematic color grade, shallow depth of field. People only from behind, from a distance or out of focus, never a clear face. Absolutely no text, no letters, no logos, no brand names, no watermarks.",
+ "quality": "medium",
+ "assets": [
+  {
+   "id": "bg_school_winter",
+   "kind": "background",
+   "prompt": "Korean middle school hallway in winter around 2011, many students in thick black puffer jackets seen from behind walking in a row, cold blue morning light"
+  },
+  {
+   "id": "bg_phone_night",
+   "kind": "background",
+   "prompt": "Close-up of a teenager's hand holding a smartphone with a glowing blank screen in a dark bedroom at night, screen light on fingers"
+  },
+  {
+   "id": "bg_puffer_rack",
+   "kind": "background",
+   "prompt": "Rack of expensive black and navy down puffer jackets hanging in a bright retail store, shallow focus, no tags visible"
+  },
+  {
+   "id": "bg_parent_wallet",
+   "kind": "background",
+   "prompt": "Tired middle-aged parent's hands opening a thin worn leather wallet at a kitchen table at night, warm lamp light"
+  },
+  {
+   "id": "bg_trail_colors",
+   "kind": "background",
+   "prompt": "Crowded Korean mountain hiking trail in autumn, many hikers in bright primary-colored jackets red yellow blue walking up stone steps, seen from behind"
+  },
+  {
+   "id": "bg_park_peak",
+   "kind": "background",
+   "prompt": "Granite peaks of a Korean national park like Bukhansan at golden hour, long wooden stair trail with distant tiny hikers"
+  },
+  {
+   "id": "bg_ranking_dark",
+   "kind": "background",
+   "prompt": "Dark moody layered mountain silhouettes at dusk with thin mist, deep blue and orange sky, minimal and empty"
+  },
+  {
+   "id": "bg_dept_outdoor",
+   "kind": "background",
+   "prompt": "Department store outdoor apparel floor with bright spotlights, mannequins in hiking jackets, polished floor, no shoppers in focus"
+  },
+  {
+   "id": "bg_campsite",
+   "kind": "background",
+   "prompt": "Popular auto-camping site in Gapyeong, Gyeonggi-do, Korea at dusk, large beige tents with warm string lights, pine forest and river behind"
+  },
+  {
+   "id": "bg_golf",
+   "kind": "background",
+   "prompt": "Green golf course fairway in the early morning with soft fog, a golfer far away seen from behind"
+  },
+  {
+   "id": "bg_shop_basket",
+   "kind": "background",
+   "prompt": "Several different eggs carefully placed in separate small woven baskets on a rustic wooden table, soft window light"
+  },
+  {
+   "id": "bg_old_hikers",
+   "kind": "background",
+   "prompt": "Middle-aged Korean men hikers in classic outdoor jackets resting on a mountain bench, seen from the side at a distance, out of focus faces"
+  },
+  {
+   "id": "bg_young_hikers",
+   "kind": "background",
+   "prompt": "Young Korean women and men hiking in leggings and track suits on a forest trail, seen from behind, bright morning"
+  },
+  {
+   "id": "bg_rain_jacket",
+   "kind": "background",
+   "prompt": "A sturdy old waterproof shell jacket hanging on a wooden peg by the door of a Korean mountain shelter, rain drops on the fabric"
+  },
+  {
+   "id": "bg_water_bottles",
+   "kind": "background",
+   "prompt": "Two metal water bottles in the side pockets of a hiking backpack resting on a rock beside a Korean mountain trail with autumn maple leaves"
+  },
+  {
+   "id": "bg_handshake",
+   "kind": "background",
+   "prompt": "Exterior of a modern corporate headquarters tower in Gangnam, Seoul at dusk, lit office windows, people far below out of focus"
+  },
+  {
+   "id": "bg_store_bright",
+   "kind": "background",
+   "prompt": "Outdoor apparel brand shop inside a Seoul department store, bright spotlights, hiking jackets on display, shoppers out of focus"
+  },
+  {
+   "id": "bg_ledger",
+   "kind": "background",
+   "prompt": "Accounting ledger books and printed financial statements with a calculator and pen on a dark desk, dramatic side light, numbers not readable"
+  },
+  {
+   "id": "bg_fund_tower",
+   "kind": "background",
+   "prompt": "Glass skyscraper towers of Seoul Yeouido financial district at night, looking up, cold blue reflections"
+  },
+  {
+   "id": "bg_debt_chain",
+   "kind": "background",
+   "prompt": "Interior of a Korean commercial bank branch after closing time, empty teller counters and waiting chairs, cold fluorescent light"
+  },
+  {
+   "id": "bg_house_loan",
+   "kind": "background",
+   "prompt": "Small old apartment interior with peeling wallpaper and an empty room, late afternoon light through the window"
+  },
+  {
+   "id": "bg_heavy_pack",
+   "kind": "background",
+   "prompt": "Hiker struggling up a steep granite trail of Bukhansan in Seoul under an oversized heavy backpack, seen from behind, overcast sky"
+  },
+  {
+   "id": "bg_west_coast",
+   "kind": "background",
+   "prompt": "Rainy street in Portland, Oregon on the US West Coast, small eco-friendly clothing boutique storefront without signage, wet pavement reflections"
+  },
+  {
+   "id": "bg_summit_sunrise",
+   "kind": "background",
+   "prompt": "Daecheongbong summit of Seoraksan in Korea at sunrise, a lone hiker seen from behind looking at distant peaks across a sea of clouds"
+  },
+  {
+   "id": "bg_ocean_far",
+   "kind": "background",
+   "prompt": "Wide Pacific horizon seen from the east coast of Korea near Gangneung, gray sea and pale sky, empty and lonely"
+  },
+  {
+   "id": "bg_city_commute",
+   "kind": "background",
+   "prompt": "Seoul Line 2 subway platform on a winter morning, commuters in puffer jackets seen from behind, motion blur"
+  },
+  {
+   "id": "bg_crisis_screen",
+   "kind": "background",
+   "prompt": "Securities trading room in Yeouido, Seoul during the 2008 global financial crisis, screens glowing red with falling charts, dark room, no readable numbers"
+  },
+  {
+   "id": "bg_boom_market",
+   "kind": "background",
+   "prompt": "Crowded outdoor apparel sale event in a Seoul department store atrium in the early 2010s, many shoppers seen from above, festive lights"
+  },
+  {
+   "id": "bg_low_tide",
+   "kind": "background",
+   "prompt": "Mudflat at low tide with small boats stranded on the mud, sea water receded far away, overcast"
+  },
+  {
+   "id": "bg_studio_light",
+   "kind": "background",
+   "prompt": "Large blank illuminated advertising lightbox on the wall of a Seoul subway station corridor, commuters passing out of focus"
+  },
+  {
+   "id": "bg_sale_rack",
+   "kind": "background",
+   "prompt": "Clearance rack of outdoor jackets at a Korean outlet mall, messy hangers, dim corner, no readable signs"
+  },
+  {
+   "id": "bg_shutters",
+   "kind": "background",
+   "prompt": "Row of closed metal shutters of outdoor apparel road shops on a Korean city street at dusk, one flickering street lamp"
+  },
+  {
+   "id": "bg_closing_day",
+   "kind": "background",
+   "prompt": "Owner of a small outdoor clothing franchise store pulling down the metal shutter at night on a Korean street, seen from behind"
+  },
+  {
+   "id": "bg_french_colors",
+   "kind": "background",
+   "prompt": "Chamonix in the French Alps, charming street of outdoor gear boutiques with colorful jackets in the windows, Mont Blanc behind"
+  },
+  {
+   "id": "bg_wave_boats",
+   "kind": "background",
+   "prompt": "Many boats lifted on a high incoming tide in a harbor, sunny, gentle waves"
+  },
+  {
+   "id": "bg_mountain_descent",
+   "kind": "background",
+   "prompt": "Stone stair trail descending from a granite peak of Bukhansan in Seoul into fog, the path disappearing downward"
+  },
+  {
+   "id": "bg_new_car",
+   "kind": "background",
+   "prompt": "Shiny new car in a dealership showroom with a set of car keys on a desk in the foreground, warm light"
+  },
+  {
+   "id": "bg_invoice",
+   "kind": "background",
+   "prompt": "Pile of unpaid bills and envelopes on a doormat at night, cold light from a window"
+  },
+  {
+   "id": "bg_warm_winter",
+   "kind": "background",
+   "prompt": "Seoul street in a mild winter with no snow, people carrying their jackets on their arms, pale sun"
+  },
+  {
+   "id": "bg_china_street",
+   "kind": "background",
+   "prompt": "Busy modern shopping street in Shanghai at night with neon lights and crowds, no readable signs"
+  },
+  {
+   "id": "bg_checklist",
+   "kind": "background",
+   "prompt": "Notebook with a blank three-item checklist and a pen on a wooden desk, morning light, no readable writing"
+  },
+  {
+   "id": "bg_closet_padding",
+   "kind": "background",
+   "prompt": "Open wardrobe in a Korean apartment with an old black puffer jacket from years ago hanging among other clothes, nostalgic warm light"
+  },
+  {
+   "id": "il_merger",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "Two Korean business executives shaking hands in a glass meeting room, one calm and confident, the other exhausted and slumped, contract on the table"
+  },
+  {
+   "id": "il_baskets",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "Two hikers on a Korean mountain trail: one walks lightly carrying several small baskets of eggs on a pole, the other struggles under a huge heavy sack"
+  },
+  {
+   "id": "il_binocular",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "A Korean analyst in a coat looking through binoculars from a rooftop at a busy shopping street full of outdoor clothing stores"
+  },
+  {
+   "id": "il_next_peak",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "A proud hiker standing on a summit pointing excitedly at a far bigger mountain across the ocean, ignoring loose rocks at his feet"
+  },
+  {
+   "id": "il_champagne",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "Korean company executives in hiking jackets celebrating with champagne on a mountain peak while dark storm clouds gather behind them"
+  },
+  {
+   "id": "il_auction",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "A Korean businessman in 2008 eagerly winning an auction for an elegant French brand nameplate covered with cloth, other bidders hesitant"
+  },
+  {
+   "id": "il_model_door",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "A shop doorway with a large glossy poster of a generic smiling male model beside it; a customer inside inspects the jacket fabric closely, unimpressed"
+  },
+  {
+   "id": "il_flag_crisis",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "A man in a suit planting a flag on a mountain summit while red falling stock charts swirl in the stormy sky below"
+  },
+  {
+   "id": "il_backoffice",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "Bright cheerful outdoor clothing store in front, while in the back office a worried accountant frowns at thick ledgers and red numbers"
+  },
+  {
+   "id": "il_switch",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "A lonely senior executive at night in an empty clothing store, hand on the switch as the lights go off row by row"
+  },
+  {
+   "id": "il_spring_report",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "Office desk by a window with spring cherry blossoms outside, a sealed thick report envelope waiting on the desk, a person hesitating to open it"
+  },
+  {
+   "id": "il_regret",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "A generic older Korean company chairman in a dark suit looking out of a tall office window at night, quiet regret on his face"
+  },
+  {
+   "id": "il_ferry",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "Two travelers on a ferry deck crossing the sea: one carries someone else's foreign suitcase covered in stickers, the other carries his own backpack proudly"
+  },
+  {
+   "id": "cl_half_store",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of an outdoor clothing store split down the middle: left half crowded with shoppers in 2014, right half nearly empty with a bored clerk"
+  },
+  {
+   "id": "cl_halfway_rope",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of a mountain with a red rope line marking exactly halfway up; two clay flags above the line, three below it"
+  },
+  {
+   "id": "cl_calendar",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": true,
+   "prompt": "Clay diorama desk with big clay calendar blocks showing '2013' and '2014', tiny clay businessmen celebrating on top of them"
+  },
+  {
+   "id": "cl_scale",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama balance scale: four small clay jackets on one side cannot outweigh one big puffy jacket on the other side"
+  },
+  {
+   "id": "cl_peak_crack",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama mountain summit with five small colorful clay flags, the summit rock starting to crack and crumble"
+  },
+  {
+   "id": "cl_empty_spot",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of a department store outdoor floor with one prime corner spot empty and roped off, other shops around it"
+  },
+  {
+   "id": "cl_same_jacket",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of a long queue of clay shoppers all wearing the exact same jacket, waiting in front of one store"
+  },
+  {
+   "id": "cl_cargo_ship",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of a small cargo ship carrying a giant puffy jacket across a blue clay sea toward a distant city skyline"
+  },
+  {
+   "id": "cl_rent_shops",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": true,
+   "prompt": "Clay diorama street of small closed shops with cardboard moving boxes stacked outside and paper signs reading '임대'"
+  },
+  {
+   "id": "cl_lodge_1992",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of a cozy 1990s mountain lodge with a shiny puffy down jacket hanging on a wooden hook by the fireplace"
+  },
+  {
+   "id": "cl_clearance",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": true,
+   "prompt": "Clay diorama of an outdoor clothing store with clearance signs reading '할인' and only one customer browsing"
+  },
+  {
+   "id": "cl_traffic_light",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama desk with a clay traffic light showing green, yellow and red, a checklist notebook and a small clay shopping bag beside it"
+  }
+ ],
+ "styles": {
+  "webtoon": "Korean webtoon manhwa illustration, clean confident black line art, cel shading with soft gradients, expressive emotional faces, bright natural colors, cinematic composition, original characters, not any real person. No text, no logos.",
+  "clay": "Claymation miniature diorama, handmade plasticine figures and props, tilt-shift photography with shallow depth of field, warm saturated colors, playful nostalgic Korean scene, soft studio light. No real brand logos."
+ }
+}

@@ -1,0 +1,110 @@
+{
+ "model": "fal-ai/minimax/hailuo-02/standard/image-to-video",
+ "resolution": "512P",
+ "duration": "6",
+ "loop_sec": 15,
+ "style": "Slow, calm, realistic motion. The camera moves very slowly or stays still. Keep the same scene and composition. No text, no new objects, no faces turning to the camera.",
+ "clips": [
+  {
+   "id": "bg_school_winter",
+   "prompt": "Students in black puffer jackets slowly walk away down the school hallway, cold morning light"
+  },
+  {
+   "id": "bg_parent_wallet",
+   "prompt": "The parent's hands slowly open the worn wallet, warm lamp light flickers softly"
+  },
+  {
+   "id": "bg_puffer_rack",
+   "prompt": "Slow sideways dolly along the rack of puffer jackets, shoppers walk past in the background"
+  },
+  {
+   "id": "bg_trail_colors",
+   "prompt": "Hikers in colorful jackets walk steadily up the stone steps, leaves sway in the breeze"
+  },
+  {
+   "id": "bg_park_peak",
+   "prompt": "Small hikers climb the wooden stairs, clouds drift slowly past the granite peaks"
+  },
+  {
+   "id": "bg_ranking_dark",
+   "prompt": "Thin mist drifts slowly between the mountain ridges, clouds move across the dusk sky, very slow push-in"
+  },
+  {
+   "id": "bg_summit_sunrise",
+   "prompt": "The sea of clouds flows slowly below the summit, sunlight grows warmer, the hiker stands still"
+  },
+  {
+   "id": "bg_campsite",
+   "prompt": "String lights twinkle, tent fabric moves gently in the breeze, the river flows in the background"
+  },
+  {
+   "id": "bg_golf",
+   "prompt": "Morning fog drifts slowly across the fairway, the distant golfer walks forward"
+  },
+  {
+   "id": "bg_store_bright",
+   "prompt": "Shoppers walk slowly through the bright store, slow forward dolly"
+  },
+  {
+   "id": "bg_crisis_screen",
+   "prompt": "Red charts on the screens keep falling and flickering, traders move slightly at their desks"
+  },
+  {
+   "id": "bg_dept_outdoor",
+   "prompt": "Shoppers walk past the mannequins, slow forward dolly along the polished floor"
+  },
+  {
+   "id": "bg_shutters",
+   "prompt": "The street lamp flickers, a few pedestrians pass in the distance, very slow push-in along the closed shutters"
+  },
+  {
+   "id": "st_clouds_peak",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 20
+  },
+  {
+   "id": "st_fog_mountain",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 20
+  },
+  {
+   "id": "st_lake_mist",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 20
+  },
+  {
+   "id": "st_hikers",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 20
+  },
+  {
+   "id": "st_mall",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 20
+  },
+  {
+   "id": "st_city_walk",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 20
+  },
+  {
+   "id": "st_leaves_fall",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 20
+  },
+  {
+   "id": "st_descend",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 20
+  }
+ ],
+ "extend": "slow"
+}

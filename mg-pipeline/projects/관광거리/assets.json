@@ -1,0 +1,434 @@
+{
+ "style": "",
+ "styles": {
+  "webtoon": "Korean webtoon manhwa illustration, clean confident black line art, cel shading with soft gradients, expressive emotional faces, bright natural colors, cinematic composition, original characters, not any real person. No text, no logos.",
+  "clay": "Claymation miniature diorama, handmade plasticine figures and props, tilt-shift photography with shallow depth of field, warm saturated colors, playful nostalgic Korean scene, soft studio light. No real brand logos."
+ },
+ "quality": "low",
+ "assets": [
+  {
+   "id": "il_vendor",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "A tourist at a seaside street stall by the black lava rocks of Jeju Yongduam staring in shock at a tiny plate with a few pieces of abalone, sea cucumber and conch"
+  },
+  {
+   "id": "il_chicken",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "A family of four on a rented wooden platform at a Jeju beach opening a box of delivery fried chicken while a staff member waves a hand to stop them"
+  },
+  {
+   "id": "il_sundae",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "At a cherry blossom festival food stall, a customer stares at a tiny paper plate with only six slices of Korean sundae"
+  },
+  {
+   "id": "il_booking",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "A young Korean couple at home at night quietly booking flights on a laptop, travel brochures of Japan on the table"
+  },
+  {
+   "id": "il_pork_fat",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "Close-up of a grill with thick pork belly slices that are almost entirely white fat, a customer taking a phone photo in disbelief"
+  },
+  {
+   "id": "il_gukbap",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "Warm neighborhood gukbap restaurant, the owner smiling and serving a generous bowl to a regular customer she knows by face"
+  },
+  {
+   "id": "il_restarea",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "Busy Korean highway rest area food court, travelers eating quickly and leaving, cars arriving outside"
+  },
+  {
+   "id": "il_two_faces",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "A Korean shop owner drawn with two faces: one half wearing a merchant apron, the other half holding a property deed like a landlord"
+  },
+  {
+   "id": "il_hawaii_joke",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "1980s Korean office workers laughing in a break room, one coworker in a flowery Hawaiian shirt proudly showing off"
+  },
+  {
+   "id": "il_pillow",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "1980s Korean school trip, students having a pillow fight at night in a crowded old inn room"
+  },
+  {
+   "id": "il_sewing",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "1970s Seoul Guro factory girls aged seventeen working at rows of sewing machines in a cramped room, determined faces"
+  },
+  {
+   "id": "il_tourgroup",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "A huge tour group of Chinese company employees with matching caps following a guide flag through a Jeju shopping street in 2011"
+  },
+  {
+   "id": "il_dutyfree",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "2016 Seoul, a long line of foreign tourists with shopping bags in front of a bright cosmetics store at night"
+  },
+  {
+   "id": "il_signdown",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "A shop worker on a ladder taking down a store sign at night on a quiet empty street"
+  },
+  {
+   "id": "il_workers_jeju",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "Korean office workers happily walking along a quiet Jeju coastal road in spring with yellow canola flowers"
+  },
+  {
+   "id": "il_daerim",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "Busy Daerim market vendor chatting warmly with a regular customer, bags of vegetables and spices"
+  },
+  {
+   "id": "il_viral",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "A person on the subway scrolling a viral photo on a smartphone, floating reaction icons around the phone"
+  },
+  {
+   "id": "il_bad_memory",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "A traveler frowning at a remembered bad restaurant experience shown in a thought bubble, while good memories fade"
+  },
+  {
+   "id": "il_apology",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "A beach rental business owner bowing deeply in apology in front of a camera crew at a Jeju beach"
+  },
+  {
+   "id": "il_school_bus",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "1990s Korean students boarding a line of tourist buses for a school trip, teachers with flags"
+  },
+  {
+   "id": "il_condo",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "A Korean family happily checking into a clean modern condo resort lobby, kids running"
+  },
+  {
+   "id": "il_waterslide",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "Kids screaming with joy on a giant modern water park slide"
+  },
+  {
+   "id": "il_refuse",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "Older building owners in a community meeting crossing their arms and refusing a redevelopment plan"
+  },
+  {
+   "id": "il_price_gap",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "Two businessmen at opposite ends of a long table, a big gap between their price offers, tense negotiation"
+  },
+  {
+   "id": "il_anchor",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "A man staring at an old framed chart of high past prices on the wall, ignoring the lower price tag in front of him"
+  },
+  {
+   "id": "il_surf_ad",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "A smiling salesperson showing a glossy brochure of ocean-view shops and surfers to an excited investor signing a contract"
+  },
+  {
+   "id": "il_chef",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "A chef in a resort Korean restaurant proudly presenting an elegant Korean set meal to delighted guests"
+  },
+  {
+   "id": "il_family_bath",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "A Korean family in swimsuits relaxing together in a private outdoor hot spring tub with rising steam, kids laughing"
+  },
+  {
+   "id": "il_gold_rings",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "1998 Korea, ordinary people lining up to donate gold rings and necklaces to help the country, determined faces"
+  },
+  {
+   "id": "il_young_street",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "Young Korean people taking photos at a trendy alley with cafes along an old fortress wall"
+  },
+  {
+   "id": "il_choice",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "A Korean office worker at a desk deciding between two travel brochures, one of Japan and one of Korea"
+  },
+  {
+   "id": "il_landlord_wait",
+   "kind": "background",
+   "style": "webtoon",
+   "quality": "low",
+   "prompt": "A building owner calmly sitting in an empty shop he owns, waiting with arms crossed while a for-rent sign hangs in the window"
+  },
+  {
+   "id": "cl_jeju_empty",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": true,
+   "prompt": "Clay diorama of a Jeju pedestrian street at 2 pm on a weekday, rows of shops with paper signs reading '임대 문의' on glass doors, almost no people"
+  },
+  {
+   "id": "cl_visa_gate",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of Jeju island with an open gate on its shore, clay tourists arriving by plane and walking through the gate"
+  },
+  {
+   "id": "cl_bugok_1979",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": true,
+   "prompt": "Clay diorama of a retro 1979 Korean leisure resort with a wave pool, slides, amusement rides and a hotel, crowds of happy visitors, a sign reading '부곡하와이'"
+  },
+  {
+   "id": "cl_seorak_inns",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of a 1980s village of old inns and shops at the entrance of Seoraksan mountain, school buses parked, students everywhere"
+  },
+  {
+   "id": "cl_beehive",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of a dense village of tiny beehive-like rooms beside a factory complex at dawn, young workers walking to the factory"
+  },
+  {
+   "id": "cl_baojian",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of a crowded Jeju shopping street in 2011 packed with tourists carrying shopping bags, festive lights"
+  },
+  {
+   "id": "cl_quiet_street",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of the same Jeju shopping street now quiet with a few locals, a new wooden street sign"
+  },
+  {
+   "id": "cl_daerim_alley",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": true,
+   "prompt": "Clay diorama of a busy market alley with shop signs reading '연변 냉면', '백두산 호프' and '진달래 노래방'"
+  },
+  {
+   "id": "cl_key",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of a giant golden key being passed from Jeju island to a map of all of Korea"
+  },
+  {
+   "id": "cl_bus_empty",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of an empty tourist bus parking lot with weeds, one lonely bus"
+  },
+  {
+   "id": "cl_ulleung",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of Ulleungdo island port with steep cliffs and a ferry at the dock"
+  },
+  {
+   "id": "cl_turtle",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of a turtle-shaped artificial island with a surfing wave pool and rows of shops, mostly dark and empty"
+  },
+  {
+   "id": "cl_dark_shops",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of rows of new shops at night where nine out of ten windows are dark and empty"
+  },
+  {
+   "id": "cl_deed",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of a shop owner sitting on a pile of money holding a property deed, his empty shop behind him"
+  },
+  {
+   "id": "cl_atami",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of a Japanese hot spring town on a coastal hillside with old hotels, some closed, a bullet train passing"
+  },
+  {
+   "id": "cl_onsen_now",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of a renovated Korean hot spring hotel with family rooms, steam rising, families with kids arriving by car"
+  },
+  {
+   "id": "cl_haengridan",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of a trendy alley along an old fortress wall in Suwon with small cafes and young visitors"
+  },
+  {
+   "id": "cl_seorak_walk",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of a new forest walking trail near Seoraksan with families strolling under autumn trees"
+  },
+  {
+   "id": "cl_fallacy",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of many shop owners each grabbing coins from customers while the street behind them slowly crumbles"
+  },
+  {
+   "id": "cl_two_guests",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of a restaurant with two lines of customers: one line of tourists passing once, one line of regulars coming back again"
+  },
+  {
+   "id": "cl_onion",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of a big onion being peeled into three layers by tiny clay workers"
+  },
+  {
+   "id": "cl_price_board",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of a small restaurant entrance with a clear menu price board outside and a customer reading it"
+  },
+  {
+   "id": "cl_1330",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": true,
+   "prompt": "Clay diorama of a smartphone showing a call to '1330' with a tourist holding it"
+  },
+  {
+   "id": "cl_airport",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of a crowded airport departure hall with Korean travelers heading to Japan"
+  },
+  {
+   "id": "cl_pool_drained",
+   "kind": "background",
+   "style": "clay",
+   "quality": "low",
+   "text": false,
+   "prompt": "Clay diorama of a large abandoned drained swimming pool with faded slides and weeds, closed resort"
+  }
+ ]
+}

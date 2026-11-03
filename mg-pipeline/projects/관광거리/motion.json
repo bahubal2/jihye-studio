@@ -1,0 +1,114 @@
+{
+ "model": "fal-ai/minimax/hailuo-02/standard/image-to-video",
+ "resolution": "512P",
+ "duration": "6",
+ "loop_sec": 15,
+ "extend": "slow",
+ "style": "Slow, calm motion in claymation stop-motion style. Keep the same scene and composition. No text changes, no new objects.",
+ "clips": [
+  {
+   "id": "cl_jeju_empty",
+   "prompt": "A light breeze moves the paper rental signs, a lone pedestrian walks slowly down the empty street, very slow push-in"
+  },
+  {
+   "id": "cl_bugok_1979",
+   "prompt": "Waves roll in the wave pool, clay swimmers splash, the ferris wheel turns slowly, festive retro mood"
+  },
+  {
+   "id": "cl_baojian",
+   "prompt": "Crowds of clay tourists walk through the street carrying shopping bags, lights twinkle, slow camera glide"
+  },
+  {
+   "id": "cl_turtle",
+   "prompt": "A single surfing wave rolls through the empty pool, water glitters, slow aerial orbit around the turtle island"
+  },
+  {
+   "id": "cl_onsen_now",
+   "prompt": "Steam rises from the hot spring hotel, clay families walk in with luggage, warm evening light, slow push-in"
+  },
+  {
+   "id": "st_jeju_coast",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 25
+  },
+  {
+   "id": "st_airplane",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 25
+  },
+  {
+   "id": "st_beach",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 25
+  },
+  {
+   "id": "st_cherry",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 25
+  },
+  {
+   "id": "st_seoul_night",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 25
+  },
+  {
+   "id": "st_bus",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 25
+  },
+  {
+   "id": "st_hotspring",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 25
+  },
+  {
+   "id": "st_waterpark",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 25
+  },
+  {
+   "id": "st_market",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 25
+  },
+  {
+   "id": "st_surf",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 25
+  },
+  {
+   "id": "st_phone",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 25
+  },
+  {
+   "id": "st_shopping",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 25
+  },
+  {
+   "id": "st_train",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 25
+  },
+  {
+   "id": "st_waves",
+   "prompt": "",
+   "src": "pixabay",
+   "sec": 25
+  }
+ ]
+}
