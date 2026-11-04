@@ -1,0 +1,21 @@
+{
+ "style": "",
+ "styles": {},
+ "quality": "medium",
+ "assets": [
+  {
+   "id": "th_hanmarket_street",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition. Scene: A busy street in front of a Vietnamese market in Da Nang at dusk, many shop signboards in Korean style hangul shapes but blurred and unreadable, warm street lights, a crowd of international tourists of many nationalities walking with shopping bags, motorbikes, lively, upper half of the frame shows the signboards, lower third darker for text"
+  },
+  {
+   "id": "th_beach_full",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition. Scene: Da Nang My Khe beach seen from above at golden hour, a long row of tall beachfront hotels with almost every window lit, the beach crowded with tourists, a passenger airplane descending in the sky, vivid colors, lower third darker for text"
+  }
+ ]
+}
