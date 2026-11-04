@@ -1,7 +1,9 @@
 .env
 .venv/
 __pycache__/
-projects/*/out/
+projects/*/out/*
+!projects/*/out/*.txt
+!projects/*/out/*.srt
 projects/*/assets/_raw/
 projects/*/input/_tts/
 projects/*/captures/_profile/
