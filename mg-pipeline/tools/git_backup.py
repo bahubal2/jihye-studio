@@ -26,6 +26,9 @@ def main():
     data = subprocess.run(cmd, cwd=SRC, capture_output=True, check=True).stdout
     os.makedirs(DST, exist_ok=True)
     subprocess.run(['tar', '-xf', '-', '-C', DST], input=data, check=True)
+    import shutil, glob                                                        # 채널 공용 소리 창고(brand/sound/*.mp3)는 작아서 함께 보관
+    os.makedirs(os.path.join(DST, 'brand', 'sound'), exist_ok=True)
+    for f in glob.glob(os.path.join(SRC, 'brand', 'sound', '*.mp3')): shutil.copy2(f, os.path.join(DST, 'brand', 'sound'))
     if os.path.exists(os.path.join(DST, '.env')): raise SystemExit('중단: .env 가 복사되었습니다. 올리지 않습니다.')
     run('git', 'add', 'mg-pipeline')
     if not run('git', 'status', '--porcelain', 'mg-pipeline').strip(): print('바뀐 것 없음'); return

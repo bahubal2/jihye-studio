@@ -11,3 +11,7 @@ API키*.txt
 *키*.txt
 projects/*/input/_listen/
 projects/*/input/_mix/
+
+# 채널 공용 소리 창고는 보관 (작은 파일)
+!brand/sound/
+!brand/sound/*.mp3

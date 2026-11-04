@@ -1,0 +1,33 @@
+{
+ "sfx": {
+  "riser": {
+   "text": "cinematic tension riser, swelling strings and rising airy whoosh building suspense, ends abruptly",
+   "sec": 3
+  },
+  "impact": {
+   "text": "deep cinematic documentary reveal hit, low boom with a short dark metallic sting, clean ending",
+   "sec": 2
+  },
+  "airplane": {
+   "text": "passenger jet airplane landing and passing overhead at an airport, distant and smooth",
+   "sec": 3
+  }
+ },
+ "music": {
+  "doc_tension": {
+   "prompt": "Instrumental only, absolutely no vocals. Documentary investigation underscore: low pulsing synth bass, soft ticking percussion, subtle strings, minor key, around 90 bpm, curious and quietly tense but restrained. Steady with no big build-ups or hits, unobtrusive background under narration, seamless loop",
+   "sec": 60
+  },
+  "nostalgia": {
+   "prompt": "Instrumental only, absolutely no vocals. Warm nostalgic documentary underscore: soft piano and light acoustic guitar over gentle pads, around 75 bpm, bittersweet memories of a past golden era. Steady with no big build-ups, unobtrusive background under narration, seamless loop",
+   "sec": 30
+  }
+ },
+ "bgm": [],
+ "default_sfx_gain_db": -13,
+ "sfx_gain_db": {
+  "riser": -16,
+  "impact": -12,
+  "airplane": -18
+ }
+}
