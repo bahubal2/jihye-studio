@@ -33,6 +33,17 @@ def write_timing():
     lead = float(os.environ.get('MG_SCENE_LEAD', '0') or 0)
     wp = os.path.join(INPUT, 'words.json'); words = json.load(open(wp, encoding='utf-8')) if os.path.exists(wp) else None
     nums = sorted(CUES); cues = {}
+    if words is None:                                                           # 낱말 시각이 없는 가져온 음성(VREW 등) + 자막 숫자화: 한글 숫자 자막으로 낱말 시각을 나눠 만든다
+        hp = os.path.join(INPUT, 'narration_한글숫자.srt')
+        if os.path.exists(hp):
+            import re as _re
+            hb = [b.strip().split('\n') for b in _re.split(r'\n\s*\n', open(hp, encoding='utf-8-sig').read().strip())]
+            if len(hb) == len(nums):
+                words = []
+                for i, n in enumerate(nums):
+                    a0, b0 = CUES[n][0], CUES[n][1]; parts = ' '.join(hb[i][2:]).split(' '); tot = sum(len(x) + 1 for x in parts); q = a0; ws = []
+                    for x in parts: d = (b0 - a0) * (len(x) + 1) / tot; ws.append({'w': x, 't0': round(q, 3), 't1': round(q + d, 3)}); q += d
+                    words.append(ws)
     for i, n in enumerate(nums):
         a, b, text = CUES[n][0], CUES[n][1], CUES[n][2]
         ws = words[i] if words and i < len(words) and ' '.join(w['w'] for w in words[i]) == text else None

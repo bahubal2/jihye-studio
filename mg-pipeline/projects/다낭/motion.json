@@ -1,0 +1,34 @@
+{
+ "model": "fal-ai/minimax/hailuo-02/standard/image-to-video",
+ "resolution": "512P",
+ "duration": "6",
+ "loop_sec": 15,
+ "extend": "slow",
+ "style": "Slow realistic documentary camera motion. Keep the same scene and composition. No text, no letters, no captions, no subtitles appear.",
+ "clips": [
+  {
+   "id": "th_hanmarket_street",
+   "prompt": "The crowd of tourists walks slowly along the market street, motorbikes pass, lanterns sway, slow push-in"
+  },
+  {
+   "id": "ph_airport_arrivals_crowd",
+   "prompt": "Travelers stream out of the arrival hall pulling suitcases, slow dolly forward"
+  },
+  {
+   "id": "ph_ceremony_stage",
+   "prompt": "Officials hand a gift to the tourist on stage, the audience claps, stage lights sweep, slow push-in"
+  },
+  {
+   "id": "ph_plane_takeoff",
+   "prompt": "The airplane lifts off the runway and climbs into the golden sky, camera pans slowly"
+  },
+  {
+   "id": "ph_mykhe_crowded",
+   "prompt": "Waves roll onto the crowded beach, people play in the water, slow aerial drift"
+  },
+  {
+   "id": "ph_golden_bridge",
+   "prompt": "Tourists walk across the bridge and pose for photos, mist drifts across the mountains, slow pan"
+  }
+ ]
+}

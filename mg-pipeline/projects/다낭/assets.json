@@ -16,6 +16,293 @@
    "style": "",
    "quality": "medium",
    "prompt": "Cinematic documentary photograph, realistic, 35mm film look, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition. Scene: Da Nang My Khe beach seen from above at golden hour, a long row of tall beachfront hotels with almost every window lit, the beach crowded with tourists, a passenger airplane descending in the sky, vivid colors, lower third darker for text"
+  },
+  {
+   "id": "ph_hanmarket_signs",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: Close-up of many colorful shop signboards above a Vietnamese market street, the signs look like Korean hangul shops but are blurred and unreadable, below them a crowd of Western and South Asian tourists walking, evening light"
+  },
+  {
+   "id": "ph_review_phone",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: Close-up of a middle-aged Korean man's hands holding a smartphone, reading a travel review page with blurred unreadable text and a beach photo, cafe table, warm light"
+  },
+  {
+   "id": "ph_empty_korean_shop",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: A Korean-style restaurant on a Da Nang street at night with a blurred unreadable signboard, almost empty tables, one waiter standing at the door, while the street outside is busy with foreign tourists"
+  },
+  {
+   "id": "ph_airport_arrivals_crowd",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: Da Nang international airport arrival hall crowded with international tourists of many nationalities pulling suitcases, bright modern terminal, busy"
+  },
+  {
+   "id": "ph_taxi_meter_night",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: Close-up of a taxi meter glowing at night and a foreign tourist's hand holding Vietnamese dong banknotes, tense mood, inside a taxi"
+  },
+  {
+   "id": "ph_inspection_officers",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: Vietnamese market management officers in uniform inspecting a souvenir shop, checking goods on the shelves, daytime, documentary"
+  },
+  {
+   "id": "ph_tourists_mixed",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: A seaside promenade in Da Nang crowded with tourists of many nationalities, European families, Indian couples, Asian groups, sunny afternoon, wide shot"
+  },
+  {
+   "id": "ph_ceremony_stage",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: An evening welcome ceremony on an outdoor stage at a seaside park in Da Nang, a smiling Korean tourist on stage receiving a gift from Vietnamese officials, colorful stage lights, banners with unreadable text, audience in the foreground"
+  },
+  {
+   "id": "ph_flight_board",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: Airport departure information board with many flights listed, blurred and unreadable, travelers looking up at it, Incheon airport style, bright"
+  },
+  {
+   "id": "ph_plane_takeoff",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: A passenger jet taking off from an airport runway at sunrise, golden light, wide shot"
+  },
+  {
+   "id": "ph_korean_menu_restaurant",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: Inside a busy restaurant in Da Nang full of Korean tourists, a Vietnamese waitress bowing politely while serving, menu boards on the wall blurred and unreadable"
+  },
+  {
+   "id": "ph_family_resort",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: A Korean three-generation family, grandparents with their adult children and small grandchildren, relaxing by a resort swimming pool in Da Nang, smiling, sunny"
+  },
+  {
+   "id": "ph_single_customer_shop",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: A souvenir shop in Da Nang where every product display and sign is designed for one type of customer, the shop owner waiting alone at the counter looking at the empty street, late afternoon"
+  },
+  {
+   "id": "ph_mykhe_crowded",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: My Khe beach in Da Nang packed with Korean tourists swimming and taking photos, beach umbrellas, bright summer day, high angle wide shot"
+  },
+  {
+   "id": "ph_golden_bridge",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: The Golden Bridge on Ba Na Hills held up by two giant stone hands, crowded with tourists posing for photos in the same pose, mist around the mountains"
+  },
+  {
+   "id": "ph_photo_album",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: First-person view of a hand scrolling a smartphone photo gallery full of family vacation photos of a beach and a bridge held by giant hands, thumbnails blurred"
+  },
+  {
+   "id": "ph_immigration_queue",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: A very long queue of tourists at airport immigration counters at night, tired travelers with suitcases, wide shot"
+  },
+  {
+   "id": "ph_japan_street",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: A busy shopping street in Osaka Japan crowded with Korean tourists holding shopping bags, neon signs blurred and unreadable, evening"
+  },
+  {
+   "id": "ph_vnd_drawer",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: First-person view of a hand opening a wooden drawer at home revealing a bundle of Vietnamese dong banknotes and an old boarding pass, the banknotes slightly blurred, warm lamp light"
+  },
+  {
+   "id": "ph_report_documents",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: A government tourism report printed on a desk with bar charts and tables, blurred and unreadable, a pen and reading glasses, office light"
+  },
+  {
+   "id": "ph_new_tourists_arrive",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: Tourists from many countries, Indian family, Australian couple, Russian group, Taiwanese friends, arriving at an airport exit and greeted by tour guides, bright"
+  },
+  {
+   "id": "ph_memorial_quiet",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: A quiet airport hall in winter with a small memorial of white chrysanthemum flowers and candles, people standing silently with heads bowed, soft somber light, respectful, no aircraft wreckage"
+  },
+  {
+   "id": "ph_canceled_board",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: An airport departure board showing many cancelled flights in red, blurred and unreadable, travelers looking worried, winter"
+  },
+  {
+   "id": "ph_nhatrang_beach",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: Nha Trang beach in Vietnam with a long row of tall hotels along the curved coastline, tourists on the sand, sunny, aerial view"
+  },
+  {
+   "id": "ph_vietnam_coast_map",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: An old paper map of central Vietnam coastline on a wooden table with two pins marking two coastal cities, travel planning, top-down view, map text blurred"
+  },
+  {
+   "id": "ph_fake_goods",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: Officers laying out seized counterfeit handbags, watches and sneakers on a table for inspection, documentary photo"
+  },
+  {
+   "id": "ph_airport_taxi_night",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: Taxis lined up outside Da Nang airport at night, a foreign tourist arguing with a driver beside a taxi, tense, street lights"
+  },
+  {
+   "id": "ph_seoul_taxi_airport",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: A taxi stand at a Korean international airport, foreign tourists with luggage getting into taxis, daytime"
+  },
+  {
+   "id": "ph_hotel_room_luxury",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: A luxury five-star hotel room in Da Nang with an ocean view balcony, made bed, afternoon light"
+  },
+  {
+   "id": "ph_russian_family_checkin",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: A Russian family with two children checking in at a luxury beach hotel reception in Da Nang, staff smiling, bright lobby"
+  },
+  {
+   "id": "ph_phone_compare",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: Close-up of hands holding a smartphone comparing hotel prices on a travel app, blurred unreadable prices and photos, sofa background"
+  },
+  {
+   "id": "ph_yen_exchange",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: A currency exchange counter with Japanese yen banknotes and Korean won banknotes being counted, close-up, bright"
+  },
+  {
+   "id": "ph_ryokan",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: A traditional Japanese ryokan room with tatami mats and a low table, evening light through paper sliding doors"
+  },
+  {
+   "id": "ph_usd_price_board",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: A hotel reception desk in Vietnam with a room rate board showing prices in US dollars, blurred and unreadable, a receptionist, warm light"
+  },
+  {
+   "id": "ph_retired_couple_plan",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: A Korean retired couple in their sixties at a kitchen table planning a trip with a bankbook, a calculator and travel brochures, warm light"
+  },
+  {
+   "id": "ph_classroom",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: A primary school classroom full of children of many nationalities sitting together, bright and cheerful, wide shot"
+  },
+  {
+   "id": "ph_moscow_charter",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: Passengers walking down the stairs of a charter airplane at Da Nang airport, welcomed by Vietnamese dancers in traditional ao dai holding flowers, sunny"
+  },
+  {
+   "id": "ph_promo_booth",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: A Vietnam tourism promotion booth at a Korean festival, staff handing out brochures to Korean visitors, booth graphics blurred and unreadable, daytime"
+  },
+  {
+   "id": "ph_tokyo_crowd",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: A crowded Tokyo shopping district with tourists from Korea and Taiwan carrying shopping bags, signs blurred and unreadable, daytime"
+  },
+  {
+   "id": "ph_phuquoc_beach",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: A quiet beautiful beach on Phu Quoc island with an older Korean couple walking hand in hand at sunset"
+  },
+  {
+   "id": "ph_neighborhood_shop",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, natural light, realistic location in Da Nang Vietnam unless stated, 35mm film look, shallow depth of field, no readable text, no readable signs, no letters, no numbers, no logos, no recognizable real person. Realistic people with ordinary faces. Scene: A small Korean neighborhood shop owner in his sixties looking at the empty street outside his store, evening"
   }
  ]
 }
