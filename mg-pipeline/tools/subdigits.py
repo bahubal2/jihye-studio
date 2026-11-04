@@ -55,6 +55,7 @@ def convert(text):
         chars = num.replace(' ', '')
         if not unit:
             if not (len(chars) >= 2 and chars[-1] in '만억' and not sp): continue          # "이백만에서" 처럼 만·억으로 끝나는 수만
+            if set(chars) <= set('만억') or (after and not after.startswith(PARTICLE)): continue   # "만만한", "억억" 같은 낱말은 숫자가 아니다
         else:
             rest = after or ''
             if rest and not rest.startswith(PARTICLE) and unit not in SHOW and not (unit == '년' and rest.startswith('대')): continue

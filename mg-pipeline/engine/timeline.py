@@ -122,6 +122,7 @@ def fingerprint(s):
         for f in sorted(glob.glob(os.path.join(KIT, 'engine', 'web', '*')) + [f for f in glob.glob(os.path.join(SCENES_DIR, '_*')) if not f.endswith('_timing.js') and os.path.isfile(f)]): h.update(open(f, 'rb').read())
         for ref in sorted(set(re.findall(r"""(?:src|href)=["']([^"'#?]+)|url\(["']?([^"')]+)""", src))):
             f = os.path.normpath(os.path.join(SCENES_DIR, ref[0] or ref[1]))
+            if os.path.basename(f) == '_timing.js': continue           # 공용 자막 시각 파일: 이 장면 구간의 자막은 위에서 따로 넣었다 (한 줄 고쳐도 전 장면이 다시 렌더되던 문제)
             if os.path.isfile(f): st = os.stat(f); h.update(f'{f}:{st.st_size}:{int(st.st_mtime)}'.encode())
     for name in sorted(set(re.findall(r"""['"]([\w\-]+)['"]""", src))):
         for p in (os.path.join(ASSETS, name + '.png'), cap_path(name)):
