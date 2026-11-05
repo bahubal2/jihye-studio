@@ -1,0 +1,34 @@
+{
+ "model": "fal-ai/minimax/hailuo-02/standard/image-to-video",
+ "resolution": "512P",
+ "duration": "6",
+ "loop_sec": 15,
+ "extend": "slow",
+ "style": "Slow realistic documentary camera motion. Keep the same scene and composition. No text, no letters, no captions, no subtitles appear.",
+ "clips": [
+  {
+   "id": "th_scale_chestnut",
+   "prompt": "Slow push-in toward the sack of chestnuts on the scale, dust floats in the warehouse light"
+  },
+  {
+   "id": "ph_chestnut_ground",
+   "prompt": "Autumn leaves drift down onto the carpet of chestnuts, gentle breeze, slow pan"
+  },
+  {
+   "id": "ph_container_port",
+   "prompt": "Slow dolly toward the half-open container, cranes move slowly in the background"
+  },
+  {
+   "id": "ph_roasted_vendor",
+   "prompt": "Steam and smoke rise from the chestnut drum stove, people pass by, slow push-in"
+  },
+  {
+   "id": "ph_ancestral_table",
+   "prompt": "Candle flames flicker gently, very slow push-in on the front row of chestnuts"
+  },
+  {
+   "id": "ph_loading_container",
+   "prompt": "The forklift slowly carries a pallet into the container, workers walk, slow pan"
+  }
+ ]
+}

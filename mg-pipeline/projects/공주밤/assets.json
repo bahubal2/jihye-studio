@@ -1,20 +1,287 @@
 {
-  "style": {
-    "mix": "한 영상에는 화풍 패키지 하나만 쓴다 (2026-10-29 담당자 지시: 웹툰과 클레이를 한 영상에 섞으면 일관성이 없어 보인다). 대본을 보고 패키지를 먼저 정해 담당자에게 알린 뒤 에셋을 만든다. 숫자·순위·비교는 어느 패키지든 HTML 모션 텍스트로.",
-    "webtoon": "Korean webtoon manhwa illustration, clean confident black line art, cel shading with soft gradients, expressive emotional faces, bright natural colors, cinematic composition, original characters, not any real person",
-    "clay": "Claymation miniature diorama, handmade plasticine figures and props, tilt-shift photography with shallow depth of field, warm saturated colors, playful nostalgic Korean scene, soft studio light",
-    "quality": "low (장당 $0.005, 2026-10-28 시험에서 보통 품질과 차이가 거의 없음)",
-    "text_rule": "간판 글자는 지정한 한글 문구만. 실제 브랜드 로고·상표는 그리지 않는다 (\"no real brand logos\").",
-    "samples": "projects/화풍시안/assets/w1_school.png, w2_parent.png, c1_trail.png, c2_dept.png",
-    "packages": {
-      "A_다큐": "다큐 느낌이 중요한 주제: 실사풍 생성 이미지 + 실사 이미지→영상(fal) + Pixabay·Pexels 스톡 영상 + 키네틱 모션 텍스트로 효과 극대화. 일러스트·클레이 없음.",
-      "B_웹툰": "실사로 표현하기 어려운 주제(감정, 가상 상황, 과거 재현): 웹툰풍 일러스트 위주 + 그 이미지→영상 + 모션 그래픽·모션 텍스트. 클레이·실사 스톡 없음.",
-      "C_클레이": "장소·군중·시대 분위기가 중심인 주제: 클레이 디오라마 이미지 위주 + 그 이미지→영상 + 모션 그래픽·모션 텍스트. 웹툰·실사 스톡 없음."
-    },
-    "photoreal": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person",
-    "mix_rule": "B·C 패키지에서 스톡 영상이 꼭 필요하면 쓰지 않고 같은 화풍 이미지→영상으로 대신한다. 화풍이 다른 컷을 한 영상에 섞지 않는다.",
-    "stock_rule": "스톡 영상은 대본 문장의 구체적인 대상과 맞아야 한다 (2026-10-29 담당자 지적: 관광객 이야기에 경비행기 컷). ① 검색어는 대본의 대상·장소·규모를 그대로 영어로 (예: 관광객 항공편 → 'passenger jet airliner takeoff', 'airport terminal travelers'), ② 받은 뒤 미리보기 프레임(out/_stock_<id>.jpg)을 열어 그 장면의 대본 문장과 하나씩 대조한다: 종류(여객기/경비행기), 나라·지역 분위기, 계절, 시대, 인원 규모. ③ 하나라도 어긋나면 다른 후보(--pick)로 바꾸고, 맞는 것이 없으면 스톡을 쓰지 않고 같은 화풍 이미지로 대신한다. ④ 장면 계획을 짤 때 각 스톡 컷 옆에 '어느 대본 문장에 대응하는지'를 적어 두고 렌더 전에 다시 확인한다."
+ "style": "",
+ "styles": {},
+ "quality": "medium",
+ "assets": [
+  {
+   "id": "th_scale_chestnut",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: Close-up of an old mechanical platform scale at a rural agricultural cooperative buying station in late September, a mesh sack full of glossy brown chestnuts on the scale, more sacks stacked behind, dim warehouse light, farmer's weathered hands at the edge of frame"
   },
-  "quality": "medium",
-  "assets": []
+  {
+   "id": "th_farmer_chestnut",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: An elderly Korean farmer in his seventies wearing a faded blue work shirt sits on a mountain slope covered with fallen chestnuts and spiky burrs, looking down sadly, golden autumn forest, face in right third of frame"
+  },
+  {
+   "id": "ph_chestnut_ground",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: A steep forest slope carpeted with thousands of fallen brown chestnuts and open spiky burrs among autumn leaves, nobody picking them, morning light"
+  },
+  {
+   "id": "ph_empty_slope",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: An empty chestnut orchard slope with no people, tall grass, scattered burrs, a lone abandoned plastic basket, overcast sky"
+  },
+  {
+   "id": "ph_container_port",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: A shipping container at a Korean port with its doors half open, stacked cardboard boxes inside partially visible in shadow, cranes in the background at dusk"
+  },
+  {
+   "id": "ph_buying_station",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: Inside a rural cooperative chestnut buying station, rows of mesh sacks of chestnuts on pallets, a few elderly farmers waiting in line, fluorescent light"
+  },
+  {
+   "id": "ph_map_korea",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: A minimal dark relief map of South Korea seen from above, soft topographic shading, mountains highlighted in warm light, no labels, no borders text"
+  },
+  {
+   "id": "ph_report_desk",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: A government research report and printed charts spread on a wooden desk with reading glasses and a cup of tea, papers blurred so no text is readable"
+  },
+  {
+   "id": "ph_fridge_chestnut",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: First person view opening a refrigerator vegetable drawer, a plastic bag of brown chestnuts rolling inside next to vegetables, home kitchen light"
+  },
+  {
+   "id": "ph_chestnut_trees",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: Wide view of a hillside chestnut tree orchard in full autumn color, rows of mature chestnut trees on terraced slopes, mist in the valley"
+  },
+  {
+   "id": "ph_picking_bent",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: An elderly woman bending over on a steep slope picking up chestnuts one by one with tongs into a basket, back bent, close medium shot"
+  },
+  {
+   "id": "ph_old_cargo_ship",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: 1990s style photograph, slightly faded colors: a cargo ship being loaded with sacks at a Korean harbor, workers and a crane, nostalgic"
+  },
+  {
+   "id": "ph_japan_market",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: A traditional Japanese shopping street stall selling roasted chestnuts in paper bags, steam rising, warm lanterns, no readable text"
+  },
+  {
+   "id": "ph_village_women_past",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: Faded 1980s photograph look: village women in scarves gathering chestnuts on a mountain with baskets on their heads, autumn, nostalgic"
+  },
+  {
+   "id": "ph_roasted_vendor",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: Faded 1990s winter evening street corner, a roasted chestnut vendor with a drum stove, steam rising from paper bags made of newspaper, people in coats"
+  },
+  {
+   "id": "ph_peeling_hands",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: Close-up of an elderly man's hands using a small knife to carve the skin off a raw chestnut into a neat white shape, warm lamp light, low table at night"
+  },
+  {
+   "id": "ph_ancestral_table",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: A traditional Korean ancestral rite table with neatly peeled white chestnuts, red jujubes and dried persimmons in the front row on brass dishes, folding screen behind, soft candle light"
+  },
+  {
+   "id": "ph_orchard_aerial",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: Aerial drone view of a large chestnut forest covering rolling hills in autumn, small farm roads winding through"
+  },
+  {
+   "id": "ph_gongju_town",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: Gongju city in autumn seen from a hill: the Geumgang river, an old stone fortress wall with trees, the small city beyond, golden hour"
+  },
+  {
+   "id": "ph_old_tree",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: Close-up of a very old gnarled chestnut tree trunk with thick bark and few leaves, some branches dead, moody light"
+  },
+  {
+   "id": "ph_dry_burr",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: Dried cracked earth under a chestnut tree with small shriveled chestnut burrs after drought and heat wave, harsh sunlight"
+  },
+  {
+   "id": "ph_wholesale_market",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: Early morning at a large Seoul agricultural wholesale market, auction floor with stacked boxes of chestnuts and buyers in caps, fluorescent light, no readable text"
+  },
+  {
+   "id": "ph_frozen_peeled",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: A food factory cold room with clear bags of frozen peeled yellow chestnuts stacked in crates, workers in white gowns in background"
+  },
+  {
+   "id": "ph_import_warehouse",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: An import bonded warehouse with pallets of sacks and cartons wrapped in plastic, forklift, industrial lights"
+  },
+  {
+   "id": "ph_phone_shopping",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: First person view of a hand holding a smartphone showing a blurred online grocery page with a photo of chestnuts, kitchen table background, screen text unreadable"
+  },
+  {
+   "id": "ph_money_table",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: A few Korean won coins scattered on a worn wooden table next to a small mesh bag of brown chestnuts and a paper receipt with blurred unreadable print, top down view, no banknotes, warm light"
+  },
+  {
+   "id": "ph_sorting_packing",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: A chestnut sorting and packing workshop, conveyor sorting chestnuts by size, workers packing boxes, some damaged chestnuts set aside"
+  },
+  {
+   "id": "ph_drone_spray",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: An agricultural drone spraying mist over a chestnut orchard on a hillside, operator standing below"
+  },
+  {
+   "id": "ph_storage_sacks",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: A cold storage warehouse filled floor to ceiling with stacked sacks of last year's chestnuts, cold blue light, a worker looking up"
+  },
+  {
+   "id": "ph_kimchi_fridge",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: First person view of a Korean kimchi refrigerator drawer opened at home, an old plastic bag of chestnuts pushed in the corner behind containers"
+  },
+  {
+   "id": "ph_cargo_empty",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: The empty half-filled cargo hold of a ship with only a few pallets, vast empty space, dim light"
+  },
+  {
+   "id": "ph_basket_few",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: A supermarket shopping basket with only a few items, held by an older man's hand in a produce aisle, chestnut shelf blurred in background"
+  },
+  {
+   "id": "ph_simple_table",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: A small simplified holiday table in a modern Korean apartment with only a few fruits and a photo frame, no chestnuts, quiet"
+  },
+  {
+   "id": "ph_peeled_pack",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: Retail packages of peeled chestnuts and roasted chestnut snack pouches on a supermarket shelf, labels blurred and unreadable"
+  },
+  {
+   "id": "ph_loading_container",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: Forklift loading pallets of boxed chestnuts into a shipping container at a cooperative warehouse, workers checking, late afternoon"
+  },
+  {
+   "id": "ph_us_grocery",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: A Korean grocery store in the United States, a display bin of fresh chestnuts, customers of various backgrounds shopping, signs blurred"
+  },
+  {
+   "id": "ph_farmers_rally",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: Reenactment: a group of elderly chestnut farmers in work clothes standing together in front of a rural cooperative buying station, serious faces, holding blank placards with no writing"
+  },
+  {
+   "id": "ph_hometown_mountain",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: A quiet hometown mountain slope with old chestnut trees planted by a father long ago, a small family grave mound nearby, misty morning"
+  },
+  {
+   "id": "ph_label_check",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: Close-up of a hand holding a bag of chestnuts and turning it to check the label on the back, label text blurred and unreadable, supermarket"
+  },
+  {
+   "id": "ph_roast_festival",
+   "kind": "background",
+   "style": "",
+   "quality": "medium",
+   "prompt": "Cinematic documentary photograph, realistic, 35mm film look, shallow depth of field, natural light, rural South Korea in autumn unless stated, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition, lower third slightly darker for captions. Scene: A winter riverside chestnut roasting festival at night, large iron roasting drums with fire, crowd in winter coats, warm glow"
+  }
+ ]
 }
