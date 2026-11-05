@@ -201,6 +201,10 @@ def cmd__scene(a):   # 내부용: 장면 1개 렌더
 
 def cmd_render(a):
     p = use(a.project); import timeline as tl, time
+    import fcntl                                                         # 2026-11-05: 같은 프로젝트를 두 번 동시에 렌더하면 조각 파일이 깨진다 → 잠금
+    os.makedirs(os.path.join(p, 'out'), exist_ok=True); _lock = open(os.path.join(p, 'out', '_render.lock'), 'w')
+    try: fcntl.flock(_lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except OSError: raise SystemExit('이미 이 프로젝트를 렌더하는 중입니다. 끝난 뒤에 다시 실행하세요.')
     from concurrent.futures import ThreadPoolExecutor
     sc = tl.scenes(); bad = tl.problems(sc)
     if a.scenes: todo = [tl.find(n, sc) for n in a.scenes]
