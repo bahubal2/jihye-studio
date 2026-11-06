@@ -1,0 +1,47 @@
+[
+ {
+  "id": "p_blight",
+  "src": "commons:Chestnut blight.jpg",
+  "cut": false
+ },
+ {
+  "id": "p_canker",
+  "src": "commons:Cryphonectria parasitica tree.jpg",
+  "cut": false
+ },
+ {
+  "id": "p_marron",
+  "src": "commons:Aesculus hippocastanum fruit.jpg",
+  "cut": false
+ },
+ {
+  "id": "p_marron_husk",
+  "src": "commons:Gebarsten bolster van een paardenkastanje (Aesculus) 13-10-2022 (d.j.b.) 02.jpg",
+  "cut": false
+ },
+ {
+  "id": "p_sweet_burr",
+  "src": "commons:Afgevallen kastanje van een Tamme kastanje (Castanea sativa) 17-10-2021 (d.j.b.) 01.jpg",
+  "cut": false
+ },
+ {
+  "id": "p_vendor_loc",
+  "src": "commons:(Food vendor grabbing roasted chestnuts) (LOC).jpg",
+  "cut": false
+ },
+ {
+  "id": "p_vendor_met",
+  "src": "commons:Chestnut Vendor, St. Martin's Market, Pontoise MET DP821711.jpg",
+  "cut": false
+ },
+ {
+  "id": "p_american_chestnut",
+  "src": "commons:American Chestnut.JPG",
+  "cut": false
+ },
+ {
+  "id": "p_orchard_plant",
+  "src": "commons:Planting an American chestnut orchard at the Shenango Lake Campground.jpg",
+  "cut": false
+ }
+]

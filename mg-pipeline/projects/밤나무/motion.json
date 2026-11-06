@@ -1,0 +1,75 @@
+{
+ "model": "fal-ai/minimax/hailuo-02/standard/image-to-video",
+ "resolution": "512P",
+ "duration": "6",
+ "loop_sec": 15,
+ "extend": "slow",
+ "style": "",
+ "clips": [
+  {
+   "id": "s_autumn_park",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_cargo_ship",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_dead_forest",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_falling_leaves",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_mountain_village",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_newyork",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_seoul",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_sprout",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_lab",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_conkers",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_roast",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_supermarket",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_phone_elderly",
+   "prompt": "",
+   "src": "pixabay"
+  }
+ ]
+}

@@ -413,3 +413,38 @@ svg.draw .hd { opacity: 0; animation: fadein .12s calc(var(--t) + var(--dur, .5s
 .flipcard .back { background: #d92b2b; transform: rotateX(180deg); animation: fcIn .55s var(--t2) forwards cubic-bezier(.6,0,.3,1); box-shadow: 0 20px 60px rgba(217,43,43,.45); }
 @keyframes fcOut { to { transform: rotateX(-180deg); } }
 @keyframes fcIn { to { transform: rotateX(0deg); } }
+
+/* ===== 2026-11-06 종이 인형극(puppet) · 입자(particles) · 사진 액자(polaroid) ===== */
+.lw { position: absolute; inset: 0; pointer-events: none; z-index: 5; }
+.lw.out { animation: gone .4s var(--u) forwards; }
+.pup { position: absolute; z-index: 5; opacity: 0; animation: pupIn .25s var(--t) forwards; }
+.pup .pin { transform-origin: 50% 100%; filter: drop-shadow(0 18px 14px rgba(0,0,0,.45)); }
+.pup img { width: 100%; display: block; } .pup img.flip { transform: scaleX(-1); }
+.pup.m-walk, .pup.m-enter { animation: pupIn .25s var(--t) forwards, pupMove var(--dur) linear var(--t) both; }
+.pup.m-walk .pin { animation: waddle var(--st) ease-in-out var(--t) infinite alternate; }
+.pup.m-enter .pin { animation: waddle var(--st) ease-in-out var(--t) var(--n) alternate, sway 2.6s ease-in-out calc(var(--t) + var(--dur)) infinite alternate; }
+.pup.m-idle .pin { animation: sway 2.4s ease-in-out var(--t) infinite alternate; }
+.pup.m-hop .pin { animation: hop .45s ease-out var(--t) 3, sway 2.4s ease-in-out calc(var(--t) + 1.35s) infinite alternate; }
+.pup.m-shiver .pin { animation: shiver .07s linear var(--t) infinite alternate; }
+.pup.m-nod .pin { animation: nod .5s ease-in-out var(--t) 6 alternate, sway 2.4s ease-in-out calc(var(--t) + 3s) infinite alternate; }
+@keyframes pupIn { to { opacity: 1; } }
+@keyframes pupMove { from { translate: 0 0; } to { translate: var(--dx) 0; } }
+@keyframes waddle { 0% { rotate: calc(var(--tl) * -1); translate: 0 0; } 50% { rotate: 0deg; translate: 0 -14px; } 100% { rotate: var(--tl); translate: 0 0; } }
+@keyframes sway { from { rotate: -2.2deg; } to { rotate: 2.2deg; } }
+@keyframes hop { 0% { translate: 0 0; } 40% { translate: 0 -70px; } 100% { translate: 0 0; } }
+@keyframes shiver { from { translate: -5px 0; rotate: -1deg; } to { translate: 5px 0; rotate: 1deg; } }
+@keyframes nod { from { rotate: 0deg; } to { rotate: 6deg; } }
+.ptc { position: absolute; inset: 0; z-index: 4; pointer-events: none; overflow: hidden; opacity: 0; animation: pupIn .8s var(--t) forwards; }
+.ptc i { position: absolute; top: -70px; width: var(--s); height: var(--s); opacity: var(--o); animation: fall var(--d) linear var(--dl) infinite; }
+.ptc.k-leaf i { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 2C30 8 38 18 20 38C2 18 10 8 20 2Z' fill='%23d9822b'/%3E%3Cpath d='M20 6V36' stroke='%237a3e10' stroke-width='1.6'/%3E%3C/svg%3E") center/contain no-repeat; filter: hue-rotate(var(--hue)) drop-shadow(0 4px 4px rgba(0,0,0,.35)); }
+.ptc.k-snow i { border-radius: 50%; background: #fff; filter: blur(1.5px); }
+.ptc.k-ember i { top: auto; bottom: -30px; border-radius: 50%; background: #ffb347; box-shadow: 0 0 12px 4px rgba(255,140,40,.8); animation-name: rise; }
+.ptc.k-spore i { border-radius: 50%; background: rgba(255,236,170,.75); box-shadow: 0 0 10px rgba(255,230,150,.6); animation-name: drift; }
+@keyframes fall { 0% { translate: 0 0; rotate: 0deg; } 50% { translate: var(--sx) 640px; } 100% { translate: 0 1240px; rotate: var(--r); } }
+@keyframes rise { 0% { translate: 0 0; opacity: 0; } 15% { opacity: var(--o); } 100% { translate: var(--sx) -900px; opacity: 0; } }
+@keyframes drift { 0% { translate: 0 200px; } 50% { translate: var(--sx) 600px; } 100% { translate: calc(var(--sx) * -1) 1000px; } }
+.pola { position: absolute; z-index: 4; background: #fbfaf6; padding: 14px 14px 16px; box-shadow: 0 24px 44px rgba(0,0,0,.55); rotate: var(--rot); opacity: 0; animation: polaIn .6s cubic-bezier(.2,1.3,.4,1) var(--t) forwards; }
+.pola img { width: 100%; display: block; filter: contrast(1.05); }
+.pola .pc { font-family: 'GMm', sans-serif; font-size: 30px; color: #333; text-align: center; margin-top: 12px; }
+.pola::before { content: ''; position: absolute; left: 50%; top: -18px; width: 150px; height: 38px; margin-left: -75px; background: rgba(240,225,170,.85); rotate: 3deg; }
+@keyframes polaIn { from { opacity: 0; translate: 0 -90px; scale: 1.15; } to { opacity: 1; translate: 0 0; scale: 1; } }

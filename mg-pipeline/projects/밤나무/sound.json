@@ -1,0 +1,10 @@
+{
+ "sfx": {
+  "leaves": {"text": "footsteps walking slowly through dry autumn leaves in a quiet forest, gentle crunching and rustling", "sec": 4},
+  "wind": {"text": "soft cold wind blowing through bare trees in an empty mountain forest, lonely, no birds", "sec": 5},
+  "fire": {"text": "warm crackling coal fire of a street chestnut roasting cart, small pops and sizzles", "sec": 4},
+  "train": {"text": "old steam locomotive chugging past with a short distant whistle", "sec": 4}
+ },
+ "music": {},
+ "bgm": []
+}
