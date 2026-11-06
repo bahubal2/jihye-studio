@@ -15,7 +15,7 @@ A = [
 ]},
 {'from': '그런데 아무도 줍지', 'enter': 'zoom', 'bg': 'i_park_bench', 'cam': [('push', '+0.05', 50, 60, 1.2)], 'items': [
     BRIGHT, particles('leaf', '+0.0', n=12, seed=3),
-    puppet('c_grandpa', '+0.05', 1960, 470, w=400, move='walk', dx=-700, dur=5.5, step=0.6, flip=True),
+    puppet('c_grandpa', '+0.05', 1440, 470, w=400, move='walk', dx=-420, dur=5.5, step=0.6, flip=True),
     stamp('아무도 안 줍는다', '줍지', x=1000, y=160, size=100),
 ]},
 {'from': '길에 떨어진 밤, 왜 아무도', 'enter': 'flash', 'bg': None, 'items': [

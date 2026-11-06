@@ -65,7 +65,7 @@ B = [
 # ================= 4막: 진짜 원인 =================
 {'from': '첫째는 값입니다', 'enter': 'zoom', 'bg': None, 'items': [
     mgbg('teal'),
-    tag('국제 도매 단가 (2025.12) · 손님은 싼 쪽으로', '국제', None, 40, icon='chart-bar', tone='dark', size=52),
+    tag('국제 도매 단가 (2025.12) · 손님은 싼 쪽으로', '국제', None, 120, icon='chart-bar', tone='dark', size=52),
     mg_scale('+0.1', '육십'),
 ]},
 {'from': '중국은 오랫동안', 'enter': 'wipe', 'bg': 'i_korea_harvest', 'items': [
@@ -103,7 +103,7 @@ B = [
 ]},
 {'from': '이천십일 년, 농촌경제연구원은', 'enter': 'wipe', 'bg': None, 'items': [
     mgbg('cream'),
-    tag('2011 · 이미 일손 부족, 새로 심는 나무 거의 없음', '이천십일', None, 60, icon='calendar', tone='dark', size=50),
+    tag('2011 · 이미 일손 부족, 새로 심는 나무 거의 없음', '이천십일', None, 120, icon='calendar', tone='dark', size=50),
     mg_people('+0.1', '이천이십사', n=10, keep=3, a_label='', b_label='2024 고령화로 재배 포기 · 2026 빈자리 메우기'),
 ]},
 {'from': '그리고 올가을, 그 장면이', 'enter': 'flash', 'bg': 'i_empty_slope', 'items': [
