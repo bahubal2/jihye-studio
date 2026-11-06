@@ -1,6 +1,6 @@
 """밤나무 편 — 3막(한국 밤나무혹벌과 역전) · 4막(의심과 진짜 원인) (자막 75~172, 5:01~12:01)."""
 from gen import (hook, flashhit, tag, stamp, big, cover, punch, glow, raw, stack, swapnum, card, bubble, bars, article,
-                 shrink, foreshadow, flipcard, split, side, timeline, PAST, puppet, particles, polaroid)
+                 shrink, foreshadow, flipcard, split, side, timeline, PAST, puppet, particles, polaroid, mgbg, mg_scale, mg_ship, mg_people)
 
 BRIGHT = raw('<style>.bg{--dark:.86; --blur:0px}</style>')
 SOFT = raw('<style>.bg{--dark:.7; --blur:0px}</style>')
@@ -8,13 +8,12 @@ SOFT = raw('<style>.bg{--dark:.7; --blur:0px}</style>')
 B = [
 # ================= 3막: 한국 =================
 {'from': '천구백오십팔 년, 충청북도', 'enter': 'fade', 'bg': 'i_korea_1958', 'cam': [('push', '+0.1', 50, 45, 1.2)], 'items': [
-    PAST,
     tag('1958 충북 제천 · 밤나무혹벌', '제천의', 120, 140, icon='calendar', tone='dark', size=58),
     puppet('c_wasp', '밤나무혹벌입니다', 1420, 200, w=260, move='hop'),
     tag('새순에 혹 → 밤이 안 열린다', '새순에', 120, 300, icon='alert-triangle', tone='red', size=54),
 ]},
 {'from': '몇 년 만에 강원과', 'enter': 'zoom', 'bg': 'i_korea_1958', 'items': [
-    PAST, cover('+0.02'),
+    cover('+0.02'),
     tag('강원 · 경기 · 경북 북부로', '강원과', None, 170, icon='map-pin', tone='dark', size=60),
     stamp('재래종 거의 전멸', '전멸했습니다', x=640, y=380, size=120),
 ]},
@@ -64,22 +63,19 @@ B = [
     *stack([('① 값', '값,', 'coin', 'red'), ('② 수출길', '수출길,', 'flag', 'red'), ('③ 사람', '사람입니다', 'users', 'red')], x=640, y=220, gap=170, size=72),
 ]},
 # ================= 4막: 진짜 원인 =================
-{'from': '첫째는 값입니다', 'enter': 'zoom', 'bg': 'v:s_supermarket', 'items': [
-    cover('+0.02'),
-    tag('국제 도매 단가 (2025.12)', '국제', None, 150, icon='chart-bar', tone='dark', size=56),
-    swapnum('한국 밤 10,000원', '중국 밤 6,000원', '중국 밤은', '육천', y=300, size=96, tone='bad'),
-    puppet('c_burr', '육천', 1500, 520, w=300, move='shiver', sfx=None),
+{'from': '첫째는 값입니다', 'enter': 'zoom', 'bg': None, 'items': [
+    mgbg('teal'),
+    tag('국제 도매 단가 (2025.12) · 손님은 싼 쪽으로', '국제', None, 40, icon='chart-bar', tone='dark', size=52),
+    mg_scale('+0.1', '육천'),
 ]},
 {'from': '중국은 오랫동안', 'enter': 'wipe', 'bg': 'i_korea_harvest', 'items': [
     cover('+0.02'),
     article('한국농촌경제연구원 논단 (요약)', '2011', '중국의 싸고 맛있는 밤, 우리 안방까지 파고든다', '이천십일', mark='안방', x=460, y=140, rot=-2),
     tag('밤 봉지 뒷면 원산지 한 줄', '원산지', None, 640, icon='scan', tone='red', size=54),
 ]},
-{'from': '둘째는 수출길입니다', 'enter': 'flash', 'bg': 'v:s_cargo_ship', 'items': [
-    cover('+0.02'),
-    card('1995 수출', '생산의 31%', '셋 중', 220, 200, w=660, h=300, vat='셋 중'),
-    card('지금', '열에 하나 남짓', '열에 하나', 1040, 200, w=660, h=300, vat='열에 하나', hot=True),
-    tag('올해 9월까지 921톤 · 평년의 절반도 안 됨', '구백이십일', None, 600, icon='trending-down', tone='red', size=50),
+{'from': '둘째는 수출길입니다', 'enter': 'flash', 'bg': None, 'items': [
+    mgbg('teal'),
+    mg_ship('+0.1', '지금은', boxes=12, keep=5, a_label='1995년 · 생산의 31%가 배를 탔다', b_label='지금 열에 하나 남짓 · 올해 9월까지 921톤'),
 ]},
 {'from': '애팔래치아의 밤이 기차를', 'enter': 'zoom', 'bg': 'v:s_cargo_ship', 'items': [
     SOFT,
@@ -105,10 +101,10 @@ B = [
     cover('+0.02'),
     flipcard('값이 떨어져서 사람이 떠났다?', '날짜를 보면 순서가 반대', '밤값이', '거꾸로', y=300, size=70),
 ]},
-{'from': '이천십일 년, 농촌경제연구원은', 'enter': 'wipe', 'bg': 'v:s_mountain_village', 'items': [
-    cover('+0.02'),
-    timeline([('2011', '일손 부족 · 새로 심는 나무 거의 없음', '이천십일'), ('2024', '경남 고령화로 재배 포기', '이천이십사'),
-              ('2026', '새 나무는 빈자리 메우기', '올해 봄에도', 1)], y=330),
+{'from': '이천십일 년, 농촌경제연구원은', 'enter': 'wipe', 'bg': None, 'items': [
+    mgbg('cream'),
+    tag('2011 · 이미 일손 부족, 새로 심는 나무 거의 없음', '이천십일', None, 60, icon='calendar', tone='dark', size=50),
+    mg_people('+0.1', '이천이십사', n=10, keep=3, a_label='', b_label='2024 고령화로 재배 포기 · 2026 빈자리 메우기'),
 ]},
 {'from': '그리고 올가을, 그 장면이', 'enter': 'flash', 'bg': 'i_empty_slope', 'items': [
     cover('+0.02'),

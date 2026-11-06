@@ -1,43 +1,43 @@
 """밤나무 편 — 인트로 · 1막(마로니에) · 2막(미국 밤나무) (자막 1~74, 0:00~5:01).
    2026-11-06 담당자 방향: 삽화+실사(스톡) 혼합, 종이 인형(puppet) 뒤뚱 걷기, 입자, 사진 액자 — 레이어를 많이, 비용은 최소."""
 from gen import (hook, flashhit, tag, stamp, big, cover, punch, glow, raw, stack, swapnum, card, bubble, bars, article,
-                 shrink, foreshadow, flipcard, split, side, PAST, puppet, particles, polaroid)
+                 shrink, foreshadow, flipcard, split, side, PAST, puppet, particles, polaroid, mgbg, mg_forest, mg_sap, mg_pile)
 
 BRIGHT = raw('<style>.bg{--dark:.86; --blur:0px}</style>')
 SOFT = raw('<style>.bg{--dark:.7; --blur:0px}</style>')
 
 A = [
 # ================= 인트로 =================
-{'from': '가을 공원 벤치 아래', 'enter': 'fade', 'bg': 'v:s_autumn_park', 'cam': [('push', '+0.1', 50, 60, 1.15)], 'items': [
-    BRIGHT, particles('leaf', '+0.1', n=14),
-    tag('가을 공원 벤치 아래', '+0.2', 120, 140, icon='map-pin', tone='dark', size=58),
-    puppet('c_grandpa', '+0.4', -380, 470, w=390, move='enter', dx=640, dur=2.6),
+{'from': '가을 공원 벤치 아래', 'enter': 'flash', 'bg': 'v:s_autumn_park', 'cam': [('crash', '+0.0', 50, 60, 1.3)], 'items': [
+    BRIGHT, particles('leaf', '+0.0', n=18),
+    polaroid('p_marron', '+0.1', 1180, 140, w=480, rot=5, cap='실제 사진'),
+    big('밤이 수북', '수북합니다', y=520, size=150, color='#ffd400'),
 ]},
-{'from': '그런데 아무도 줍지', 'enter': 'zoom', 'bg': 'i_park_bench', 'cam': [('push', '+0.1', 50, 55, 1.2)], 'items': [
-    SOFT, particles('leaf', '+0.1', n=12, seed=3),
-    hook('길에 떨어진 밤<br><strong>왜 아무도 안 주울까?</strong>', '길에', y=200, size=120),
-    puppet('c_squirrel', '아무도', 1420, 520, w=340, move='hop'),
+{'from': '그런데 아무도 줍지', 'enter': 'zoom', 'bg': 'i_park_bench', 'cam': [('push', '+0.05', 50, 60, 1.2)], 'items': [
+    BRIGHT, particles('leaf', '+0.0', n=12, seed=3),
+    puppet('c_grandpa', '+0.05', -400, 470, w=400, move='walk', dx=2700, dur=3.2, step=0.26),
+    stamp('아무도 안 줍는다', '줍지', x=1000, y=160, size=100),
 ]},
-{'from': '백 년 전 미국 동부', 'enter': 'fade', 'bg': 'i_us_forest', 'cam': [('pull', '+0.05', 50, 50, 1.5)], 'items': [
-    PAST, particles('leaf', '+0.1', n=12, seed=5),
-    tag('100년 전 · 미국 동부의 산', '+0.1', 120, 140, icon='calendar', tone='dark', size=58),
-    big('밤나무 수십억 그루', '수십억', y=520, size=120, color='#ffd400'),
+{'from': '길에 떨어진 밤, 왜 아무도', 'enter': 'flash', 'bg': None, 'items': [
+    mgbg('dusk'), flashhit('+0.02'),
+    hook('길에 떨어진 밤<br><strong>왜 아무도 안 주울까?</strong>', '+0.05', y=230, size=130),
+    puppet('c_squirrel', '왜', 1440, 560, w=320, move='hop'),
 ]},
-{'from': '지금은 거의 남지', 'enter': 'wipe', 'bg': 'v:s_dead_forest', 'cam': [('push', '+0.1', 50, 50, 1.2)], 'items': [
-    SOFT, particles('spore', '+0.1', n=18),
-    stamp('거의 전멸', '남지', x=1180, y=180, size=110),
-    tag('곰팡이 하나 때문', '곰팡이', 120, 560, icon='alert-triangle', tone='red', size=64),
+{'from': '백 년 전 미국 동부', 'enter': 'zoom', 'bg': None, 'items': [
+    mgbg('teal'),
+    mg_forest('+0.2', '지금은', n=40, size=116, y=150, label='100년 전 미국 동부 · 밤나무 수십억 그루'),
+    particles('spore', '곰팡이', n=20),
+    tag('곰팡이 하나 때문', '곰팡이', None, 690, icon='alert-triangle', tone='red', size=60),
 ]},
-{'from': '한국 밤은 다릅니다', 'enter': 'zoom', 'bg': 'v:s_mountain_village', 'items': [
+{'from': '한국 밤은 다릅니다', 'enter': 'wipe', 'bg': 'v:s_mountain_village', 'cam': [('push', '+0.1', 50, 50, 1.2)], 'items': [
     BRIGHT,
     tag('한국 밤 = 해충을 이겨 낸 밤', '해충의', 120, 140, icon='flag', tone='dark', size=60),
     puppet('c_burr', '이겨', 1300, 420, w=420, move='hop'),
 ]},
-{'from': '그런데도 생산량은', 'enter': 'flash', 'bg': 'i_empty_slope', 'cam': [('crash', '여섯이', 50, 50, 1.35)], 'items': [
-    cover('+0.02'), flashhit('여섯이'),
-    tag('30년 사이 한국 밤 생산', '삼십', None, 150, icon='trending-down', tone='dark', size=58),
-    big('-60%', '여섯이', y=270, size=240, color='#ff5a5a'),
-    glow('병을 이겨 낸 밤이, 왜?', '무너지고', y=640, size=74),
+{'from': '그런데도 생산량은', 'enter': 'flash', 'bg': None, 'items': [
+    mgbg('cream'),
+    tag('병을 이겨 낸 밤이, 왜?', '무너지고', None, 40, icon='alert-triangle', tone='red', size=58),
+    mg_pile('+0.1', '여섯이', n=10, keep=4, size=180, y=170, a_label='1995년 9만 3천 톤', b_label='지금 3만 7천 톤 · -60%'),
 ]},
 {'from': '또 병 때문일까요', 'enter': 'zoom', 'bg': 'v:s_falling_leaves', 'items': [
     cover('+0.02'),
@@ -98,15 +98,14 @@ A = [
 ]},
 # ================= 2막: 미국 밤나무 =================
 {'from': '그럼 진짜 밤나무는', 'enter': 'fade', 'bg': 'i_bronx_zoo', 'cam': [('push', '+0.1', 60, 45, 1.2)], 'items': [
-    PAST,
     tag('1904 뉴욕 브롱크스 동물원', '천구백사', 120, 140, icon='calendar', tone='dark', size=58),
     puppet('c_merkel', '헤르만', -360, 500, w=360, move='enter', dx=620, dur=2.6),
 ]},
-{'from': '갈라진 껍질에', 'enter': 'zoom', 'bg': 'i_bronx_zoo', 'cam': [('crash', '구십팔', 70, 45, 1.35)], 'items': [
-    PAST, cover('+0.02'), particles('spore', '+0.1', n=16, seed=4),
-    tag('주황색 반점 = 동아시아에서 건너온 곰팡이', '동아시아', None, 160, icon='alert-triangle', tone='red', size=52),
-    tag('2년 뒤 동물원 밤나무', '이 년', None, 320, tone='dark', size=56),
-    big('98% 감염', '구십팔', y=420, size=180, color='#ff5a5a'),
+{'from': '갈라진 껍질에', 'enter': 'zoom', 'bg': None, 'items': [
+    mgbg('teal'),
+    tag('동아시아에서 건너온 곰팡이 → 수액 길이 막힌다', '동아시아', None, 30, icon='alert-triangle', tone='red', size=50),
+    mg_sap('+0.1', '곰팡이였습니다', y=90),
+    tag('2년 뒤 동물원 밤나무 98% 감염', '구십팔', None, 740, icon='trending-down', tone='red', size=54),
 ]},
 {'from': '기억해 두세요. 이 곰팡이는', 'enter': 'wipe', 'bg': 'i_stump_sprouts', 'items': [
     BRIGHT,
@@ -120,18 +119,17 @@ A = [
     tag('하버드대 숲 연구진 (2014)', '하버드대', None, 620, icon='file-invoice', tone='dark', size=52),
 ]},
 {'from': '그렇다고 피해가 작았다는', 'enter': 'wipe', 'bg': 'i_appalachia', 'cam': [('pull', '+0.05', 50, 50, 1.4)], 'items': [
-    PAST, particles('leaf', '+0.1', n=12, seed=13),
+    particles('leaf', '+0.1', n=12, seed=13),
     tag('피해는 한 지역에 몰렸다', '몰렸습니다', 120, 140, icon='map-pin', tone='dark', size=58),
     puppet('c_appal_man', '자루로', -380, 470, w=390, move='walk', dx=2500, dur=8, step=0.32),
 ]},
 {'from': '동네 가게에 가져가', 'enter': 'zoom', 'bg': 'i_country_store', 'items': [
-    PAST,
     tag('가게에서 물건과 바꾸고', '동네', 120, 140, icon='building-store', tone='dark', size=56),
     tag('기차로 볼티모어·필라델피아·뉴욕', '볼티모어', 120, 300, icon='flag', tone='red', size=54),
     puppet('c_train', '기차역으로', -900, 520, w=780, move='walk', dx=3000, dur=7, step=0.22, tilt=1.2, flip=True, sfx=None),
 ]},
 {'from': '도시 길모퉁이에선', 'enter': 'fade', 'bg': 'i_ny_vendor', 'cam': [('push', '+0.1', 50, 50, 1.2)], 'items': [
-    PAST, particles('ember', '+0.1', n=16),
+    particles('ember', '+0.1', n=16),
     puppet('c_vendor', '군밤', -420, 450, w=420, move='enter', dx=600, dur=2.4),
     shrink('s_newyork', '백 년 전', 1180, 170, 620, 350, cap='오늘의 뉴욕 거리'),
     tag('신문지 봉투의 군밤, 기억나세요?', '신문지', 120, 140, icon='heart-handshake', tone='red', size=52),
@@ -143,30 +141,28 @@ A = [
     tag('왜 그런지, 뒤에서 따라갑니다', '조금 뒤에', None, 680, icon='key', tone='red', size=52),
 ]},
 {'from': '천구백십사 년, 버지니아', 'enter': 'wipe', 'bg': 'i_appalachia', 'items': [
-    PAST, cover('+0.02'),
+    cover('+0.02'),
     tag('1914 버지니아주 한 곳', '버지니아주', None, 150, icon='calendar', tone='dark', size=58),
     big('900톤+', '구백', y=270, size=200, color='#ffd400'),
     tag('산이 주는 월급봉투', '월급봉투', None, 560, icon='coin', tone='green', size=60),
     puppet('c_hog', '돼지가', -320, 600, w=300, move='walk', dx=2500, dur=6, step=0.2),
 ]},
 {'from': '기억해 두세요. 이 산골의', 'enter': 'zoom', 'bg': 'i_train_station', 'items': [
-    PAST,
     foreshadow('기차를 타야 돈이 됐다', '기차를'),
     puppet('c_train', '기차를', -900, 520, w=780, move='walk', dx=3000, dur=6, step=0.22, tilt=1.2, flip=True, sfx=None),
 ]},
 {'from': '나무도 돈이었습니다', 'enter': 'wipe', 'bg': 'i_logging', 'cam': [('push', '+0.1', 50, 50, 1.2)], 'items': [
-    PAST, cover('+0.02'),
+    cover('+0.02'),
     *stack([('전봇대 · 철도 침목 · 울타리 · 집 기둥', '전봇대와', 'home', 'dark'), ('가죽 무두질 탄닌', '탄닌을', 'flag', 'dark'),
             ('미국 식물성 탄닌의 절반 이상', '이십 세기', 'chart-bar', 'red')], x=200, y=200, gap=170, size=54),
 ]},
-{'from': '그 숲에 곰팡이가', 'enter': 'flash', 'bg': 'v:s_dead_forest', 'cam': [('push', '+0.1', 50, 50, 1.25)], 'items': [
-    cover('+0.02'), particles('spore', '+0.1', n=22, seed=21),
-    tag('바람과 비를 타고 한 해 80km씩', '팔십', None, 150, icon='trending-up', tone='red', size=56),
-    tag('1940년 무렵 큰 밤나무 대부분 쓰러짐', '무렵', None, 310, icon='alert-triangle', tone='dark', size=54),
-    glow('동부 활엽수림 목재 값의 절반이 사라졌다', '절반이', y=600, size=60),
+{'from': '그 숲에 곰팡이가', 'enter': 'flash', 'bg': None, 'items': [
+    mgbg('teal'),
+    mg_forest('+0.1', '팔십', n=40, size=116, y=170, year=(1904, 1940), label='바람과 비를 타고 한 해 80km씩'),
+    particles('spore', '팔십', n=22, seed=21),
+    tag('동부 활엽수림 목재 값의 절반이 사라졌다', '절반이', None, 690, icon='trending-down', tone='red', size=50),
 ]},
 {'from': '미국은 그렇게 숲을', 'enter': 'zoom', 'bg': 'i_blight_forest', 'cam': [('pull', '+0.05', 50, 50, 1.5)], 'items': [
-    PAST,
     tag('그런데 50여 년 뒤, 바다 건너 한국에도', '오십여', 120, 140, icon='flag', tone='red', size=54),
 ]},
 ]

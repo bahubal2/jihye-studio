@@ -1,8 +1,9 @@
 {
  "style": "",
  "styles": {
-  "paint": "warm storybook oil painting illustration, visible painterly brush strokes, soft golden light, rich autumn palette, hand-painted look, no photorealism",
-  "pup": "storybook oil painting style paper cutout character, painterly brush strokes, warm colors, full body side view in a walking pose, flat clean silhouette edges, friendly slightly comic proportions"
+  "paint": "modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious limited palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, not painterly, not retro",
+  "pup": "modern flat 2D animated explainer character, clean vector shapes with soft gradients, harmonious palette of deep teal, warm orange, mustard and cream, simple expressive face, full body side view in a walking pose, crisp clean silhouette edges, polished contemporary animation look",
+  "prop": "modern flat 2D animated explainer illustration of a single object, clean vector shapes with soft gradients, harmonious palette of deep teal, warm orange, mustard and cream, side view, no people, no characters"
  },
  "quality": "medium",
  "assets": [
@@ -191,16 +192,16 @@
   {
    "id": "c_train",
    "kind": "cutout",
-   "style": "pup",
+   "style": "prop",
    "quality": "medium",
-   "prompt": "an old black steam locomotive with two freight cars, side view, puffing smoke"
+   "prompt": "an old black steam locomotive pulling two freight cars, side view, locomotive on the left, puffing a little smoke, no people"
   },
   {
    "id": "c_ship",
    "kind": "cutout",
-   "style": "pup",
+   "style": "prop",
    "quality": "medium",
-   "prompt": "a cargo ship stacked with containers, side view"
+   "prompt": "a cargo ship loaded with colorful stacked containers, side view, bow pointing right, no people"
   },
   {
    "id": "c_burr",

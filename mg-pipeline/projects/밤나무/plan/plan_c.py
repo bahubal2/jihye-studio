@@ -6,12 +6,11 @@ SOFT = raw('<style>.bg{--dark:.7; --blur:0px}</style>')
 
 C = [
 {'from': '그런데 같은 곰팡이를 맞고도', 'enter': 'fade', 'bg': 'i_genoa_1938', 'cam': [('push', '+0.1', 40, 50, 1.2)], 'items': [
-    PAST,
     tag('1938 이탈리아 제노바', '제노바', 120, 140, icon='calendar', tone='dark', size=58),
     puppet('c_italian', '발견됩니다', -360, 480, w=380, move='enter', dx=560, dur=2.4),
 ]},
 {'from': '비밀은 곰팡이에 붙은', 'enter': 'zoom', 'bg': 'i_genoa_1938', 'items': [
-    PAST, cover('+0.02'),
+    cover('+0.02'),
     tag('곰팡이에 붙은 바이러스 → 곰팡이 약화', '바이러스였습니다', None, 160, icon='scan', tone='green', size=52),
     tag('나무 상처가 저절로 아묾', '아물었습니다', None, 320, icon='heart-handshake', tone='dark', size=56),
     glow('25년 안에 회복 조짐 · 미국에선 퍼지지 않음', '이십오', y=560, size=56),

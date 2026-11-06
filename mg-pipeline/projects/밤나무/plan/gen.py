@@ -274,6 +274,67 @@ def particles(kind, at='+0', until=None, n=16, seed=7):
                        f'--sx:{r.uniform(-140, 140):.0f}px; --r:{r.uniform(-540, 540):.0f}deg; --o:{r.uniform(.55, 1):.2f}; --hue:{r.uniform(-25, 15):.0f}deg"></i>')
         return _lw(sc, until, f'<div class="ptc k-{kind}" {A(sc, at)}>{"".join(out)}</div>')
     return f
+
+# ===== 2026-11-06 담당자 요청: 모션그래픽은 '애니메이션 일러스트' (플랫 벡터, 밝은 배경, 코드로 그려 비용 0) =====
+TREE = '<svg viewBox="0 0 60 80"><rect x="26" y="46" width="8" height="30" rx="3" fill="#7a4b2a"/><circle cx="30" cy="28" r="22" fill="currentColor"/><circle cx="18" cy="38" r="13" fill="currentColor"/><circle cx="42" cy="38" r="13" fill="currentColor"/><circle cx="24" cy="20" r="6" fill="#fff" opacity=".18"/></svg>'
+NUT = '<svg viewBox="0 0 60 60"><path d="M30 5C47 17 55 30 53 42C51 55 9 55 7 42C5 30 13 17 30 5Z" fill="#9a5226"/><path d="M8 40C19 47 41 47 52 40L53 47C41 56 19 56 7 47Z" fill="#efd3a8"/><ellipse cx="22" cy="24" rx="5" ry="10" fill="#fff" opacity=".22"/></svg>'
+PERSON = '<svg viewBox="0 0 40 60"><circle cx="20" cy="12" r="9" fill="currentColor"/><path d="M5 58C5 36 10 26 20 26C30 26 35 36 35 58Z" fill="currentColor"/></svg>'
+BOX = '<i class="box" style="--c:{c}"></i>'
+def mgbg(tone='teal'):
+    """모션그래픽 바탕: 밝고 깔끔한 그라데이션 + 점 무늬 (어두운 덮개 대신)."""
+    return raw(f'<div class="mgbg {tone}"></div><style>.bg{{opacity:0 !important}}</style>')
+def mg_forest(at, at2, n=40, cols=10, year=None, label=None, x=None, y=150, size=88):
+    """나무 아이콘 숲: at 에 줄지어 돋아나고, at2 에 왼쪽부터 회색 물결이 지나가며 시들어 쓰러진다. year=(1904, 1940) 이면 연도 숫자가 함께 오른다."""
+    def f(sc):
+        rows = (n + cols - 1) // cols; w = cols * size * .92; pos = f'left:{(1920 - w) / 2:.0f}px;' if x is None else f'left:{x}px;'
+        trees = ''.join(f'<i style="--i:{k}; --c:{k % cols}; --fall:{(-1) ** k * (6 + k % 5 * 3)}deg">{TREE}</i>' for k in range(n))
+        yr = (f'<div class="mgyear num" data-from="{year[0]}" data-to="{year[1]}" data-dur="{3.2}" {A(sc, at2)}>{year[0]}</div>') if year else ''
+        lb = f'<div class="mglabel" {A(sc, at)}>{E(label)}</div>' if label else ''
+        return (f'<div class="mgforest" {A(sc, at, sfx="pop")} {A(sc, at2, None, "data-at2", sfx="whoosh")} style="{pos} top:{y}px; width:{w:.0f}px; --sz:{size}px">'
+                f'{trees}</div>{yr}{lb}')
+    return f
+def mg_sap(at, at2, x=None, y=110):
+    """나무 단면: 수액이 줄기를 타고 오르다(at), 곰팡이(주황 얼룩)가 번져 길을 막고 잎이 시든다(at2)."""
+    def f(sc):
+        pos = 'left:0; right:0; margin:0 auto;' if x is None else f'left:{x}px;'
+        lines = ''.join(f'<line x1="{x0}" y1="560" x2="{x0}" y2="170" class="sap" style="--i:{k}"/>' for k, x0 in enumerate((178, 200, 222)))
+        svg = (f'<svg viewBox="0 0 400 620" class="sapsvg"><circle cx="200" cy="150" r="130" class="crown"/><circle cx="120" cy="190" r="80" class="crown"/>'
+               f'<circle cx="280" cy="190" r="80" class="crown"/><rect x="160" y="170" width="80" height="420" rx="18" fill="#8a5a36"/>{lines}'
+               f'<ellipse cx="200" cy="420" rx="70" ry="60" class="rot"/><ellipse cx="190" cy="380" rx="40" ry="34" class="rot r2"/></svg>')
+        return f'<div class="mgsap" {A(sc, at, sfx="pop")} {A(sc, at2, None, "data-at2", sfx="hit")} style="{pos} top:{y}px">{svg}</div>'
+    return f
+def mg_pile(at, at2, n=10, keep=4, cols=5, x=None, y=180, size=130, a_label='', b_label=''):
+    """밤 아이콘 더미: at 에 n개가 쏟아지고, at2 에 keep 개만 남기고 떨어져 사라진다 (예: 10 → 4 = -60%)."""
+    def f(sc):
+        w = cols * size * 1.1; pos = f'left:{(1920 - w) / 2:.0f}px;' if x is None else f'left:{x}px;'
+        nuts = ''.join(f'<i class="{"go" if k >= keep else ""}" style="--i:{k}">{NUT}</i>' for k in range(n))
+        lab = (f'<div class="mgcap a" {A(sc, at)} {A(sc, at2, None, "data-at2")}>{E(a_label)}</div>' if a_label else '') + (f'<div class="mgcap b" {A(sc, at2)}>{E(b_label)}</div>' if b_label else '')
+        return (f'<div class="mgpile" {A(sc, at, sfx="pop")} {A(sc, at2, None, "data-at2", sfx="whoosh")} style="{pos} top:{y}px; width:{w:.0f}px; --sz:{size}px">{nuts}</div>{lab}')
+    return f
+def mg_ship(at, at2, boxes=12, keep=1, a_label='', b_label='', y=230):
+    """플랫 화물선: at 에 바다를 건너오고(상자 가득), at2 에 상자가 하나씩 날아가 keep 개만 남는다."""
+    cols = ['#e07a3a', '#2f8f9d', '#f2b544', '#d6534f']
+    def f(sc):
+        bx = ''.join(f'<i class="box{" go" if k >= keep else ""}" style="--i:{k}; --c:{cols[k % 4]}"></i>' for k in range(boxes))
+        lab = (f'<div class="mgcap a" {A(sc, at)} {A(sc, at2, None, "data-at2")}>{E(a_label)}</div>' if a_label else '') + (f'<div class="mgcap b" {A(sc, at2)}>{E(b_label)}</div>' if b_label else '')
+        return (f'<div class="mgsea" {A(sc, at)} style="top:{y + 300}px"></div>'
+                f'<div class="mgship" {A(sc, at, sfx="whoosh")} {A(sc, at2, None, "data-at2", sfx="pop")} style="top:{y}px"><div class="boxes">{bx}</div><div class="hull"></div></div>{lab}')
+    return f
+def mg_scale(at, at2, left='한국 밤', lval='10,000원', right='중국 밤', rval='6,000원', y=170):
+    """가격 저울: 두 접시의 밤과 값표, at2 에 손님(사람 아이콘)이 싼 쪽으로 몰리며 저울이 기운다."""
+    def f(sc):
+        ppl = ''.join(f'<i style="--i:{k}">{PERSON}</i>' for k in range(5))
+        return (f'<div class="mgscale" {A(sc, at, sfx="pop")} {A(sc, at2, None, "data-at2", sfx="whoosh")} style="top:{y}px">'
+                f'<div class="post"></div><div class="beam"><div class="pan l"><b>{NUT}</b><span>{E(left)}<em>{E(lval)}</em></span></div>'
+                f'<div class="pan r"><b>{NUT}</b><span>{E(right)}<em>{E(rval)}</em></span></div></div><div class="crowd">{ppl}</div></div>')
+    return f
+def mg_people(at, at2, n=10, keep=3, a_label='', b_label='', y=260):
+    """사람 아이콘 줄: at 에 나란히 서고, at2 에 오른쪽부터 하나씩 흐려지며 keep 명만 남는다 (일손이 사라진다)."""
+    def f(sc):
+        ppl = ''.join(f'<i class="{"go" if k >= keep else ""}" style="--i:{k}; --j:{n - 1 - k}">{PERSON}</i>' for k in range(n))
+        lab = (f'<div class="mgcap a" {A(sc, at)} {A(sc, at2, None, "data-at2")}>{E(a_label)}</div>' if a_label else '') + (f'<div class="mgcap b" {A(sc, at2)}>{E(b_label)}</div>' if b_label else '')
+        return f'<div class="mgpeople" {A(sc, at, sfx="pop")} {A(sc, at2, None, "data-at2", sfx="whoosh")} style="top:{y}px">{ppl}</div>{lab}'
+    return f
 def polaroid(src, at, x, y, w=560, rot=-4, cap=None, until=None):
     """실제 사진(assets/src.png, 위키미디어 등)을 테이프 붙은 인화지 액자로 툭 떨어뜨린다."""
     def f(sc):
