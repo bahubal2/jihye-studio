@@ -66,7 +66,7 @@ B = [
 {'from': '첫째는 값입니다', 'enter': 'zoom', 'bg': None, 'items': [
     mgbg('teal'),
     tag('국제 도매 단가 (2025.12) · 손님은 싼 쪽으로', '국제', None, 40, icon='chart-bar', tone='dark', size=52),
-    mg_scale('+0.1', '육천'),
+    mg_scale('+0.1', '육십'),
 ]},
 {'from': '중국은 오랫동안', 'enter': 'wipe', 'bg': 'i_korea_harvest', 'items': [
     cover('+0.02'),
@@ -79,7 +79,7 @@ B = [
 ]},
 {'from': '애팔래치아의 밤이 기차를', 'enter': 'zoom', 'bg': 'v:s_cargo_ship', 'items': [
     SOFT,
-    puppet('c_ship', '배를', -760, 330, w=720, move='walk', dx=2900, dur=9, step=0.9, tilt=1.5, sfx=None),
+    puppet('c_ship', '배를', -760, 330, w=720, move='walk', dx=2900, dur=9, step=1.35, tilt=1.5, sfx=None),
     *stack([('일본: 젊은 세대가 덜 찾는다', '일본에선', 'trending-down', 'dark'), ('중국: 해외 공장 등록 서류 50여 가지', '쉰 가지', 'file-invoice', 'red')],
            x=200, y=560, gap=150, size=48),
 ]},
@@ -119,7 +119,7 @@ B = [
 ]},
 {'from': '밤 농사는 가을 몇 주에', 'enter': 'wipe', 'bg': 'i_empty_slope', 'cam': [('push', '+0.1', 40, 60, 1.15)], 'items': [
     BRIGHT, particles('leaf', '+0.1', n=10, seed=29),
-    puppet('c_old_farmer', '허리', -400, 470, w=400, move='walk', dx=1500, dur=9, step=0.6, tilt=4),
+    puppet('c_old_farmer', '허리', -400, 470, w=400, move='walk', dx=1500, dur=9, step=0.90, tilt=4),
     tag('나무는 그대로, 손만 뗀다', '손만', None, 150, icon='user-x', tone='red', size=56),
 ]},
 {'from': '길에 떨어진 밤, 왜 아무도 안 주울까요. 미국', 'enter': 'flash', 'bg': 'i_park_bench', 'items': [

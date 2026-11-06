@@ -15,7 +15,7 @@ A = [
 ]},
 {'from': '그런데 아무도 줍지', 'enter': 'zoom', 'bg': 'i_park_bench', 'cam': [('push', '+0.05', 50, 60, 1.2)], 'items': [
     BRIGHT, particles('leaf', '+0.0', n=12, seed=3),
-    puppet('c_grandpa', '+0.05', -400, 470, w=400, move='walk', dx=2700, dur=3.2, step=0.26),
+    puppet('c_grandpa', '+0.05', -400, 470, w=400, move='walk', dx=2700, dur=3.2, step=0.39),
     stamp('아무도 안 줍는다', '줍지', x=1000, y=160, size=100),
 ]},
 {'from': '길에 떨어진 밤, 왜 아무도', 'enter': 'flash', 'bg': None, 'items': [
@@ -25,7 +25,7 @@ A = [
 ]},
 {'from': '백 년 전 미국 동부', 'enter': 'zoom', 'bg': None, 'items': [
     mgbg('teal'),
-    mg_forest('+0.2', '지금은', n=40, size=116, y=150, label='100년 전 미국 동부 · 밤나무 수십억 그루'),
+    mg_forest('+0.2', '지금은', n=40, size=116, y=150, wave=.18, label='100년 전 미국 동부 · 밤나무 수십억 그루'),
     particles('spore', '곰팡이', n=20),
     tag('곰팡이 하나 때문', '곰팡이', None, 690, icon='alert-triangle', tone='red', size=60),
 ]},
@@ -47,7 +47,7 @@ A = [
 {'from': '실마리는 엉뚱한 곳에', 'enter': 'wipe', 'bg': 'v:s_cargo_ship', 'items': [
     BRIGHT,
     tag('실마리: 미국은 지금 어느 나라 밤을 사 먹나?', '어느 나라', 120, 140, icon='scan', tone='dark', size=52),
-    puppet('c_ship', '+0.3', -760, 360, w=720, move='walk', dx=2900, dur=10, step=0.9, tilt=1.5, sfx=None),
+    puppet('c_ship', '+0.3', -760, 360, w=720, move='walk', dx=2900, dur=10, step=1.35, tilt=1.5, sfx=None),
     foreshadow('미국 마트의 밤, 원산지는?', '사 먹는지', label='뒤에서 공개'),
 ]},
 {'from': '그 전에, 저 벤치 아래', 'enter': 'zoom', 'bg': 'i_park_bench', 'cam': [('push', '+0.1', 50, 70, 1.3)], 'items': [
@@ -121,12 +121,12 @@ A = [
 {'from': '그렇다고 피해가 작았다는', 'enter': 'wipe', 'bg': 'i_appalachia', 'cam': [('pull', '+0.05', 50, 50, 1.4)], 'items': [
     particles('leaf', '+0.1', n=12, seed=13),
     tag('피해는 한 지역에 몰렸다', '몰렸습니다', 120, 140, icon='map-pin', tone='dark', size=58),
-    puppet('c_appal_man', '자루로', -380, 470, w=390, move='walk', dx=2500, dur=8, step=0.32),
+    puppet('c_appal_man', '자루로', -380, 470, w=390, move='walk', dx=2500, dur=8, step=0.48),
 ]},
 {'from': '동네 가게에 가져가', 'enter': 'zoom', 'bg': 'i_country_store', 'items': [
     tag('가게에서 물건과 바꾸고', '동네', 120, 140, icon='building-store', tone='dark', size=56),
     tag('기차로 볼티모어·필라델피아·뉴욕', '볼티모어', 120, 300, icon='flag', tone='red', size=54),
-    puppet('c_train', '기차역으로', -900, 520, w=780, move='walk', dx=3000, dur=7, step=0.22, tilt=1.2, flip=True, sfx=None),
+    puppet('c_train', '기차역으로', -900, 520, w=780, move='walk', dx=3000, dur=7, step=0.33, tilt=1.2, flip=True, sfx=None),
 ]},
 {'from': '도시 길모퉁이에선', 'enter': 'fade', 'bg': 'i_ny_vendor', 'cam': [('push', '+0.1', 50, 50, 1.2)], 'items': [
     particles('ember', '+0.1', n=16),
@@ -145,11 +145,11 @@ A = [
     tag('1914 버지니아주 한 곳', '버지니아주', None, 150, icon='calendar', tone='dark', size=58),
     big('900톤+', '구백', y=270, size=200, color='#ffd400'),
     tag('산이 주는 월급봉투', '월급봉투', None, 560, icon='coin', tone='green', size=60),
-    puppet('c_hog', '돼지가', -320, 600, w=300, move='walk', dx=2500, dur=6, step=0.2),
+    puppet('c_hog', '돼지가', -320, 600, w=300, move='walk', dx=2500, dur=6, step=0.30),
 ]},
 {'from': '기억해 두세요. 이 산골의', 'enter': 'zoom', 'bg': 'i_train_station', 'items': [
     foreshadow('기차를 타야 돈이 됐다', '기차를'),
-    puppet('c_train', '기차를', -900, 520, w=780, move='walk', dx=3000, dur=6, step=0.22, tilt=1.2, flip=True, sfx=None),
+    puppet('c_train', '기차를', -900, 520, w=780, move='walk', dx=3000, dur=6, step=0.33, tilt=1.2, flip=True, sfx=None),
 ]},
 {'from': '나무도 돈이었습니다', 'enter': 'wipe', 'bg': 'i_logging', 'cam': [('push', '+0.1', 50, 50, 1.2)], 'items': [
     cover('+0.02'),

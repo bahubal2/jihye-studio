@@ -251,7 +251,7 @@ PAST = raw('<style>.bg{filter: sepia(.85) contrast(1.08) brightness(.78) blur(va
 def _lw(sc, until, inner):
     """사라지는 시각(until)을 감싸는 바깥 틀 — 안쪽 요소의 애니메이션과 섞이지 않게."""
     return f'<div class="lw"{_until(sc, until)}>{inner}</div>' if until else inner
-def puppet(src, at, x, y, w=420, move='enter', dx=0, dur=2.4, step=0.3, tilt=6, flip=False, until=None, sfx='swish'):
+def puppet(src, at, x, y, w=420, move='enter', dx=0, dur=2.4, step=0.45, tilt=6, flip=False, until=None, sfx='swish'):
     """누끼 그림(assets/src.png)을 종이 인형처럼 움직인다. 발밑을 축으로 좌우로 기우뚱하며 통통 튄다.
        move: 'walk' 걸어서 가로지름(dx) · 'enter' 걸어 들어와 멈춘 뒤 제자리 흔들 · 'idle' 제자리 흔들 · 'hop' 폴짝 · 'shiver' 덜덜 · 'nod' 끄덕
        flip=True 면 좌우 반전(왼쪽을 보고 걷게)."""
@@ -283,14 +283,14 @@ BOX = '<i class="box" style="--c:{c}"></i>'
 def mgbg(tone='teal'):
     """모션그래픽 바탕: 밝고 깔끔한 그라데이션 + 점 무늬 (어두운 덮개 대신)."""
     return raw(f'<div class="mgbg {tone}"></div><style>.bg{{opacity:0 !important}}</style>')
-def mg_forest(at, at2, n=40, cols=10, year=None, label=None, x=None, y=150, size=88):
+def mg_forest(at, at2, n=40, cols=10, year=None, label=None, x=None, y=150, size=88, wave=.56):
     """나무 아이콘 숲: at 에 줄지어 돋아나고, at2 에 왼쪽부터 회색 물결이 지나가며 시들어 쓰러진다. year=(1904, 1940) 이면 연도 숫자가 함께 오른다."""
     def f(sc):
         rows = (n + cols - 1) // cols; w = cols * size * .92; pos = f'left:{(1920 - w) / 2:.0f}px;' if x is None else f'left:{x}px;'
         trees = ''.join(f'<i style="--i:{k}; --c:{k % cols}; --fall:{(-1) ** k * (6 + k % 5 * 3)}deg">{TREE}</i>' for k in range(n))
-        yr = (f'<div class="mgyear num" data-from="{year[0]}" data-to="{year[1]}" data-dur="{3.2}" {A(sc, at2)}>{year[0]}</div>') if year else ''
+        yr = (f'<div class="mgyear num" data-from="{year[0]}" data-to="{year[1]}" data-dur="{6.4}" {A(sc, at2)}>{year[0]}</div>') if year else ''
         lb = f'<div class="mglabel" {A(sc, at)}>{E(label)}</div>' if label else ''
-        return (f'<div class="mgforest" {A(sc, at, sfx="pop")} {A(sc, at2, None, "data-at2", sfx="whoosh")} style="{pos} top:{y}px; width:{w:.0f}px; --sz:{size}px">'
+        return (f'<div class="mgforest" {A(sc, at, sfx="pop")} {A(sc, at2, None, "data-at2", sfx="whoosh")} style="{pos} top:{y}px; width:{w:.0f}px; --sz:{size}px; --ws:{wave}s">'
                 f'{trees}</div>{yr}{lb}')
     return f
 def mg_sap(at, at2, x=None, y=110):
