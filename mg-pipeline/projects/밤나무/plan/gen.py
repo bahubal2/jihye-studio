@@ -335,6 +335,9 @@ def mg_people(at, at2, n=10, keep=3, a_label='', b_label='', y=260):
         lab = (f'<div class="mgcap a" {A(sc, at)} {A(sc, at2, None, "data-at2")}>{E(a_label)}</div>' if a_label else '') + (f'<div class="mgcap b" {A(sc, at2)}>{E(b_label)}</div>' if b_label else '')
         return f'<div class="mgpeople" {A(sc, at, sfx="pop")} {A(sc, at2, None, "data-at2", sfx="whoosh")} style="top:{y}px">{ppl}</div>{lab}'
     return f
+def qbadge(html, at='+0', pop=False):
+    """질문 추적 배지 (오른쪽 위 고정): 제목의 질문과 지금까지 나온 답. pop=True 면 처음 한 번 튀어나온다."""
+    return lambda sc: f'<div class="qbadge{" pop" if pop else ""}" {A(sc, at)}>{html}</div>'
 def polaroid(src, at, x, y, w=560, rot=-4, cap=None, until=None):
     """실제 사진(assets/src.png, 위키미디어 등)을 테이프 붙은 인화지 액자로 툭 떨어뜨린다."""
     def f(sc):

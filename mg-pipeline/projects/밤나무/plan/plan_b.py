@@ -1,5 +1,5 @@
 """밤나무 편 — 3막(한국 밤나무혹벌과 역전) · 4막(의심과 진짜 원인) (자막 75~172, 5:01~12:01)."""
-from gen import (hook, flashhit, tag, stamp, big, cover, punch, glow, raw, stack, swapnum, card, bubble, bars, article,
+from gen import (qbadge, hook, flashhit, tag, stamp, big, cover, punch, glow, raw, stack, swapnum, card, bubble, bars, article,
                  shrink, foreshadow, flipcard, split, side, timeline, PAST, puppet, particles, polaroid, mgbg, mg_scale, mg_ship, mg_people)
 
 BRIGHT = raw('<style>.bg{--dark:.86; --blur:0px}</style>')
@@ -21,7 +21,7 @@ B = [
     BRIGHT,
     tag('한국은 다른 길: 혹벌에 강한 품종으로', '혹벌에 강한', 120, 140, icon='flag', tone='green', size=54),
     tag('옥광 · 축파', '옥광', 120, 300, icon='heart-handshake', tone='dark', size=60),
-    puppet('c_old_farmer', '갈아', -380, 470, w=380, move='enter', dx=560, dur=2.4),
+    puppet('c_old_farmer', '갈아', -380, 470, w=380, move='enter', dx=520, dur=5),
 ]},
 {'from': '결과는 숫자로 남았습니다', 'enter': 'flash', 'bg': 'i_korea_harvest', 'items': [
     cover('+0.02'),

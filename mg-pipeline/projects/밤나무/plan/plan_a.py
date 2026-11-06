@@ -1,6 +1,6 @@
 """밤나무 편 — 인트로 · 1막(마로니에) · 2막(미국 밤나무) (자막 1~74, 0:00~5:01).
    2026-11-06 담당자 방향: 삽화+실사(스톡) 혼합, 종이 인형(puppet) 뒤뚱 걷기, 입자, 사진 액자 — 레이어를 많이, 비용은 최소."""
-from gen import (hook, flashhit, tag, stamp, big, cover, punch, glow, raw, stack, swapnum, card, bubble, bars, article,
+from gen import (qbadge, hook, flashhit, tag, stamp, big, cover, punch, glow, raw, stack, swapnum, card, bubble, bars, article,
                  shrink, foreshadow, flipcard, split, side, PAST, puppet, particles, polaroid, mgbg, mg_forest, mg_sap, mg_pile)
 
 BRIGHT = raw('<style>.bg{--dark:.86; --blur:0px}</style>')
@@ -15,7 +15,7 @@ A = [
 ]},
 {'from': '그런데 아무도 줍지', 'enter': 'zoom', 'bg': 'i_park_bench', 'cam': [('push', '+0.05', 50, 60, 1.2)], 'items': [
     BRIGHT, particles('leaf', '+0.0', n=12, seed=3),
-    puppet('c_grandpa', '+0.05', -400, 470, w=400, move='walk', dx=2700, dur=3.2, step=0.39),
+    puppet('c_grandpa', '+0.05', 1960, 470, w=400, move='walk', dx=-700, dur=5.5, step=0.6, flip=True),
     stamp('아무도 안 줍는다', '줍지', x=1000, y=160, size=100),
 ]},
 {'from': '길에 떨어진 밤, 왜 아무도', 'enter': 'flash', 'bg': None, 'items': [
@@ -52,7 +52,7 @@ A = [
 ]},
 {'from': '그 전에, 저 벤치 아래', 'enter': 'zoom', 'bg': 'i_park_bench', 'cam': [('push', '+0.1', 50, 70, 1.3)], 'items': [
     BRIGHT, particles('leaf', '+0.1', n=10, seed=9),
-    puppet('c_grandchild', '+0.2', -320, 520, w=340, move='enter', dx=700, dur=2.2),
+    puppet('c_grandchild', '+0.2', -320, 520, w=340, move='enter', dx=560, dur=4.5),
 ]},
 # ================= 1막: 마로니에 =================
 {'from': '벤치 아래 그 열매는', 'enter': 'flash', 'bg': 'v:s_conkers', 'cam': [('crash', '아닙니다', 50, 45, 1.3)], 'items': [
@@ -93,13 +93,13 @@ A = [
 {'from': '손주가 반짝이는', 'enter': 'zoom', 'bg': 'i_park_bench', 'cam': [('push', '+0.1', 50, 60, 1.2)], 'items': [
     BRIGHT, particles('leaf', '+0.1', n=10, seed=11),
     puppet('c_grandchild', '+0.2', 420, 520, w=340, move='hop'),
-    puppet('c_grandpa', '+0.6', -360, 470, w=390, move='enter', dx=560, dur=2.4),
+    puppet('c_grandpa', '+0.6', -360, 470, w=390, move='enter', dx=520, dur=4.8),
     tag('송이부터 확인!', '송이부터', 1040, 200, icon='scan', tone='red', size=64),
 ]},
 # ================= 2막: 미국 밤나무 =================
 {'from': '그럼 진짜 밤나무는', 'enter': 'fade', 'bg': 'i_bronx_zoo', 'cam': [('push', '+0.1', 60, 45, 1.2)], 'items': [
     tag('1904 뉴욕 브롱크스 동물원', '천구백사', 120, 140, icon='calendar', tone='dark', size=58),
-    puppet('c_merkel', '헤르만', -360, 500, w=360, move='enter', dx=620, dur=2.6),
+    puppet('c_merkel', '헤르만', -360, 500, w=360, move='enter', dx=600, dur=5),
 ]},
 {'from': '갈라진 껍질에', 'enter': 'zoom', 'bg': None, 'items': [
     mgbg('teal'),
@@ -114,6 +114,7 @@ A = [
 ]},
 {'from': '그런데 이 이야기에 늘', 'enter': 'flash', 'bg': 'i_us_forest', 'cam': [('crash', '애팔래치아처럼', 50, 50, 1.3)], 'items': [
     cover('+0.02'),
+    tag('늘 따라붙는 유명한 숫자 하나', '유명한', None, 300, icon='scan', tone='dark', size=64, until='부풀려져'),
     tag('유명한 숫자는 부풀려졌다', '부풀려져', None, 150, icon='scan', tone='red', size=58),
     flipcard('“숲의 나무 넷 중 하나”', '애팔래치아 산지 이야기', '넷 중', '애팔래치아처럼', y=320, size=74),
     tag('하버드대 숲 연구진 (2014)', '하버드대', None, 620, icon='file-invoice', tone='dark', size=52),
@@ -121,7 +122,7 @@ A = [
 {'from': '그렇다고 피해가 작았다는', 'enter': 'wipe', 'bg': 'i_appalachia', 'cam': [('pull', '+0.05', 50, 50, 1.4)], 'items': [
     particles('leaf', '+0.1', n=12, seed=13),
     tag('피해는 한 지역에 몰렸다', '몰렸습니다', 120, 140, icon='map-pin', tone='dark', size=58),
-    puppet('c_appal_man', '자루로', -380, 470, w=390, move='walk', dx=2500, dur=8, step=0.48),
+    puppet('c_appal_man', '자루로', -380, 470, w=390, move='walk', dx=1900, dur=10, step=0.6),
 ]},
 {'from': '동네 가게에 가져가', 'enter': 'zoom', 'bg': 'i_country_store', 'items': [
     tag('가게에서 물건과 바꾸고', '동네', 120, 140, icon='building-store', tone='dark', size=56),
@@ -130,7 +131,7 @@ A = [
 ]},
 {'from': '도시 길모퉁이에선', 'enter': 'fade', 'bg': 'i_ny_vendor', 'cam': [('push', '+0.1', 50, 50, 1.2)], 'items': [
     particles('ember', '+0.1', n=16),
-    puppet('c_vendor', '군밤', -420, 450, w=420, move='enter', dx=600, dur=2.4),
+    puppet('c_vendor', '군밤', -420, 450, w=420, move='enter', dx=560, dur=5),
     shrink('s_newyork', '백 년 전', 1180, 170, 620, 350, cap='오늘의 뉴욕 거리'),
     tag('신문지 봉투의 군밤, 기억나세요?', '신문지', 120, 140, icon='heart-handshake', tone='red', size=52),
 ]},
@@ -145,7 +146,7 @@ A = [
     tag('1914 버지니아주 한 곳', '버지니아주', None, 150, icon='calendar', tone='dark', size=58),
     big('900톤+', '구백', y=270, size=200, color='#ffd400'),
     tag('산이 주는 월급봉투', '월급봉투', None, 560, icon='coin', tone='green', size=60),
-    puppet('c_hog', '돼지가', -320, 600, w=300, move='walk', dx=2500, dur=6, step=0.30),
+    puppet('c_hog', '돼지가', -320, 600, w=300, move='walk', dx=1800, dur=9, step=0.4),
 ]},
 {'from': '기억해 두세요. 이 산골의', 'enter': 'zoom', 'bg': 'i_train_station', 'items': [
     foreshadow('기차를 타야 돈이 됐다', '기차를'),

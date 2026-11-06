@@ -1,5 +1,5 @@
 """밤나무 편 — 5막(이탈리아·미국 120년) · 결말 (자막 173~244, 12:01~16:48). 뒤쪽은 그림 재사용, 장면 단순."""
-from gen import (hook, tag, big, cover, glow, raw, stack, card, stamp, split, side, PAST, puppet, particles, polaroid, shrink)
+from gen import (qbadge, hook, tag, big, cover, glow, raw, stack, card, stamp, split, side, PAST, puppet, particles, polaroid, shrink)
 
 BRIGHT = raw('<style>.bg{--dark:.86; --blur:0px}</style>')
 SOFT = raw('<style>.bg{--dark:.7; --blur:0px}</style>')
@@ -7,7 +7,7 @@ SOFT = raw('<style>.bg{--dark:.7; --blur:0px}</style>')
 C = [
 {'from': '그런데 같은 곰팡이를 맞고도', 'enter': 'fade', 'bg': 'i_genoa_1938', 'cam': [('push', '+0.1', 40, 50, 1.2)], 'items': [
     tag('1938 이탈리아 제노바', '제노바', 120, 140, icon='calendar', tone='dark', size=58),
-    puppet('c_italian', '발견됩니다', -360, 480, w=380, move='enter', dx=560, dur=2.4),
+    puppet('c_italian', '발견됩니다', -360, 480, w=380, move='enter', dx=520, dur=5),
 ]},
 {'from': '비밀은 곰팡이에 붙은', 'enter': 'zoom', 'bg': 'i_genoa_1938', 'items': [
     cover('+0.02'),
@@ -39,7 +39,7 @@ C = [
 ]},
 {'from': '유전자를 바꾼 밤나무로', 'enter': 'zoom', 'bg': 'v:s_lab', 'items': [
     SOFT,
-    puppet('c_scientist', '+0.2', -340, 480, w=360, move='enter', dx=520, dur=2.2),
+    puppet('c_scientist', '+0.2', -340, 480, w=360, move='enter', dx=500, dur=5),
     stamp('계통 뒤바뀜 (2023)', '뒤바뀌어', x=960, y=180, size=84),
     tag('미국밤나무재단 지원 철회 (2023.12)', '십이월', None, 640, icon='file-invoice', tone='dark', size=46),
 ]},

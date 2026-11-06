@@ -517,3 +517,9 @@ svg.draw .hd { opacity: 0; animation: fadein .12s calc(var(--t) + var(--dur, .5s
 .mgpeople svg { width: 100%; height: 100%; display: block; }
 @keyframes pplUp { to { opacity: 1; translate: 0 0; } }
 @keyframes pplGone { to { opacity: .12; color: #888; translate: 0 20px; } }
+
+/* 2026-11-06 질문 추적 배지 (오른쪽 위) */
+.qbadge { position: absolute; right: 34px; top: 24px; z-index: 7; padding: 10px 22px 8px; border-radius: 12px; background: rgba(12,28,34,.84); border-left: 7px solid #ffcf4a;
+  font-family: 'BH', sans-serif; font-size: 42px; color: #fff; white-space: nowrap; box-shadow: 0 10px 26px rgba(0,0,0,.35); }
+.qbadge b { color: #ffcf4a; font-weight: normal; margin-right: 12px; } .qbadge i { font-style: normal; color: #7ee08f; } .qbadge u { text-decoration: none; color: #ff8a7a; }
+.qbadge.pop { opacity: 0; animation: tagPop .8s var(--t) both; }
