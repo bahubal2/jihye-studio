@@ -24,7 +24,7 @@ subprocess.run([os.path.join(KIT, '.venv', 'bin', 'python'), os.path.join(KIT, '
 
 # 2) 배경음악 구간 (시작, 끝, 파일, 볼륨 dB, 페이드인, 페이드아웃) — 내레이션 -14 LUFS 기준, 음악 원본 -16 dB 안팎
 BGM = [
-    (0.0, 48.0, 'music_intro.mp3', -20, 0.0, 4.0),                # 담당자 인트로 음악
+    (0.0, 48.0, 'music_intro.mp3', -27, 0.0, 4.0),                # 담당자 인트로 음악 (2026-11-07 담당자: 크다 → -20에서 -27로)
     (T(16) - 1, T(31), 'music_doc_tension.mp3', -24, 2.5, 3.0),   # 1막 마로니에 경고
     (T(31), T(75), 'music_nostalgia.mp3', -22, 3.0, 3.0),         # 2막 미국 밤나무 회상
     (T(75), BACK, 'music_doc_tension.mp3', -23, 3.0, 3.0),        # 3막·4막 수사
