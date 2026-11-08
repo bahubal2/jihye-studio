@@ -50,6 +50,7 @@ def convert(text):
     for a, b in FIXED: text = text.replace(a, b)
     text = JO.sub(_jo, text)
     text = re.sub(r'(?<![가-힣])([일이삼사오육칠팔구십백천]+)년대', lambda m: f'{parse(m.group(1))}년대', text)   # "천구백오십년대" → "1950년대"
+    text = re.sub(r'(\d+)월 ([일이삼사오육칠팔구십]+) 일(?![가-힣])', lambda m: f'{m.group(1)}월 {parse(m.group(2))}일', text)   # "1월 이십일 일 밤" → "1월 21일 밤" (띄어 읽은 날짜)
     text = re.sub(r'(\d+)월 ([일이삼사오육칠팔구십]+)일', lambda m: f'{m.group(1)}월 {parse(m.group(2))}일', text)   # "9월 이십삼일" → "9월 23일"
     out = []; last = 0; changes = []
     for m in RX.finditer(text):

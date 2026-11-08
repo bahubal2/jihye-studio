@@ -1,20 +1,158 @@
 {
-  "style": {
-    "mix": "한 영상에는 화풍 패키지 하나만 쓴다 (2026-10-29 담당자 지시: 웹툰과 클레이를 한 영상에 섞으면 일관성이 없어 보인다). 대본을 보고 패키지를 먼저 정해 담당자에게 알린 뒤 에셋을 만든다. 숫자·순위·비교는 어느 패키지든 HTML 모션 텍스트로.",
-    "webtoon": "Korean webtoon manhwa illustration, clean confident black line art, cel shading with soft gradients, expressive emotional faces, bright natural colors, cinematic composition, original characters, not any real person",
-    "clay": "Claymation miniature diorama, handmade plasticine figures and props, tilt-shift photography with shallow depth of field, warm saturated colors, playful nostalgic Korean scene, soft studio light",
-    "quality": "low (장당 $0.005, 2026-10-28 시험에서 보통 품질과 차이가 거의 없음)",
-    "text_rule": "간판 글자는 지정한 한글 문구만. 실제 브랜드 로고·상표는 그리지 않는다 (\"no real brand logos\").",
-    "samples": "projects/화풍시안/assets/w1_school.png, w2_parent.png, c1_trail.png, c2_dept.png",
-    "packages": {
-      "A_다큐": "다큐 느낌이 중요한 주제: 실사풍 생성 이미지 + 실사 이미지→영상(fal) + Pixabay·Pexels 스톡 영상 + 키네틱 모션 텍스트로 효과 극대화. 일러스트·클레이 없음.",
-      "B_웹툰": "실사로 표현하기 어려운 주제(감정, 가상 상황, 과거 재현): 웹툰풍 일러스트 위주 + 그 이미지→영상 + 모션 그래픽·모션 텍스트. 클레이·실사 스톡 없음.",
-      "C_클레이": "장소·군중·시대 분위기가 중심인 주제: 클레이 디오라마 이미지 위주 + 그 이미지→영상 + 모션 그래픽·모션 텍스트. 웹툰·실사 스톡 없음."
-    },
-    "photoreal": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person",
-    "mix_rule": "B·C 패키지에서 스톡 영상이 꼭 필요하면 쓰지 않고 같은 화풍 이미지→영상으로 대신한다. 화풍이 다른 컷을 한 영상에 섞지 않는다.",
-    "stock_rule": "스톡 영상은 대본 문장의 구체적인 대상과 맞아야 한다 (2026-10-29 담당자 지적: 관광객 이야기에 경비행기 컷). ① 검색어는 대본의 대상·장소·규모를 그대로 영어로 (예: 관광객 항공편 → 'passenger jet airliner takeoff', 'airport terminal travelers'), ② 받은 뒤 미리보기 프레임(out/_stock_<id>.jpg)을 열어 그 장면의 대본 문장과 하나씩 대조한다: 종류(여객기/경비행기), 나라·지역 분위기, 계절, 시대, 인원 규모. ③ 하나라도 어긋나면 다른 후보(--pick)로 바꾸고, 맞는 것이 없으면 스톡을 쓰지 않고 같은 화풍 이미지로 대신한다. ④ 장면 계획을 짤 때 각 스톡 컷 옆에 '어느 대본 문장에 대응하는지'를 적어 두고 렌더 전에 다시 확인한다."
+ "style": "",
+ "styles": {
+  "paint": "modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious limited palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, not painterly, not retro",
+  "pup": "modern flat 2D animated explainer character, clean vector shapes with soft gradients, harmonious palette of deep teal, warm orange, mustard and cream, simple expressive face, full body side view in a walking pose, crisp clean silhouette edges, polished contemporary animation look",
+  "prop": "modern flat 2D animated explainer illustration of a single object, clean vector shapes with soft gradients, harmonious palette of deep teal, warm orange, mustard and cream, side view, no people, no characters"
+ },
+ "quality": "medium",
+ "assets": [
+  {
+   "id": "i_iron_gate",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A heavy old iron gate in a stone fortress wall on a forested mountain trail in Seoul swinging open at nine in the morning, autumn light, the city far below"
   },
-  "quality": "medium",
-  "assets": []
+  {
+   "id": "i_birch_forest",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A vast white birch forest deep in Korean mountains in autumn, a small electric shuttle bus waiting at a forest road, hikers on a gentle trail"
+  },
+  {
+   "id": "i_wedding_candle",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A Korean wedding ceremony, two mothers in hanbok lighting tall candles side by side on a stage, warm glow, guests watching"
+  },
+  {
+   "id": "i_dam_village",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A 1980s Korean rural village by a river being slowly submerged as a new dam fills, villagers watching sadly from a hill"
+  },
+  {
+   "id": "i_redcliff",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "Tall red cliffs rising above a calm blue lake in Hwasun Korea, a traditional pavilion on a hill overlooking the water, autumn trees"
+  },
+  {
+   "id": "i_jeodo_island",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A small pine-covered island with a white villa near a long cable-stayed sea bridge in southern Korea, a tour boat approaching"
+  },
+  {
+   "id": "i_villa_gate",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A closed white villa gate on an island guarded by a small navy post, pine trees, calm sea behind, no people inside"
+  },
+  {
+   "id": "i_geumseong",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A small green mountain rising above an old Korean town with low rooftops, a white radar dome and antenna on the summit"
+  },
+  {
+   "id": "i_landmine",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "Workers in safety vests carefully sweeping a mountain slope with metal detectors, small warning flags in the ground, forest around"
+  },
+  {
+   "id": "i_deck_peak",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A new wooden deck path leading up to a mountain summit, a tall plain screen fence on one side hiding a military facility, hikers at the top"
+  },
+  {
+   "id": "i_seoul_1968",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "Seoul at night in 1968, a dark mountain behind an old palace, searchlights sweeping the sky, a family listening to a radio at home in the foreground"
+  },
+  {
+   "id": "i_fortress_fence",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "The old Seoul fortress wall trail on a mountain ridge with a short remaining section of barbed wire fence, the modern city skyline below"
+  },
+  {
+   "id": "i_bugak_open",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "Many middle-aged hikers happily walking through an opened gate onto a fortress wall trail on a mountain in Seoul, morning sun"
+  },
+  {
+   "id": "i_reunion",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A cheerful reunion of old classmates in their sixties around a restaurant table, raising glasses, warm lights"
+  },
+  {
+   "id": "i_waterfall_gorge",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A turquoise pool and waterfall inside a basalt gorge with columnar rock walls in Korea, visitors on a viewing deck"
+  },
+  {
+   "id": "c_hiker",
+   "kind": "cutout",
+   "style": "pup",
+   "quality": "medium",
+   "prompt": "an elderly Korean man in hiking clothes, cap and backpack, holding a trekking pole, walking"
+  },
+  {
+   "id": "c_couple",
+   "kind": "cutout",
+   "style": "pup",
+   "quality": "medium",
+   "prompt": "a cheerful Korean couple in their sixties in hiking jackets walking side by side holding hands"
+  },
+  {
+   "id": "c_child",
+   "kind": "cutout",
+   "style": "pup",
+   "quality": "medium",
+   "prompt": "a small Korean child in a red jacket walking happily"
+  },
+  {
+   "id": "c_deminer",
+   "kind": "cutout",
+   "style": "pup",
+   "quality": "medium",
+   "prompt": "a worker in a safety vest and helmet holding a metal detector, walking carefully"
+  },
+  {
+   "id": "c_bus",
+   "kind": "cutout",
+   "style": "prop",
+   "quality": "medium",
+   "prompt": "a small white electric shuttle bus, side view, facing right, no people"
+  },
+  {
+   "id": "c_boat",
+   "kind": "cutout",
+   "style": "prop",
+   "quality": "medium",
+   "prompt": "a white tour boat, side view, facing right, no people"
+  }
+ ]
 }

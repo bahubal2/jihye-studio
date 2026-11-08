@@ -1,0 +1,85 @@
+{
+ "model": "fal-ai/minimax/hailuo-02/standard/image-to-video",
+ "resolution": "512P",
+ "duration": "6",
+ "loop_sec": 15,
+ "extend": "slow",
+ "style": "",
+ "clips": [
+  {
+   "id": "s_birch",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_bus_road",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_cherry",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_gyeongbok",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_hike_deck",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_island_ferry",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_lake_dam",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_mountain_peak",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_phone_news",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_pine_coast",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_redcliff",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_seoul_night",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_seoul_wall",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_stars",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_waterfall",
+   "prompt": "",
+   "src": "pixabay"
+  }
+ ]
+}
