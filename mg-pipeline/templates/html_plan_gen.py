@@ -247,6 +247,105 @@ def flipcard(front, back, at, at2, y=330, size=88):
                        f'<div class="fc front"><i>생각</i>{E(front)}</div><div class="fc back"><i>현실</i>{E(back)}</div></div>')
 PAST = raw('<style>.bg{filter: sepia(.85) contrast(1.08) brightness(.78) blur(var(--blur, 0px)) !important}</style>')   # 과거 장면 세피아 (레이더: 무궁화경제 아카이브 톤)
 
+# ===== 2026-11-06 담당자 요청: 종이 인형극 기법 (누끼 그림이 뒤뚱뒤뚱 걷는다) · 입자 · 사진 액자 =====
+def _lw(sc, until, inner):
+    """사라지는 시각(until)을 감싸는 바깥 틀 — 안쪽 요소의 애니메이션과 섞이지 않게."""
+    return f'<div class="lw"{_until(sc, until)}>{inner}</div>' if until else inner
+def puppet(src, at, x, y, w=420, move='enter', dx=0, dur=2.4, step=0.45, tilt=6, flip=False, until=None, sfx='swish'):
+    """누끼 그림(assets/src.png)을 종이 인형처럼 움직인다. 발밑을 축으로 좌우로 기우뚱하며 통통 튄다.
+       move: 'walk' 걸어서 가로지름(dx) · 'enter' 걸어 들어와 멈춘 뒤 제자리 흔들 · 'idle' 제자리 흔들 · 'hop' 폴짝 · 'shiver' 덜덜 · 'nod' 끄덕
+       flip=True 면 좌우 반전(왼쪽을 보고 걷게)."""
+    n = max(2, round(dur / step))
+    def f(sc):
+        im = f'<img src="../assets/{src}.png"{" class=flip" if flip else ""}>'
+        el = (f'<div class="pup m-{move}" {A(sc, at, -0.05, sfx=sfx)} style="left:{x}px; top:{y}px; width:{w}px; --dx:{dx}px; --dur:{dur}s; '
+              f'--st:{step}s; --n:{n}; --tl:{tilt}deg"><div class="pin">{im}</div></div>')
+        return _lw(sc, until, el)
+    return f
+def particles(kind, at='+0', until=None, n=16, seed=7):
+    """화면 앞을 지나가는 입자: 'leaf' 낙엽 · 'snow' 눈 · 'ember' 불씨(위로) · 'spore' 포자(떠돔)."""
+    import random
+    def f(sc):
+        r = random.Random(seed + len(kind)); out = []
+        for k in range(n):
+            sz = {'leaf': r.uniform(26, 54), 'snow': r.uniform(6, 16), 'ember': r.uniform(5, 11), 'spore': r.uniform(5, 12)}[kind]
+            d = {'leaf': r.uniform(6, 11), 'snow': r.uniform(7, 13), 'ember': r.uniform(3.5, 7), 'spore': r.uniform(9, 16)}[kind]
+            out.append(f'<i style="left:{r.uniform(-4, 100):.1f}%; --s:{sz:.0f}px; --d:{d:.1f}s; --dl:-{r.uniform(0, d):.1f}s; '
+                       f'--sx:{r.uniform(-140, 140):.0f}px; --r:{r.uniform(-540, 540):.0f}deg; --o:{r.uniform(.55, 1):.2f}; --hue:{r.uniform(-25, 15):.0f}deg"></i>')
+        return _lw(sc, until, f'<div class="ptc k-{kind}" {A(sc, at)}>{"".join(out)}</div>')
+    return f
+
+# ===== 2026-11-06 담당자 요청: 모션그래픽은 '애니메이션 일러스트' (플랫 벡터, 밝은 배경, 코드로 그려 비용 0) =====
+TREE = '<svg viewBox="0 0 60 80"><rect x="26" y="46" width="8" height="30" rx="3" fill="#7a4b2a"/><circle cx="30" cy="28" r="22" fill="currentColor"/><circle cx="18" cy="38" r="13" fill="currentColor"/><circle cx="42" cy="38" r="13" fill="currentColor"/><circle cx="24" cy="20" r="6" fill="#fff" opacity=".18"/></svg>'
+NUT = '<svg viewBox="0 0 60 60"><path d="M30 5C47 17 55 30 53 42C51 55 9 55 7 42C5 30 13 17 30 5Z" fill="#9a5226"/><path d="M8 40C19 47 41 47 52 40L53 47C41 56 19 56 7 47Z" fill="#efd3a8"/><ellipse cx="22" cy="24" rx="5" ry="10" fill="#fff" opacity=".22"/></svg>'
+PERSON = '<svg viewBox="0 0 40 60"><circle cx="20" cy="12" r="9" fill="currentColor"/><path d="M5 58C5 36 10 26 20 26C30 26 35 36 35 58Z" fill="currentColor"/></svg>'
+BOX = '<i class="box" style="--c:{c}"></i>'
+def mgbg(tone='teal'):
+    """모션그래픽 바탕: 밝고 깔끔한 그라데이션 + 점 무늬 (어두운 덮개 대신)."""
+    return raw(f'<div class="mgbg {tone}"></div><style>.bg{{opacity:0 !important}}</style>')
+def mg_forest(at, at2, n=40, cols=10, year=None, label=None, x=None, y=150, size=88, wave=.56):
+    """나무 아이콘 숲: at 에 줄지어 돋아나고, at2 에 왼쪽부터 회색 물결이 지나가며 시들어 쓰러진다. year=(1904, 1940) 이면 연도 숫자가 함께 오른다."""
+    def f(sc):
+        rows = (n + cols - 1) // cols; w = cols * size * .92; pos = f'left:{(1920 - w) / 2:.0f}px;' if x is None else f'left:{x}px;'
+        trees = ''.join(f'<i style="--i:{k}; --c:{k % cols}; --fall:{(-1) ** k * (6 + k % 5 * 3)}deg">{TREE}</i>' for k in range(n))
+        yr = (f'<div class="mgyear num" data-from="{year[0]}" data-to="{year[1]}" data-dur="{6.4}" {A(sc, at2)}>{year[0]}</div>') if year else ''
+        lb = f'<div class="mglabel" {A(sc, at)}>{E(label)}</div>' if label else ''
+        return (f'<div class="mgforest" {A(sc, at, sfx="pop")} {A(sc, at2, None, "data-at2", sfx="whoosh")} style="{pos} top:{y}px; width:{w:.0f}px; --sz:{size}px; --ws:{wave}s">'
+                f'{trees}</div>{yr}{lb}')
+    return f
+def mg_sap(at, at2, x=None, y=110):
+    """나무 단면: 수액이 줄기를 타고 오르다(at), 곰팡이(주황 얼룩)가 번져 길을 막고 잎이 시든다(at2)."""
+    def f(sc):
+        pos = 'left:0; right:0; margin:0 auto;' if x is None else f'left:{x}px;'
+        lines = ''.join(f'<line x1="{x0}" y1="560" x2="{x0}" y2="170" class="sap" style="--i:{k}"/>' for k, x0 in enumerate((178, 200, 222)))
+        svg = (f'<svg viewBox="0 0 400 620" class="sapsvg"><circle cx="200" cy="150" r="130" class="crown"/><circle cx="120" cy="190" r="80" class="crown"/>'
+               f'<circle cx="280" cy="190" r="80" class="crown"/><rect x="160" y="170" width="80" height="420" rx="18" fill="#8a5a36"/>{lines}'
+               f'<ellipse cx="200" cy="420" rx="70" ry="60" class="rot"/><ellipse cx="190" cy="380" rx="40" ry="34" class="rot r2"/></svg>')
+        return f'<div class="mgsap" {A(sc, at, sfx="pop")} {A(sc, at2, None, "data-at2", sfx="hit")} style="{pos} top:{y}px">{svg}</div>'
+    return f
+def mg_pile(at, at2, n=10, keep=4, cols=5, x=None, y=180, size=130, a_label='', b_label=''):
+    """밤 아이콘 더미: at 에 n개가 쏟아지고, at2 에 keep 개만 남기고 떨어져 사라진다 (예: 10 → 4 = -60%)."""
+    def f(sc):
+        w = cols * size * 1.1; pos = f'left:{(1920 - w) / 2:.0f}px;' if x is None else f'left:{x}px;'
+        nuts = ''.join(f'<i class="{"go" if k >= keep else ""}" style="--i:{k}">{NUT}</i>' for k in range(n))
+        lab = (f'<div class="mgcap a" {A(sc, at)} {A(sc, at2, None, "data-at2")}>{E(a_label)}</div>' if a_label else '') + (f'<div class="mgcap b" {A(sc, at2)}>{E(b_label)}</div>' if b_label else '')
+        return (f'<div class="mgpile" {A(sc, at, sfx="pop")} {A(sc, at2, None, "data-at2", sfx="whoosh")} style="{pos} top:{y}px; width:{w:.0f}px; --sz:{size}px">{nuts}</div>{lab}')
+    return f
+def mg_ship(at, at2, boxes=12, keep=1, a_label='', b_label='', y=230):
+    """플랫 화물선: at 에 바다를 건너오고(상자 가득), at2 에 상자가 하나씩 날아가 keep 개만 남는다."""
+    cols = ['#e07a3a', '#2f8f9d', '#f2b544', '#d6534f']
+    def f(sc):
+        bx = ''.join(f'<i class="box{" go" if k >= keep else ""}" style="--i:{k}; --c:{cols[k % 4]}"></i>' for k in range(boxes))
+        lab = (f'<div class="mgcap a" {A(sc, at)} {A(sc, at2, None, "data-at2")}>{E(a_label)}</div>' if a_label else '') + (f'<div class="mgcap b" {A(sc, at2)}>{E(b_label)}</div>' if b_label else '')
+        return (f'<div class="mgsea" {A(sc, at)} style="top:{y + 300}px"></div>'
+                f'<div class="mgship" {A(sc, at, sfx="whoosh")} {A(sc, at2, None, "data-at2", sfx="pop")} style="top:{y}px"><div class="boxes">{bx}</div><div class="hull"></div></div>{lab}')
+    return f
+def mg_scale(at, at2, left='한국 밤', lval='10,000원', right='중국 밤', rval='6,000원', y=170):
+    """가격 저울: 두 접시의 밤과 값표, at2 에 손님(사람 아이콘)이 싼 쪽으로 몰리며 저울이 기운다."""
+    def f(sc):
+        ppl = ''.join(f'<i style="--i:{k}">{PERSON}</i>' for k in range(5))
+        return (f'<div class="mgscale" {A(sc, at, sfx="pop")} {A(sc, at2, None, "data-at2", sfx="whoosh")} style="top:{y}px">'
+                f'<div class="post"></div><div class="beam"><div class="pan l"><b>{NUT}</b><span>{E(left)}<em>{E(lval)}</em></span></div>'
+                f'<div class="pan r"><b>{NUT}</b><span>{E(right)}<em>{E(rval)}</em></span></div></div><div class="crowd">{ppl}</div></div>')
+    return f
+def mg_people(at, at2, n=10, keep=3, a_label='', b_label='', y=260):
+    """사람 아이콘 줄: at 에 나란히 서고, at2 에 오른쪽부터 하나씩 흐려지며 keep 명만 남는다 (일손이 사라진다)."""
+    def f(sc):
+        ppl = ''.join(f'<i class="{"go" if k >= keep else ""}" style="--i:{k}; --j:{n - 1 - k}">{PERSON}</i>' for k in range(n))
+        lab = (f'<div class="mgcap a" {A(sc, at)} {A(sc, at2, None, "data-at2")}>{E(a_label)}</div>' if a_label else '') + (f'<div class="mgcap b" {A(sc, at2)}>{E(b_label)}</div>' if b_label else '')
+        return f'<div class="mgpeople" {A(sc, at, sfx="pop")} {A(sc, at2, None, "data-at2", sfx="whoosh")} style="top:{y}px">{ppl}</div>{lab}'
+    return f
+def qbadge(html, at='+0', pop=False):
+    """질문 추적 배지 (오른쪽 위 고정): 제목의 질문과 지금까지 나온 답. pop=True 면 처음 한 번 튀어나온다."""
+    return lambda sc: f'<div class="qbadge{" pop" if pop else ""}" {A(sc, at)}>{html}</div>'
+def polaroid(src, at, x, y, w=560, rot=-4, cap=None, until=None):
+    """실제 사진(assets/src.png, 위키미디어 등)을 테이프 붙은 인화지 액자로 툭 떨어뜨린다."""
+    def f(sc):
+        c = f'<div class="pc">{E(cap)}</div>' if cap else ''
+        return _lw(sc, until, f'<div class="pola" {A(sc, at, -0.05, sfx="paper")} style="left:{x}px; top:{y}px; width:{w}px; --rot:{rot}deg">'
+                              f'<img src="../assets/{src}.png">{c}</div>')
+    return f
+
 # ---------------- 카메라워크 · 그려 넣기 (2026-11-03 담당자: 전체 화면 → 1/5 로 줄며 선·화살표, 줌인·줌아웃·크래쉬줌) ----------------
 def lens(sc, bg_html, moves):
     """장면의 'cam': [('crash'|'push'|'pull'|'shake', 시각, 초점x%, 초점y%, 배율), ...] → 배경만 움직인다 (글자는 그대로)."""
@@ -427,6 +526,50 @@ def background(sc, bg):
     return ''.join(out)
 
 SCENES = []
+# ---------------- 인트로 30초 기본 키트 (2026-11-08 채널 표준) ----------------
+# 첫 30초는 ① 배경 2~3초마다 교체(스톡·일러스트·사진 번갈아, 휙 넘기기) ② 모든 문장 움직이는 글자(kin) ③ 멈춘 화면 금지.
+INTRO_CSS = """<style>
+.bg.kb.swap, .bg.swap { animation: kb var(--len) 0s both linear, whipIn .34s var(--t) both cubic-bezier(.2,.9,.3,1); }
+@keyframes whipIn { 0% { opacity: 0; transform: translateX(10%) scale(1.2); filter: blur(16px) brightness(1.6); } 100% { opacity: 1; transform: none; filter: none; } }
+.kin { position: absolute; left: 0; right: 0; text-align: center; font-family: 'BH', sans-serif; color: #fff; line-height: 1.12; z-index: 7; padding: 0 60px;
+  text-shadow: 0 6px 0 rgba(0,0,0,.45), 0 12px 44px rgba(0,0,0,.7); animation: kinDrift 5s var(--t) both ease-in-out infinite alternate; }
+.kin .w { display: inline-block; margin: 0 .13em; opacity: 0; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1); }
+.kin .w.k { color: #ffd400; position: relative; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1), kinPulse .9s calc(var(--t) + var(--i) * .1s + .55s) infinite alternate ease-in-out; }
+.kin .w.r { color: #ff4b4b; }
+.kin .w.k::after { content: ''; position: absolute; left: -3%; right: -3%; bottom: .02em; height: .16em; background: #ff3b3b; border-radius: .08em; z-index: -1;
+  transform: scaleX(0); transform-origin: left; animation: kinBar .4s calc(var(--t) + var(--i) * .1s + .35s) forwards ease-out; }
+@keyframes kinDrop { 0% { opacity: 0; transform: translateY(-130%) scale(1.5); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPop { 0% { opacity: 0; transform: scale(2.6); filter: blur(8px); } 100% { opacity: 1; transform: none; filter: none; } }
+@keyframes kinSlide { 0% { opacity: 0; transform: translateX(-90%) skewX(-14deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinRise { 0% { opacity: 0; transform: translateY(100%) rotate(8deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPulse { 0% { transform: scale(1) rotate(0); } 100% { transform: scale(1.09) rotate(-1.5deg); } }
+@keyframes kinBar { to { transform: scaleX(1); } }
+@keyframes kinDrift { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(0, -16px) scale(1.04); } }
+.lw.out { animation: kinGone .3s var(--u) forwards ease-in; }
+@keyframes kinGone { to { opacity: 0; transform: scale(.9); } }
+</style>"""
+def intro30(): return lambda sc: INTRO_CSS
+KMODES = {'mix': ['kinDrop', 'kinPop', 'kinSlide', 'kinRise'], 'drop': ['kinDrop'], 'pop': ['kinPop'], 'slide': ['kinSlide'], 'rise': ['kinRise']}
+def kin(text, at, y=330, size=110, mode='mix', until=None, sfx=None):
+    """움직이는 글자: 낱말이 0.1초 간격으로 떨어지고·튀고·밀려 들어오며, 전체는 계속 천천히 떠다닌다.
+    *낱말* = 노랑 강조(밑줄 + 맥박), !낱말! = 빨강, '/' = 줄바꿈. 사용 장면에 intro30() 을 함께 넣는다."""
+    def f(sc):
+        ms = KMODES[mode]; out = []; i = 0
+        for line in text.split('/'):
+            ws = []
+            for w in line.split():
+                cls = 'w'
+                if w.startswith('*') and w.endswith('*'): cls += ' k'; w = w[1:-1]
+                elif w.startswith('!') and w.endswith('!'): cls += ' r'; w = w[1:-1]
+                ws.append(f'<span class="{cls}" style="--i:{i}; --a:{ms[i % len(ms)]}">{E(w)}</span>'); i += 1
+            out.append(' '.join(ws))
+        inner = f'<div class="kin" {A(sc, at, -0.05, sfx=sfx)} style="top:{y}px; font-size:{size}px">{"<br>".join(out)}</div>'
+        return _lw(sc, until, inner)
+    return f
+def cutsfx(*ats, kind='swish'):
+    """배경이 바뀌는 순간마다 휙 소리 (보이지 않는 표식)."""
+    return lambda sc: ''.join(f'<i style="display:none" {A(sc, a, sfx=kind)}></i>' for a in ats)
+
 def build(plan):
     starts = []; last = 0                     # 앞 장면보다 뒤에서 찾는다 (같은 문구가 여러 번 나오는 대본)
     for s in plan: n = cue_of(s['from'], last + 1); starts.append(n); last = n

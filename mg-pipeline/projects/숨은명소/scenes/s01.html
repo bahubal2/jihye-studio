@@ -2,11 +2,32 @@
 <html lang="ko"><head><meta charset="utf-8"><meta name="cues" content="1-1">
 <link rel="stylesheet" href="../../../engine/web/kit.css"><link rel="stylesheet" href="../../../brand/web/channel.css">
 </head><body data-bg="none" data-enter="flash">
-<div class="stage"><div class="lens push" data-at="+0.0" data-off="-0.05" style="--ox:50%; --oy:50%; --z:1.25"><img class="bg kb" src="../assets/i_iron_gate.png" style=" --kx0:-60px; --ky0:10px; --kx1:50px; --ky1:-10px; --z0:1.14; --z1:1.14"></div><div class="shade"></div><div class="midlayer"></div><div class="cam">
-<style>.bg{--dark:.86; --blur:0px}</style>
+<div class="stage"><div class="lens push" data-at="+0.0" data-off="-0.05" style="--ox:50%; --oy:50%; --z:1.25"><img class="bg kb" src="../assets/i_iron_gate.png" style=" --kx0:-60px; --ky0:10px; --kx1:50px; --ky1:-10px; --z0:1.14; --z1:1.14"><img class="bg vid kb swap" data-at="1:서울" data-video="s_seoul_night" data-w="1920" data-h="1080" style=" --kx0:40px; --ky0:-24px; --kx1:-30px; --ky1:20px; --z0:1.2; --z1:1.07"><img class="bg kb swap" data-at="1:철문" src="../assets/i_iron_gate.png" style=" --kx0:0px; --ky0:36px; --kx1:0px; --ky1:-36px; --z0:1.13; --z1:1.13"></div><div class="shade"></div><div class="midlayer"></div><div class="cam">
+<style>
+.bg.kb.swap, .bg.swap { animation: kb var(--len) 0s both linear, whipIn .34s var(--t) both cubic-bezier(.2,.9,.3,1); }
+@keyframes whipIn { 0% { opacity: 0; transform: translateX(10%) scale(1.2); filter: blur(16px) brightness(1.6); } 100% { opacity: 1; transform: none; filter: none; } }
+.kin { position: absolute; left: 0; right: 0; text-align: center; font-family: 'BH', sans-serif; color: #fff; line-height: 1.12; z-index: 7; padding: 0 60px;
+  text-shadow: 0 6px 0 rgba(0,0,0,.45), 0 12px 44px rgba(0,0,0,.7); animation: kinDrift 5s var(--t) both ease-in-out infinite alternate; }
+.kin .w { display: inline-block; margin: 0 .13em; opacity: 0; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1); }
+.kin .w.k { color: #ffd400; position: relative; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1), kinPulse .9s calc(var(--t) + var(--i) * .1s + .55s) infinite alternate ease-in-out; }
+.kin .w.r { color: #ff4b4b; }
+.kin .w.k::after { content: ''; position: absolute; left: -3%; right: -3%; bottom: .02em; height: .16em; background: #ff3b3b; border-radius: .08em; z-index: -1;
+  transform: scaleX(0); transform-origin: left; animation: kinBar .4s calc(var(--t) + var(--i) * .1s + .35s) forwards ease-out; }
+@keyframes kinDrop { 0% { opacity: 0; transform: translateY(-130%) scale(1.5); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPop { 0% { opacity: 0; transform: scale(2.6); filter: blur(8px); } 100% { opacity: 1; transform: none; filter: none; } }
+@keyframes kinSlide { 0% { opacity: 0; transform: translateX(-90%) skewX(-14deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinRise { 0% { opacity: 0; transform: translateY(100%) rotate(8deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPulse { 0% { transform: scale(1) rotate(0); } 100% { transform: scale(1.09) rotate(-1.5deg); } }
+@keyframes kinBar { to { transform: scaleX(1); } }
+@keyframes kinDrift { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(0, -16px) scale(1.04); } }
+.lw.out { animation: kinGone .3s var(--u) forwards ease-in; }
+@keyframes kinGone { to { opacity: 0; transform: scale(.9); } }
+</style>
+<style>.bg{--dark:.7; --blur:0px}</style>
 <div class="ptc k-leaf" data-at="+0.0"><i style="left:61.5%; --s:39px; --d:8.5s; --dl:-6.8s; --sx:-114px; --r:-212deg; --o:0.59; --hue:7deg"></i><i style="left:51.0%; --s:45px; --d:9.3s; --dl:-0.6s; --sx:-87px; --r:-279deg; --o:0.56; --hue:-6deg"></i><i style="left:99.8%; --s:38px; --d:8.5s; --dl:-8.5s; --sx:95px; --r:224deg; --o:0.69; --hue:-16deg"></i><i style="left:-3.9%; --s:34px; --d:10.2s; --dl:-2.1s; --sx:115px; --r:-32deg; --o:0.99; --hue:-9deg"></i><i style="left:8.3%; --s:28px; --d:6.4s; --dl:-1.6s; --sx:-112px; --r:-475deg; --o:0.91; --hue:-18deg"></i><i style="left:18.1%; --s:42px; --d:6.7s; --dl:-1.8s; --sx:132px; --r:328deg; --o:0.69; --hue:10deg"></i><i style="left:76.4%; --s:32px; --d:6.5s; --dl:-2.1s; --sx:-57px; --r:-461deg; --o:0.59; --hue:-2deg"></i><i style="left:15.0%; --s:33px; --d:10.8s; --dl:-1.7s; --sx:114px; --r:343deg; --o:0.66; --hue:-17deg"></i><i style="left:0.0%; --s:47px; --d:10.4s; --dl:-10.0s; --sx:-73px; --r:221deg; --o:0.67; --hue:8deg"></i><i style="left:59.9%; --s:43px; --d:6.3s; --dl:-1.8s; --sx:117px; --r:-320deg; --o:0.56; --hue:-14deg"></i><i style="left:98.0%; --s:38px; --d:8.9s; --dl:-5.8s; --sx:54px; --r:91deg; --o:0.61; --hue:-24deg"></i><i style="left:29.2%; --s:27px; --d:6.1s; --dl:-6.1s; --sx:-119px; --r:50deg; --o:0.88; --hue:11deg"></i></div>
-<div class="tag dark" data-at="+0.1" style="left:120px; top:140px; font-size:78px"><span class="ti"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-calendar" > <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" /> <path d="M16 3v4" /> <path d="M8 3v4" /> <path d="M4 11h16" /> <path d="M11 15h1" /> <path d="M12 15v3" /> </svg></span>2026.10.17 오전 9시 · 서울 한복판</div>
-<div class="stamp" data-at="1:열렸습니다" style="left:1080px; top:520px; font-size:110px; --rot:-8deg">철문이 열렸다</div>
+<i style="display:none" data-at="1:서울"></i><i style="display:none" data-at="1:철문"></i>
+<div class="lw" data-until="1:철문"><div class="kin" data-at="+0.1" data-off="-0.05" style="top:150px; font-size:96px"><span class="w" style="--i:0; --a:kinDrop">2026.</span> <span class="w" style="--i:1; --a:kinDrop">10.</span> <span class="w" style="--i:2; --a:kinDrop">17</span><br><span class="w" style="--i:3; --a:kinDrop">오전</span> <span class="w k" style="--i:4; --a:kinDrop">9시</span></div></div>
+<div class="kin" data-at="1:열렸습니다" data-off="-0.05" style="top:430px; font-size:190px"><span class="w k" style="--i:0; --a:kinPop">철문이</span> <span class="w r" style="--i:1; --a:kinPop">열렸다</span></div>
 </div><div class="fx"><div class="leak"></div><div class="dust"></div><div class="vig"></div></div><div class="progress" style="--p0:0.0000; --p1:0.0050; --pd:6.19s"></div></div>
 <script src="_timing.js"></script><script src="../../../engine/web/kit.js"></script><script src="../../../brand/web/channel.js"></script>
 </body></html>

@@ -1,34 +1,44 @@
 """숨은명소 TOP5 — 인트로 · 5위 영양 자작나무숲 · 4위 화순 적벽 (자막 1~91). 실사 스톡 + 플랫 일러스트 + 모션그래픽."""
 from gen import (hook, flashhit, tag, stamp, big, cover, glow, raw, stack, swapnum, card, bars, flipcard, foreshadow,
-                 puppet, particles, mgbg, rankbadge)
+                 puppet, particles, mgbg, rankbadge, intro30, kin, cutsfx)
 BRIGHT = raw('<style>.bg{--dark:.86; --blur:0px}</style>')
 SOFT = raw('<style>.bg{--dark:.7; --blur:0px}</style>')
 A = [
-{'from': '이천이십육 년 시월 십칠 일', 'enter': 'flash', 'bg': 'i_iron_gate', 'cam': [('push', '+0.0', 50, 50, 1.25)], 'items': [
-    BRIGHT, particles('leaf', '+0.0', n=12),
-    tag('2026.10.17 오전 9시 · 서울 한복판', '+0.1', 120, 140, icon='calendar', tone='dark', size=56),
-    stamp('철문이 열렸다', '열렸습니다', x=1080, y=520, size=110),
+# ---- 인트로 30초 표준: 2~3초마다 컷 교체 + 모든 문장 움직이는 글자 ----
+{'from': '이천이십육 년 시월 십칠 일', 'enter': 'flash', 'bg': [('i_iron_gate', None), ('v:s_seoul_night', '서울'), ('i_iron_gate', '철문')], 'cam': [('push', '+0.0', 50, 50, 1.25)], 'items': [
+    intro30(), SOFT, particles('leaf', '+0.0', n=12), cutsfx('서울', '철문'),
+    kin('2026. 10. 17 / 오전 *9시*', '+0.1', y=150, size=96, mode='drop', until='철문', sfx='whoosh'),
+    kin('*철문이* !열렸다!', '열렸습니다', y=430, size=190, mode='pop', sfx='hit'),
 ]},
-{'from': '죽기 전에 꼭 가 봐야 할', 'enter': 'zoom', 'bg': 'v:s_seoul_night', 'cam': [('push', '+0.1', 50, 50, 1.2)], 'items': [
-    SOFT,
-    hook('죽기 전에 꼭 가 봐야 할<br><strong>숨은 국내 명소</strong>', '죽기', y=200, size=110),
-    tag('문이 닫힌 해에 태어난 아이 = 올해 59살', '쉰아홉', None, 640, icon='users', tone='red', size=54),
+{'from': '죽기 전에 꼭 가 봐야 할', 'enter': 'zoom', 'bg': [('v:s_seoul_night', None), ('i_jeodo_island', '+2.0'), ('i_seoul_1968', '닫히던'), ('i_reunion', '쉰아홉')], 'cam': [('push', '+0.1', 50, 50, 1.2)], 'items': [
+    intro30(), SOFT, cutsfx('+2.0', '닫히던', '쉰아홉'),
+    kin('죽기 전에 꼭 가 봐야 할 / *숨은* *국내* *명소*', '죽기', y=200, size=118, until='닫히던', sfx='whoosh'),
+    kin('그해 태어난 아이', '닫히던', y=240, size=100, mode='slide'),
+    kin('올해 !59살!', '쉰아홉', y=420, size=200, mode='pop', sfx='hit'),
 ]},
-{'from': '그 철문은 오십구 년 동안', 'enter': 'flash', 'bg': None, 'items': [
-    mgbg('teal'),
-    big('59년', '오십구', y=120, size=230, color='#ffcf4a'),
-    *stack([('내 차로는 못 들어간다', '내 차로는', 'user-x', 'red'), ('하루 몇백 명만', '몇백', 'users', 'red'), ('절반만 보여 준다', '절반만', 'scan', 'red')], x=560, y=440, gap=120, size=52),
+{'from': '그 철문은 오십구 년 동안', 'enter': 'flash', 'bg': [('i_iron_gate', None), ('i_fortress_fence', '+1.8'), ('i_waterfall_gorge', '그런데 이상한'), ('v:s_mountain_peak', '오늘 소개할'), ('v:s_bus_road', '내 차로는'), ('v:s_hike_deck', '몇백'), ('i_villa_gate', '절반만')], 'cam': [('push', '+0.0', 50, 50, 1.2)], 'items': [
+    intro30(), SOFT, cutsfx('+1.8', '그런데 이상한', '오늘 소개할', '내 차로는', '몇백', '절반만'),
+    kin('*59년* / 닫혀 있던 철문', '오십구', y=170, size=170, mode='drop', until='그런데 이상한', sfx='hit'),
+    kin('그런데 / !이상한! 일', '이상한', y=300, size=150, mode='pop', until='오늘 소개할', sfx='whoosh'),
+    kin('문은 열렸는데…', '오늘 소개할', y=150, size=96, mode='slide'),
+    kin('내 차로는 !못! 들어간다', '내 차로는', y=330, size=92, mode='slide'),
+    kin('하루 *몇백* 명만', '몇백', y=480, size=92, mode='slide'),
+    kin('*절반만* 보여 준다', '절반만', y=630, size=92, mode='slide'),
 ]},
-{'from': '흔히들 오래 닫힌 곳은', 'enter': 'zoom', 'bg': 'v:s_seoul_wall', 'items': [
-    cover('+0.02'),
+{'from': '흔히들 오래 닫힌 곳은', 'enter': 'zoom', 'bg': [('v:s_seoul_wall', None), ('i_redcliff', '+2.4'), ('i_villa_gate', '다섯'), ('v:s_island_ferry', '넷은'), ('i_geumseong', '열쇠를'), ('v:s_mountain_peak', '문을 연')], 'cam': [('push', '+0.0', 50, 50, 1.15)], 'items': [
+    intro30(), cover('+0.02'), cutsfx('+2.4', '다섯', '넷은', '열쇠를', '문을 연'),
     flipcard('길이 험해서? 너무 귀해서?', '누군가 열쇠를 쥐고 있었다', '흔히들', '열쇠를', y=230, size=70),
-    tag('문을 연 건 정말 세월이었을까?', '세월이었을까요', None, 620, icon='key', tone='red', size=58),
+    kin('다섯 곳 중 !넷은!', '다섯', y=500, size=110, mode='pop', until='문을 연', sfx='whoosh'),
+    kin('문을 연 건 / 정말 *세월이었을까?*', '세월이었을까요', y=540, size=104, mode='mix', sfx='hit'),
 ]},
-{'from': '내년 봄, 어디로 갈지', 'enter': 'wipe', 'bg': [('v:s_mountain_peak', None), ('i_landmine', '땅속부터'), ('i_iron_gate', '철문이')], 'items': [
-    BRIGHT,
-    tag('내년 봄, 어디로 가실 건가요?', '내년', 120, 140, icon='calendar', tone='dark', size=56),
+{'from': '내년 봄, 어디로 갈지', 'enter': 'wipe', 'bg': [('v:s_cherry', None), ('i_birch_forest', '+2.8'), ('v:s_island_ferry', '이 질문이'), ('i_geumseong', '오늘 명단에는'), ('i_landmine', '땅속부터'), ('i_iron_gate', '그리고 첫'), ('i_fortress_fence', '마지막에'), ('v:s_hike_deck', '이 영상은'), ('i_deck_peak', '긴 곳')], 'items': [
+    intro30(), SOFT, cutsfx('+2.8', '이 질문이', '오늘 명단에는', '땅속부터', '그리고 첫', '마지막에', '이 영상은', '긴 곳'),
+    kin('내년 봄, / *어디로* 가실 건가요?', '내년', y=170, size=110, mode='drop', until='오늘 명단에는', sfx='whoosh'),
+    kin('!땅속부터! 뒤진 산', '땅속부터', y=380, size=130, mode='pop', until='그리고 첫', sfx='hit'),
     foreshadow('땅속부터 뒤진 산', '땅속부터', label='뒤에서 공개'),
-    tag('순위 기준: 문이 닫혀 있던 세월', '짧은 곳부터', None, 620, icon='chart-bar', tone='dark', size=54),
+    kin('첫 장면의 철문은 / *어디였을까?*', '철문이', y=300, size=110, mode='mix', until='이 영상은', sfx='whoosh'),
+    kin('순위 기준 / 문이 닫혀 있던 *세월*', '이 영상은', y=260, size=104, mode='slide'),
+    kin('짧은 곳 → !긴 곳!', '짧은 곳부터', y=560, size=96, mode='pop'),
 ]},
 # ================= 5위 =================
 {'from': '결혼식장에서 양가', 'enter': 'fade', 'bg': 'i_wedding_candle', 'cam': [('push', '+0.1', 50, 50, 1.15)], 'items': [

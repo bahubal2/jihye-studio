@@ -1,430 +1,424 @@
 {
-"흔히들 오래 닫힌 곳은": [
-[
-"v:s_mountain_peak",
-7.5
-]
-],
-"결혼식장에서 양가": [
-[
-"v:s_seoul_wall",
-7.5
-]
-],
-"그런데 이 숲은 누가 일부러": [
-[
-"v:s_birch",
-7.5
-],
-[
-"v:s_hike_deck",
-15.0
-]
-],
-"전기차에서 내려 삼십 분쯤": [
-[
-"i_birch_forest",
-7.5
-],
-[
-"v:s_stars",
-15.0
-]
-],
-"이 동네는 밤에도": [
-[
-"v:s_birch",
-7.5
-],
-[
-"i_birch_forest",
-15.0
-]
-],
-"결혼식 날 켠 그 촛불의": [
-[
-"v:s_birch",
-7.5
-],
-[
-"v:s_hike_deck",
-15.0
-]
-],
-"삼십 년 동안 아무도": [
-[
-"v:s_redcliff",
-7.5
-]
-],
-"적벽은 한 덩어리가": [
-[
-"i_redcliff",
-7.5
-],
-[
-"v:s_lake_dam",
-15.0
-],
-[
-"i_dam_village",
-22.5
-]
-],
-"물에 잠긴 마을에서": [
-[
-"v:s_redcliff",
-7.5
-],
-[
-"v:s_bus_road",
-15.0
-]
-],
-"그렇다고 활짝 열린 건": [
-[
-"i_redcliff",
-7.5
-],
-[
-"v:s_lake_dam",
-15.0
-],
-[
-"i_dam_village",
-22.5
-]
-],
-"둑이 높아지면 물도": [
-[
-"v:s_lake_dam",
-7.5
-],
-[
-"i_dam_village",
-15.0
-],
-[
-"v:s_bus_road",
-22.5
-]
-],
-"천구백칠십이 년, 경남 거제": [
-[
-"v:s_island_ferry",
-7.5
-]
-],
-"섬에 내리면 이백 살": [
-[
-"v:s_island_ferry",
-7.5
-],
-[
-"i_villa_gate",
-15.0
-]
-],
-"사실 대통령 별장을": [
-[
-"v:s_island_ferry",
-7.5
-],
-[
-"v:s_pine_coast",
-15.0
-],
-[
-"i_jeodo_island",
-22.5
-]
-],
-"이 섬이 열린 건": [
-[
-"v:s_pine_coast",
-7.5
-]
-],
-"그런데 열린 방식이 특이했습니다": [
-[
-"v:s_island_ferry",
-7.5
-],
-[
-"v:s_pine_coast",
-15.0
-]
-],
-"못 들어가게 할수록": [
-[
-"v:s_island_ferry",
-7.5
-],
-[
-"v:s_pine_coast",
-15.0
-]
-],
-"자, 여기까지 모인 단서를": [
-[
-"v:s_island_ferry",
-7.5
-],
-[
-"v:s_pine_coast",
-15.0
-]
-],
-"나주 시내 어디서든": [
-[
-"v:s_mountain_peak",
-7.5
-]
-],
-"이 위는 전남 나주 금성산": [
-[
-"i_deck_peak",
-7.5
-],
-[
-"v:s_cherry",
-15.0
-]
-],
-"그러면 꼭대기에 귀한": [
-[
-"v:s_mountain_peak",
-7.5
-],
-[
-"v:s_hike_deck",
-15.0
-],
-[
-"i_deck_peak",
-22.5
-],
-[
-"v:s_cherry",
-30.0
-]
-],
-"금성산의 문이 열린 과정은": [
-[
-"i_geumseong",
-7.5
-],
-[
-"v:s_hike_deck",
-15.0
-],
-[
-"i_deck_peak",
-22.5
-],
-[
-"v:s_cherry",
-30.0
-]
-],
-"인트로에서 말씀드린, 땅속부터": [
-[
-"i_geumseong",
-7.5
-],
-[
-"v:s_mountain_peak",
-15.0
-]
-],
-"다만 정상에 올라가 보면": [
-[
-"i_geumseong",
-7.5
-],
-[
-"v:s_mountain_peak",
-15.0
-],
-[
-"v:s_hike_deck",
-22.5
-],
-[
-"v:s_cherry",
-30.0
-]
-],
-"어릴 때 소풍 가던 뒷산을": [
-[
-"i_geumseong",
-7.5
-],
-[
-"v:s_hike_deck",
-15.0
-],
-[
-"i_deck_peak",
-22.5
-]
-],
-"천구백육십팔 년 일월": [
-[
-"v:s_seoul_wall",
-7.5
-]
-],
-"그날 밤 내려온 일당": [
-[
-"v:s_seoul_wall",
-7.5
-],
-[
-"v:s_gyeongbok",
-15.0
-]
-],
-"문이 조금씩 열리기": [
-[
-"v:s_gyeongbok",
-7.5
-]
-],
-"이때 새로 열린 산의 넓이가": [
-[
-"v:s_gyeongbok",
-7.5
-],
-[
-"v:s_seoul_night",
-15.0
-],
-[
-"i_fortress_fence",
-22.5
-]
-],
-"그때 성곽 북쪽에 둘렀던": [
-[
-"v:s_seoul_wall",
-7.5
-],
-[
-"v:s_gyeongbok",
-15.0
-]
-],
-"세 구간을 합치면": [
-[
-"i_fortress_fence",
-7.5
-],
-[
-"i_bugak_open",
-15.0
-]
-],
-"인트로에서 보신 그 철문이": [
-[
-"v:s_gyeongbok",
-7.5
-],
-[
-"v:s_seoul_night",
-15.0
-],
-[
-"i_fortress_fence",
-22.5
-],
-[
-"i_bugak_open",
-30.0
-]
-],
-"여기서 우리 자신을": [
-[
-"v:s_seoul_wall",
-7.5
-]
-],
-"처음 질문으로 돌아가": [
-[
-"v:s_mountain_peak",
-7.5
-],
-[
-"v:s_birch",
-15.0
-],
-[
-"v:s_waterfall",
-22.5
-],
-[
-"v:s_seoul_night",
-30.0
-]
-],
-"겉으로는 오랜 세월이": [
-[
-"v:s_seoul_wall",
-7.5
-],
-[
-"v:s_mountain_peak",
-15.0
-]
-],
-"동창회를 떠올려": [
-[
-"v:s_seoul_wall",
-7.5
-],
-[
-"v:s_mountain_peak",
-15.0
-],
-[
-"v:s_birch",
-22.5
-]
-],
-"희망적인 소식도": [
-[
-"v:s_seoul_wall",
-7.5
-],
-[
-"v:s_mountain_peak",
-15.0
-],
-[
-"v:s_seoul_night",
-22.5
-]
-],
-"아직 닫힌 문도": [
-[
-"v:s_seoul_wall",
-7.5
-]
-],
-"이 명단에 없는 곳은": [
-[
-"v:s_seoul_wall",
-7.5
-],
-[
-"v:s_mountain_peak",
-15.0
-]
-],
-"댓글로 하나만 골라": [
-[
-"v:s_mountain_peak",
-7.5
-]
-]
+ "결혼식장에서 양가": [
+  [
+   "v:s_seoul_wall",
+   7.5
+  ]
+ ],
+ "그런데 이 숲은 누가 일부러": [
+  [
+   "v:s_birch",
+   7.5
+  ],
+  [
+   "v:s_hike_deck",
+   15.0
+  ]
+ ],
+ "전기차에서 내려 삼십 분쯤": [
+  [
+   "i_birch_forest",
+   7.5
+  ],
+  [
+   "v:s_stars",
+   15.0
+  ]
+ ],
+ "이 동네는 밤에도": [
+  [
+   "v:s_birch",
+   7.5
+  ],
+  [
+   "i_birch_forest",
+   15.0
+  ]
+ ],
+ "결혼식 날 켠 그 촛불의": [
+  [
+   "v:s_birch",
+   7.5
+  ],
+  [
+   "v:s_hike_deck",
+   15.0
+  ]
+ ],
+ "삼십 년 동안 아무도": [
+  [
+   "v:s_redcliff",
+   7.5
+  ]
+ ],
+ "적벽은 한 덩어리가": [
+  [
+   "i_redcliff",
+   7.5
+  ],
+  [
+   "v:s_lake_dam",
+   15.0
+  ],
+  [
+   "i_dam_village",
+   22.5
+  ]
+ ],
+ "물에 잠긴 마을에서": [
+  [
+   "v:s_redcliff",
+   7.5
+  ],
+  [
+   "v:s_bus_road",
+   15.0
+  ]
+ ],
+ "그렇다고 활짝 열린 건": [
+  [
+   "i_redcliff",
+   7.5
+  ],
+  [
+   "v:s_lake_dam",
+   15.0
+  ],
+  [
+   "i_dam_village",
+   22.5
+  ]
+ ],
+ "둑이 높아지면 물도": [
+  [
+   "v:s_lake_dam",
+   7.5
+  ],
+  [
+   "i_dam_village",
+   15.0
+  ],
+  [
+   "v:s_bus_road",
+   22.5
+  ]
+ ],
+ "천구백칠십이 년, 경남 거제": [
+  [
+   "v:s_island_ferry",
+   7.5
+  ]
+ ],
+ "섬에 내리면 이백 살": [
+  [
+   "v:s_island_ferry",
+   7.5
+  ],
+  [
+   "i_villa_gate",
+   15.0
+  ]
+ ],
+ "사실 대통령 별장을": [
+  [
+   "v:s_island_ferry",
+   7.5
+  ],
+  [
+   "v:s_pine_coast",
+   15.0
+  ],
+  [
+   "i_jeodo_island",
+   22.5
+  ]
+ ],
+ "이 섬이 열린 건": [
+  [
+   "v:s_pine_coast",
+   7.5
+  ]
+ ],
+ "그런데 열린 방식이 특이했습니다": [
+  [
+   "v:s_island_ferry",
+   7.5
+  ],
+  [
+   "v:s_pine_coast",
+   15.0
+  ]
+ ],
+ "못 들어가게 할수록": [
+  [
+   "v:s_island_ferry",
+   7.5
+  ],
+  [
+   "v:s_pine_coast",
+   15.0
+  ]
+ ],
+ "자, 여기까지 모인 단서를": [
+  [
+   "v:s_island_ferry",
+   7.5
+  ],
+  [
+   "v:s_pine_coast",
+   15.0
+  ]
+ ],
+ "나주 시내 어디서든": [
+  [
+   "v:s_mountain_peak",
+   7.5
+  ]
+ ],
+ "이 위는 전남 나주 금성산": [
+  [
+   "i_deck_peak",
+   7.5
+  ],
+  [
+   "v:s_cherry",
+   15.0
+  ]
+ ],
+ "그러면 꼭대기에 귀한": [
+  [
+   "v:s_mountain_peak",
+   7.5
+  ],
+  [
+   "v:s_hike_deck",
+   15.0
+  ],
+  [
+   "i_deck_peak",
+   22.5
+  ],
+  [
+   "v:s_cherry",
+   30.0
+  ]
+ ],
+ "금성산의 문이 열린 과정은": [
+  [
+   "i_geumseong",
+   7.5
+  ],
+  [
+   "v:s_hike_deck",
+   15.0
+  ],
+  [
+   "i_deck_peak",
+   22.5
+  ],
+  [
+   "v:s_cherry",
+   30.0
+  ]
+ ],
+ "인트로에서 말씀드린, 땅속부터": [
+  [
+   "i_geumseong",
+   7.5
+  ],
+  [
+   "v:s_mountain_peak",
+   15.0
+  ]
+ ],
+ "다만 정상에 올라가 보면": [
+  [
+   "i_geumseong",
+   7.5
+  ],
+  [
+   "v:s_mountain_peak",
+   15.0
+  ],
+  [
+   "v:s_hike_deck",
+   22.5
+  ],
+  [
+   "v:s_cherry",
+   30.0
+  ]
+ ],
+ "어릴 때 소풍 가던 뒷산을": [
+  [
+   "i_geumseong",
+   7.5
+  ],
+  [
+   "v:s_hike_deck",
+   15.0
+  ],
+  [
+   "i_deck_peak",
+   22.5
+  ]
+ ],
+ "천구백육십팔 년 일월": [
+  [
+   "v:s_seoul_wall",
+   7.5
+  ]
+ ],
+ "그날 밤 내려온 일당": [
+  [
+   "v:s_seoul_wall",
+   7.5
+  ],
+  [
+   "v:s_gyeongbok",
+   15.0
+  ]
+ ],
+ "문이 조금씩 열리기": [
+  [
+   "v:s_gyeongbok",
+   7.5
+  ]
+ ],
+ "이때 새로 열린 산의 넓이가": [
+  [
+   "v:s_gyeongbok",
+   7.5
+  ],
+  [
+   "v:s_seoul_night",
+   15.0
+  ],
+  [
+   "i_fortress_fence",
+   22.5
+  ]
+ ],
+ "그때 성곽 북쪽에 둘렀던": [
+  [
+   "v:s_seoul_wall",
+   7.5
+  ],
+  [
+   "v:s_gyeongbok",
+   15.0
+  ]
+ ],
+ "세 구간을 합치면": [
+  [
+   "i_fortress_fence",
+   7.5
+  ],
+  [
+   "i_bugak_open",
+   15.0
+  ]
+ ],
+ "인트로에서 보신 그 철문이": [
+  [
+   "v:s_gyeongbok",
+   7.5
+  ],
+  [
+   "v:s_seoul_night",
+   15.0
+  ],
+  [
+   "i_fortress_fence",
+   22.5
+  ],
+  [
+   "i_bugak_open",
+   30.0
+  ]
+ ],
+ "여기서 우리 자신을": [
+  [
+   "v:s_seoul_wall",
+   7.5
+  ]
+ ],
+ "처음 질문으로 돌아가": [
+  [
+   "v:s_mountain_peak",
+   7.5
+  ],
+  [
+   "v:s_birch",
+   15.0
+  ],
+  [
+   "v:s_waterfall",
+   22.5
+  ],
+  [
+   "v:s_seoul_night",
+   30.0
+  ]
+ ],
+ "겉으로는 오랜 세월이": [
+  [
+   "v:s_seoul_wall",
+   7.5
+  ],
+  [
+   "v:s_mountain_peak",
+   15.0
+  ]
+ ],
+ "동창회를 떠올려": [
+  [
+   "v:s_seoul_wall",
+   7.5
+  ],
+  [
+   "v:s_mountain_peak",
+   15.0
+  ],
+  [
+   "v:s_birch",
+   22.5
+  ]
+ ],
+ "희망적인 소식도": [
+  [
+   "v:s_seoul_wall",
+   7.5
+  ],
+  [
+   "v:s_mountain_peak",
+   15.0
+  ],
+  [
+   "v:s_seoul_night",
+   22.5
+  ]
+ ],
+ "아직 닫힌 문도": [
+  [
+   "v:s_seoul_wall",
+   7.5
+  ]
+ ],
+ "이 명단에 없는 곳은": [
+  [
+   "v:s_seoul_wall",
+   7.5
+  ],
+  [
+   "v:s_mountain_peak",
+   15.0
+  ]
+ ],
+ "댓글로 하나만 골라": [
+  [
+   "v:s_mountain_peak",
+   7.5
+  ]
+ ]
 }

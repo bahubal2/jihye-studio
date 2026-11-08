@@ -526,6 +526,50 @@ def background(sc, bg):
     return ''.join(out)
 
 SCENES = []
+# ---------------- 인트로 30초 기본 키트 (2026-11-08 채널 표준) ----------------
+# 첫 30초는 ① 배경 2~3초마다 교체(스톡·일러스트·사진 번갈아, 휙 넘기기) ② 모든 문장 움직이는 글자(kin) ③ 멈춘 화면 금지.
+INTRO_CSS = """<style>
+.bg.kb.swap, .bg.swap { animation: kb var(--len) 0s both linear, whipIn .34s var(--t) both cubic-bezier(.2,.9,.3,1); }
+@keyframes whipIn { 0% { opacity: 0; transform: translateX(10%) scale(1.2); filter: blur(16px) brightness(1.6); } 100% { opacity: 1; transform: none; filter: none; } }
+.kin { position: absolute; left: 0; right: 0; text-align: center; font-family: 'BH', sans-serif; color: #fff; line-height: 1.12; z-index: 7; padding: 0 60px;
+  text-shadow: 0 6px 0 rgba(0,0,0,.45), 0 12px 44px rgba(0,0,0,.7); animation: kinDrift 5s var(--t) both ease-in-out infinite alternate; }
+.kin .w { display: inline-block; margin: 0 .13em; opacity: 0; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1); }
+.kin .w.k { color: #ffd400; position: relative; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1), kinPulse .9s calc(var(--t) + var(--i) * .1s + .55s) infinite alternate ease-in-out; }
+.kin .w.r { color: #ff4b4b; }
+.kin .w.k::after { content: ''; position: absolute; left: -3%; right: -3%; bottom: .02em; height: .16em; background: #ff3b3b; border-radius: .08em; z-index: -1;
+  transform: scaleX(0); transform-origin: left; animation: kinBar .4s calc(var(--t) + var(--i) * .1s + .35s) forwards ease-out; }
+@keyframes kinDrop { 0% { opacity: 0; transform: translateY(-130%) scale(1.5); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPop { 0% { opacity: 0; transform: scale(2.6); filter: blur(8px); } 100% { opacity: 1; transform: none; filter: none; } }
+@keyframes kinSlide { 0% { opacity: 0; transform: translateX(-90%) skewX(-14deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinRise { 0% { opacity: 0; transform: translateY(100%) rotate(8deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPulse { 0% { transform: scale(1) rotate(0); } 100% { transform: scale(1.09) rotate(-1.5deg); } }
+@keyframes kinBar { to { transform: scaleX(1); } }
+@keyframes kinDrift { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(0, -16px) scale(1.04); } }
+.lw.out { animation: kinGone .3s var(--u) forwards ease-in; }
+@keyframes kinGone { to { opacity: 0; transform: scale(.9); } }
+</style>"""
+def intro30(): return lambda sc: INTRO_CSS
+KMODES = {'mix': ['kinDrop', 'kinPop', 'kinSlide', 'kinRise'], 'drop': ['kinDrop'], 'pop': ['kinPop'], 'slide': ['kinSlide'], 'rise': ['kinRise']}
+def kin(text, at, y=330, size=110, mode='mix', until=None, sfx=None):
+    """움직이는 글자: 낱말이 0.1초 간격으로 떨어지고·튀고·밀려 들어오며, 전체는 계속 천천히 떠다닌다.
+    *낱말* = 노랑 강조(밑줄 + 맥박), !낱말! = 빨강, '/' = 줄바꿈. 사용 장면에 intro30() 을 함께 넣는다."""
+    def f(sc):
+        ms = KMODES[mode]; out = []; i = 0
+        for line in text.split('/'):
+            ws = []
+            for w in line.split():
+                cls = 'w'
+                if w.startswith('*') and w.endswith('*'): cls += ' k'; w = w[1:-1]
+                elif w.startswith('!') and w.endswith('!'): cls += ' r'; w = w[1:-1]
+                ws.append(f'<span class="{cls}" style="--i:{i}; --a:{ms[i % len(ms)]}">{E(w)}</span>'); i += 1
+            out.append(' '.join(ws))
+        inner = f'<div class="kin" {A(sc, at, -0.05, sfx=sfx)} style="top:{y}px; font-size:{size}px">{"<br>".join(out)}</div>'
+        return _lw(sc, until, inner)
+    return f
+def cutsfx(*ats, kind='swish'):
+    """배경이 바뀌는 순간마다 휙 소리 (보이지 않는 표식)."""
+    return lambda sc: ''.join(f'<i style="display:none" {A(sc, a, sfx=kind)}></i>' for a in ats)
+
 def build(plan):
     starts = []; last = 0                     # 앞 장면보다 뒤에서 찾는다 (같은 문구가 여러 번 나오는 대본)
     for s in plan: n = cue_of(s['from'], last + 1); starts.append(n); last = n
