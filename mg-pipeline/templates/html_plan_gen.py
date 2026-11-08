@@ -570,6 +570,23 @@ def cutsfx(*ats, kind='swish'):
     """배경이 바뀌는 순간마다 휙 소리 (보이지 않는 표식)."""
     return lambda sc: ''.join(f'<i style="display:none" {A(sc, a, sfx=kind)}></i>' for a in ats)
 
+def asset_check(plan):
+    """재탕 검사 (2026-11-08 담당자 지시): 같은 영상·이미지를 한 영상에서 2번 넘게, 또는 1분 안에 다시 쓰면 경고."""
+    uses = {}; last = 0; starts = []
+    for s in plan: n = cue_of(s['from'], last + 1); starts.append(n); last = n
+    for k, s in enumerate(plan):
+        c0 = starts[k]; c1 = starts[k + 1] - 1 if k + 1 < len(plan) else len(CUES); sc = Scene(s, c0, c1)
+        bgs = s.get('bg'); bgs = [(bgs, None)] if isinstance(bgs, str) else (bgs or [])
+        for b, at in bgs:
+            if b: uses.setdefault(b.replace('v:', ''), []).append(TIMES[c0 - 1] if at is None else sc.secs(at))
+    warn = []
+    for b, ts in sorted(uses.items()):
+        ts.sort(); near = [f'{int(y // 60)}:{int(y % 60):02d}' for x, y in zip(ts, ts[1:]) if y - x < 60]
+        if len(ts) > 2: warn.append(f'{b} {len(ts)}번')
+        if near: warn.append(f'{b} 1분 안 재사용({", ".join(near)})')
+    print('재탕 검사:', '문제 없음' if not warn else f'{len(warn)}건 → ' + ' / '.join(warn))
+    return warn
+
 def build(plan):
     starts = []; last = 0                     # 앞 장면보다 뒤에서 찾는다 (같은 문구가 여러 번 나오는 대본)
     for s in plan: n = cue_of(s['from'], last + 1); starts.append(n); last = n
@@ -615,4 +632,4 @@ def build(plan):
     print(f'장면 {len(plan)}개 생성 (자막 1~{len(CUES)}번) · 효과음 {len(keep)}개 → plan/sfx.json · 검은 바탕 장면 {plain}개')
 
 if __name__ == '__main__':
-    sys.path.insert(0, HERE); from plan import PLAN; build(PLAN)
+    sys.path.insert(0, HERE); from plan import PLAN; build(PLAN); asset_check(PLAN)
