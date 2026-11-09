@@ -65,6 +65,8 @@ class Scene:
         n = cue_at(j)
         if n > self.c1: raise SystemExit(f'"{spec}" 는 이 장면({self.c0}~{self.c1}번, "{self.s["from"]}") 밖의 {n}번 자막입니다.')
         if not any(w in x for x in CUES[n - 1].split(' ')): raise SystemExit(f'{n}번 자막에 "{w}" 가 없습니다: {CUES[n - 1]}')
+        _cs = STARTS[n - 1]; _first = JOINED.find(w, _cs)
+        if _first != -1 and _first < j: print(f'  [주의] "{spec}": {n}번 자막 앞쪽에 "{w}" 가 먼저 있어 엉뚱한 시각에 뜹니다 → 뒤 낱말로 잡으세요')
         return f'{n}:{w}'
 
 def E(t): return html.escape(str(t))
