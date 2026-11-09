@@ -12,7 +12,7 @@ import mgp
 UA = {'User-Agent': 'mg-pipeline/1.0 (jihye-hosu channel video tool)'}
 
 def search(key, q, n=20):
-    u = 'https://pixabay.com/api/videos/?' + urllib.parse.urlencode({'key': key, 'q': q, 'per_page': n, 'safesearch': 'true'})
+    u = 'https://pixabay.com/api/videos/?' + urllib.parse.urlencode({'key': key, 'q': q, 'per_page': n, 'safesearch': 'true', 'video_type': 'film'})
     return json.load(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=30)).get('hits', [])
 
 def main():

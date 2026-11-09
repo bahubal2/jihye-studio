@@ -1,20 +1,214 @@
 {
-  "style": {
-    "mix": "한 영상에는 화풍 패키지 하나만 쓴다 (2026-10-29 담당자 지시: 웹툰과 클레이를 한 영상에 섞으면 일관성이 없어 보인다). 대본을 보고 패키지를 먼저 정해 담당자에게 알린 뒤 에셋을 만든다. 숫자·순위·비교는 어느 패키지든 HTML 모션 텍스트로.",
-    "webtoon": "Korean webtoon manhwa illustration, clean confident black line art, cel shading with soft gradients, expressive emotional faces, bright natural colors, cinematic composition, original characters, not any real person",
-    "clay": "Claymation miniature diorama, handmade plasticine figures and props, tilt-shift photography with shallow depth of field, warm saturated colors, playful nostalgic Korean scene, soft studio light",
-    "quality": "low (장당 $0.005, 2026-10-28 시험에서 보통 품질과 차이가 거의 없음)",
-    "text_rule": "간판 글자는 지정한 한글 문구만. 실제 브랜드 로고·상표는 그리지 않는다 (\"no real brand logos\").",
-    "samples": "projects/화풍시안/assets/w1_school.png, w2_parent.png, c1_trail.png, c2_dept.png",
-    "packages": {
-      "A_다큐": "다큐 느낌이 중요한 주제: 실사풍 생성 이미지 + 실사 이미지→영상(fal) + Pixabay·Pexels 스톡 영상 + 키네틱 모션 텍스트로 효과 극대화. 일러스트·클레이 없음.",
-      "B_웹툰": "실사로 표현하기 어려운 주제(감정, 가상 상황, 과거 재현): 웹툰풍 일러스트 위주 + 그 이미지→영상 + 모션 그래픽·모션 텍스트. 클레이·실사 스톡 없음.",
-      "C_클레이": "장소·군중·시대 분위기가 중심인 주제: 클레이 디오라마 이미지 위주 + 그 이미지→영상 + 모션 그래픽·모션 텍스트. 웹툰·실사 스톡 없음."
-    },
-    "photoreal": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person",
-    "mix_rule": "B·C 패키지에서 스톡 영상이 꼭 필요하면 쓰지 않고 같은 화풍 이미지→영상으로 대신한다. 화풍이 다른 컷을 한 영상에 섞지 않는다.",
-    "stock_rule": "스톡 영상은 대본 문장의 구체적인 대상과 맞아야 한다 (2026-10-29 담당자 지적: 관광객 이야기에 경비행기 컷). ① 검색어는 대본의 대상·장소·규모를 그대로 영어로 (예: 관광객 항공편 → 'passenger jet airliner takeoff', 'airport terminal travelers'), ② 받은 뒤 미리보기 프레임(out/_stock_<id>.jpg)을 열어 그 장면의 대본 문장과 하나씩 대조한다: 종류(여객기/경비행기), 나라·지역 분위기, 계절, 시대, 인원 규모. ③ 하나라도 어긋나면 다른 후보(--pick)로 바꾸고, 맞는 것이 없으면 스톡을 쓰지 않고 같은 화풍 이미지로 대신한다. ④ 장면 계획을 짤 때 각 스톡 컷 옆에 '어느 대본 문장에 대응하는지'를 적어 두고 렌더 전에 다시 확인한다."
+ "style": "",
+ "styles": {
+  "paint": "modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious limited palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, not painterly, not retro",
+  "pup": "modern flat 2D animated explainer character, clean vector shapes with soft gradients, harmonious palette of deep teal, warm orange, mustard and cream, simple expressive face, full body side view in a walking pose, crisp clean silhouette edges, polished contemporary animation look",
+  "prop": "modern flat 2D animated explainer illustration of a single object, clean vector shapes with soft gradients, harmonious palette of deep teal, warm orange, mustard and cream, side view, no people, no characters"
+ },
+ "quality": "medium",
+ "assets": [
+  {
+   "id": "i_elevator_notice",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A Korean apartment elevator lobby, elevator doors opening, a notice paper pinned on the bulletin board about cutting security guards, a resident reading it"
   },
-  "quality": "medium",
-  "assets": []
+  {
+   "id": "i_snu_grad",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A Korean university graduation day at a campus gate, graduates in black gowns and caps looking worried at their phones, parents holding flowers behind them"
+  },
+  {
+   "id": "i_toll_roof",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "Middle-aged Korean women toll collectors sitting on the flat canopy roof above a highway toll gate, a small Chuseok ancestral table with fruit set on the roof, banners, evening sky"
+  },
+  {
+   "id": "i_toll_booth",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A Korean highway toll booth in the 2000s, a woman toll collector in uniform handing a ticket to a driver through the car window, warm smile"
+  },
+  {
+   "id": "i_hipass",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A modern Korean highway toll plaza with blue hi-pass lanes, cars passing through without stopping, empty dark toll booths"
+  },
+  {
+   "id": "i_bank_close",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A small Korean bank branch with a closure notice taped on the glass door, an elderly couple standing outside reading it, quiet street"
+  },
+  {
+   "id": "i_bank_1990",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A busy Korean bank lobby in the 1990s on payday, long queue of customers with bankbooks, tellers behind the counter"
+  },
+  {
+   "id": "i_callroom",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A call center office with long rows of desks and headsets, most seats empty, a few tired operators, screens glowing"
+  },
+  {
+   "id": "i_mom_phone",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "An elderly Korean mother at home holding a phone to her ear looking confused, listening to an automated voice menu, living room"
+  },
+  {
+   "id": "i_mart_2000",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A busy Korean hypermarket checkout line in the 2000s, a middle-aged woman cashier scanning goods, a young man pushing a long line of shopping carts"
+  },
+  {
+   "id": "i_selfcheck",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A modern supermarket with rows of self checkout kiosks, customers scanning items themselves, one staff member helping"
+  },
+  {
+   "id": "i_class_empty",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A Korean elementary school classroom with only a few children and many empty desks, a teacher at the board, afternoon light"
+  },
+  {
+   "id": "i_office_junior",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A young Korean new employee alone at an office desk late at night with a laptop, an AI chat window on screen, empty office around"
+  },
+  {
+   "id": "i_father_son",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A Korean father in his fifties and his son in a job interview suit at a kitchen table at night, the son holding a rejection letter, the father worried"
+  },
+  {
+   "id": "i_guard_protest",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "An apartment complex entrance in Seoul, about thirty elderly security guards in uniform gathered, two of them seated with white cloths over their shoulders for a silent head shaving protest"
+  },
+  {
+   "id": "i_guard_booth",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A small apartment security guard booth with many CCTV monitors on the wall and an empty chair, night"
+  },
+  {
+   "id": "i_guard_snow",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "An elderly apartment security guard shoveling snow in front of an apartment building in winter, recycling bins nearby"
+  },
+  {
+   "id": "i_construct",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A building renovation construction site, older Korean workers in hard hats carrying steel rebar, one younger worker, sunny day"
+  },
+  {
+   "id": "i_forklift",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A small Korean parts factory, an older man driving a yellow forklift carrying a pallet, boxes stacked"
+  },
+  {
+   "id": "i_mgmt_office",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "An apartment management office, a manager in his sixties at a desk taking a phone complaint, residents waiting, documents on the wall"
+  },
+  {
+   "id": "i_electric_room",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A basement electrical room in an apartment building, a man in his sixties with a hard hat checking a big switchboard panel with a clipboard checklist"
+  },
+  {
+   "id": "i_study_night",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A retired Korean man in his sixties studying late at night at a small desk, an electrical engineering textbook and notes, desk lamp"
+  },
+  {
+   "id": "i_datacenter",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A huge modern data center building with high voltage power lines and transformers, night lights"
+  },
+  {
+   "id": "i_seoul_jobs",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A wide view of Seoul office towers in the morning, crowds of commuters in suits crossing a big crosswalk"
+  },
+  {
+   "id": "c_banker",
+   "kind": "cutout",
+   "style": "pup",
+   "quality": "medium",
+   "prompt": "a Korean man in his sixties with grey hair, cardigan and glasses, holding a thick textbook under his arm, walking"
+  },
+  {
+   "id": "c_guard",
+   "kind": "cutout",
+   "style": "pup",
+   "quality": "medium",
+   "prompt": "an elderly Korean apartment security guard in a navy uniform and cap, walking"
+  },
+  {
+   "id": "c_toll",
+   "kind": "cutout",
+   "style": "pup",
+   "quality": "medium",
+   "prompt": "a middle-aged Korean woman toll collector in a uniform vest, walking"
+  },
+  {
+   "id": "c_grad",
+   "kind": "cutout",
+   "style": "pup",
+   "quality": "medium",
+   "prompt": "a young Korean graduate in a black graduation gown and cap holding a diploma tube, walking"
+  },
+  {
+   "id": "c_electrician",
+   "kind": "cutout",
+   "style": "pup",
+   "quality": "medium",
+   "prompt": "a Korean man in his sixties in a work jacket and hard hat carrying a toolbox, walking"
+  }
+ ]
 }

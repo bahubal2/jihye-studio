@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="cues" content="44-46">
+<link rel="stylesheet" href="../../../engine/web/kit.css"><link rel="stylesheet" href="../../../brand/web/channel.css">
+</head><body data-bg="none" data-enter="wipe">
+<div class="stage"><div class="plain"></div><div class="shade"></div><div class="midlayer"></div><div class="cam">
+<div class="mgbg teal"></div><style>.bg{opacity:0 !important}</style>
+<div class="igrid bad" data-at="44:네" data-at3="44:사라졌습니다" style="left:559px; top:170px; width:802px; --sz:170px"><i class="ic" style="--i:0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-building-bank" > <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M3 21l18 0" /> <path d="M3 10l18 0" /> <path d="M5 6l7 -3l7 3" /> <path d="M4 10l0 11" /> <path d="M20 10l0 11" /> <path d="M8 14l0 3" /> <path d="M12 14l0 3" /> <path d="M16 14l0 3" /> </svg></i><i class="ic" style="--i:1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-building-bank" > <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M3 21l18 0" /> <path d="M3 10l18 0" /> <path d="M5 6l7 -3l7 3" /> <path d="M4 10l0 11" /> <path d="M20 10l0 11" /> <path d="M8 14l0 3" /> <path d="M12 14l0 3" /> <path d="M16 14l0 3" /> </svg></i><i class="ic" style="--i:2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-building-bank" > <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M3 21l18 0" /> <path d="M3 10l18 0" /> <path d="M5 6l7 -3l7 3" /> <path d="M4 10l0 11" /> <path d="M20 10l0 11" /> <path d="M8 14l0 3" /> <path d="M12 14l0 3" /> <path d="M16 14l0 3" /> </svg></i><i class="ic drop" style="--i:3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-building-bank" > <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M3 21l18 0" /> <path d="M3 10l18 0" /> <path d="M5 6l7 -3l7 3" /> <path d="M4 10l0 11" /> <path d="M20 10l0 11" /> <path d="M8 14l0 3" /> <path d="M12 14l0 3" /> <path d="M16 14l0 3" /> </svg></i></div>
+<style>.kin { position: absolute; left: 0; right: 0; text-align: center; font-family: 'BH', sans-serif; color: #fff; line-height: 1.12; z-index: 7; padding: 0 60px;
+  text-shadow: 0 6px 0 rgba(0,0,0,.45), 0 12px 44px rgba(0,0,0,.7); animation: kinDrift 5s var(--t) both ease-in-out infinite alternate; }
+.kin .w { display: inline-block; margin: 0 .13em; opacity: 0; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1); }
+.kin .w.k { color: #ffd400; position: relative; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1), kinPulse .9s calc(var(--t) + var(--i) * .1s + .55s) infinite alternate ease-in-out; }
+.kin .w.r { color: #ff4b4b; }
+.kin .w.k::after { content: ''; position: absolute; left: -3%; right: -3%; bottom: .02em; height: .16em; background: #ff3b3b; border-radius: .08em; z-index: -1;
+  transform: scaleX(0); transform-origin: left; animation: kinBar .4s calc(var(--t) + var(--i) * .1s + .35s) forwards ease-out; }
+@keyframes kinDrop { 0% { opacity: 0; transform: translateY(-130%) scale(1.5); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPop { 0% { opacity: 0; transform: scale(2.6); filter: blur(8px); } 100% { opacity: 1; transform: none; filter: none; } }
+@keyframes kinSlide { 0% { opacity: 0; transform: translateX(-90%) skewX(-14deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinRise { 0% { opacity: 0; transform: translateY(100%) rotate(8deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPulse { 0% { transform: scale(1) rotate(0); } 100% { transform: scale(1.09) rotate(-1.5deg); } }
+@keyframes kinBar { to { transform: scaleX(1); } }
+@keyframes kinDrift { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(0, -16px) scale(1.04); } }
+.lw.out { animation: kinGone .3s var(--u) forwards ease-in; }
+@keyframes kinGone { to { opacity: 0; transform: scale(.9); } }
+</style><div class="lw" data-until="45:오대"><div class="kin" data-at="44:사라졌습니다" data-off="-0.05" style="top:420px; font-size:84px; "><span class="w" style="--i:0; --a:kinSlide">10년</span> <span class="w" style="--i:1; --a:kinSlide">새</span> <span class="w k" style="--i:2; --a:kinSlide">4곳</span> <span class="w k" style="--i:3; --a:kinSlide">중</span> <span class="w k" style="--i:4; --a:kinSlide">1곳</span> <span class="w" style="--i:5; --a:kinSlide">사라짐</span></div></div>
+<style>.kin { position: absolute; left: 0; right: 0; text-align: center; font-family: 'BH', sans-serif; color: #fff; line-height: 1.12; z-index: 7; padding: 0 60px;
+  text-shadow: 0 6px 0 rgba(0,0,0,.45), 0 12px 44px rgba(0,0,0,.7); animation: kinDrift 5s var(--t) both ease-in-out infinite alternate; }
+.kin .w { display: inline-block; margin: 0 .13em; opacity: 0; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1); }
+.kin .w.k { color: #ffd400; position: relative; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1), kinPulse .9s calc(var(--t) + var(--i) * .1s + .55s) infinite alternate ease-in-out; }
+.kin .w.r { color: #ff4b4b; }
+.kin .w.k::after { content: ''; position: absolute; left: -3%; right: -3%; bottom: .02em; height: .16em; background: #ff3b3b; border-radius: .08em; z-index: -1;
+  transform: scaleX(0); transform-origin: left; animation: kinBar .4s calc(var(--t) + var(--i) * .1s + .35s) forwards ease-out; }
+@keyframes kinDrop { 0% { opacity: 0; transform: translateY(-130%) scale(1.5); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPop { 0% { opacity: 0; transform: scale(2.6); filter: blur(8px); } 100% { opacity: 1; transform: none; filter: none; } }
+@keyframes kinSlide { 0% { opacity: 0; transform: translateX(-90%) skewX(-14deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinRise { 0% { opacity: 0; transform: translateY(100%) rotate(8deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPulse { 0% { transform: scale(1) rotate(0); } 100% { transform: scale(1.09) rotate(-1.5deg); } }
+@keyframes kinBar { to { transform: scaleX(1); } }
+@keyframes kinDrift { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(0, -16px) scale(1.04); } }
+.lw.out { animation: kinGone .3s var(--u) forwards ease-in; }
+@keyframes kinGone { to { opacity: 0; transform: scale(.9); } }
+</style><div class="kin" data-at="45:육백칠십" data-off="-0.05" style="top:420px; font-size:100px; "><span class="w" style="--i:0; --a:kinPop">5대</span> <span class="w" style="--i:1; --a:kinPop">은행</span> <span class="w" style="--i:2; --a:kinPop">5년</span><br><span class="w r" style="--i:3; --a:kinPop">670곳+</span> <span class="w" style="--i:4; --a:kinPop">폐점</span></div>
+<div class="tag dark" data-at="46:사만" style="left:0; right:0; margin:0 auto; width:max-content; top:780px; font-size:73px"><span class="ti"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-world" > <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /> <path d="M3.6 9h16.8" /> <path d="M3.6 15h16.8" /> <path d="M11.5 3a17 17 0 0 0 0 18" /> <path d="M12.5 3a17 17 0 0 1 0 18" /> </svg></span>미국: 창구 직원 10년 -4만 명</div>
+<div class="rankbadge still" data-at="+0"><b>6위</b>은행 창구 직원</div>
+<div class="qbadge" data-at="+0"><b>단서</b> ① 기계가 받는 돈</div>
+</div><div class="fx"><div class="leak"></div><div class="dust"></div><div class="vig"></div></div><div class="progress" style="--p0:0.1782; --p1:0.1937; --pd:17.40s"></div></div>
+<script src="_timing.js"></script><script src="../../../engine/web/kit.js"></script><script src="../../../brand/web/channel.js"></script>
+</body></html>

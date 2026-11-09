@@ -1,0 +1,185 @@
+{
+ "model": "fal-ai/minimax/hailuo-02/standard/image-to-video",
+ "resolution": "512P",
+ "duration": "6",
+ "loop_sec": 15,
+ "extend": "slow",
+ "style": "",
+ "clips": [
+  {
+   "id": "s_apartment",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_atm",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_bank_hall",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_callcenter",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_car_drive",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_carts",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_cctv",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_chalk",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_chatbot",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_classroom",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_code",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_construction",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_datacenter",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_e_panel",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_electrician",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_elevator",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_exam",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_forklift",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_grad",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_highway",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_interview",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_kids_school",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_meeting",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_mobile_bank",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_office_young",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_old_phone",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_powerline",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_rebar",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_robot_wh",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_senior_study",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_seoul",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_snow",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_supermarket",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_tollgate",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_typing",
+   "prompt": "",
+   "src": "pixabay"
+  }
+ ]
+}

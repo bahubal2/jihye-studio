@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="cues" content="173-180">
+<link rel="stylesheet" href="../../../engine/web/kit.css"><link rel="stylesheet" href="../../../brand/web/channel.css">
+</head><body data-bg="none" data-enter="wipe">
+<div class="stage"><style>
+.gridbg { position: absolute; inset: 0; background: #0f1d33; background-image: linear-gradient(rgba(255,255,255,.07) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,.07) 2px, transparent 2px); background-size: 72px 72px; }
+.lens.cardL, .lens.cardR { overflow: hidden; transform-origin: 50% 50%; }
+.lens.cardL { animation: cardL .75s var(--t) both cubic-bezier(.3,1.15,.4,1); }
+.lens.cardR { animation: cardR .75s var(--t) both cubic-bezier(.3,1.15,.4,1); }
+@keyframes cardL { from { transform: none; border-radius: 0; } to { transform: translate(-440px, 10px) scale(.5); border-radius: 56px; box-shadow: 0 40px 90px rgba(0,0,0,.6); outline: 8px solid rgba(255,255,255,.9); } }
+@keyframes cardR { from { transform: none; border-radius: 0; } to { transform: translate(440px, 10px) scale(.5); border-radius: 56px; box-shadow: 0 40px 90px rgba(0,0,0,.6); outline: 8px solid rgba(255,255,255,.9); } }
+</style><div class="gridbg"></div><div class="lens cardL" data-at="175:주택관리사입니다" data-off="-0.05"><img class="bg kb" src="../assets/i_mgmt_office.png" style=" --kx0:-30px; --ky0:-30px; --kx1:30px; --ky1:30px; --z0:1.18; --z1:1.1"><img class="bg vid kb swap" data-at="174:오십대" data-video="s_senior_study" data-w="1920" data-h="1080" style=" --kx0:0px; --ky0:0px; --kx1:-50px; --ky1:-24px; --z0:1.06; --z1:1.2"><img class="bg kb swap" data-at="178:경비원은" src="../assets/i_elevator_notice.png" style=" --kx0:-60px; --ky0:10px; --kx1:50px; --ky1:-10px; --z0:1.14; --z1:1.14"></div><div class="shade"></div><div class="midlayer"></div><div class="cam">
+<style>.bg{--dark:.9; --blur:0px}</style>
+<i style="display:none" data-at="174:오십대"></i><i style="display:none" data-at="178:경비원은"></i>
+<style>.kin { position: absolute; left: 0; right: 0; text-align: center; font-family: 'BH', sans-serif; color: #fff; line-height: 1.12; z-index: 7; padding: 0 60px;
+  text-shadow: 0 6px 0 rgba(0,0,0,.45), 0 12px 44px rgba(0,0,0,.7); animation: kinDrift 5s var(--t) both ease-in-out infinite alternate; }
+.kin .w { display: inline-block; margin: 0 .13em; opacity: 0; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1); }
+.kin .w.k { color: #ffd400; position: relative; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1), kinPulse .9s calc(var(--t) + var(--i) * .1s + .55s) infinite alternate ease-in-out; }
+.kin .w.r { color: #ff4b4b; }
+.kin .w.k::after { content: ''; position: absolute; left: -3%; right: -3%; bottom: .02em; height: .16em; background: #ff3b3b; border-radius: .08em; z-index: -1;
+  transform: scaleX(0); transform-origin: left; animation: kinBar .4s calc(var(--t) + var(--i) * .1s + .35s) forwards ease-out; }
+@keyframes kinDrop { 0% { opacity: 0; transform: translateY(-130%) scale(1.5); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPop { 0% { opacity: 0; transform: scale(2.6); filter: blur(8px); } 100% { opacity: 1; transform: none; filter: none; } }
+@keyframes kinSlide { 0% { opacity: 0; transform: translateX(-90%) skewX(-14deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinRise { 0% { opacity: 0; transform: translateY(100%) rotate(8deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPulse { 0% { transform: scale(1) rotate(0); } 100% { transform: scale(1.09) rotate(-1.5deg); } }
+@keyframes kinBar { to { transform: scaleX(1); } }
+@keyframes kinDrift { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(0, -16px) scale(1.04); } }
+.lw.out { animation: kinGone .3s var(--u) forwards ease-in; }
+@keyframes kinGone { to { opacity: 0; transform: scale(.9); } }
+</style><div class="lw" data-until="175:주택관리사입니다"><div class="kin" data-at="+0.1" data-off="-0.05" style="top:230px; font-size:96px; "><span class="w" style="--i:0; --a:kinDrop">5060이</span> <span class="w" style="--i:1; --a:kinPop">가장</span> <span class="w" style="--i:2; --a:kinSlide">따고</span> <span class="w" style="--i:3; --a:kinRise">싶은</span> <span class="w" style="--i:4; --a:kinDrop">자격증</span><br><span class="w k" style="--i:5; --a:kinPop">법전</span> <span class="w k" style="--i:6; --a:kinSlide">공부</span></div></div>
+<style>.kin { position: absolute; left: 0; right: 0; text-align: center; font-family: 'BH', sans-serif; color: #fff; line-height: 1.12; z-index: 7; padding: 0 60px;
+  text-shadow: 0 6px 0 rgba(0,0,0,.45), 0 12px 44px rgba(0,0,0,.7); animation: kinDrift 5s var(--t) both ease-in-out infinite alternate; }
+.kin .w { display: inline-block; margin: 0 .13em; opacity: 0; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1); }
+.kin .w.k { color: #ffd400; position: relative; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1), kinPulse .9s calc(var(--t) + var(--i) * .1s + .55s) infinite alternate ease-in-out; }
+.kin .w.r { color: #ff4b4b; }
+.kin .w.k::after { content: ''; position: absolute; left: -3%; right: -3%; bottom: .02em; height: .16em; background: #ff3b3b; border-radius: .08em; z-index: -1;
+  transform: scaleX(0); transform-origin: left; animation: kinBar .4s calc(var(--t) + var(--i) * .1s + .35s) forwards ease-out; }
+@keyframes kinDrop { 0% { opacity: 0; transform: translateY(-130%) scale(1.5); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPop { 0% { opacity: 0; transform: scale(2.6); filter: blur(8px); } 100% { opacity: 1; transform: none; filter: none; } }
+@keyframes kinSlide { 0% { opacity: 0; transform: translateX(-90%) skewX(-14deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinRise { 0% { opacity: 0; transform: translateY(100%) rotate(8deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPulse { 0% { transform: scale(1) rotate(0); } 100% { transform: scale(1.09) rotate(-1.5deg); } }
+@keyframes kinBar { to { transform: scaleX(1); } }
+@keyframes kinDrift { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(0, -16px) scale(1.04); } }
+.lw.out { animation: kinGone .3s var(--u) forwards ease-in; }
+@keyframes kinGone { to { opacity: 0; transform: scale(.9); } }
+</style><div class="kin" data-at="175:주택관리사입니다" data-off="-0.05" style="top:190px; font-size:120px; left:1060px; right:auto; width:주택관리사px; text-align:left; padding:0;"><span class="w k" style="--i:0; --a:kinPop">주택관리사</span></div>
+<style>.kin { position: absolute; left: 0; right: 0; text-align: center; font-family: 'BH', sans-serif; color: #fff; line-height: 1.12; z-index: 7; padding: 0 60px;
+  text-shadow: 0 6px 0 rgba(0,0,0,.45), 0 12px 44px rgba(0,0,0,.7); animation: kinDrift 5s var(--t) both ease-in-out infinite alternate; }
+.kin .w { display: inline-block; margin: 0 .13em; opacity: 0; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1); }
+.kin .w.k { color: #ffd400; position: relative; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1), kinPulse .9s calc(var(--t) + var(--i) * .1s + .55s) infinite alternate ease-in-out; }
+.kin .w.r { color: #ff4b4b; }
+.kin .w.k::after { content: ''; position: absolute; left: -3%; right: -3%; bottom: .02em; height: .16em; background: #ff3b3b; border-radius: .08em; z-index: -1;
+  transform: scaleX(0); transform-origin: left; animation: kinBar .4s calc(var(--t) + var(--i) * .1s + .35s) forwards ease-out; }
+@keyframes kinDrop { 0% { opacity: 0; transform: translateY(-130%) scale(1.5); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPop { 0% { opacity: 0; transform: scale(2.6); filter: blur(8px); } 100% { opacity: 1; transform: none; filter: none; } }
+@keyframes kinSlide { 0% { opacity: 0; transform: translateX(-90%) skewX(-14deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinRise { 0% { opacity: 0; transform: translateY(100%) rotate(8deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPulse { 0% { transform: scale(1) rotate(0); } 100% { transform: scale(1.09) rotate(-1.5deg); } }
+@keyframes kinBar { to { transform: scaleX(1); } }
+@keyframes kinDrift { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(0, -16px) scale(1.04); } }
+.lw.out { animation: kinGone .3s var(--u) forwards ease-in; }
+@keyframes kinGone { to { opacity: 0; transform: scale(.9); } }
+</style><div class="kin" data-at="176:열" data-off="-0.05" style="top:370px; font-size:80px; left:1060px; right:auto; width:7명px; text-align:left; padding:0;"><span class="w" style="--i:0; --a:kinDrop">합격자</span> <span class="w" style="--i:1; --a:kinPop">50대+</span><br><span class="w k" style="--i:2; --a:kinSlide">10명</span> <span class="w k" style="--i:3; --a:kinRise">중</span> <span class="w k" style="--i:4; --a:kinDrop">7명</span></div>
+<style>.kin { position: absolute; left: 0; right: 0; text-align: center; font-family: 'BH', sans-serif; color: #fff; line-height: 1.12; z-index: 7; padding: 0 60px;
+  text-shadow: 0 6px 0 rgba(0,0,0,.45), 0 12px 44px rgba(0,0,0,.7); animation: kinDrift 5s var(--t) both ease-in-out infinite alternate; }
+.kin .w { display: inline-block; margin: 0 .13em; opacity: 0; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1); }
+.kin .w.k { color: #ffd400; position: relative; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1), kinPulse .9s calc(var(--t) + var(--i) * .1s + .55s) infinite alternate ease-in-out; }
+.kin .w.r { color: #ff4b4b; }
+.kin .w.k::after { content: ''; position: absolute; left: -3%; right: -3%; bottom: .02em; height: .16em; background: #ff3b3b; border-radius: .08em; z-index: -1;
+  transform: scaleX(0); transform-origin: left; animation: kinBar .4s calc(var(--t) + var(--i) * .1s + .35s) forwards ease-out; }
+@keyframes kinDrop { 0% { opacity: 0; transform: translateY(-130%) scale(1.5); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPop { 0% { opacity: 0; transform: scale(2.6); filter: blur(8px); } 100% { opacity: 1; transform: none; filter: none; } }
+@keyframes kinSlide { 0% { opacity: 0; transform: translateX(-90%) skewX(-14deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinRise { 0% { opacity: 0; transform: translateY(100%) rotate(8deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPulse { 0% { transform: scale(1) rotate(0); } 100% { transform: scale(1.09) rotate(-1.5deg); } }
+@keyframes kinBar { to { transform: scaleX(1); } }
+@keyframes kinDrift { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(0, -16px) scale(1.04); } }
+.lw.out { animation: kinGone .3s var(--u) forwards ease-in; }
+@keyframes kinGone { to { opacity: 0; transform: scale(.9); } }
+</style><div class="kin" data-at="177:관리사무소장으로" data-off="-0.05" style="top:370px; font-size:80px; left:1060px; right:auto; width:관리사무소장px; text-align:left; padding:0;"><span class="w" style="--i:0; --a:kinSlide">법이</span> <span class="w" style="--i:1; --a:kinSlide">정한</span> <span class="w" style="--i:2; --a:kinSlide">자리</span><br><span class="w k" style="--i:3; --a:kinSlide">관리사무소장</span></div>
+<style>.kin { position: absolute; left: 0; right: 0; text-align: center; font-family: 'BH', sans-serif; color: #fff; line-height: 1.12; z-index: 7; padding: 0 60px;
+  text-shadow: 0 6px 0 rgba(0,0,0,.45), 0 12px 44px rgba(0,0,0,.7); animation: kinDrift 5s var(--t) both ease-in-out infinite alternate; }
+.kin .w { display: inline-block; margin: 0 .13em; opacity: 0; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1); }
+.kin .w.k { color: #ffd400; position: relative; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1), kinPulse .9s calc(var(--t) + var(--i) * .1s + .55s) infinite alternate ease-in-out; }
+.kin .w.r { color: #ff4b4b; }
+.kin .w.k::after { content: ''; position: absolute; left: -3%; right: -3%; bottom: .02em; height: .16em; background: #ff3b3b; border-radius: .08em; z-index: -1;
+  transform: scaleX(0); transform-origin: left; animation: kinBar .4s calc(var(--t) + var(--i) * .1s + .35s) forwards ease-out; }
+@keyframes kinDrop { 0% { opacity: 0; transform: translateY(-130%) scale(1.5); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPop { 0% { opacity: 0; transform: scale(2.6); filter: blur(8px); } 100% { opacity: 1; transform: none; filter: none; } }
+@keyframes kinSlide { 0% { opacity: 0; transform: translateX(-90%) skewX(-14deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinRise { 0% { opacity: 0; transform: translateY(100%) rotate(8deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPulse { 0% { transform: scale(1) rotate(0); } 100% { transform: scale(1.09) rotate(-1.5deg); } }
+@keyframes kinBar { to { transform: scaleX(1); } }
+@keyframes kinDrift { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(0, -16px) scale(1.04); } }
+.lw.out { animation: kinGone .3s var(--u) forwards ease-in; }
+@keyframes kinGone { to { opacity: 0; transform: scale(.9); } }
+</style><div class="kin" data-at="179:사천오백만" data-off="-0.05" style="top:590px; font-size:84px; left:1060px; right:auto; width:4,500만px; text-align:left; padding:0;"><span class="w" style="--i:0; --a:kinDrop">평균</span> <span class="w" style="--i:1; --a:kinPop">연봉</span> <span class="w k" style="--i:2; --a:kinSlide">4,500만</span></div>
+<div class="tag red" data-at="180:상대평가" style="left:1040px; top:780px; font-size:62px"><span class="ti"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-alert-triangle" > <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M12 9v4" /> <path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z" /> <path d="M12 16h.01" /> </svg></span>상대평가 · 민원 폭탄</div>
+<div class="qbadge" data-at="+0"><b>남는 자리</b> ① 법 ② 몸 ③ 50+</div>
+</div><div class="fx"><div class="leak"></div><div class="dust"></div><div class="vig"></div></div><div class="progress" style="--p0:0.7267; --p1:0.7616; --pd:39.08s"></div></div>
+<script src="_timing.js"></script><script src="../../../engine/web/kit.js"></script><script src="../../../brand/web/channel.js"></script>
+</body></html>

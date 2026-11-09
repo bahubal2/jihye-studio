@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="cues" content="110-112">
+<link rel="stylesheet" href="../../../engine/web/kit.css"><link rel="stylesheet" href="../../../brand/web/channel.css">
+</head><body data-bg="none" data-enter="flash">
+<div class="stage"><img class="bg vid kb" data-video="s_meeting" data-w="1920" data-h="1080" style=" --kx0:40px; --ky0:-24px; --kx1:-30px; --ky1:20px; --z0:1.2; --z1:1.07"><img class="bg kb swap" data-at="111:혼나면서" src="../assets/i_office_junior.png" style=" --kx0:0px; --ky0:36px; --kx1:0px; --ky1:-36px; --z0:1.13; --z1:1.13"><div class="shade"></div><div class="midlayer"></div><div class="cam">
+<style>.bg{--dark:.6; --blur:0px}</style>
+<i style="display:none" data-at="111:혼나면서"></i>
+<div class="tag dark" data-at="110:회의록을" style="left:1200px; top:200px; font-size:84px"><span class="ti"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-file-invoice" > <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M14 3v4a1 1 0 0 0 1 1h4" /> <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /> <path d="M9 7l1 0" /> <path d="M9 13l6 0" /> <path d="M13 17l2 0" /> </svg></span>회의록</div>
+<div class="tag dark" data-at="110:자료를" style="left:1200px; top:320px; font-size:84px"><span class="ti"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-package" > <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" /> <path d="M12 12l8 -4.5" /> <path d="M12 12l0 9" /> <path d="M12 12l-8 -4.5" /> <path d="M16 5.25l-8 4.5" /> </svg></span>자료 정리</div>
+<div class="tag dark" data-at="110:보고서" style="left:1200px; top:440px; font-size:84px"><span class="ti"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chart-bar" > <path stroke="none" d="M0 0h24v24H0z" fill="none"/> <path d="M3 13a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /> <path d="M15 9a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /> <path d="M9 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /> <path d="M4 20h14" /> </svg></span>보고서 초안</div>
+<style>.kin { position: absolute; left: 0; right: 0; text-align: center; font-family: 'BH', sans-serif; color: #fff; line-height: 1.12; z-index: 7; padding: 0 60px;
+  text-shadow: 0 6px 0 rgba(0,0,0,.45), 0 12px 44px rgba(0,0,0,.7); animation: kinDrift 5s var(--t) both ease-in-out infinite alternate; }
+.kin .w { display: inline-block; margin: 0 .13em; opacity: 0; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1); }
+.kin .w.k { color: #ffd400; position: relative; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1), kinPulse .9s calc(var(--t) + var(--i) * .1s + .55s) infinite alternate ease-in-out; }
+.kin .w.r { color: #ff4b4b; }
+.kin .w.k::after { content: ''; position: absolute; left: -3%; right: -3%; bottom: .02em; height: .16em; background: #ff3b3b; border-radius: .08em; z-index: -1;
+  transform: scaleX(0); transform-origin: left; animation: kinBar .4s calc(var(--t) + var(--i) * .1s + .35s) forwards ease-out; }
+@keyframes kinDrop { 0% { opacity: 0; transform: translateY(-130%) scale(1.5); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPop { 0% { opacity: 0; transform: scale(2.6); filter: blur(8px); } 100% { opacity: 1; transform: none; filter: none; } }
+@keyframes kinSlide { 0% { opacity: 0; transform: translateX(-90%) skewX(-14deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinRise { 0% { opacity: 0; transform: translateY(100%) rotate(8deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPulse { 0% { transform: scale(1) rotate(0); } 100% { transform: scale(1.09) rotate(-1.5deg); } }
+@keyframes kinBar { to { transform: scaleX(1); } }
+@keyframes kinDrift { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(0, -16px) scale(1.04); } }
+.lw.out { animation: kinGone .3s var(--u) forwards ease-in; }
+@keyframes kinGone { to { opacity: 0; transform: scale(.9); } }
+</style><div class="lw" data-until="112:이"><div class="kin" data-at="111:혼나면서" data-off="-0.05" style="top:260px; font-size:88px; left:120px; right:auto; width:사라진다px; text-align:left; padding:0;"><span class="w" style="--i:0; --a:kinDrop">혼나면서</span> <span class="w" style="--i:1; --a:kinPop">배운</span><br><span class="w" style="--i:2; --a:kinSlide">그</span> <span class="w k" style="--i:3; --a:kinRise">계단*이</span> <span class="w k" style="--i:4; --a:kinDrop">사라진다</span></div></div>
+<div class="rankbadge" data-at="112:이"><b>2위</b>신입 사무직</div>
+<style>.kin { position: absolute; left: 0; right: 0; text-align: center; font-family: 'BH', sans-serif; color: #fff; line-height: 1.12; z-index: 7; padding: 0 60px;
+  text-shadow: 0 6px 0 rgba(0,0,0,.45), 0 12px 44px rgba(0,0,0,.7); animation: kinDrift 5s var(--t) both ease-in-out infinite alternate; }
+.kin .w { display: inline-block; margin: 0 .13em; opacity: 0; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1); }
+.kin .w.k { color: #ffd400; position: relative; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1), kinPulse .9s calc(var(--t) + var(--i) * .1s + .55s) infinite alternate ease-in-out; }
+.kin .w.r { color: #ff4b4b; }
+.kin .w.k::after { content: ''; position: absolute; left: -3%; right: -3%; bottom: .02em; height: .16em; background: #ff3b3b; border-radius: .08em; z-index: -1;
+  transform: scaleX(0); transform-origin: left; animation: kinBar .4s calc(var(--t) + var(--i) * .1s + .35s) forwards ease-out; }
+@keyframes kinDrop { 0% { opacity: 0; transform: translateY(-130%) scale(1.5); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPop { 0% { opacity: 0; transform: scale(2.6); filter: blur(8px); } 100% { opacity: 1; transform: none; filter: none; } }
+@keyframes kinSlide { 0% { opacity: 0; transform: translateX(-90%) skewX(-14deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinRise { 0% { opacity: 0; transform: translateY(100%) rotate(8deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPulse { 0% { transform: scale(1) rotate(0); } 100% { transform: scale(1.09) rotate(-1.5deg); } }
+@keyframes kinBar { to { transform: scaleX(1); } }
+@keyframes kinDrift { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(0, -16px) scale(1.04); } }
+.lw.out { animation: kinGone .3s var(--u) forwards ease-in; }
+@keyframes kinGone { to { opacity: 0; transform: scale(.9); } }
+</style><div class="kin" data-at="112:이" data-off="-0.05" style="top:480px; font-size:104px; "><span class="w" style="--i:0; --a:kinPop">2위</span><br><span class="w k" style="--i:1; --a:kinPop">신입</span> <span class="w k" style="--i:2; --a:kinPop">사무직·초급</span> <span class="w k" style="--i:3; --a:kinPop">개발자</span></div>
+<div class="qbadge" data-at="+0"><b>단서</b> ①돈 ②손님 직접 ③인구</div>
+</div><div class="fx"><div class="leak"></div><div class="dust"></div><div class="vig"></div></div><div class="progress" style="--p0:0.4518; --p1:0.4639; --pd:13.56s"></div></div>
+<script src="_timing.js"></script><script src="../../../engine/web/kit.js"></script><script src="../../../brand/web/channel.js"></script>
+</body></html>
