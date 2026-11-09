@@ -30,6 +30,96 @@
    "id": "s_trash",
    "prompt": "",
    "src": "pixabay"
+  },
+  {
+   "id": "s_apartment",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_boxes",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_clock",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_cooking",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_delivery",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_dinner",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_documents",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_lab",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_market",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_microscope",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_money",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_phone_shop",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_rain_window",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_restaurant",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_saltpan",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_supermarket",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_tap",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_wash_veg",
+   "prompt": "",
+   "src": "pixabay"
   }
  ]
 }

@@ -39,7 +39,14 @@ def reveal(t, rise=True, gain=-5):
     HITS.append((t, 'sfx_impact.mp3', gain))
 HITS += [(T(2) + 0.1, 'sfx_tape.mp3', -14), (T(9) + 1.6, 'sfx_shutter.mp3', -16)]
 # 본문: 배경음악 대신 전환점마다 짧은 음악 (sting) — 장면 계획이 늘면 여기에 추가
-STINGS = [(T(8) - 0.2, 'music_sting_reveal.mp3', -25)]
+STINGS = [(T(8) - 0.2, 'music_sting_reveal.mp3', -25),     # 인트로: 범인은 따로
+          (T(29), 'music_sting_warm.mp3', -27),           # 2막: 전성기 (회상)
+          (T(53), 'music_sting_clue.mp3', -26),           # 3막: 공공기관이 상자를 열다
+          (T(87), 'music_sting_reveal.mp3', -26),         # 4막: 남은 조각 세 가지
+          (T(122), 'music_sting_clue.mp3', -26),          # 셋째: 이름
+          (T(148), 'music_sting_warm.mp3', -27),          # 5막: 탈 없이 끝낸 집
+          (T(186), 'music_sting_reveal.mp3', -26)]        # 결말: 다시 그 현관
+HITS += [(T(30) + 0.3, 'sfx_page.mp3', -16), (T(137) + 0.3, 'sfx_typing.mp3', -18), (T(202) + 1.0, 'sfx_shutter.mp3', -16), (T(157) + 0.3, 'sfx_stamp2.mp3', -18)]
 for t, f, db in STINGS: HITS.append((t, f, db))
 
 inputs = ['-i', MIX]; fl = []; k = 1

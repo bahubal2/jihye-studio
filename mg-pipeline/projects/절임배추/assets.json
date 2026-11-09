@@ -41,6 +41,202 @@
    "style": "paint",
    "quality": "medium",
    "prompt": "Close-up of a delivery shipping label on a styrofoam box, the date field circled in red marker, a magnifying glass over it, dim moody evening light, mysterious suspense atmosphere"
+  },
+  {
+   "id": "i_salting",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A small Korean farm workshop where whole napa cabbages are soaked in big salt water tanks, rinsed and stacked to drain, workers in aprons, warm natural daylight"
+  },
+  {
+   "id": "i_two_docs",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "Two official registration documents side by side on a desk with the same napa cabbage photo, one stamped with a green leaf icon and one stamped with a jar icon, a pen, warm natural daylight"
+  },
+  {
+   "id": "i_leaflet",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "An instruction leaflet lying on top of salted cabbage in an opened styrofoam box, a hand holding the leaflet, warm natural daylight"
+  },
+  {
+   "id": "i_kimchi_fridge",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A Korean kimchi refrigerator opened with containers of kimchi, a small grandchild reaching for a piece of kimchi, grandmother smiling, warm natural daylight"
+  },
+  {
+   "id": "i_lab_1994",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A 1990s Korean food research laboratory, researchers in white coats examining salted napa cabbage and jars of kimchi filling, warm natural daylight"
+  },
+  {
+   "id": "i_yard_kimjang",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A 1980s Korean house courtyard in late autumn, a mother salting dozens of napa cabbages in a big red rubber basin, neighbors helping, warm natural daylight"
+  },
+  {
+   "id": "i_bathtub",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "An apartment bathroom with a bathtub full of salted napa cabbages, a middle-aged woman holding her aching lower back, warm natural daylight"
+  },
+  {
+   "id": "i_preorder",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A Korean supermarket entrance with salted cabbage pre-order posters, a shopper choosing a delivery date on a smartphone calendar, warm natural daylight"
+  },
+  {
+   "id": "i_elevator_boxes",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "Many white styrofoam boxes of salted cabbage stacked in front of an apartment elevator, neighbors carrying them, warm natural daylight"
+  },
+  {
+   "id": "i_lab_test",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A consumer agency laboratory, a scientist testing salted cabbage samples with petri dishes and a microscope, warm natural daylight"
+  },
+  {
+   "id": "i_kimchi_factory",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A kimchi factory floor with workers mixing red pepper paste into cabbage, an inspector in a vest checking boxes of cabbage with a clipboard, warm natural daylight"
+  },
+  {
+   "id": "i_market_inspect",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "Two inspectors in vests at a traditional market checking origin labels on kimchi and cabbage, a vendor watching, warm natural daylight"
+  },
+  {
+   "id": "i_salt_farm",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A Korean sea salt farm with workers raking white salt in shallow evaporation ponds, wooden salt storage sheds, warm natural daylight"
+  },
+  {
+   "id": "i_salt_sacks",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A warehouse with stacked sacks of sea salt, some labeled with a foreign flag icon, a worker with a hand truck, warm natural daylight"
+  },
+  {
+   "id": "i_peak_season",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A salted cabbage workshop at night during peak season, exhausted workers, piles of cabbage, a wall calendar with late November circled, busy"
+  },
+  {
+   "id": "i_box_overnight",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A styrofoam box of salted cabbage left overnight on a warm apartment veranda, a wall clock showing the next morning, sunlight"
+  },
+  {
+   "id": "i_rinse",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "Hands rinsing salted napa cabbage in three basins of clean water in a home kitchen, warm natural daylight"
+  },
+  {
+   "id": "i_seller_buyer",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A cabbage seller holding a sealed box who can see inside it through a window, and a buyer with a blindfold on the other side of a wall, simple concept illustration"
+  },
+  {
+   "id": "i_lemon",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A buyer at a market staring at many identical sealed boxes, each with a question mark, one lemon on the counter, concept illustration, warm natural daylight"
+  },
+  {
+   "id": "i_good_box",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A styrofoam box of salted cabbage with a clear printed label showing a date, origin and salt, green check marks next to each line, warm natural daylight"
+  },
+  {
+   "id": "i_farm_direct",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A Korean farmer standing in a cabbage field talking on the phone with a customer, friendly smile, autumn, warm natural daylight"
+  },
+  {
+   "id": "i_family_salting",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A Korean family salting cabbages together at home on a big plastic sheet, grandparents and grandchildren laughing, warm natural daylight"
+  },
+  {
+   "id": "i_price_tags",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A supermarket shelf of salted cabbage boxes with different price tags from cheap to expensive, a shopper comparing, warm natural daylight"
+  },
+  {
+   "id": "i_family_dinner",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A warm Korean family dinner table in winter with fresh kimchi, grandparents and grandchildren, warm natural daylight"
+  },
+  {
+   "id": "i_hotline",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "An older Korean woman holding a phone to report a problem while looking at an opened box of salted cabbage, kitchen, warm natural daylight"
+  },
+  {
+   "id": "i_mart_small_box",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A small 5 kilogram box of salted cabbage next to a big 20 kilogram box on a supermarket counter, warm natural daylight"
+  },
+  {
+   "id": "c_grandma",
+   "kind": "cutout",
+   "style": "pup",
+   "quality": "medium",
+   "prompt": "a Korean grandmother in her late sixties in an apron and pink rubber gloves, walking"
+  },
+  {
+   "id": "c_inspector",
+   "kind": "cutout",
+   "style": "pup",
+   "quality": "medium",
+   "prompt": "a Korean food inspector in a navy vest holding a clipboard, walking"
   }
  ]
 }

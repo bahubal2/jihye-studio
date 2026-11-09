@@ -32,5 +32,6 @@ PLAN = [
     kin('택배 송장의 / *날짜*', '송장에', y=220, size=150, mode='pop'),
     stamp('날짜', '날짜입니다', x=1380, y=620, size=120),
 ]},
-{'from': '상자를 연 그 집으로', 'enter': 'fade', 'bg': None, 'items': [mgbg('teal')]},   # 본문 자리(임시)
 ]
+from plan_body import BODY
+PLAN += BODY
