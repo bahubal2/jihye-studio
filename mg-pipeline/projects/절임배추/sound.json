@@ -1,0 +1,13 @@
+{"music": {
+  "intro_mystery": {"prompt": "Tense mysterious investigative documentary underscore, low pulsing synth bass, ticking clock pulse, muted suspense strings, sparse piano notes, true-crime mystery mood, building curiosity, no vocals, no melody climax, steady tension", "sec": 46},
+  "sting_reveal": {"prompt": "Short suspense reveal sting for a documentary, low brass swell and dark synth hit, then silence, no vocals", "sec": 10},
+  "sting_clue": {"prompt": "Short mysterious clue sting, plucked pizzicato strings and soft synth shimmer, curious investigative mood, no vocals", "sec": 10},
+  "sting_warm": {"prompt": "Short warm nostalgic piano phrase, gentle and calm, home kitchen memory mood, no vocals", "sec": 10}
+ },
+ "sfx": {
+  "tape": {"text": "packing tape ripping off a styrofoam box", "sec": 1.5},
+  "shutter": {"text": "single camera shutter click", "sec": 0.6},
+  "typing": {"text": "short burst of typewriter keys", "sec": 1.2},
+  "page": {"text": "single paper page flip", "sec": 0.8},
+  "stamp2": {"text": "rubber stamp pressed on paper", "sec": 0.6}
+ }}

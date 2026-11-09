@@ -1,20 +1,46 @@
 {
-  "style": {
-    "mix": "한 영상에는 화풍 패키지 하나만 쓴다 (2026-10-29 담당자 지시: 웹툰과 클레이를 한 영상에 섞으면 일관성이 없어 보인다). 대본을 보고 패키지를 먼저 정해 담당자에게 알린 뒤 에셋을 만든다. 숫자·순위·비교는 어느 패키지든 HTML 모션 텍스트로.",
-    "webtoon": "Korean webtoon manhwa illustration, clean confident black line art, cel shading with soft gradients, expressive emotional faces, bright natural colors, cinematic composition, original characters, not any real person",
-    "clay": "Claymation miniature diorama, handmade plasticine figures and props, tilt-shift photography with shallow depth of field, warm saturated colors, playful nostalgic Korean scene, soft studio light",
-    "quality": "low (장당 $0.005, 2026-10-28 시험에서 보통 품질과 차이가 거의 없음)",
-    "text_rule": "간판 글자는 지정한 한글 문구만. 실제 브랜드 로고·상표는 그리지 않는다 (\"no real brand logos\").",
-    "samples": "projects/화풍시안/assets/w1_school.png, w2_parent.png, c1_trail.png, c2_dept.png",
-    "packages": {
-      "A_다큐": "다큐 느낌이 중요한 주제: 실사풍 생성 이미지 + 실사 이미지→영상(fal) + Pixabay·Pexels 스톡 영상 + 키네틱 모션 텍스트로 효과 극대화. 일러스트·클레이 없음.",
-      "B_웹툰": "실사로 표현하기 어려운 주제(감정, 가상 상황, 과거 재현): 웹툰풍 일러스트 위주 + 그 이미지→영상 + 모션 그래픽·모션 텍스트. 클레이·실사 스톡 없음.",
-      "C_클레이": "장소·군중·시대 분위기가 중심인 주제: 클레이 디오라마 이미지 위주 + 그 이미지→영상 + 모션 그래픽·모션 텍스트. 웹툰·실사 스톡 없음."
-    },
-    "photoreal": "Cinematic documentary photograph, natural light, realistic Korean location, 35mm film look, shallow depth of field, no text, no real brand logos, no recognizable real person",
-    "mix_rule": "B·C 패키지에서 스톡 영상이 꼭 필요하면 쓰지 않고 같은 화풍 이미지→영상으로 대신한다. 화풍이 다른 컷을 한 영상에 섞지 않는다.",
-    "stock_rule": "스톡 영상은 대본 문장의 구체적인 대상과 맞아야 한다 (2026-10-29 담당자 지적: 관광객 이야기에 경비행기 컷). ① 검색어는 대본의 대상·장소·규모를 그대로 영어로 (예: 관광객 항공편 → 'passenger jet airliner takeoff', 'airport terminal travelers'), ② 받은 뒤 미리보기 프레임(out/_stock_<id>.jpg)을 열어 그 장면의 대본 문장과 하나씩 대조한다: 종류(여객기/경비행기), 나라·지역 분위기, 계절, 시대, 인원 규모. ③ 하나라도 어긋나면 다른 후보(--pick)로 바꾸고, 맞는 것이 없으면 스톡을 쓰지 않고 같은 화풍 이미지로 대신한다. ④ 장면 계획을 짤 때 각 스톡 컷 옆에 '어느 대본 문장에 대응하는지'를 적어 두고 렌더 전에 다시 확인한다."
+ "style": "",
+ "styles": {
+  "paint": "modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious limited palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, not painterly, not retro",
+  "pup": "modern flat 2D animated explainer character, clean vector shapes with soft gradients, harmonious palette of deep teal, warm orange, mustard and cream, simple expressive face, full body side view in a walking pose, crisp clean silhouette edges, polished contemporary animation look",
+  "prop": "modern flat 2D animated explainer illustration of a single object, clean vector shapes with soft gradients, harmonious palette of deep teal, warm orange, mustard and cream, side view, no people, no characters"
+ },
+ "quality": "medium",
+ "assets": [
+  {
+   "id": "i_door_boxes",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "Three white styrofoam delivery boxes of salted napa cabbage stacked in front of an apartment front door in the early morning, dim moody evening light, mysterious suspense atmosphere"
   },
-  "quality": "medium",
-  "assets": []
+  {
+   "id": "i_wilted",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "Hands in pink rubber gloves lifting a plastic bag of soggy wilted salted napa cabbage with dark spots out of a styrofoam box, dim moody evening light, mysterious suspense atmosphere"
+  },
+  {
+   "id": "i_suspect",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A worried Korean grandmother in her kitchen staring suspiciously at a cabbage with a big question mark floating above it, dim moody evening light, mysterious suspense atmosphere"
+  },
+  {
+   "id": "i_restaurant_kimchi",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "A small Korean restaurant table with a plate of kimchi, an inspector in a vest holding a clipboard checking the origin label on the wall menu, dim moody evening light, mysterious suspense atmosphere"
+  },
+  {
+   "id": "i_invoice",
+   "kind": "background",
+   "style": "paint",
+   "quality": "medium",
+   "prompt": "Close-up of a delivery shipping label on a styrofoam box, the date field circled in red marker, a magnifying glass over it, dim moody evening light, mysterious suspense atmosphere"
+  }
+ ]
 }

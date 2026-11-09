@@ -574,12 +574,38 @@ def kin(text, at, y=330, size=110, mode='mix', until=None, sfx=None, x=None, w=9
                 if not mode_ and w[:1] in '*!' and len(w) > 1: mode_ = w[0]; w = w[1:]
                 cls = 'w' + (' k' if mode_ == '*' else ' r' if mode_ == '!' else '')
                 core = w.rstrip('?.,'); tail_ = w[len(core):]
-                if mode_ and core.endswith(mode_): w = core[:-1] + tail_; mode_ = ''   # '*같은 동작*?' 처럼 닫는 표시 뒤 문장부호
+                if mode_ and core.endswith(mode_): w = core[:-1] + tail_; mode_ = ''
+                elif mode_ and mode_ in w: w = w.replace(mode_, ''); mode_ = ''   # '*안*이' 처럼 조사가 붙은 경우: 낱말 전체 강조   # '*같은 동작*?' 처럼 닫는 표시 뒤 문장부호
                 ws.append(f'<span class="{cls}" style="--i:{i}; --a:{ms[i % len(ms)]}">{E(w)}</span>'); i += 1
             out.append(' '.join(ws))
         pos = f'left:{x}px; right:auto; width:{w}px; text-align:left; padding:0;' if x is not None else ''
         inner = f'<div class="kin" {A(sc, at, -0.05, sfx=sfx)} style="top:{y}px; font-size:{size}px; {pos}">{"<br>".join(out)}</div>'
         return KIN_CSS + _lw(sc, until, inner)
+    return f
+CLIST_CSS = """<style>
+.clist { position: absolute; z-index: 7; width: 900px; }
+.clist .row { display: flex; align-items: center; gap: .45em; font-family: 'BH', sans-serif; color: #fff; opacity: 0; text-shadow: 0 4px 0 rgba(0,0,0,.45), 0 8px 30px rgba(0,0,0,.6);
+  animation: clIn .5s var(--t) both cubic-bezier(.2,1.3,.4,1); }
+.clist .ck { width: 1.05em; height: 1.05em; flex: none; border-radius: .22em; background: rgba(15,25,45,.65); border: 4px solid rgba(255,255,255,.85); display: inline-flex; align-items: center; justify-content: center; }
+.clist .ck svg { width: .82em; height: .82em; stroke: #ffd400; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 30; stroke-dashoffset: 30; animation: ckDraw .35s calc(var(--t) + .25s) forwards ease-out; }
+.clist .tx { position: relative; }
+.clist .tx b { color: #ffd400; font-weight: inherit; } .clist .tx i { color: #ff5a5a; font-style: normal; }
+.clist .tx::after { content: ''; position: absolute; left: 0; right: 0; bottom: -.1em; height: .11em; background: #ff3b3b; border-radius: .06em; transform: scaleX(0); transform-origin: left; animation: ulDraw .45s calc(var(--t) + .45s) forwards ease-out; }
+@keyframes clIn { from { opacity: 0; transform: translateX(-70px); } to { opacity: 1; transform: none; } }
+@keyframes ckDraw { to { stroke-dashoffset: 0; } }
+@keyframes ulDraw { to { transform: scaleX(1); } }
+</style>"""
+def clist(rows, x=1030, y=300, size=72, until=None, sfx='blip'):
+    """레퍼런스 분할 카드 옆 체크리스트: 한 줄씩 밀려 들어오고 → 체크가 그려지고 → 빨간 밑줄이 그어진다.
+    rows = [(글자, 시각), ...]  *노랑* !빨강! 강조 가능. cam 'cardL'(카드 왼쪽) 과 함께 x=1060, 'cardR' 이면 x=110."""
+    import re as _re
+    def f(sc):
+        out = []
+        for i, (t, at) in enumerate(rows):
+            h = _re.sub(r'\*([^*]+)\*', r'<b>\1</b>', E(t)); h = _re.sub(r'!([^!]+)!', r'<i>\1</i>', h)
+            out.append(f'<div class="row" style="position:absolute; left:0; top:{round(i * size * 1.75)}px; white-space:nowrap" {A(sc, at, -0.05, sfx=sfx if i % 2 == 0 else "tick")}><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span><span class="tx">{h}</span></div>')
+        inner = f'<div class="clist" style="left:{x}px; top:{y}px; font-size:{size}px">{"".join(out)}</div>'
+        return CLIST_CSS + _lw(sc, until, inner)
     return f
 def cutsfx(*ats, kind='swish'):
     """배경이 바뀌는 순간마다 휙 소리 (보이지 않는 표식)."""

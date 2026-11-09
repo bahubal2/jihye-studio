@@ -1,0 +1,35 @@
+{
+ "model": "fal-ai/minimax/hailuo-02/standard/image-to-video",
+ "resolution": "512P",
+ "duration": "6",
+ "loop_sec": 15,
+ "extend": "slow",
+ "style": "",
+ "clips": [
+  {
+   "id": "s_field",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_kimchi",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_kimchi_red",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_slice",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_trash",
+   "prompt": "",
+   "src": "pixabay"
+  }
+ ]
+}
