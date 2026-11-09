@@ -573,7 +573,8 @@ def kin(text, at, y=330, size=110, mode='mix', until=None, sfx=None, x=None, w=9
             for w in line.split():
                 if not mode_ and w[:1] in '*!' and len(w) > 1: mode_ = w[0]; w = w[1:]
                 cls = 'w' + (' k' if mode_ == '*' else ' r' if mode_ == '!' else '')
-                if mode_ and w.endswith(mode_): w = w[:-1]; mode_ = ''
+                core = w.rstrip('?.,'); tail_ = w[len(core):]
+                if mode_ and core.endswith(mode_): w = core[:-1] + tail_; mode_ = ''   # '*같은 동작*?' 처럼 닫는 표시 뒤 문장부호
                 ws.append(f'<span class="{cls}" style="--i:{i}; --a:{ms[i % len(ms)]}">{E(w)}</span>'); i += 1
             out.append(' '.join(ws))
         pos = f'left:{x}px; right:auto; width:{w}px; text-align:left; padding:0;' if x is not None else ''

@@ -352,9 +352,20 @@ def lens(sc, bg_html, moves):
     out = bg_html
     for m in moves:
         kind, at = m[0], m[1]; ox, oy, z = (list(m[2:]) + [50, 50, 1.5])[:3] if len(m) > 2 else (50, 50, 1.5)
-        snd = {'crash': 'whoosh', 'shake': 'hit'}.get(kind)
+        snd = {'crash': 'whoosh', 'shake': 'hit', 'cardL': 'whoosh', 'cardR': 'whoosh'}.get(kind)
+        if kind in ('cardL', 'cardR'):   # 큰 화면이 둥근 카드로 작아지며 한쪽으로 (레퍼런스 분할 카드 기법)
+            out = f'<div class="lens {kind}" {A(sc, at, -0.05, sfx=snd)}>{out}</div>'; continue
         out = f'<div class="lens {kind}" {A(sc, at, -0.05, sfx=snd)} style="--ox:{ox}%; --oy:{oy}%; --z:{z}">{out}</div>'
+    if any(m[0] in ('cardL', 'cardR') for m in moves): out = CARD_CSS + '<div class="gridbg"></div>' + out
     return out
+CARD_CSS = """<style>
+.gridbg { position: absolute; inset: 0; background: #0f1d33; background-image: linear-gradient(rgba(255,255,255,.07) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,.07) 2px, transparent 2px); background-size: 72px 72px; }
+.lens.cardL, .lens.cardR { overflow: hidden; transform-origin: 50% 50%; }
+.lens.cardL { animation: cardL .75s var(--t) both cubic-bezier(.3,1.15,.4,1); }
+.lens.cardR { animation: cardR .75s var(--t) both cubic-bezier(.3,1.15,.4,1); }
+@keyframes cardL { from { transform: none; border-radius: 0; } to { transform: translate(-440px, 10px) scale(.5); border-radius: 56px; box-shadow: 0 40px 90px rgba(0,0,0,.6); outline: 8px solid rgba(255,255,255,.9); } }
+@keyframes cardR { from { transform: none; border-radius: 0; } to { transform: translate(440px, 10px) scale(.5); border-radius: 56px; box-shadow: 0 40px 90px rgba(0,0,0,.6); outline: 8px solid rgba(255,255,255,.9); } }
+</style>"""
 def shrink(src, at, x, y, w=640, h=360, cap=None, until=None):
     """전체 화면 사진이 at 에 (x, y, w, h) 작은 액자로 줄어든다 (보통 1/5 크기). 그 뒤 arrow·circ 로 짚는다."""
     def f(sc):
@@ -549,22 +560,26 @@ INTRO_CSS = """<style>
 @keyframes kinGone { to { opacity: 0; transform: scale(.9); } }
 </style>"""
 def intro30(): return lambda sc: INTRO_CSS
+KIN_CSS = '<style>' + INTRO_CSS.split('\n', 3)[3]   # 움직이는 글자만 (휙 전환 제외) — 본문 장면용
 KMODES = {'mix': ['kinDrop', 'kinPop', 'kinSlide', 'kinRise'], 'drop': ['kinDrop'], 'pop': ['kinPop'], 'slide': ['kinSlide'], 'rise': ['kinRise']}
-def kin(text, at, y=330, size=110, mode='mix', until=None, sfx=None):
+def kin(text, at, y=330, size=110, mode='mix', until=None, sfx=None, x=None, w=900):
     """움직이는 글자: 낱말이 0.1초 간격으로 떨어지고·튀고·밀려 들어오며, 전체는 계속 천천히 떠다닌다.
     *낱말* = 노랑 강조(밑줄 + 맥박), !낱말! = 빨강, '/' = 줄바꿈. 사용 장면에 intro30() 을 함께 넣는다."""
     def f(sc):
         ms = KMODES[mode]; out = []; i = 0
         for line in text.split('/'):
             ws = []
+            mode_ = ''
             for w in line.split():
-                cls = 'w'
-                if w.startswith('*') and w.endswith('*'): cls += ' k'; w = w[1:-1]
-                elif w.startswith('!') and w.endswith('!'): cls += ' r'; w = w[1:-1]
+                if not mode_ and w[:1] in '*!' and len(w) > 1: mode_ = w[0]; w = w[1:]
+                cls = 'w' + (' k' if mode_ == '*' else ' r' if mode_ == '!' else '')
+                core = w.rstrip('?.,'); tail_ = w[len(core):]
+                if mode_ and core.endswith(mode_): w = core[:-1] + tail_; mode_ = ''   # '*같은 동작*?' 처럼 닫는 표시 뒤 문장부호
                 ws.append(f'<span class="{cls}" style="--i:{i}; --a:{ms[i % len(ms)]}">{E(w)}</span>'); i += 1
             out.append(' '.join(ws))
-        inner = f'<div class="kin" {A(sc, at, -0.05, sfx=sfx)} style="top:{y}px; font-size:{size}px">{"<br>".join(out)}</div>'
-        return _lw(sc, until, inner)
+        pos = f'left:{x}px; right:auto; width:{w}px; text-align:left; padding:0;' if x is not None else ''
+        inner = f'<div class="kin" {A(sc, at, -0.05, sfx=sfx)} style="top:{y}px; font-size:{size}px; {pos}">{"<br>".join(out)}</div>'
+        return KIN_CSS + _lw(sc, until, inner)
     return f
 def cutsfx(*ats, kind='swish'):
     """배경이 바뀌는 순간마다 휙 소리 (보이지 않는 표식)."""

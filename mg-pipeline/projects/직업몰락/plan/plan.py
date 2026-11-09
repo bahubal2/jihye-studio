@@ -57,7 +57,7 @@ PLAN = [
 ]},
 {'from': '그해 칠월 일일', 'enter': 'zoom', 'bg': [('v:s_highway', None)], 'cam': [('cardL', '+0.3')], 'items': [
     CLEAR,
-    kin('2019. 7. 1', '+0.4', x=1060, y=190, size=80, mode='drop'),
+    kin('2019.7.1', '+0.4', x=1060, y=190, size=80, mode='drop'),
     kin('요금수납원 *6,500명*', '육천오백여', x=1060, y=310, size=84, mode='slide'),
     kin('자회사 거부 / !1,500명! 일자리 잃음', '천오백', x=1060, y=450, size=84, sfx='hit'),
     kin('지붕 농성 *97일*', '구십칠', x=1060, y=700, size=96, mode='pop'),
@@ -168,7 +168,7 @@ PLAN = [
 {'from': '여기서 첫 번째 자가진단', 'enter': 'flash', 'bg': None, 'items': [
     mgbg('dusk'),
     kin('자가진단 *①*', '+0.1', y=150, size=100, mode='drop', sfx='whoosh'),
-    kin('내 일은 대부분 / *모니터 앞* · *같은 동작*?', '지금 내 일은', y=340, size=100),
+    kin('내 일은 대부분 / *모니터 앞* · *같은 동작?*', '지금 내 일은', y=340, size=100),
     tag('채점은 마지막에', '채점하겠습니다', None, 720, icon='scan', tone='ghost', size=52),
 ]},
 # ================= 3위 초등교사 =================
@@ -264,12 +264,12 @@ PLAN = [
 {'from': '여기서 두 번째 자가진단', 'enter': 'flash', 'bg': None, 'items': [
     mgbg('dusk'),
     kin('자가진단 *②*', '+0.1', y=150, size=100, mode='drop', sfx='whoosh'),
-    kin('내가 그만둬도 / 서류상 *아무 문제 없다*?', '내가 오늘', y=340, size=100),
+    kin('내가 그만둬도 / 서류상 *아무 문제 없다?*', '내가 오늘', y=340, size=100),
     tag('= 법에 내 이름이 걸린 자리가 아니다', '내 이름이', None, 720, tone='ghost', size=50),
 ]},
 {'from': '그럼 끝까지 남는 자리는', 'enter': 'zoom', 'bg': None, 'items': [
     mgbg('cream'),
-    kin('끝까지 *남는 자리*?', '+0.1', y=140, size=116, mode='drop', sfx='whoosh'),
+    kin('끝까지 *남는 자리?*', '+0.1', y=140, size=116, mode='drop', sfx='whoosh'),
     *stack([('① 법이 사람 이름을 요구', '법이 사람', 'scale', 'green'), ('② 몸이 그 자리에 있어야', '몸이 그 자리에', 'hand-stop', 'green'), ('③ 쉰 넘어서도 뽑아 준다', '쉰 넘어서도', 'user', 'green')], x=420, y=340, gap=150, size=66),
     qbadge('<b>남는 자리</b> ① 법 ② 몸 ③ 50+', '세 가지', pop=True),
 ]},
