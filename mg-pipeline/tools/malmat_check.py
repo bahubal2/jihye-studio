@@ -29,6 +29,20 @@ def main():
     out = [w for w, i in rough if not inq(i)]
     print(f'거친 말 {len(rough)}회 (대사 밖 {len(out)}회' + (f': {out}' if out else '') + ') · 기준 대사 안 1~2회')
     bad = [w for w in BANNED if w in t]; sus = [w for w in SUSPECT if w in t]
+    # 2026-11-10 담당자: 너무 심하면 오히려 퀄리티가 낮아 보인다 → 상한·반복·자리 검사 (스스로 검열)
+    per = total / max(mins, .1)
+    if per > 4: print(f'  [과함] 1분당 {per:.1f}개 > 4 → 덜어 낸다')
+    from collections import Counter
+    rep = [f'{w} {n}번' for w, n in Counter(sum(found.values(), [])).items() if n > 2 and len(w) > 1]
+    if rep: print('  [반복] ' + ', '.join(rep) + ' → 같은 표현은 영상당 2번까지')
+    strong = found['센 입말']; 
+    if len(strong) > mins * 1.0: print(f'  [과함] 센 입말 {len(strong)}개 > 1분당 1개 → 줄인다')
+    SAD = ['숨졌', '사망', '목숨을 잃', '유가족', '참사', '희생']
+    near = [p[:30] for p in paras if any(w in p for w in SAD) and any(x in p for x in STRONG + ROUGH)]
+    if near: print('  [자리] 사망·사고 문단에 센 말: ' + ' / '.join(near) + ' → 이 문단은 담담하게')
+    sents = re.split(r'(?<=[.?!])\s+', t); lexall = STRONG + IDIOM + ROUGH
+    run = [i for i in range(len(sents) - 1) if any(w in sents[i] for w in lexall) and any(w in sents[i + 1] for w in lexall)]
+    if run: print(f'  [몰림] 센 말·관용구가 연달아 나온 문장 {len(run)}곳 → 한 문장 건너 하나')
     print('금지어: ' + (', '.join(bad) if bad else '없음'))
     print('지어낸 사실 의심: ' + (', '.join(sus) + ' → 출처 확인, 없으면 "떠올려 보시죠"로 가상임을 밝히거나 삭제' if sus else '없음'))
 if __name__ == '__main__': main()
