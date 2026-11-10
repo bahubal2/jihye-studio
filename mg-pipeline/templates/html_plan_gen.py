@@ -65,6 +65,8 @@ class Scene:
         n = cue_at(j)
         if n > self.c1: raise SystemExit(f'"{spec}" 는 이 장면({self.c0}~{self.c1}번, "{self.s["from"]}") 밖의 {n}번 자막입니다.')
         if not any(w in x for x in CUES[n - 1].split(' ')): raise SystemExit(f'{n}번 자막에 "{w}" 가 없습니다: {CUES[n - 1]}')
+        _cs = STARTS[n - 1]; _first = JOINED.find(w, _cs)
+        if _first != -1 and _first < j: print(f'  [주의] "{spec}": {n}번 자막 앞쪽에 "{w}" 가 먼저 있어 엉뚱한 시각에 뜹니다 → 뒤 낱말로 잡으세요')
         return f'{n}:{w}'
 
 def E(t): return html.escape(str(t))
@@ -127,6 +129,7 @@ def big(text, at, y=330, size=220, color=None, num=None, fmt='comma', suffix='',
     return f
 def glow(text, at, y=540, size=100, off=-0.15):
     return lambda sc: f'<div class="glowbox slam" {A(sc, at, off, sfx="hit")} style="top:{y}px; font-size:{size}px">{E(text)}</div>'
+CARD_FIX = "<style>@keyframes cardRise { from { opacity: 0; transform: translateY(34px); filter: blur(10px); } to { opacity: 1; transform: none; filter: blur(0); } } .card.rise { animation-name: cardRise; }</style>"   # channel.css 불씨 rise 와 이름 충돌 회피 (2026-11-10)
 def card(k, v, at, x, y, w=560, h=300, vat=None, hot=False, num=None, suffix='', vsize=None):
     def f(sc):
         if num is not None: val = f'<span class="num" data-to="{num}" data-fmt="comma" {A(sc, vat or at)} data-dur="1.1">0</span>{E(suffix)}'
@@ -134,7 +137,7 @@ def card(k, v, at, x, y, w=560, h=300, vat=None, hot=False, num=None, suffix='',
         vcls = 'v slam' if vat else 'v'
         vst = ' style="' + ('color:var(--hot);' if hot else '') + (f'font-size:{vsize}px;' if vsize else '') + '"'
         va = f' {A(sc, vat)}' if vat and num is None else ''
-        return (f'<div class="card rise" {A(sc, at)} style="left:{x}px; top:{y}px; width:{w}px; height:{h}px">'
+        return (CARD_FIX + f'<div class="card rise" {A(sc, at)} style="left:{x}px; top:{y}px; width:{w}px; height:{h}px">'
                 f'<div class="k">{E(k)}</div><div class="{vcls}"{va}{vst}>{val}</div></div>')
     return f
 def ranks(at, now=None, nowat=None, opened=None, top=300, n=5, sfx='swish'):
