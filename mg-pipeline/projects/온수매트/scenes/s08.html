@@ -2,7 +2,7 @@
 <html lang="ko"><head><meta charset="utf-8"><meta name="cues" content="11-11">
 <link rel="stylesheet" href="../../../engine/web/kit.css"><link rel="stylesheet" href="../../../brand/web/channel.css">
 </head><body data-bg="none" data-enter="flash">
-<div class="stage"><div class="plain"></div><div class="shade"></div><div class="midlayer"></div><div class="cam">
+<div class="stage"><div class="lens pull" data-at="+0.0" data-off="-0.05" style="--ox:50%; --oy:55%; --z:1.12"><img class="bg vid kb" data-video="s_campfire_snow" data-w="1920" data-h="1080" style=" --kx0:-30px; --ky0:-30px; --kx1:30px; --ky1:30px; --z0:1.18; --z1:1.1"></div><div class="shade"></div><div class="midlayer"></div><div class="cam">
 <style>
 .bg.kb.swap, .bg.swap { animation: kb var(--len) 0s both linear, whipIn .34s var(--t) both cubic-bezier(.2,.9,.3,1); }
 @keyframes whipIn { 0% { opacity: 0; transform: translateX(10%) scale(1.2); filter: blur(16px) brightness(1.6); } 100% { opacity: 1; transform: none; filter: none; } }
@@ -23,7 +23,7 @@
 .lw.out { animation: kinGone .3s var(--u) forwards ease-in; }
 @keyframes kinGone { to { opacity: 0; transform: scale(.9); } }
 </style>
-<div class="mgbg dusk"></div><style>.bg{opacity:0 !important}</style>
+<style>.bg{--dark:.62; --blur:0px}</style>
 <style>.kin { position: absolute; left: 0; right: 0; text-align: center; font-family: 'BH', sans-serif; color: #fff; line-height: 1.12; z-index: 7; padding: 0 60px;
   text-shadow: 0 6px 0 rgba(0,0,0,.45), 0 12px 44px rgba(0,0,0,.7); animation: kinDrift 5s var(--t) both ease-in-out infinite alternate; }
 .kin .w { display: inline-block; margin: 0 .13em; opacity: 0; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1); }
@@ -40,7 +40,7 @@
 @keyframes kinDrift { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(0, -16px) scale(1.04); } }
 .lw.out { animation: kinGone .3s var(--u) forwards ease-in; }
 @keyframes kinGone { to { opacity: 0; transform: scale(.9); } }
-</style><div class="kin" data-at="+0.0" data-off="-0.05" style="top:300px; font-size:220px; "><span class="w k" style="--i:0; --a:kinPop">5위부터</span></div>
-</div><div class="fx"><div class="leak"></div><div class="dust"></div><div class="vig"></div></div><div class="progress" style="--p0:0.0380; --p1:0.0403; --pd:2.26s"></div></div>
+</style><div class="kin" data-at="+0.1" data-off="-0.05" style="top:260px; font-size:140px; "><span class="w" style="--i:0; --a:kinPop">먼저</span><br><span class="w" style="--i:1; --a:kinPop">그</span> <span class="w" style="--i:2; --a:kinPop">남자의</span> <span class="w k" style="--i:3; --a:kinPop">등부터</span></div>
+</div><div class="fx"><div class="leak"></div><div class="dust"></div><div class="vig"></div></div><div class="progress" style="--p0:0.0352; --p1:0.0395; --pd:4.22s"></div></div>
 <script src="_timing.js"></script><script src="../../../engine/web/kit.js"></script><script src="../../../brand/web/channel.js"></script>
 </body></html>
