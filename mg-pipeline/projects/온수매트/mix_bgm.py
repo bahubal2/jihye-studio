@@ -30,13 +30,23 @@ subprocess.run([os.path.join(KIT, '.venv', 'bin', 'python'), os.path.join(KIT, '
 
 # 2) 배경음악 구간 (시작, 끝, 파일, 볼륨 dB, 페이드인, 페이드아웃) — 내레이션 -14 LUFS 기준, 음악 원본 -16 dB 안팎
 BGM = [
-    (0.0, T(12) + 0.5, 'music_intro_tense.mp3', -30, 0.0, 2.0),     # 인트로만: 긴박
+    (0.0, T(12) + 0.5, 'music_intro_tense.mp3', -30, 0.0, 2.0),     # 인트로만: 긴박 (-30dB)
 ]
 HITS = []
-HITS += [(T(1) + 0.1, 'sfx_wind.mp3', -18)]                          # 눈보라 바람
-STINGS = [(T(11) - 0.1, 'music_sting_reveal.mp3', -25)]             # 5위부터
-BODY_STINGS = []                                                     # 본문 작성 후 채운다
-for t, f, db in STINGS + BODY_STINGS: HITS.append((t, f, db))
+def reveal(t, gain=-6):
+    HITS.append((max(0, t - 2.9), 'sfx_riser.mp3', -10)); HITS.append((t, 'sfx_impact.mp3', gain))
+HITS += [(T(1) + 0.1, 'sfx_wind.mp3', -18), (T(250) + 0.2, 'sfx_wind.mp3', -20)]   # 눈보라 바람 (처음·끝 캠핑장)
+STINGS = [(T(11) - 0.1, 'music_sting_reveal.mp3', -25),   # 인트로 끝 → 1막
+          (T(46), 'music_sting_clue.mp3', -27),            # 2막: 어떻게 건너갔나
+          (T(76), 'music_sting_clue.mp3', -27),            # 3막: 왜 통했나
+          (T(101), 'music_sting_reveal.mp3', -26),         # 4막: 남은 이유 셋
+          (T(140), 'music_sting_clue.mp3', -27),           # 둘째 가격표
+          (T(181), 'music_sting_hope.mp3', -27),           # 두 단서 회수
+          (T(200), 'music_sting_clue.mp3', -27),           # 5막: 같은 기술 다른 길
+          (T(229), 'music_sting_reveal.mp3', -26),         # 결말: 다시 처음 질문
+          (T(250), 'music_sting_hope.mp3', -27)]           # 다시 그 캠핑장
+reveal(T(163))                                             # 답은 그 지하실에
+for t, f, db in STINGS: HITS.append((t, f, db))
 
 inputs = ['-i', MIX]; fl = []; k = 1
 for a, b, f, db, fi, fo in BGM:

@@ -20,6 +20,61 @@
    "id": "s_winter_tent",
    "prompt": "",
    "src": "pixabay"
+  },
+  {
+   "id": "s_kettle",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_warehouse",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_port",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_suburb_snow",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_city_night",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_money_count",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_frost_window",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_mountain_snow",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_snow_walk",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_factory",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_hotspring",
+   "prompt": "",
+   "src": "pixabay"
   }
  ]
 }
