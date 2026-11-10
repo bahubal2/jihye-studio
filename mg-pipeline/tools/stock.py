@@ -15,21 +15,36 @@ def search(key, q, n=20):
     u = 'https://pixabay.com/api/videos/?' + urllib.parse.urlencode({'key': key, 'q': q, 'per_page': n, 'safesearch': 'true', 'video_type': 'film'})
     return json.load(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=30)).get('hits', [])
 
+def used_pages(proj, me):
+    """채널의 모든 프로젝트 captures/_credits.json 에 적힌 Pixabay 페이지 = 이미 쓴 클립 (지금 받는 id 자리는 제외)."""
+    import glob
+    out = set()
+    for f in glob.glob(os.path.join(os.path.dirname(proj), '*', 'captures', '_credits.json')):
+        try: cr = json.load(open(f, encoding='utf-8'))
+        except Exception: continue
+        for k, v in cr.items():
+            if os.path.abspath(f).startswith(os.path.abspath(proj)) and k == me: continue
+            if isinstance(v, dict) and v.get('page'): out.add(v['page'])
+    return out
+
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('project'); ap.add_argument('id'); ap.add_argument('query')
     ap.add_argument('--pick', type=int, default=0); ap.add_argument('--min', type=float, default=8)
+    ap.add_argument('--reuse', action='store_true', help='다른 영상·다른 id 에서 이미 쓴 클립도 허용 (기본: 건너뜀)')
     a = ap.parse_args(); mgp.load_env(); proj = mgp.use(a.project)
     from mg import ffmpeg_exe
     key = os.environ.get('PIXABAY_API_KEY')
     if not key: raise SystemExit('.env 에 PIXABAY_API_KEY 가 없습니다.')
-    ok = []
-    for h in search(key, a.query):
+    used = used_pages(proj, a.id) if not a.reuse else set()   # 2026-11-10 담당자: 예전 영상에 쓴 스톡이 자꾸 나온다 → 채널 전체에서 한 번만
+    ok = []; skipped = 0
+    for h in search(key, a.query, 40):
+        if h['pageURL'] in used: skipped += 1; continue
         v = h['videos'].get('large') if h['videos'].get('large', {}).get('width', 0) >= 1920 else None
         v = v if v and v['width'] <= 2560 else h['videos'].get('medium')
         if not v or not v.get('url') or v['width'] < 1280 or h['duration'] < a.min: continue
         if not 1.6 <= v['width'] / max(1, v['height']) <= 1.9: continue
         ok.append((h, v))
-    if not ok: raise SystemExit(f'조건에 맞는 영상이 없습니다: "{a.query}"')
+    if not ok: raise SystemExit(f'조건에 맞는 새 영상이 없습니다: "{a.query}" (이미 쓴 클립 {skipped}개 건너뜀 → 검색어를 바꾸세요)')
     h, v = ok[min(a.pick, len(ok) - 1)]
     raw = os.path.join(proj, 'captures', '_raw', a.id + '.mp4'); os.makedirs(os.path.dirname(raw), exist_ok=True)
     open(raw, 'wb').write(urllib.request.urlopen(urllib.request.Request(v['url'], headers=UA), timeout=300).read())

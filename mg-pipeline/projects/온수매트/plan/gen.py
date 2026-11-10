@@ -626,7 +626,7 @@ def asset_check(plan):
     warn = []
     for b, ts in sorted(uses.items()):
         ts.sort(); near = [f'{int(y // 60)}:{int(y % 60):02d}' for x, y in zip(ts, ts[1:]) if y - x < 60]
-        if len(ts) > 2: warn.append(f'{b} {len(ts)}번')
+        if len(ts) > 2 or (b.startswith('s_') and len(ts) > 1): warn.append(f'{b} {len(ts)}번' + (' (스톡 영상은 한 영상에 1번)' if b.startswith('s_') else ''))   # 2026-11-10 담당자: 스톡이 자주 나온다
         if near: warn.append(f'{b} 1분 안 재사용({", ".join(near)})')
     print('재탕 검사:', '문제 없음' if not warn else f'{len(warn)}건 → ' + ' / '.join(warn))
     return warn
