@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="cues" content="197-201">
+<link rel="stylesheet" href="../../../engine/web/kit.css"><link rel="stylesheet" href="../../../brand/web/channel.css">
+</head><body data-bg="none" data-enter="flash">
+<div class="stage"><div class="plain"></div><div class="shade"></div><div class="midlayer"></div><div class="cam">
+<div class="mgbg teal"></div><style>.bg{opacity:0 !important}</style>
+<style>
+.clist { position: absolute; z-index: 7; width: 900px; }
+.clist .row { display: flex; align-items: center; gap: .45em; font-family: 'BH', sans-serif; color: #fff; opacity: 0; text-shadow: 0 4px 0 rgba(0,0,0,.45), 0 8px 30px rgba(0,0,0,.6);
+  animation: clIn .5s var(--t) both cubic-bezier(.2,1.3,.4,1); }
+.clist .ck { width: 1.05em; height: 1.05em; flex: none; border-radius: .22em; background: rgba(15,25,45,.65); border: 4px solid rgba(255,255,255,.85); display: inline-flex; align-items: center; justify-content: center; }
+.clist .ck svg { width: .82em; height: .82em; stroke: #ffd400; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 30; stroke-dashoffset: 30; animation: ckDraw .35s calc(var(--t) + .25s) forwards ease-out; }
+.clist .tx { position: relative; }
+.clist .tx b { color: #ffd400; font-weight: inherit; } .clist .tx i { color: #ff5a5a; font-style: normal; }
+.clist .tx::after { content: ''; position: absolute; left: 0; right: 0; bottom: -.1em; height: .11em; background: #ff3b3b; border-radius: .06em; transform: scaleX(0); transform-origin: left; animation: ulDraw .45s calc(var(--t) + .45s) forwards ease-out; }
+@keyframes clIn { from { opacity: 0; transform: translateX(-70px); } to { opacity: 1; transform: none; } }
+@keyframes ckDraw { to { stroke-dashoffset: 0; } }
+@keyframes ulDraw { to { transform: scaleX(1); } }
+</style><div class="lw" data-until="200:작년"><div class="clist" style="left:420px; top:160px; font-size:72px"><div class="row" style="position:absolute; left:0; top:0px; white-space:nowrap" data-at="198:이만" data-off="-0.05"><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span><span class="tx">2023년 <b>2만 6천여 명</b></span></div><div class="row" style="position:absolute; left:0; top:126px; white-space:nowrap" data-at="198:이듬해" data-off="-0.05"><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span><span class="tx">2024년 <b>2만 2천여 명</b></span></div><div class="row" style="position:absolute; left:0; top:252px; white-space:nowrap" data-at="198:작년엔" data-off="-0.05"><span class="ck"><svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg></span><span class="tx">2025년 <i>2만 2백여 명</i></span></div></div></div>
+<style>.kin { position: absolute; left: 0; right: 0; text-align: center; font-family: 'BH', sans-serif; color: #fff; line-height: 1.12; z-index: 7; padding: 0 60px;
+  text-shadow: 0 6px 0 rgba(0,0,0,.45), 0 12px 44px rgba(0,0,0,.7); animation: kinDrift 5s var(--t) both ease-in-out infinite alternate; }
+.kin .w { display: inline-block; margin: 0 .13em; opacity: 0; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1); }
+.kin .w.k { color: #ffd400; position: relative; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1), kinPulse .9s calc(var(--t) + var(--i) * .1s + .55s) infinite alternate ease-in-out; }
+.kin .w.r { color: #ff4b4b; }
+.kin .w.k::after { content: ''; position: absolute; left: -3%; right: -3%; bottom: .02em; height: .16em; background: #ff3b3b; border-radius: .08em; z-index: -1;
+  transform: scaleX(0); transform-origin: left; animation: kinBar .4s calc(var(--t) + var(--i) * .1s + .35s) forwards ease-out; }
+@keyframes kinDrop { 0% { opacity: 0; transform: translateY(-130%) scale(1.5); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPop { 0% { opacity: 0; transform: scale(2.6); filter: blur(8px); } 100% { opacity: 1; transform: none; filter: none; } }
+@keyframes kinSlide { 0% { opacity: 0; transform: translateX(-90%) skewX(-14deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinRise { 0% { opacity: 0; transform: translateY(100%) rotate(8deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPulse { 0% { transform: scale(1) rotate(0); } 100% { transform: scale(1.09) rotate(-1.5deg); } }
+@keyframes kinBar { to { transform: scaleX(1); } }
+@keyframes kinDrift { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(0, -16px) scale(1.04); } }
+.lw.out { animation: kinGone .3s var(--u) forwards ease-in; }
+@keyframes kinGone { to { opacity: 0; transform: scale(.9); } }
+</style><div class="kin" data-at="200:작년" data-off="-0.05" style="top:220px; font-size:140px; "><span class="w" style="--i:0; --a:kinPop">÷</span> <span class="w" style="--i:1; --a:kinPop">365</span> <span class="w" style="--i:2; --a:kinPop">=</span> <span class="w" style="--i:3; --a:kinPop">하루</span> <span class="w r" style="--i:4; --a:kinPop">55명</span></div>
+<style>.kin { position: absolute; left: 0; right: 0; text-align: center; font-family: 'BH', sans-serif; color: #fff; line-height: 1.12; z-index: 7; padding: 0 60px;
+  text-shadow: 0 6px 0 rgba(0,0,0,.45), 0 12px 44px rgba(0,0,0,.7); animation: kinDrift 5s var(--t) both ease-in-out infinite alternate; }
+.kin .w { display: inline-block; margin: 0 .13em; opacity: 0; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1); }
+.kin .w.k { color: #ffd400; position: relative; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1), kinPulse .9s calc(var(--t) + var(--i) * .1s + .55s) infinite alternate ease-in-out; }
+.kin .w.r { color: #ff4b4b; }
+.kin .w.k::after { content: ''; position: absolute; left: -3%; right: -3%; bottom: .02em; height: .16em; background: #ff3b3b; border-radius: .08em; z-index: -1;
+  transform: scaleX(0); transform-origin: left; animation: kinBar .4s calc(var(--t) + var(--i) * .1s + .35s) forwards ease-out; }
+@keyframes kinDrop { 0% { opacity: 0; transform: translateY(-130%) scale(1.5); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPop { 0% { opacity: 0; transform: scale(2.6); filter: blur(8px); } 100% { opacity: 1; transform: none; filter: none; } }
+@keyframes kinSlide { 0% { opacity: 0; transform: translateX(-90%) skewX(-14deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinRise { 0% { opacity: 0; transform: translateY(100%) rotate(8deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPulse { 0% { transform: scale(1) rotate(0); } 100% { transform: scale(1.09) rotate(-1.5deg); } }
+@keyframes kinBar { to { transform: scaleX(1); } }
+@keyframes kinDrift { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(0, -16px) scale(1.04); } }
+.lw.out { animation: kinGone .3s var(--u) forwards ease-in; }
+@keyframes kinGone { to { opacity: 0; transform: scale(.9); } }
+</style><div class="kin" data-at="201:열" data-off="-0.05" style="top:560px; font-size:90px; "><span class="w" style="--i:0; --a:kinDrop">10자리</span> <span class="w" style="--i:1; --a:kinPop">중</span> <span class="w k" style="--i:2; --a:kinSlide">9자리가</span> <span class="w k" style="--i:3; --a:kinRise">빈다</span></div>
+</div><div class="fx"><div class="leak"></div><div class="dust"></div><div class="vig"></div></div><div class="progress" style="--p0:0.7063; --p1:0.7257; --pd:20.73s"></div></div>
+<script src="_timing.js"></script><script src="../../../engine/web/kit.js"></script><script src="../../../brand/web/channel.js"></script>
+</body></html>

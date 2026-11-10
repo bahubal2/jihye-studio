@@ -38,7 +38,15 @@ def reveal(t, rise=True, gain=-5):
     if rise: HITS.append((max(0, t - 2.9), 'sfx_riser.mp3', -9))
     HITS.append((t, 'sfx_impact.mp3', gain))
 HITS += [(T(1) + 0.2, 'sfx_bus.mp3', -16), (T(3) + 0.3, 'sfx_cash.mp3', -16)]
-STINGS = [(T(9) - 0.1, 'music_sting_reveal.mp3', -25)]   # 7위부터
+STINGS = [(T(9) - 0.1, 'music_sting_reveal.mp3', -25),   # 7위부터
+          (T(33), 'music_sting_clue.mp3', -27),           # 6위 진입
+          (T(60), 'music_sting_hope.mp3', -28),           # 5위 상무룡 마을 이야기
+          (T(86), 'music_sting_reveal.mp3', -26),         # 4위: 가장 강했던 곳
+          (T(111), 'music_sting_clue.mp3', -27),          # 단서 정리
+          (T(148), 'music_sting_reveal.mp3', -26),        # 2위 하동
+          (T(190), 'music_sting_reveal.mp3', -25),        # 1위 백암산
+          (T(256), 'music_sting_hope.mp3', -27)]          # 희망
+HITS += [(T(15) + 0.3, 'sfx_cable.mp3', -18), (T(190) + 0.3, 'sfx_cable.mp3', -18), (T(263) + 0.2, 'sfx_bus.mp3', -18), (T(197) + 0.3, 'sfx_wind.mp3', -20)]
 for t, f, db in STINGS: HITS.append((t, f, db))
 
 inputs = ['-i', MIX]; fl = []; k = 1

@@ -33,5 +33,6 @@ PLAN = [
     kin('그 셔틀버스는 / *1위*에서 다시', '그 셔틀버스는', y=220, size=110, until='칠 위부터'),
     kin('*7위*부터', '칠 위부터', y=250, size=180, mode='pop', sfx='whoosh'),
 ]},
-{'from': '이천십이 년 가을, 영남알프스', 'enter': 'fade', 'bg': None, 'items': [mgbg('teal')]},   # 본문 자리(임시)
 ]
+from plan_body import BODY
+PLAN += BODY
