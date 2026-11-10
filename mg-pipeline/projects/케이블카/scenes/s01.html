@@ -2,7 +2,7 @@
 <html lang="ko"><head><meta charset="utf-8"><meta name="cues" content="1-2">
 <link rel="stylesheet" href="../../../engine/web/kit.css"><link rel="stylesheet" href="../../../brand/web/channel.css">
 </head><body data-bg="none" data-enter="flash">
-<div class="stage"><div class="lens push" data-at="+0.0" data-off="-0.05" style="--ox:50%; --oy:55%; --z:1.18"><img class="bg vid kb" data-video="s_bus_village" data-w="1920" data-h="1080" style=" --kx0:-60px; --ky0:10px; --kx1:50px; --ky1:-10px; --z0:1.14; --z1:1.14"><img class="bg vid kb swap" data-at="2:오십분을" data-video="s_lake_bridge" data-w="1920" data-h="1080" style=" --kx0:40px; --ky0:-24px; --kx1:-30px; --ky1:20px; --z0:1.2; --z1:1.07"><img class="bg vid kb swap" data-at="2:검문을" data-video="s_korea_mtn" data-w="1920" data-h="1080" style=" --kx0:0px; --ky0:36px; --kx1:0px; --ky1:-36px; --z0:1.13; --z1:1.13"></div><div class="shade"></div><div class="midlayer"></div><div class="cam">
+<div class="stage"><div class="lens push" data-at="+0.0" data-off="-0.05" style="--ox:50%; --oy:55%; --z:1.04"><img class="bg kb" src="../assets/g_hwacheon_town2.png" style=" --kx0:-60px; --ky0:10px; --kx1:50px; --ky1:-10px; --z0:1.14; --z1:1.14"><img class="bg kb swap" data-at="2:오십분을" src="../assets/g_mountain_road.png" style=" --kx0:40px; --ky0:-24px; --kx1:-30px; --ky1:20px; --z0:1.2; --z1:1.07"><img class="bg kb swap" data-at="2:검문을" src="../assets/g_checkpoint.png" style=" --kx0:0px; --ky0:36px; --kx1:0px; --ky1:-36px; --z0:1.13; --z1:1.13"></div><div class="shade"></div><div class="midlayer"></div><div class="cam">
 <style>
 .bg.kb.swap, .bg.swap { animation: kb var(--len) 0s both linear, whipIn .34s var(--t) both cubic-bezier(.2,.9,.3,1); }
 @keyframes whipIn { 0% { opacity: 0; transform: translateX(10%) scale(1.2); filter: blur(16px) brightness(1.6); } 100% { opacity: 1; transform: none; filter: none; } }
@@ -23,8 +23,9 @@
 .lw.out { animation: kinGone .3s var(--u) forwards ease-in; }
 @keyframes kinGone { to { opacity: 0; transform: scale(.9); } }
 </style>
-<style>.bg{--dark:.55; --blur:0px}</style>
+<style>.bg{--dark:.75; --blur:0px}</style>
 <i style="display:none" data-at="2:오십분을"></i><i style="display:none" data-at="2:검문을"></i>
+<div class="lw" data-until="2:오십분을"><div class="pup m-walk" data-at="+0.0" data-off="-0.05" style="left:140px; top:650px; width:540px; --dx:1750px; --dur:4.0s; --st:0.28s; --n:14; --tl:0.8deg"><div class="pin"><img src="../assets/c_shuttle.png"></div></div></div>
 <style>.kin { position: absolute; left: 0; right: 0; text-align: center; font-family: 'BH', sans-serif; color: #fff; line-height: 1.12; z-index: 7; padding: 0 60px;
   text-shadow: 0 6px 0 rgba(0,0,0,.45), 0 12px 44px rgba(0,0,0,.7); animation: kinDrift 5s var(--t) both ease-in-out infinite alternate; }
 .kin .w { display: inline-block; margin: 0 .13em; opacity: 0; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1); }
