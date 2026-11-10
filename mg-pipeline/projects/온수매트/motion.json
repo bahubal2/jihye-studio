@@ -1,0 +1,25 @@
+{
+ "model": "fal-ai/minimax/hailuo-02/standard/image-to-video",
+ "resolution": "512P",
+ "duration": "6",
+ "loop_sec": 15,
+ "extend": "slow",
+ "style": "",
+ "clips": [
+  {
+   "id": "s_snow_camp_night",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_campfire_snow",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_winter_tent",
+   "prompt": "",
+   "src": "pixabay"
+  }
+ ]
+}
