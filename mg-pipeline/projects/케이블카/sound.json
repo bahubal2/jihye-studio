@@ -1,0 +1,38 @@
+{
+ "music": {
+  "intro_tense": {
+   "prompt": "Tense investigative documentary underscore, low cinematic drone, steady muted percussion pulse like a ticking clock, dark strings, subtle synth bass, suspenseful and mysterious, rising slightly, no vocals, no big climax",
+   "sec": 42
+  },
+  "sting_reveal": {
+   "prompt": "Short dramatic documentary reveal sting, low brass and timpani hit then dark drone fade, no vocals",
+   "sec": 10
+  },
+  "sting_clue": {
+   "prompt": "Short mysterious clue sting, plucked strings and glassy synth, curious investigative mood, no vocals",
+   "sec": 10
+  },
+  "sting_hope": {
+   "prompt": "Short hopeful warm acoustic guitar and piano phrase, gentle uplifting, no vocals",
+   "sec": 10
+  }
+ },
+ "sfx": {
+  "bus": {
+   "text": "bus door closing and engine starting",
+   "sec": 2
+  },
+  "cable": {
+   "text": "cable car gondola passing over a pylon with mechanical clunk",
+   "sec": 1.5
+  },
+  "cash": {
+   "text": "cash register ka-ching",
+   "sec": 1
+  },
+  "wind": {
+   "text": "gentle wind on an empty mountain top",
+   "sec": 3
+  }
+ }
+}

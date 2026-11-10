@@ -1,0 +1,115 @@
+{
+ "model": "fal-ai/minimax/hailuo-02/standard/image-to-video",
+ "resolution": "512P",
+ "duration": "6",
+ "loop_sec": 15,
+ "extend": "slow",
+ "style": "",
+ "clips": [
+  {
+   "id": "s_bus_village",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_cablecar_beach",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_cablecar_genting",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_cablecar_pilatus",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_cableway",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_calculator",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_chairlift",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_coins",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_crane",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_crowd",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_escalator",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_frozen_lake",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_gondola_alps",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_korea_land",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_korea_mtn",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_lake_bridge",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_lighthouse",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_motorboat",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_rope_bridge",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_susp_bridge",
+   "prompt": "",
+   "src": "pixabay"
+  },
+  {
+   "id": "s_valley",
+   "prompt": "",
+   "src": "pixabay"
+  }
+ ]
+}
