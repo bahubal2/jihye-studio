@@ -15,27 +15,32 @@ def search(key, q, n=20):
     u = 'https://pixabay.com/api/videos/?' + urllib.parse.urlencode({'key': key, 'q': q, 'per_page': n, 'safesearch': 'true', 'video_type': 'film'})
     return json.load(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=30)).get('hits', [])
 
+GAP_DAYS = 7   # 2026-11-10 담당자: 같은 스톡은 며칠 텀을 두고 다시 쓴다 (한 영상 안 반복은 금지)
 def used_pages(proj, me):
-    """채널의 모든 프로젝트 captures/_credits.json 에 적힌 Pixabay 페이지 = 이미 쓴 클립 (지금 받는 id 자리는 제외)."""
-    import glob
-    out = set()
+    """건너뛸 클립: ① 지금 영상에서 이미 받은 클립(다른 id) ② 다른 영상에서 최근 GAP_DAYS 일 안에 쓴 클립.
+    날짜는 항목의 'date'(없으면 그 프로젝트 _credits.json 수정 시각)."""
+    import glob, time
+    out = set(); now = time.time()
     for f in glob.glob(os.path.join(os.path.dirname(proj), '*', 'captures', '_credits.json')):
         try: cr = json.load(open(f, encoding='utf-8'))
         except Exception: continue
+        mine = os.path.abspath(f).startswith(os.path.abspath(proj) + os.sep)
         for k, v in cr.items():
-            if os.path.abspath(f).startswith(os.path.abspath(proj)) and k == me: continue
-            if isinstance(v, dict) and v.get('page'): out.add(v['page'])
+            if not isinstance(v, dict) or not v.get('page'): continue
+            if mine:
+                if k != me: out.add(v['page'])
+            elif now - v.get('date', os.path.getmtime(f)) < GAP_DAYS * 86400: out.add(v['page'])
     return out
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('project'); ap.add_argument('id'); ap.add_argument('query')
     ap.add_argument('--pick', type=int, default=0); ap.add_argument('--min', type=float, default=8)
-    ap.add_argument('--reuse', action='store_true', help='다른 영상·다른 id 에서 이미 쓴 클립도 허용 (기본: 건너뜀)')
+    ap.add_argument('--reuse', action='store_true', help='최근에 쓴 클립도 허용 (기본: 최근 GAP_DAYS 일 안에 다른 영상에서 쓴 클립은 건너뜀)')
     a = ap.parse_args(); mgp.load_env(); proj = mgp.use(a.project)
     from mg import ffmpeg_exe
     key = os.environ.get('PIXABAY_API_KEY')
     if not key: raise SystemExit('.env 에 PIXABAY_API_KEY 가 없습니다.')
-    used = used_pages(proj, a.id) if not a.reuse else set()   # 2026-11-10 담당자: 예전 영상에 쓴 스톡이 자꾸 나온다 → 채널 전체에서 한 번만
+    used = used_pages(proj, a.id) if not a.reuse else set()   # 2026-11-10 담당자: 재사용 금지는 아니고 며칠 텀을 둔다, 한 영상 안에서는 반복 금지
     ok = []; skipped = 0
     for h in search(key, a.query, 40):
         if h['pageURL'] in used: skipped += 1; continue
@@ -52,7 +57,7 @@ def main():
     subprocess.run([ff, '-v', 'error', '-y'] + sum([['-ss', f'{t:.2f}', '-i', raw] for t in (0.5, d / 2, max(0, d - 1))], []) +
                    ['-filter_complex', '[0]scale=480:-1[a];[1]scale=480:-1[b];[2]scale=480:-1[c];[a][b][c]hstack=3', '-frames:v', '1', sheet], check=True)
     cred = os.path.join(proj, 'captures', '_credits.json'); cr = json.load(open(cred, encoding='utf-8')) if os.path.exists(cred) else {}
-    cr[a.id] = {'source': 'Pixabay', 'page': h['pageURL'], 'user': h.get('user'), 'tags': h['tags']}
+    cr[a.id] = {'source': 'Pixabay', 'page': h['pageURL'], 'user': h.get('user'), 'tags': h['tags'], 'date': __import__('time').time()}
     json.dump(cr, open(cred, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print(f'{a.id}: 후보 {len(ok)}개 중 {a.pick}번 · {v["width"]}x{v["height"]} · {d}초 · {h["tags"][:60]}\n  확인: {sheet}')
 
