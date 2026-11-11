@@ -35,7 +35,14 @@ BGM = [
 HITS = []
 def reveal(t, gain=-6):
     HITS.append((max(0, t - 2.9), 'sfx_riser.mp3', -10)); HITS.append((t, 'sfx_impact.mp3', gain))
-STINGS = [(T(11) - 0.1, 'music_sting_reveal.mp3', -25)]           # 인트로 끝 → 1막
+STINGS = [(T(11) - 0.1, 'music_sting_reveal.mp3', -25),           # 인트로 끝 → 1막
+          (T(33), 'music_sting_clue.mp3', -27),                     # 2막: 사재기의 정점
+          (T(66), 'music_sting_clue.mp3', -27),                     # 3막: 흔한 설명
+          (T(123), 'music_sting_hope.mp3', -27),                    # 4막: 우리 집 대비
+          (T(186), 'music_sting_clue.mp3', -27),                    # 5막: 같은 모양의 사재기
+          (T(217), 'music_sting_reveal.mp3', -26),                  # 결말
+          (T(236), 'music_sting_hope.mp3', -28)]                    # 가족에게 전화 한 통
+reveal(T(98))                                                       # 반전: 품절된 곳은 생수가 아니었다
 for t, f, db in STINGS: HITS.append((t, f, db))
 
 inputs = ['-i', MIX]; fl = []; k = 1
