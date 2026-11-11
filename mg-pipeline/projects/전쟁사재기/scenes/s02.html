@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="cues" content="3-3">
+<link rel="stylesheet" href="../../../engine/web/kit.css"><link rel="stylesheet" href="../../../brand/web/channel.css">
+</head><body data-bg="none" data-enter="zoom">
+<div class="stage"><div class="lens push" data-at="+0.0" data-off="-0.05" style="--ox:35%; --oy:70%; --z:1.05"><img class="bg kb" src="../assets/g_veranda.png" style=" --kx0:0px; --ky0:36px; --kx1:0px; --ky1:-36px; --z0:1.13; --z1:1.13"></div><div class="shade"></div><div class="midlayer"></div><div class="cam">
+<style>
+.bg.kb.swap, .bg.swap { animation: kb var(--len) 0s both linear, whipIn .34s var(--t) both cubic-bezier(.2,.9,.3,1); }
+@keyframes whipIn { 0% { opacity: 0; transform: translateX(10%) scale(1.2); filter: blur(16px) brightness(1.6); } 100% { opacity: 1; transform: none; filter: none; } }
+.kin { position: absolute; left: 0; right: 0; text-align: center; font-family: 'BH', sans-serif; color: #fff; line-height: 1.12; z-index: 7; padding: 0 60px;
+  text-shadow: 0 6px 0 rgba(0,0,0,.45), 0 12px 44px rgba(0,0,0,.7); animation: kinDrift 5s var(--t) both ease-in-out infinite alternate; }
+.kin .w { display: inline-block; margin: 0 .13em; opacity: 0; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1); }
+.kin .w.k { color: #ffd400; position: relative; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1), kinPulse .9s calc(var(--t) + var(--i) * .1s + .55s) infinite alternate ease-in-out; }
+.kin .w.r { color: #ff4b4b; }
+.kin .w.k::after { content: ''; position: absolute; left: -3%; right: -3%; bottom: .02em; height: .16em; background: #ff3b3b; border-radius: .08em; z-index: -1;
+  transform: scaleX(0); transform-origin: left; animation: kinBar .4s calc(var(--t) + var(--i) * .1s + .35s) forwards ease-out; }
+@keyframes kinDrop { 0% { opacity: 0; transform: translateY(-130%) scale(1.5); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPop { 0% { opacity: 0; transform: scale(2.6); filter: blur(8px); } 100% { opacity: 1; transform: none; filter: none; } }
+@keyframes kinSlide { 0% { opacity: 0; transform: translateX(-90%) skewX(-14deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinRise { 0% { opacity: 0; transform: translateY(100%) rotate(8deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPulse { 0% { transform: scale(1) rotate(0); } 100% { transform: scale(1.09) rotate(-1.5deg); } }
+@keyframes kinBar { to { transform: scaleX(1); } }
+@keyframes kinDrift { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(0, -16px) scale(1.04); } }
+.lw.out { animation: kinGone .3s var(--u) forwards ease-in; }
+@keyframes kinGone { to { opacity: 0; transform: scale(.9); } }
+</style>
+<style>.bg{--dark:.3; --blur:0px}</style>
+<style>
+.dp { position: absolute; z-index: 6; opacity: 0; animation: dpFall .55s var(--t) both cubic-bezier(.3,1.4,.5,1); filter: drop-shadow(0 10px 14px rgba(0,0,0,.45)); }
+@keyframes dpFall { from { opacity: 0; transform: translateY(-520px) rotate(-14deg); } 70% { opacity: 1; } to { opacity: 1; transform: none; } }
+</style><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="0.0" style="left:80px; top:640px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="0.08" style="left:152px; top:640px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="0.16" style="left:224px; top:640px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="0.24" style="left:296px; top:640px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="0.32" style="left:368px; top:640px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="0.4" style="left:440px; top:640px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="0.48" style="left:512px; top:640px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="0.56" style="left:584px; top:640px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="0.64" style="left:656px; top:640px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="0.72" style="left:728px; top:640px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="0.8" style="left:800px; top:640px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="0.88" style="left:872px; top:640px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="0.96" style="left:80px; top:445px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="1.04" style="left:152px; top:445px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="1.12" style="left:224px; top:445px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="1.2" style="left:296px; top:445px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="1.28" style="left:368px; top:445px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="1.36" style="left:440px; top:445px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="1.44" style="left:512px; top:445px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="1.52" style="left:584px; top:445px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="1.6" style="left:656px; top:445px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="1.68" style="left:728px; top:445px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="1.76" style="left:800px; top:445px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="1.84" style="left:872px; top:445px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="1.92" style="left:80px; top:250px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="2.0" style="left:152px; top:250px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="2.08" style="left:224px; top:250px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="2.16" style="left:296px; top:250px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="2.24" style="left:368px; top:250px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="2.32" style="left:440px; top:250px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="2.4" style="left:512px; top:250px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="2.48" style="left:584px; top:250px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="2.56" style="left:656px; top:250px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="2.64" style="left:728px; top:250px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="2.72" style="left:800px; top:250px; width:66px"><img class="dp" src="../assets/c_bottle.png" data-at="+0.1" data-off="2.8" style="left:872px; top:250px; width:66px">
+<div class="line big" style="left:1150px; top:150px; font-size:210px"><span class="in" data-at="3:삼십육" data-off="-0.1"><span class="num roll bad" data-from="0" data-to="36" data-fmt="comma" data-at="3:삼십육" data-dur="2.6">0</span>병</span></div>
+<style>.kin { position: absolute; left: 0; right: 0; text-align: center; font-family: 'BH', sans-serif; color: #fff; line-height: 1.12; z-index: 7; padding: 0 60px;
+  text-shadow: 0 6px 0 rgba(0,0,0,.45), 0 12px 44px rgba(0,0,0,.7); animation: kinDrift 5s var(--t) both ease-in-out infinite alternate; }
+.kin .w { display: inline-block; margin: 0 .13em; opacity: 0; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1); }
+.kin .w.k { color: #ffd400; position: relative; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1), kinPulse .9s calc(var(--t) + var(--i) * .1s + .55s) infinite alternate ease-in-out; }
+.kin .w.r { color: #ff4b4b; }
+.kin .w.k::after { content: ''; position: absolute; left: -3%; right: -3%; bottom: .02em; height: .16em; background: #ff3b3b; border-radius: .08em; z-index: -1;
+  transform: scaleX(0); transform-origin: left; animation: kinBar .4s calc(var(--t) + var(--i) * .1s + .35s) forwards ease-out; }
+@keyframes kinDrop { 0% { opacity: 0; transform: translateY(-130%) scale(1.5); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPop { 0% { opacity: 0; transform: scale(2.6); filter: blur(8px); } 100% { opacity: 1; transform: none; filter: none; } }
+@keyframes kinSlide { 0% { opacity: 0; transform: translateX(-90%) skewX(-14deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinRise { 0% { opacity: 0; transform: translateY(100%) rotate(8deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPulse { 0% { transform: scale(1) rotate(0); } 100% { transform: scale(1.09) rotate(-1.5deg); } }
+@keyframes kinBar { to { transform: scaleX(1); } }
+@keyframes kinDrift { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(0, -16px) scale(1.04); } }
+.lw.out { animation: kinGone .3s var(--u) forwards ease-in; }
+@keyframes kinGone { to { opacity: 0; transform: scale(.9); } }
+</style><div class="kin" data-at="+0.2" data-off="-0.05" style="top:80px; font-size:80px; left:1150px; right:auto; width:생수px; text-align:left; padding:0;"><span class="w" style="--i:0; --a:kinDrop">2리터</span> <span class="w" style="--i:1; --a:kinDrop">생수</span></div>
+</div><div class="fx"><div class="leak"></div><div class="dust"></div><div class="vig"></div></div><div class="progress" style="--p0:0.0072; --p1:0.0112; --pd:3.82s"></div></div>
+<script src="_timing.js"></script><script src="../../../engine/web/kit.js"></script><script src="../../../brand/web/channel.js"></script>
+</body></html>

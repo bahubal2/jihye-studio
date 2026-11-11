@@ -1,0 +1,44 @@
+[
+ {
+  "id": "g_phone_night",
+  "prompt": "A Korean man in his early sixties sitting on a sofa in a modern Korean apartment living room at night, holding a smartphone close with a worried frown, his face lit by the phone screen, a TV in the background showing a news broadcast with a map of the Korean peninsula border (no text), a cup of barley tea on the low table. Leave empty space on the right side of the frame. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags.",
+  "aspect": "16:9",
+  "cutout": false
+ },
+ {
+  "id": "g_veranda",
+  "prompt": "A Korean apartment enclosed balcony (veranda) with large sliding windows, a laundry drying rack, potted plants, a white wall-mounted boiler, winter morning light, the floor on the left half is empty and clear (for stacking water bottles). Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags.",
+  "aspect": "16:9",
+  "cutout": false
+ },
+ {
+  "id": "c_bottle",
+  "prompt": "A single 2-liter clear plastic bottled water bottle with a blue cap and a plain blue band label with no writing, standing upright, front view, product shot. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags.",
+  "aspect": "9:16",
+  "cutout": true
+ },
+ {
+  "id": "c_bag",
+  "prompt": "A large bulging red emergency survival backpack fully packed, with a flashlight, a rolled thermal blanket, a gas mask strap and a water bottle clipped on the outside, front view. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags.",
+  "aspect": "1:1",
+  "cutout": true
+ },
+ {
+  "id": "g_empty_shelf",
+  "prompt": "Inside a Korean hypermarket electronics section, one tall shelf bay completely empty with only a single blank white paper sign taped on the shelf edge, neighboring shelves full of boxed electronics, bright store lighting, a shopper in his sixties looking at the empty shelf. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags.",
+  "aspect": "16:9",
+  "cutout": false
+ },
+ {
+  "id": "g_observatory",
+  "prompt": "View from a South Korean riverside observation deck on a hill in autumn (like Aegibong in Gimpo): a pair of coin-operated binoculars in the foreground, beyond a wide river estuary about 1.5 km across, a distant low coastline with bare hills and three small dark tracked self-propelled howitzers parked on the shore with barrels pointing south, hazy sky, calm but tense mood. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags.",
+  "aspect": "16:9",
+  "cutout": false
+ },
+ {
+  "id": "g_couple_check",
+  "prompt": "A Korean couple in their sixties standing in their apartment veranda, the wife holding a smartphone and the husband with arms crossed, both looking down at just a few neatly stacked packs of 2-liter water bottles, relieved calm expressions, warm evening light. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags.",
+  "aspect": "16:9",
+  "cutout": false
+ }
+]
