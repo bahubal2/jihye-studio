@@ -1,0 +1,56 @@
+[
+ {
+  "id": "g_tumon_busy",
+  "cutout": false,
+  "aspect": "16:9",
+  "prompt": "A bustling tropical shopping boulevard in Tumon, Guam, lined with palm trees and a big glamorous duty-free shopping mall with glass doors wide open, many young Korean honeymoon couples walking happily carrying lots of shopping bags, bright sunny afternoon, warm nostalgic golden tone. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags."
+ },
+ {
+  "id": "g_tumon_empty",
+  "cutout": false,
+  "aspect": "16:9",
+  "prompt": "The same palm-lined tropical shopping boulevard in Tumon, Guam, now deserted: the big duty-free shopping mall has its metal rolling shutters pulled all the way down, empty sidewalk, a few dry palm leaves on the pavement, one lonely shopping cart, overcast muted afternoon light, quiet and melancholic. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags."
+ },
+ {
+  "id": "g_airport_crowd",
+  "cutout": false,
+  "aspect": "16:9",
+  "prompt": "A huge modern Korean international airport departure hall packed with travelers of all ages pushing suitcases and luggage carts in long lines at check-in counters, high glass ceiling, busy and lively, wide shot. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags."
+ },
+ {
+  "id": "g_japan_street",
+  "cutout": false,
+  "aspect": "16:9",
+  "prompt": "A crowded Japanese downtown shopping street at dusk with glowing lanterns and neon-like shop lights (no readable signs), full of Korean middle-aged tourists and families taking photos, eating street food, carrying shopping bags, very lively and packed. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags."
+ },
+ {
+  "id": "g_price_board",
+  "cutout": false,
+  "aspect": "16:9",
+  "prompt": "A traditional Japanese castle ticket booth with a short queue of foreign tourists, two separate blank price boards side by side above the window (one bigger than the other), a middle-aged Korean tourist couple looking up at the boards with raised eyebrows, clear daytime. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags."
+ },
+ {
+  "id": "c_traveler",
+  "cutout": true,
+  "aspect": "1:1",
+  "prompt": "A single small cheerful middle-aged Korean traveler walking with a rolling suitcase, full body, side view. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags."
+ },
+ {
+  "id": "g_empty_cabin",
+  "cutout": false,
+  "aspect": "16:9",
+  "prompt": "Interior of a large passenger airplane cabin seen from the back, rows and rows of empty blue seats stretching forward, only three passengers in the whole cabin, one of them lying across three empty seats, a flight attendant standing in the aisle looking around, dim cabin lights, lonely and slightly comic. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags."
+ },
+ {
+  "id": "c_seat",
+  "cutout": true,
+  "aspect": "1:1",
+  "prompt": "A single blue airplane passenger seat, front three-quarter view, simple and clean. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags."
+ },
+ {
+  "id": "g_island_teaser",
+  "cutout": false,
+  "aspect": "16:9",
+  "prompt": "A beautiful tropical island resort with a turquoise pool where staff are taking covers off the sun loungers to reopen, palm trees, and beyond the resort a small island airport with a completely empty runway and no airplanes, late afternoon, hopeful but lonely. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags."
+ }
+]

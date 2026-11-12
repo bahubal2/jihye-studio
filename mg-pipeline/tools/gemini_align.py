@@ -31,8 +31,8 @@ for k in range(len(cuts) - 1):
             except Exception as e: print('  실패', model, str(e)[:120])
         open(cache, 'w', encoding='utf-8').write(txt)
     for ln in open(cache, encoding='utf-8').read().splitlines():
-        m = re.match(r'\s*\[(\d+(?:\.\d+)?)\]\s*(.+)', ln)
-        if m: LINES.append((t0 + float(m.group(1)), m.group(2)))
+        m = re.match(r'\s*\[(?:(\d+):)?(\d+(?:\.\d+)?)\]\s*(.+)', ln)   # [12.3] 또는 [00:12.3] (2026-11-12 조각 하나가 분:초로 와서 통째로 빠졌음)
+        if m: LINES.append((t0 + int(m.group(1) or 0) * 60 + float(m.group(2)), m.group(3)))
     print(f'조각 {k + 1}/{len(cuts) - 1} {t0:.0f}~{t1:.0f}초 · 누적 구절 {len(LINES)}', flush=True)
 LINES.sort()
 # 2) 받아쓴 글자마다 시각
