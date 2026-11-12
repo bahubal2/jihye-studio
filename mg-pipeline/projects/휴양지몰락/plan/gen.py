@@ -706,14 +706,16 @@ def shutter(at, sfx='hit'):
     """2026-11-12 휴양지몰락 인트로: 금속 셔터가 화면 위에서 쾅 내려온다 (레이어 애니메이션)."""
     return lambda sc: SHUT_CSS + f'<div class="shut" {A(sc, at, sfx=sfx)}></div>'
 
-COVER_CSS = """<style>
-.cov { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; z-index: 2147483647; object-fit: cover; opacity: 1;
-  animation: covOut .35s var(--t) both ease-in; }
-@keyframes covOut { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(1.08); } }
+THUMBTEXT_CSS = """<style>
+@font-face { font-family: GMB; src: url('../../../fonts/GmarketSansTTFBold.ttf'); }
+.tt { position: absolute; left: 0; right: 0; top: 150px; z-index: 20; text-align: center; font-family: GMB, sans-serif; }
+.tt .band { display: inline-block; padding: 34px 70px 26px; background: rgba(0,0,0,.72); border-radius: 26px; box-shadow: 0 20px 60px rgba(0,0,0,.6); }
+.tt div { white-space: nowrap; line-height: 1.12; letter-spacing: -2px; -webkit-text-stroke: 10px #000; paint-order: stroke fill; }
+.tt .g { font-size: 62px; color: #2bff5a; -webkit-text-stroke: 8px #000; margin-bottom: 10px; }
+.tt .w { font-size: 112px; color: #fff; } .tt .y { font-size: 120px; color: #ffe500; }
 </style>"""
-def thumbcover(src='cover_thumb.jpg', hold=0.8):
-    """2026-11-12 담당자 절대 규칙: 영상 첫 화면 = 썸네일. 인트로 첫 장면 맨 앞에 썸네일 그림(assets/src)을 hold 초 보여 주고 사라진다.
-       썸네일을 out/thumb/make.py 로 만든 뒤 assets/cover_thumb.jpg 로 복사해 둔다."""
-    # 큰 자막(.cap.sub)은 장면 바깥 층이라 z-index 로 못 가린다 → 썸네일이 보이는 동안만 자막을 숨긴다
-    hide = f'<style>.cap.sub {{ animation: subHide {hold}s steps(1, end) both; }} @keyframes subHide {{ from {{ visibility: hidden; }} to {{ visibility: visible; }} }}</style>'
-    return lambda sc: COVER_CSS + hide + f'<img class="cov" src="../assets/{src}" {A(sc, "+" + str(hold))}>'
+def thumbtext(top, line1, line2, until):
+    """2026-11-12 담당자 절대 규칙: 영상 첫 화면에 썸네일 '문구'를 그대로 크게 (그림은 인트로 첫 장면 그대로).
+       썸네일과 같은 세 줄(초록 윗줄 · 흰 줄 · 노랑 줄)을 0초부터 until 까지 보여 준다."""
+    el = f'<div class="tt"><div class="band"><div class="g">{E(top)}</div><div class="w">{E(line1)}</div><div class="y">{E(line2)}</div></div></div>'
+    return lambda sc: THUMBTEXT_CSS + _lw(sc, until, el)

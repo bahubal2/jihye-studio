@@ -4,10 +4,13 @@
 </head><body data-bg="none" data-enter="flash">
 <div class="stage"><div class="lens push" data-at="+0.0" data-off="-0.05" style="--ox:40%; --oy:55%; --z:1.1"><img class="bg kb" src="../assets/g_tumon_busy.png" style=" --kx0:-60px; --ky0:10px; --kx1:50px; --ky1:-10px; --z0:1.14; --z1:1.14"></div><div class="shade"></div><div class="midlayer"></div><div class="cam">
 <style>
-.cov { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; z-index: 2147483647; object-fit: cover; opacity: 1;
-  animation: covOut .35s var(--t) both ease-in; }
-@keyframes covOut { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(1.08); } }
-</style><style>.cap.sub { animation: subHide 0.8s steps(1, end) both; } @keyframes subHide { from { visibility: hidden; } to { visibility: visible; } }</style><img class="cov" src="../assets/cover_thumb.jpg" data-at="+0.8">
+@font-face { font-family: GMB; src: url('../../../fonts/GmarketSansTTFBold.ttf'); }
+.tt { position: absolute; left: 0; right: 0; top: 150px; z-index: 20; text-align: center; font-family: GMB, sans-serif; }
+.tt .band { display: inline-block; padding: 34px 70px 26px; background: rgba(0,0,0,.72); border-radius: 26px; box-shadow: 0 20px 60px rgba(0,0,0,.6); }
+.tt div { white-space: nowrap; line-height: 1.12; letter-spacing: -2px; -webkit-text-stroke: 10px #000; paint-order: stroke fill; }
+.tt .g { font-size: 62px; color: #2bff5a; -webkit-text-stroke: 8px #000; margin-bottom: 10px; }
+.tt .w { font-size: 112px; color: #fff; } .tt .y { font-size: 120px; color: #ffe500; }
+</style><div class="lw" data-until="3:셔터를"><div class="tt"><div class="band"><div class="g">괌 면세점도 셔터 내렸다</div><div class="w">차라리 일본 가고 맙니다</div><div class="y">한국인 발길 뚝 끊긴 휴양지 TOP5</div></div></div></div>
 <style>
 .bg.kb.swap, .bg.swap { animation: kb var(--len) 0s both linear, whipIn .34s var(--t) both cubic-bezier(.2,.9,.3,1); }
 @keyframes whipIn { 0% { opacity: 0; transform: translateX(10%) scale(1.2); filter: blur(16px) brightness(1.6); } 100% { opacity: 1; transform: none; filter: none; } }
@@ -29,24 +32,6 @@
 @keyframes kinGone { to { opacity: 0; transform: scale(.9); } }
 </style>
 <style>.bg{--dark:.3; --blur:0px}</style>
-<style>.kin { position: absolute; left: 0; right: 0; text-align: center; font-family: 'BH', sans-serif; color: #fff; line-height: 1.12; z-index: 7; padding: 0 60px;
-  text-shadow: 0 6px 0 rgba(0,0,0,.45), 0 12px 44px rgba(0,0,0,.7); animation: kinDrift 5s var(--t) both ease-in-out infinite alternate; }
-.kin .w { display: inline-block; margin: 0 .13em; opacity: 0; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1); }
-.kin .w.k { color: #ffd400; position: relative; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1), kinPulse .9s calc(var(--t) + var(--i) * .1s + .55s) infinite alternate ease-in-out; }
-.kin .w.r { color: #ff4b4b; }
-.kin .w.k::after { content: ''; position: absolute; left: -3%; right: -3%; bottom: .02em; height: .16em; background: #ff3b3b; border-radius: .08em; z-index: -1;
-  transform: scaleX(0); transform-origin: left; animation: kinBar .4s calc(var(--t) + var(--i) * .1s + .35s) forwards ease-out; }
-@keyframes kinDrop { 0% { opacity: 0; transform: translateY(-130%) scale(1.5); } 100% { opacity: 1; transform: none; } }
-@keyframes kinPop { 0% { opacity: 0; transform: scale(2.6); filter: blur(8px); } 100% { opacity: 1; transform: none; filter: none; } }
-@keyframes kinSlide { 0% { opacity: 0; transform: translateX(-90%) skewX(-14deg); } 100% { opacity: 1; transform: none; } }
-@keyframes kinRise { 0% { opacity: 0; transform: translateY(100%) rotate(8deg); } 100% { opacity: 1; transform: none; } }
-@keyframes kinPulse { 0% { transform: scale(1) rotate(0); } 100% { transform: scale(1.09) rotate(-1.5deg); } }
-@keyframes kinBar { to { transform: scaleX(1); } }
-@keyframes kinDrift { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(0, -16px) scale(1.04); } }
-.lw.out { animation: kinGone .3s var(--u) forwards ease-in; }
-@keyframes kinGone { to { opacity: 0; transform: scale(.9); } }
-</style><div class="kin" data-at="+0.05" data-off="-0.05" style="top:110px; font-size:96px; left:90px; right:auto; width:투몬px; text-align:left; padding:0;"><span class="w" style="--i:0; --a:kinSlide">2026년</span> <span class="w" style="--i:1; --a:kinSlide">봄</span> <span class="w" style="--i:2; --a:kinSlide">·</span> <span class="w k" style="--i:3; --a:kinSlide">괌</span> <span class="w k" style="--i:4; --a:kinSlide">투몬</span></div>
-<div class="tag " data-at="2:신혼부부들이" style="left:1150px; top:300px; font-size:70px">쇼핑백 주렁주렁 신혼부부</div>
 <style>
 .shut { position: absolute; left: 0; right: 0; top: 0; height: 1080px; z-index: 7; opacity: 0;
   background: repeating-linear-gradient(180deg, #8f969c 0 34px, #6f767c 34px 38px, #a9b0b5 38px 44px, #5c6267 44px 48px);
