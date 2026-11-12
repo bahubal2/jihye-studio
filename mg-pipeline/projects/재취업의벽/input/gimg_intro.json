@@ -1,0 +1,44 @@
+[
+ {
+  "id": "g_guard_booth",
+  "cutout": false,
+  "aspect": "16:9",
+  "prompt": "A Korean man in his early sixties in a neat suit holding a resume folder, standing outside a small apartment complex security guard booth, the window closed with a hand-shaped no sign gesture from inside, he looks down disappointed, autumn evening, melancholic. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags."
+ },
+ {
+  "id": "c_oldman",
+  "cutout": true,
+  "aspect": "1:1",
+  "prompt": "A single Korean man in his early sixties in a gray suit holding a resume folder, walking with slumped shoulders, full body, side view. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags."
+ },
+ {
+  "id": "g_agency_resumes",
+  "cutout": false,
+  "aspect": "16:9",
+  "prompt": "A small Korean staffing agency office with a desk buried under a towering mountain of resume papers, a staff member peeking out from behind the pile looking overwhelmed, a single job posting paper pinned on the wall, city view through the window. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags."
+ },
+ {
+  "id": "c_resume",
+  "cutout": true,
+  "aspect": "1:1",
+  "prompt": "A single white resume paper sheet with a small photo box and gray text lines (no readable letters), slightly tilted, flat. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags."
+ },
+ {
+  "id": "g_resume_line",
+  "cutout": false,
+  "aspect": "16:9",
+  "prompt": "A very long line of Korean men in their fifties and sixties in suits and jackets holding resume envelopes, waiting outside a building entrance for a single security guard job interview, some looking at their watches, overcast morning. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags."
+ },
+ {
+  "id": "g_principal_gate",
+  "cutout": false,
+  "aspect": "16:9",
+  "prompt": "A dignified retired Korean school principal in his early sixties with gray hair standing at a school front gate holding a fitness certificate document and an application form, children walking into school behind the fence, morning light. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags."
+ },
+ {
+  "id": "g_young_guard",
+  "cutout": false,
+  "aspect": "16:9",
+  "prompt": "A Korean security guard training classroom where young men in their twenties and a few men in their sixties sit side by side taking a training course, the older man glancing at the young men next to him, instructor at the front. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags."
+ }
+]

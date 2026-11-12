@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="cues" content="1-3">
+<link rel="stylesheet" href="../../../engine/web/kit.css"><link rel="stylesheet" href="../../../brand/web/channel.css">
+</head><body data-bg="none">
+<div class="stage"><div class="lens push" data-at="+0.0" data-off="-0.05" style="--ox:35%; --oy:50%; --z:1.08"><img class="bg kb" src="../assets/g_guard_booth.png" style=" --kx0:-60px; --ky0:10px; --kx1:50px; --ky1:-10px; --z0:1.14; --z1:1.14"></div><div class="shade"></div><div class="midlayer"></div><div class="cam">
+<style>
+.bg.kb.swap, .bg.swap { animation: kb var(--len) 0s both linear, whipIn .34s var(--t) both cubic-bezier(.2,.9,.3,1); }
+@keyframes whipIn { 0% { opacity: 0; transform: translateX(10%) scale(1.2); filter: blur(16px) brightness(1.6); } 100% { opacity: 1; transform: none; filter: none; } }
+.kin { position: absolute; left: 0; right: 0; text-align: center; font-family: 'BH', sans-serif; color: #fff; line-height: 1.12; z-index: 7; padding: 0 60px;
+  text-shadow: 0 6px 0 rgba(0,0,0,.45), 0 12px 44px rgba(0,0,0,.7); animation: kinDrift 5s var(--t) both ease-in-out infinite alternate; }
+.kin .w { display: inline-block; margin: 0 .13em; opacity: 0; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1); }
+.kin .w.k { color: #ffd400; position: relative; animation: var(--a) .52s calc(var(--t) + var(--i) * .1s) both cubic-bezier(.2,1.5,.4,1), kinPulse .9s calc(var(--t) + var(--i) * .1s + .55s) infinite alternate ease-in-out; }
+.kin .w.r { color: #ff4b4b; }
+.kin .w.k::after { content: ''; position: absolute; left: -3%; right: -3%; bottom: .02em; height: .16em; background: #ff3b3b; border-radius: .08em; z-index: -1;
+  transform: scaleX(0); transform-origin: left; animation: kinBar .4s calc(var(--t) + var(--i) * .1s + .35s) forwards ease-out; }
+@keyframes kinDrop { 0% { opacity: 0; transform: translateY(-130%) scale(1.5); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPop { 0% { opacity: 0; transform: scale(2.6); filter: blur(8px); } 100% { opacity: 1; transform: none; filter: none; } }
+@keyframes kinSlide { 0% { opacity: 0; transform: translateX(-90%) skewX(-14deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinRise { 0% { opacity: 0; transform: translateY(100%) rotate(8deg); } 100% { opacity: 1; transform: none; } }
+@keyframes kinPulse { 0% { transform: scale(1) rotate(0); } 100% { transform: scale(1.09) rotate(-1.5deg); } }
+@keyframes kinBar { to { transform: scaleX(1); } }
+@keyframes kinDrift { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(0, -16px) scale(1.04); } }
+.lw.out { animation: kinGone .3s var(--u) forwards ease-in; }
+@keyframes kinGone { to { opacity: 0; transform: scale(.9); } }
+</style>
+<style>.scene{animation: sOut .26s var(--exit) forwards cubic-bezier(.6,0,.9,.4) !important}</style>
+<style>.bg{--dark:.35; --blur:0px}</style>
+<style>
+@font-face { font-family: GMB; src: url('../../../fonts/GmarketSansTTFBold.ttf'); }
+.tt { position: absolute; left: 0; right: 0; top: 150px; z-index: 20; text-align: center; font-family: GMB, sans-serif; }
+.tt .band { display: inline-block; padding: 34px 70px 26px; background: rgba(0,0,0,.72); border-radius: 26px; box-shadow: 0 20px 60px rgba(0,0,0,.6); }
+.tt div { white-space: nowrap; line-height: 1.12; letter-spacing: -2px; -webkit-text-stroke: 10px #000; paint-order: stroke fill; }
+.tt .g { font-size: 62px; color: #2bff5a; -webkit-text-stroke: 8px #000; margin-bottom: 10px; }
+.tt .w { font-size: 112px; color: #fff; } .tt .y { font-size: 120px; color: #ffe500; }
+</style><div class="tt"><div class="band"><div class="g">&quot;경비도 안 받아줘요&quot;</div><div class="w">교장 선생님도 대기업 임원도</div><div class="y">60 넘으면 갈 곳이 없습니다</div></div></div>
+<style>.tt .y{color:#18e6ff}</style>
+<div class="pup m-walk" data-at="+1.2" data-off="-0.05" style="left:1500px; top:470px; width:300px; --dx:-1700px; --dur:8.0s; --st:0.45s; --n:18; --tl:6deg"><div class="pin"><img src="../assets/c_oldman.png" class=flip></div></div>
+</div><div class="fx"><div class="leak"></div><div class="dust"></div><div class="vig"></div></div><div class="progress" style="--p0:0.0000; --p1:0.0095; --pd:10.45s"></div></div>
+<script src="_timing.js"></script><script src="../../../engine/web/kit.js"></script><script src="../../../brand/web/channel.js"></script>
+</body></html>
