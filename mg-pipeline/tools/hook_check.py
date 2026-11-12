@@ -14,11 +14,12 @@ def keys(t):
     t = re.sub(r'["“”‘’\'…·.,!?~()\[\]#]', ' ', t)
     out = []
     for w in t.split():
-        w = re.sub(r'(은|는|이|가|을|를|에|에서|으로|로|의|도|만|까지|부터|이다|였다|했다|됐다|한|된|인)$', '', w)
+        w = re.sub(r'(은|는|이|가|을|를|에|에서|으로|로|의|도|만|까지|부터|이다|였다|했다|됐다|한|된|인|랑|과|와)$', '', w)
         if len(w) >= 2 and w not in STOP: out.append(w)
     return out
 def norm(s):
     c = convert(s); c = c[0] if isinstance(c, tuple) else c
+    for k, v in (('예순', '60'), ('일흔', '70'), ('쉰', '50'), ('마흔', '40'), ('서른', '30'), ('스무', '20'), ('이십 대', '20대'), ('육칠십 대', '6070')): c = c.replace(k, v)
     return re.sub(r'\s+', '', c)
 def main():
     a = sys.argv[1:]; path = a[0]; title = a[a.index('--title') + 1]
