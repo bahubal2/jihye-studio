@@ -21,7 +21,7 @@ sp = os.path.join(HERE, 'plan', 'sfx.json'); sfx = sorted(json.load(open(sp)))
 keep = []; hits = 0; last = None
 for x in sfx:
     if x[1] in ('hit', 'boom'):
-        if hits >= 5: continue
+        if hits >= 3: continue                                      # 휴양지몰락: 반전 2곳(impact)과 합쳐 쿵 5회 이하
         hits += 1
     if last and last[1] == x[1] and x[0] - last[0] < 2.5: continue
     keep.append(x); last = x
@@ -35,7 +35,15 @@ BGM = [
 HITS = []
 def reveal(t, gain=-6):
     HITS.append((max(0, t - 2.9), 'sfx_riser.mp3', -10)); HITS.append((t, 'sfx_impact.mp3', gain))
-STINGS = [(T(16) - 0.1, 'music_sting_reveal.mp3', -25)]          # 인트로 끝 → 5위
+STINGS = [(T(16) - 0.1, 'music_sting_reveal.mp3', -25),         # 인트로 끝 → 5위 태국
+          (T(51), 'music_sting_clue.mp3', -27),                     # 4위 필리핀
+          (T(89), 'music_sting_clue.mp3', -27),                     # 3위 괌
+          (T(137), 'music_sting_clue.mp3', -27),                    # 2위 캄보디아
+          (T(182), 'music_sting_reveal.mp3', -26),                  # 1위 사이판
+          (T(237), 'music_sting_clue.mp3', -27),                    # 다섯 곳 정리
+          (T(270), 'music_sting_hope.mp3', -28)]                    # 희망도 있습니다
+reveal(T(108))                                                      # 반전: 빈 비행기는 규칙이 띄웠다
+reveal(T(217))                                                      # 반전: 그 규칙이 괌을 붙잡았다
 for t, f, db in STINGS: HITS.append((t, f, db))
 inputs = ['-i', MIX]; fl = []; k = 1
 for a, b, f, db, fi, fo in BGM:
