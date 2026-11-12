@@ -13,7 +13,7 @@ PLAN = [
 {'from': '경비도 안 받아 줘요', 'bg': [('g_guard_booth', None)], 'cam': [('push', '+0.0', 35, 50, 1.08)], 'items': [
     intro30(), CRISP, raw('<style>.bg{--dark:.35; --blur:0px}</style>'),
     thumbtext('"경비도 안 받아줘요"', '교장 선생님도 대기업 임원도', '60 넘으면 갈 곳이 없습니다', None), CYAN,
-    puppet('c_oldman', '+1.2', 1500, 470, w=300, move='walk', dx=-1700, dur=8.0, flip=True),
+    puppet('c_oldman', '+1.2', 1500, 470, w=300, move='walk', dx=-1700, dur=8.0),   # 그림이 왼쪽을 보고 있어 반전 없이 왼쪽으로 (2026-11-12 뒷걸음질 수정)
 ]},
 {'from': '서울 중구의 한 인력파견업체', 'enter': 'zoom', 'bg': [('g_agency_resumes', None)], 'cam': [('push', '+0.0', 40, 45, 1.1)], 'items': [
     intro30(), SOFT,
