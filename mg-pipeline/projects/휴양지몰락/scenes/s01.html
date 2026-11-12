@@ -4,6 +4,11 @@
 </head><body data-bg="none" data-enter="flash">
 <div class="stage"><div class="lens push" data-at="+0.0" data-off="-0.05" style="--ox:40%; --oy:55%; --z:1.1"><img class="bg kb" src="../assets/g_tumon_busy.png" style=" --kx0:-60px; --ky0:10px; --kx1:50px; --ky1:-10px; --z0:1.14; --z1:1.14"></div><div class="shade"></div><div class="midlayer"></div><div class="cam">
 <style>
+.cov { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; z-index: 2147483647; object-fit: cover; opacity: 1;
+  animation: covOut .35s var(--t) both ease-in; }
+@keyframes covOut { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(1.08); } }
+</style><style>.cap.sub { animation: subHide 0.8s steps(1, end) both; } @keyframes subHide { from { visibility: hidden; } to { visibility: visible; } }</style><img class="cov" src="../assets/cover_thumb.jpg" data-at="+0.8">
+<style>
 .bg.kb.swap, .bg.swap { animation: kb var(--len) 0s both linear, whipIn .34s var(--t) both cubic-bezier(.2,.9,.3,1); }
 @keyframes whipIn { 0% { opacity: 0; transform: translateX(10%) scale(1.2); filter: blur(16px) brightness(1.6); } 100% { opacity: 1; transform: none; filter: none; } }
 .kin { position: absolute; left: 0; right: 0; text-align: center; font-family: 'BH', sans-serif; color: #fff; line-height: 1.12; z-index: 7; padding: 0 60px;

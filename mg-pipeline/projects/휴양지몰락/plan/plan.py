@@ -2,12 +2,13 @@
 규칙: 인트로 40초대(5위 0:47) · 인트로 움직이는 애니메이션 10~20초(셔터·여행객 쏟아짐·좌석 쌓기·숫자·도장·걸어가는 인형) ·
 첫 10초 제작 그림 · 그림은 대본 문장과 1:1(input/그림_대본대조.json) · 스톡 7일 텀·한 영상 1회 · 쿵 5회 이하 · clist 본문 40%+."""
 from gen import (puppet, tag, stack, stamp, big, roll, swapnum, card, donut, igrid, flipcard, bubble, group, raw,
-                 mgbg, qbadge, rankbadge, polaroid, intro30, kin, cutsfx, clist, droppile, shutter)
+                 mgbg, qbadge, rankbadge, polaroid, intro30, kin, cutsfx, clist, droppile, shutter, thumbcover)
 SOFT = raw('<style>.bg{--dark:.5; --blur:0px}</style>')
 
 PLAN = [
 # ================= 인트로 (0:00~0:47) =================
 {'from': '괌 투몬 거리입니다', 'enter': 'flash', 'bg': [('g_tumon_busy', None)], 'cam': [('push', '+0.0', 40, 55, 1.1)], 'items': [
+    thumbcover(),   # 첫 0.8초 = 썸네일 D (2026-11-12 절대 규칙)
     intro30(), raw('<style>.bg{--dark:.3; --blur:0px}</style>'),
     kin('2026년 봄 · *괌 투몬*', '+0.05', y=110, size=96, mode='slide', x=90, w=1100),
     tag('쇼핑백 주렁주렁 신혼부부', '신혼부부들이', 1150, 300, size=50),
@@ -30,6 +31,7 @@ PLAN = [
     kin('!일본!', '일본입니다', y=110, size=150, mode='pop'),
     roll(0, 946, '구백', y=290, size=210, suffix='만 명', tone='bad', dur=1.4),
     stamp('역대 최다', '역대', x=1250, y=560, size=120, rot=-8),
+    tag('"차라리 일본 가고 맙니다"', '역대', None, 770, tone='red', size=64),   # 제목 따옴표 문구를 도입부 화면에 (녹음엔 없어서 글자로)
 ]},
 {'from': '바가지 탓일까요', 'enter': 'wipe', 'bg': [('g_price_board', None), ('g_japan_arrival', '그래도 한국인은')], 'cam': [('push', '+0.0', 55, 40, 1.08)], 'items': [
     intro30(), SOFT,

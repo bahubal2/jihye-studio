@@ -705,3 +705,15 @@ SHUT_CSS = """<style>
 def shutter(at, sfx='hit'):
     """2026-11-12 휴양지몰락 인트로: 금속 셔터가 화면 위에서 쾅 내려온다 (레이어 애니메이션)."""
     return lambda sc: SHUT_CSS + f'<div class="shut" {A(sc, at, sfx=sfx)}></div>'
+
+COVER_CSS = """<style>
+.cov { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; z-index: 2147483647; object-fit: cover; opacity: 1;
+  animation: covOut .35s var(--t) both ease-in; }
+@keyframes covOut { from { opacity: 1; transform: scale(1); } to { opacity: 0; transform: scale(1.08); } }
+</style>"""
+def thumbcover(src='cover_thumb.jpg', hold=0.8):
+    """2026-11-12 담당자 절대 규칙: 영상 첫 화면 = 썸네일. 인트로 첫 장면 맨 앞에 썸네일 그림(assets/src)을 hold 초 보여 주고 사라진다.
+       썸네일을 out/thumb/make.py 로 만든 뒤 assets/cover_thumb.jpg 로 복사해 둔다."""
+    # 큰 자막(.cap.sub)은 장면 바깥 층이라 z-index 로 못 가린다 → 썸네일이 보이는 동안만 자막을 숨긴다
+    hide = f'<style>.cap.sub {{ animation: subHide {hold}s steps(1, end) both; }} @keyframes subHide {{ from {{ visibility: hidden; }} to {{ visibility: visible; }} }}</style>'
+    return lambda sc: COVER_CSS + hide + f'<img class="cov" src="../assets/{src}" {A(sc, "+" + str(hold))}>'
