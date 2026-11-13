@@ -35,7 +35,15 @@ BGM = [
 HITS = []
 def reveal(t, gain=-6):
     HITS.append((max(0, t - 2.9), 'sfx_riser.mp3', -10)); HITS.append((t, 'sfx_impact.mp3', gain))
-STINGS = [(T(13) - 0.1, 'music_sting_reveal.mp3', -25)]          # 인트로 끝 → 5위 (본문 막 전환은 본문 계획 때 추가)
+STINGS = [(T(13) - 0.1, 'music_sting_reveal.mp3', -25),         # 인트로 끝 → 5위
+          (T(45), 'music_sting_clue.mp3', -27),                     # 4위 나이
+          (T(83), 'music_sting_clue.mp3', -27),                     # 3위 근로계약서
+          (T(117), 'music_sting_hope.mp3', -28),                    # 2위 학교 (아침 교문)
+          (T(165), 'music_sting_reveal.mp3', -26),                  # 1위 퀴즈
+          (T(219), 'music_sting_clue.mp3', -27),                    # 다섯 벽 정리
+          (T(264), 'music_sting_hope.mp3', -28)]                    # 서정배 씨: 결국 왔다
+reveal(T(167))                                                      # 퀴즈 답: 20대
+reveal(T(230))                                                      # 반전: 눈높이가 아니라 이름표로 거르는 사다리
 for t, f, db in STINGS: HITS.append((t, f, db))
 inputs = ['-i', MIX]; fl = []; k = 1
 for a, b, f, db, fi, fo in BGM:
