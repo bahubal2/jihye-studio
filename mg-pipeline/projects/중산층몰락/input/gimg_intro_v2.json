@@ -1,0 +1,38 @@
+[
+ {
+  "id": "ph_wallet_couple",
+  "cutout": false,
+  "aspect": "16:9",
+  "prompt": "Cinematic documentary photograph, realistic, 35mm film look, natural colors, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition. Scene: A Korean married couple in their sixties standing on a quiet commercial street at dusk, the husband looking down at an open empty brown wallet, the wife beside him worried, behind them a row of small shops with metal shutters pulled down and blank paper notices taped on the glass, no customers, cold blue dusk light with warm street lamps, upper third of the frame is darker sky and signboards for overlay text"
+ },
+ {
+  "id": "ph_hwanghak_fridges",
+  "cutout": false,
+  "aspect": "16:9",
+  "prompt": "Cinematic documentary photograph, realistic, 35mm film look, natural colors, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition. Scene: A Seoul used commercial kitchen equipment street, rows of brand-new stainless steel commercial refrigerators still wrapped in clear plastic film lined up along the sidewalk in front of the shops, stacked steel pots and sinks, empty street with no customers, one older shop owner sitting on a stool far in the background, late afternoon sunlight, eye-level view looking down the long sidewalk"
+ },
+ {
+  "id": "ph_export_port",
+  "cutout": false,
+  "aspect": "16:9",
+  "prompt": "Cinematic documentary photograph, realistic, 35mm film look, natural colors, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition. Scene: A huge Korean container port at golden hour, gantry cranes loading a giant container ship, endless stacks of colorful containers, a modern semiconductor factory complex glowing in the distance, prosperous and booming atmosphere, wide aerial view"
+ },
+ {
+  "id": "ph_empty_wallet_table",
+  "cutout": false,
+  "aspect": "16:9",
+  "prompt": "Cinematic documentary photograph, realistic, 35mm film look, natural colors, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition. Scene: Close-up still life on a worn wooden kitchen table at night: an open empty leather wallet, a few scattered coins, a pile of folded bills and receipts with no readable text, reading glasses, a cup of cold tea, a single warm lamp light, quiet and gloomy mood, no people"
+ },
+ {
+  "id": "ph_shutter_two_men",
+  "cutout": false,
+  "aspect": "16:9",
+  "prompt": "Cinematic documentary photograph, realistic, 35mm film look, natural colors, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition. Scene: Two Korean men in their sixties seen from behind, standing side by side in front of a small neighborhood restaurant whose metal rolling shutter is half pulled down, evening, one wearing a work apron and one wearing a cardigan, still and quiet, street lamp light, the shop interior dark"
+ },
+ {
+  "id": "ph_alley_morning",
+  "cutout": false,
+  "aspect": "16:9",
+  "prompt": "Cinematic documentary photograph, realistic, 35mm film look, natural colors, no readable text, no letters, no numbers, no logos, no recognizable real person. Wide 16:9 composition. Scene: A calm Korean neighborhood shopping alley in the early morning, small shops with awnings, potted plants, soft warm sunlight streaming in, a few people walking far away, clean and peaceful, eye-level walking viewpoint looking down the alley"
+ }
+]

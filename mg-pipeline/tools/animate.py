@@ -38,7 +38,7 @@ def make(c, spec, proj, key, ff):
             res = _req(sub['response_url'], key)
         except urllib.error.HTTPError as e: raise RuntimeError(f"HTTP {e.code}: {e.read().decode('utf-8', 'replace')[:300]}")
         with urllib.request.urlopen(res['video']['url'], timeout=300) as r: open(raw, 'wb').write(r.read())
-    # 길이 늘리기: 기본은 슬로우 모션(프레임 보간, 최대 2.5배). 되감기 반복은 빠른 움직임 영상에만 ("extend": "pingpong")
+    # 길이 늘리기: 기본은 슬로우 모션(프레임 반복, 최대 2.5배 · 보간 금지 2026-11-14). 되감기 반복은 빠른 움직임 영상에만 ("extend": "pingpong")
     mode = c.get('extend', spec.get('extend', 'slow')); loop = float(c.get('sec', spec.get('loop_sec', 15)))
     if mode == 'pingpong':
         vf = '[0:v]fps=30,scale=1920:1080:flags=lanczos,setsar=1,split[a][b];[b]reverse[r];[a][r]concat=n=2:v=1:a=0,loop=-1:size=32767,trim=0:%g,setpts=N/30/TB[v]' % loop
@@ -48,7 +48,10 @@ def make(c, spec, proj, key, ff):
         if k <= 1.01:   # 이미 충분히 길다 (스톡 영상 등): 크기만 맞추고 목표 길이로 자른다
             vf = '[0:v]fps=30,scale=1920:1080:flags=lanczos:force_original_aspect_ratio=increase,crop=1920:1080,setsar=1,trim=0:%g,setpts=PTS-STARTPTS[v]' % loop
         else:
-            vf = '[0:v]setpts=%.4f*PTS,minterpolate=fps=30:mi_mode=mci:mc_mode=aobmc:vsbmc=1,scale=1920:1080:flags=lanczos,setsar=1[v]' % k
+            if mode == 'interp':   # 옛 방식(프레임 보간) — 얼굴·손이 젤리처럼 뭉개진다 (2026-11-14 담당자 지적) → 쓰지 않는다
+                vf = '[0:v]setpts=%.4f*PTS,minterpolate=fps=30:mi_mode=mci:mc_mode=aobmc:vsbmc=1,scale=1920:1080:flags=lanczos,setsar=1[v]' % k
+            else:                  # 기본: 프레임을 지어내지 않고 늘린다(같은 프레임 반복) → 뭉개짐 없음
+                vf = '[0:v]setpts=%.4f*PTS,fps=30,scale=1920:1080:flags=lanczos:force_original_aspect_ratio=increase,crop=1920:1080,setsar=1[v]' % k
     subprocess.run([ff, '-v', 'error', '-y', '-i', raw, '-filter_complex', vf,
                     '-map', '[v]', '-an', '-c:v', 'libx264', '-crf', '20', '-preset', 'fast', '-pix_fmt', 'yuv420p', out], check=True)
     return c['id']
