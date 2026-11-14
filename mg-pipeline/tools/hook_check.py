@@ -20,7 +20,7 @@ def keys(t):
 def norm(s):
     c = convert(s); c = c[0] if isinstance(c, tuple) else c
     for k, v in (('예순', '60'), ('일흔', '70'), ('쉰', '50'), ('마흔', '40'), ('서른', '30'), ('스무', '20'), ('이십 대', '20대'), ('육칠십 대', '6070')): c = c.replace(k, v)
-    return re.sub(r'\s+', '', c)
+    return re.sub(r'[\s,.·…!?"“”]+', '', c)      # 띄어쓰기·쉼표·따옴표 차이는 같은 말로 본다
 def main():
     a = sys.argv[1:]; path = a[0]; title = a[a.index('--title') + 1]
     thumbs = a[a.index('--thumb') + 1:] if '--thumb' in a else []
