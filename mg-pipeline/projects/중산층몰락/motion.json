@@ -1,7 +1,39 @@
-{"model": "fal-ai/minimax/hailuo-02/standard/image-to-video", "resolution": "768P", "duration": "10", "loop_sec": 10, "extend": "slow",
+{
+ "model": "fal-ai/minimax/hailuo-02/standard/image-to-video",
+ "resolution": "768P",
+ "duration": "10",
+ "loop_sec": 10,
+ "extend": "slow",
  "style": "Realistic documentary footage, smooth stable cinematic camera motion. Keep the same scene, people and composition. People stay almost still, no hand gestures, no object handling. No text, no letters appear.",
  "clips": [
-  {"id": "ph_hwanghak_fridges", "prompt": "Slow steady dolly forward along the sidewalk past the plastic-wrapped refrigerators, the loose plastic film flutters slightly in the breeze, the man in the distance stays seated and still"},
-  {"id": "ph_shutter_two_men", "prompt": "Very slow push-in toward the two men and the shop, the two men stand still, the street lamp light flickers softly, evening light slowly dims"},
-  {"id": "ph_alley_morning", "prompt": "Smooth slow forward walking camera through the alley, soft morning sunlight, leaves and hanging plants sway gently, people far away walk slowly away from the camera"}
- ]}
+  {
+   "id": "ph_hwanghak_fridges",
+   "prompt": "Slow steady dolly forward along the sidewalk past the plastic-wrapped refrigerators, the loose plastic film flutters slightly in the breeze, the man in the distance stays seated and still"
+  },
+  {
+   "id": "ph_shutter_two_men",
+   "prompt": "Very slow push-in toward the two men and the shop, the two men stand still, the street lamp light flickers softly, evening light slowly dims"
+  },
+  {
+   "id": "ph_alley_morning",
+   "prompt": "Smooth slow forward walking camera through the alley, soft morning sunlight, leaves and hanging plants sway gently, people far away walk slowly away from the camera"
+  },
+  {
+   "id": "ph_first_home",
+   "prompt": "Very slow push-in toward the young couple at the door, warm hallway light glows softly, the couple stands still smiling, nostalgic calm"
+  },
+  {
+   "id": "ph_retire_morning",
+   "prompt": "Very slow push-in toward the man sitting on the bed, the curtain sways gently, pale morning light slowly brightens, the man stays still"
+  },
+  {
+   "id": "ph_night_alley",
+   "prompt": "Slow steady dolly forward down the empty night alley, the street lamp flickers, light drizzle falls, reflections shimmer on the wet pavement",
+   "sec": 12
+  },
+  {
+   "id": "ph_fridge_closeup",
+   "prompt": "Slow orbit around the plastic-wrapped refrigerator, the loose plastic film flutters slightly in the evening breeze, warm street lights glow, people pass by in the blurred background"
+  }
+ ]
+}

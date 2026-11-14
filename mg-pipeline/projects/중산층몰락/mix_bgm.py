@@ -32,7 +32,14 @@ BGM = []                                                          # 인트로 �
 HITS = []
 def reveal(t, gain=-6):
     HITS.append((max(0, t - 2.9), 'sfx_riser.mp3', -10)); HITS.append((t, 'sfx_impact.mp3', gain))
-STINGS = [(T(14) - 0.2, 'music_sting_hope.mp3', -28)]            # 담당자 음악이 끝난 뒤 본문 첫 장면(골목 이야기) — 본문 막 전환은 본문 계획 때 추가
+STINGS = [(T(14) - 0.2, 'music_sting_hope.mp3', -28),            # 담당자 음악이 끝난 뒤 본문 첫 장면(골목 이야기)
+          (T(83) - 0.1, 'music_sting_clue.mp3', -27),               # 흔한 설명 3가지 시작
+          (T(142) - 0.1, 'music_sting_reveal.mp3', -26),            # 진짜 원인 3가지
+          (T(179) - 0.1, 'music_sting_clue.mp3', -27),              # 마지막이자 가장 큰 원인(상가)
+          (T(213) - 0.1, 'music_sting_hope.mp3', -28),              # 끄떡없는 분들
+          (T(246) - 0.1, 'music_sting_clue.mp3', -28)]              # 다시 황학동 (정리)
+reveal(T(152))                                                      # 여덟 달이 안 됩니다
+reveal(T(166))                                                      # 사 년 만에 십사 배
 for t, f, db in STINGS: HITS.append((t, f, db))
 inputs = ['-i', MIX]; fl = []; k = 1
 for a, b, f, db, fi, fo in BGM:
