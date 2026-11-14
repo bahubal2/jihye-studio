@@ -54,6 +54,10 @@ class Scene:
         if n - 1 < len(WORDS):
             for x in WORDS[n - 1]:
                 if w in x['w']: t = x['t0']; break
+        else:                                                           # 2026-11-14: words.json 이 없으면(VREW 녹음) 글자 비율로 낱말 시각 추정 → 효과음이 화면과 맞게
+            txt = CUES[n - 1] if isinstance(CUES[n - 1], str) else CUES[n - 1][-1]; i = txt.find(w)
+            t1 = TIMES[n] if n < len(TIMES) else TOTAL
+            if i > 0: t = t + (t1 - t) * i / max(1, len(txt))
         return t + off
     def at(self, spec):
         """'+0.3' | '낱말' | '문구:낱말' | 'end-1.0' → kit.js 의 data-at 값 ("자막번호:낱말")."""

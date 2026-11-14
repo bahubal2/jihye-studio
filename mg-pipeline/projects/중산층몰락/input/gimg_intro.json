@@ -1,0 +1,38 @@
+[
+ {
+  "id": "g_hwanghak_fridges",
+  "cutout": false,
+  "aspect": "16:9",
+  "prompt": "A Korean used-kitchen-equipment street (Hwanghak-dong style) lined with brand-new commercial stainless refrigerators still wrapped in plastic film, rows stretching down the sidewalk, a shop owner in his sixties sitting on a stool waiting with arms crossed, no customers, late afternoon. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags."
+ },
+ {
+  "id": "c_wallet",
+  "cutout": true,
+  "aspect": "1:1",
+  "prompt": "A single open empty brown leather wallet with nothing inside, front view. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags."
+ },
+ {
+  "id": "g_gdp_gap",
+  "cutout": false,
+  "aspect": "16:9",
+  "prompt": "Split illustration: left side a gleaming semiconductor factory with rising golden money flowing upward into a big national vault, right side a Korean family kitchen table with an empty wallet and receipts, a thin wall separating them. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags."
+ },
+ {
+  "id": "g_owner_landlord",
+  "cutout": false,
+  "aspect": "16:9",
+  "prompt": "Two Korean men in their sixties facing each other in front of a small shop with its shutter half down: one wearing a shop apron (tenant) and one in a cardigan holding a key ring (landlord), both worried, same age, a For Lease paper on the window without text. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags."
+ },
+ {
+  "id": "g_alley_walk",
+  "cutout": false,
+  "aspect": "16:9",
+  "prompt": "A calm warm-toned Korean neighborhood shopping alley in the morning seen from a walking viewpoint, small shops, a few people, soft light, peaceful and inviting. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags."
+ },
+ {
+  "id": "g_wallet_street",
+  "cutout": false,
+  "aspect": "16:9",
+  "prompt": "A Korean man in his sixties and his wife standing in a quiet commercial street at dusk, holding an open empty wallet and looking at it in dismay, behind them a row of small shops with metal shutters pulled down, price tags with upward arrows floating in the air above the shops, no customers anywhere. Modern flat 2D animated explainer illustration, clean vector shapes with soft gradients, subtle paper grain, harmonious palette of deep teal, warm orange, mustard and cream, gentle rim light, polished contemporary animation look, cinematic wide composition. No text, no letters, no logos, no flags."
+ }
+]

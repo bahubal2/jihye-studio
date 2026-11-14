@@ -1,0 +1,30 @@
+{
+ "model": "fal-ai/minimax/hailuo-02/standard/image-to-video",
+ "resolution": "512P",
+ "duration": "6",
+ "loop_sec": 15,
+ "extend": "slow",
+ "style": "Flat 2D illustration animation, keep the same art style, scene and composition. Gentle continuous motion. No text, no letters, no captions appear.",
+ "clips": [
+  {
+   "id": "g_wallet_street",
+   "prompt": "The couple stares at the empty wallet, the man slowly shakes his head and closes the wallet, the price tags with arrows float upward higher and higher, slow push-in"
+  },
+  {
+   "id": "g_hwanghak_fridges",
+   "prompt": "Slow dolly forward down the street of plastic-wrapped refrigerators, the plastic film flutters in the wind, string lights sway, the old shop owner sighs and looks down the empty street"
+  },
+  {
+   "id": "g_gdp_gap",
+   "prompt": "Golden coins and money bags keep streaming up from the factory into the big vault on the left, while on the right the couple sighs and the man pushes the empty wallet across the table"
+  },
+  {
+   "id": "g_owner_landlord",
+   "prompt": "The metal shutter slowly rolls down behind them, the man in the cardigan hands over the keys, the man in the apron lowers his head, slow push-in"
+  },
+  {
+   "id": "g_alley_walk",
+   "prompt": "Calm morning, slow walking camera moving forward along the alley, the old woman and passersby walk, leaves and flowers sway softly, warm peaceful mood"
+  }
+ ]
+}
